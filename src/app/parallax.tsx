@@ -38,7 +38,7 @@ export function Parallax() {
   })
 
   return (
-    <div id="bg_hero" data-oid="xbhi2wr" className="h-screen relative w-full overflow-hidden">
+    <div id="bg_hero" className="h-screen relative w-full overflow-hidden">
       <video
         ref={videoRef}
         className="right-0 absolute scale-150"
@@ -50,12 +50,11 @@ export function Parallax() {
         webkit-playsinline="true"
         preload="metadata"
         muted
-        data-oid="m03fa3j"
       >
-        <source src="/kingsize.mp4" type="video/mp4" data-oid="pel.r-6" />
+        <source src="/kingsize.mp4" type="video/mp4" />
       </video>
 
-      <HeroParallax data-oid="k:ci4nd" className="w-full" />
+      <HeroParallax className="w-full" />
     </div>
   )
 }

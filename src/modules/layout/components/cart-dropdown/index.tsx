@@ -85,7 +85,9 @@ const CartDropdown = ({
             className="hover:text-ui-fg-base"
             href="/cart"
             data-testid="nav-cart-link"
-          >{`Cart (${totalItems})`}</LocalizedClientLink>
+          >
+            {`Cart (${totalItems})`}
+          </LocalizedClientLink>
         </PopoverButton>
         <Transition
           show={cartDropdownOpen}
@@ -147,6 +149,7 @@ const CartDropdown = ({
                                   data-testid="cart-item-variant"
                                   data-value={item.variant}
                                 />
+
                                 <span
                                   data-testid="cart-item-quantity"
                                   data-value={item.quantity}

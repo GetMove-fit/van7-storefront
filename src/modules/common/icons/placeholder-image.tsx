@@ -23,6 +23,7 @@ const PlaceholderImage: React.FC<IconProps> = ({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+
       <path
         d="M7.91699 9.16699C8.60735 9.16699 9.16699 8.60735 9.16699 7.91699C9.16699 7.22664 8.60735 6.66699 7.91699 6.66699C7.22664 6.66699 6.66699 7.22664 6.66699 7.91699C6.66699 8.60735 7.22664 9.16699 7.91699 9.16699Z"
         stroke={color}
@@ -30,6 +31,7 @@ const PlaceholderImage: React.FC<IconProps> = ({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+
       <path
         d="M16.6667 12.5756L13.0208 9.1665L5 16.6665"
         stroke={color}

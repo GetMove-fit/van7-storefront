@@ -23,6 +23,7 @@ const X: React.FC<IconProps> = ({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+
       <path
         d="M5 5L15 15"
         stroke={color}

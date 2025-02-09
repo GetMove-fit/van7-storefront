@@ -14,6 +14,7 @@ const SkeletonCartPage = () => {
             <div className="bg-white flex items-start justify-between">
               <div className="flex flex-col gap-y-2">
                 <div className="w-60 h-8 bg-gray-200 animate-pulse" />
+
                 <div className="w-48 h-6 bg-gray-200 animate-pulse" />
               </div>
               <div>

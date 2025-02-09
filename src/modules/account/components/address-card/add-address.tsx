@@ -72,6 +72,7 @@ const AddAddress = ({
                   autoComplete="given-name"
                   data-testid="first-name-input"
                 />
+
                 <Input
                   label="Last name"
                   name="last_name"
@@ -86,6 +87,7 @@ const AddAddress = ({
                 autoComplete="organization"
                 data-testid="company-input"
               />
+
               <Input
                 label="Address"
                 name="address_1"
@@ -93,12 +95,14 @@ const AddAddress = ({
                 autoComplete="address-line1"
                 data-testid="address-1-input"
               />
+
               <Input
                 label="Apartment, suite, etc."
                 name="address_2"
                 autoComplete="address-line2"
                 data-testid="address-2-input"
               />
+
               <div className="grid grid-cols-[144px_1fr] gap-x-2">
                 <Input
                   label="Postal code"
@@ -107,6 +111,7 @@ const AddAddress = ({
                   autoComplete="postal-code"
                   data-testid="postal-code-input"
                 />
+
                 <Input
                   label="City"
                   name="city"
@@ -121,6 +126,7 @@ const AddAddress = ({
                 autoComplete="address-level1"
                 data-testid="state-input"
               />
+
               <CountrySelect
                 region={region}
                 name="country_code"
@@ -128,6 +134,7 @@ const AddAddress = ({
                 autoComplete="country"
                 data-testid="country-select"
               />
+
               <Input
                 label="Phone"
                 name="phone"

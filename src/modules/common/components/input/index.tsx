@@ -48,6 +48,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {...props}
             ref={inputRef}
           />
+
           <label
             htmlFor={name}
             onClick={() => inputRef.current?.focus()}

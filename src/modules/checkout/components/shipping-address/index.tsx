@@ -120,6 +120,7 @@ const ShippingAddress = ({
           required
           data-testid="shipping-first-name-input"
         />
+
         <Input
           label="Last name"
           name="shipping_address.last_name"
@@ -129,6 +130,7 @@ const ShippingAddress = ({
           required
           data-testid="shipping-last-name-input"
         />
+
         <Input
           label="Address"
           name="shipping_address.address_1"
@@ -138,6 +140,7 @@ const ShippingAddress = ({
           required
           data-testid="shipping-address-input"
         />
+
         <Input
           label="Company"
           name="shipping_address.company"
@@ -146,6 +149,7 @@ const ShippingAddress = ({
           autoComplete="organization"
           data-testid="shipping-company-input"
         />
+
         <Input
           label="Postal code"
           name="shipping_address.postal_code"
@@ -155,6 +159,7 @@ const ShippingAddress = ({
           required
           data-testid="shipping-postal-code-input"
         />
+
         <Input
           label="City"
           name="shipping_address.city"
@@ -164,6 +169,7 @@ const ShippingAddress = ({
           required
           data-testid="shipping-city-input"
         />
+
         <CountrySelect
           name="shipping_address.country_code"
           autoComplete="country"
@@ -173,6 +179,7 @@ const ShippingAddress = ({
           required
           data-testid="shipping-country-select"
         />
+
         <Input
           label="State / Province"
           name="shipping_address.province"
@@ -203,6 +210,7 @@ const ShippingAddress = ({
           required
           data-testid="shipping-email-input"
         />
+
         <Input
           label="Phone"
           name="shipping_address.phone"

@@ -47,6 +47,7 @@ const ProfilePassword: React.FC<MyInformationProps> = ({ customer }) => {
             type="password"
             data-testid="old-password-input"
           />
+
           <Input
             label="New password"
             type="password"
@@ -54,6 +55,7 @@ const ProfilePassword: React.FC<MyInformationProps> = ({ customer }) => {
             required
             data-testid="new-password-input"
           />
+
           <Input
             label="Confirm password"
             type="password"

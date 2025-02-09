@@ -23,6 +23,7 @@ const EyeOff: React.FC<IconProps> = ({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+
       <path
         d="M2.5 2.5L17.5 17.5"
         stroke={color}

@@ -37,6 +37,7 @@ const FilterRadioGroup = ({
               id={i.value}
               value={i.value}
             />
+
             <Label
               htmlFor={i.value}
               className={clx(

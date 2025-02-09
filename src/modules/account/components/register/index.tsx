@@ -36,6 +36,7 @@ const Register = ({ setCurrentView }: Props) => {
             autoComplete="given-name"
             data-testid="first-name-input"
           />
+
           <Input
             label="Last name"
             name="last_name"
@@ -43,6 +44,7 @@ const Register = ({ setCurrentView }: Props) => {
             autoComplete="family-name"
             data-testid="last-name-input"
           />
+
           <Input
             label="Email"
             name="email"
@@ -51,6 +53,7 @@ const Register = ({ setCurrentView }: Props) => {
             autoComplete="email"
             data-testid="email-input"
           />
+
           <Input
             label="Phone"
             name="phone"
@@ -58,6 +61,7 @@ const Register = ({ setCurrentView }: Props) => {
             autoComplete="tel"
             data-testid="phone-input"
           />
+
           <Input
             label="Password"
             name="password"
@@ -68,6 +72,7 @@ const Register = ({ setCurrentView }: Props) => {
           />
         </div>
         <ErrorMessage error={message} data-testid="register-error" />
+
         <span className="text-center text-ui-fg-base text-small-regular mt-6">
           By creating an account, you agree to Medusa Store&apos;s{" "}
           <LocalizedClientLink

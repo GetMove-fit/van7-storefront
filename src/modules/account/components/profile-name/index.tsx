@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useActionState } from "react";
+import React, { useEffect, useActionState } from "react"
 
 import Input from "@modules/common/components/input"
 
@@ -63,6 +63,7 @@ const ProfileName: React.FC<MyInformationProps> = ({ customer }) => {
             defaultValue={customer.first_name ?? ""}
             data-testid="first-name-input"
           />
+
           <Input
             label="Last name"
             name="last_name"

@@ -1,7 +1,7 @@
 "use client"
 
 import { Badge, Heading, Input, Label, Text, Tooltip } from "@medusajs/ui"
-import React, { useActionState } from "react";
+import React, { useActionState } from "react"
 
 import { applyPromotions, submitPromotionForm } from "@lib/data/cart"
 import { convertToLocale } from "@lib/util/money"
@@ -66,8 +66,8 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
             </button>
 
             {/* <Tooltip content="You can add multiple promotion codes">
-              <InformationCircleSolid color="var(--fg-muted)" />
-            </Tooltip> */}
+                                                  <InformationCircleSolid color="var(--fg-muted)" />
+                                                 </Tooltip> */}
           </Label>
 
           {isOpen && (
@@ -81,6 +81,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                   autoFocus={false}
                   data-testid="discount-input"
                 />
+
                 <SubmitButton
                   variant="secondary"
                   data-testid="discount-apply-button"
@@ -137,9 +138,9 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                           )}
                         )
                         {/* {promotion.is_automatic && (
-                          <Tooltip content="This promotion is automatically applied">
-                            <InformationCircleSolid className="inline text-zinc-400" />
-                          </Tooltip>
+                        <Tooltip content="This promotion is automatically applied">
+                        <InformationCircleSolid className="inline text-zinc-400" />
+                        </Tooltip>
                         )} */}
                       </span>
                     </Text>

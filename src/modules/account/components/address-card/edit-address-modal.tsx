@@ -127,6 +127,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
         </Modal.Title>
         <form action={formAction}>
           <input type="hidden" name="addressId" value={address.id} />
+
           <Modal.Body>
             <div className="grid grid-cols-1 gap-y-2">
               <div className="grid grid-cols-2 gap-x-2">
@@ -138,6 +139,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
                   defaultValue={address.first_name || undefined}
                   data-testid="first-name-input"
                 />
+
                 <Input
                   label="Last name"
                   name="last_name"
@@ -154,6 +156,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 defaultValue={address.company || undefined}
                 data-testid="company-input"
               />
+
               <Input
                 label="Address"
                 name="address_1"
@@ -162,6 +165,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 defaultValue={address.address_1 || undefined}
                 data-testid="address-1-input"
               />
+
               <Input
                 label="Apartment, suite, etc."
                 name="address_2"
@@ -169,6 +173,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 defaultValue={address.address_2 || undefined}
                 data-testid="address-2-input"
               />
+
               <div className="grid grid-cols-[144px_1fr] gap-x-2">
                 <Input
                   label="Postal code"
@@ -178,6 +183,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
                   defaultValue={address.postal_code || undefined}
                   data-testid="postal-code-input"
                 />
+
                 <Input
                   label="City"
                   name="city"
@@ -194,6 +200,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 defaultValue={address.province || undefined}
                 data-testid="state-input"
               />
+
               <CountrySelect
                 name="country_code"
                 region={region}
@@ -202,6 +209,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 defaultValue={address.country_code || undefined}
                 data-testid="country-select"
               />
+
               <Input
                 label="Phone"
                 name="phone"

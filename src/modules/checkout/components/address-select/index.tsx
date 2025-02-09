@@ -77,6 +77,7 @@ const AddressSelect = ({
                       checked={selectedAddress?.id === address.id}
                       data-testid="shipping-address-radio"
                     />
+
                     <div className="flex flex-col">
                       <span className="text-left text-base-semi">
                         {address.first_name} {address.last_name}

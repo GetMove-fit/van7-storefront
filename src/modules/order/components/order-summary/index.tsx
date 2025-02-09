@@ -48,6 +48,7 @@ const OrderSummary = ({ order }: OrderSummaryProps) => {
           </div>
         </div>
         <div className="h-px w-full border-b border-gray-200 border-dashed my-4" />
+
         <div className="flex items-center justify-between text-base-regular text-ui-fg-base mb-2">
           <span>Total</span>
           <span>{getAmount(order.total)}</span>

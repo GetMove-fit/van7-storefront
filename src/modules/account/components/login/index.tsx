@@ -32,6 +32,7 @@ const Login = ({ setCurrentView }: Props) => {
             required
             data-testid="email-input"
           />
+
           <Input
             label="Password"
             name="password"
@@ -42,6 +43,7 @@ const Login = ({ setCurrentView }: Props) => {
           />
         </div>
         <ErrorMessage error={message} data-testid="login-error-message" />
+
         <SubmitButton data-testid="sign-in-button" className="w-full mt-6">
           Sign in
         </SubmitButton>
