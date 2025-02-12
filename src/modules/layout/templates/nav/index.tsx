@@ -6,28 +6,21 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
 
+import Logo from "/public/van7-logo.svg"
+
 export default async function Nav() {
   const regions = await listRegions().then((regions: StoreRegion[]) => regions)
 
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
-      <header className="relative h-16 mx-auto border-b duration-200 bg-white border-ui-border-base">
-        <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
-          <div className="flex-1 basis-0 h-full flex items-center">
-            <div className="h-full">
-              <SideMenu regions={regions} />
-            </div>
-          </div>
-
-          <div className="flex items-center h-full">
-            <LocalizedClientLink
-              href="/"
-              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
-              data-testid="nav-store-link"
-            >
-              Medusa Store
-            </LocalizedClientLink>
-          </div>
+      <header className="relative h-fit duration-200 backdrop-blur-sm bg-white/80">
+        <nav className="txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular px-36 py-3">          
+          <LocalizedClientLink
+            href="/"
+            data-testid="nav-store-link"
+          >
+            <Logo className="w-[138px] sm:w-[180px]" />
+          </LocalizedClientLink>
 
           <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
             <div className="hidden small:flex items-center gap-x-6 h-full">
@@ -36,7 +29,7 @@ export default async function Nav() {
                 href="/account"
                 data-testid="nav-account-link"
               >
-                Account
+                Konto
               </LocalizedClientLink>
             </div>
             <Suspense
@@ -52,6 +45,12 @@ export default async function Nav() {
             >
               <CartButton />
             </Suspense>
+            
+            <div className="flex-1 basis-0 h-full flex items-center">
+              <div className="h-full">
+                <SideMenu regions={regions} />
+              </div>
+            </div>
           </div>
         </nav>
       </header>

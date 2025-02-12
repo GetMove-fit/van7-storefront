@@ -23,7 +23,7 @@ module.exports = {
       colors: {
         grey: {
           0: "#FFFFFF",
-          5: "#F9FAFB",
+          5: "#FBFBFB",
           10: "#F3F4F6",
           20: "#E5E7EB",
           30: "#D1D5DB",
@@ -32,8 +32,14 @@ module.exports = {
           60: "#4B5563",
           70: "#374151",
           80: "#1F2937",
-          90: "#111827",
+          90: "#231F20",
         },
+        brand: {
+          light: "#D83E44",
+          dark: "#941E23",
+          content: "#A50D13",
+          highlight: "#ED1C24"
+        }
       },
       borderRadius: {
         none: "0px",
@@ -60,6 +66,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
+          "Barlow",
           "Inter",
           "-apple-system",
           "BlinkMacSystemFont",
@@ -69,6 +76,7 @@ module.exports = {
           "Ubuntu",
           "sans-serif",
         ],
+        title: ["Bebas Neue", "Inter", "sans-serif"],
       },
       keyframes: {
         ring: {
