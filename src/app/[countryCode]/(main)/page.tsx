@@ -5,6 +5,7 @@ import Hero from "@modules/home/components/hero"
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 import VideoSection from "@modules/home/components/video"
+import TestimonialsSection from "@modules/home/components/testimonials"
 
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",
@@ -33,7 +34,9 @@ export default async function Home(props: {
     <>
       <Hero />
 
-      <VideoSection />
+      {/* <VideoSection /> */}
+
+      <TestimonialsSection />
       
       <div className="py-12">
         <ul className="flex flex-col gap-x-6">

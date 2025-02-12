@@ -83,6 +83,16 @@ module.exports = {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
         },
+        "fade-in-left": {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(-10px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateX(0)",
+          },
+        },
         "fade-in-right": {
           "0%": {
             opacity: "0",
@@ -153,6 +163,7 @@ module.exports = {
         ring: "ring 2.2s cubic-bezier(0.5, 0, 0.5, 1) infinite",
         "fade-in-right":
           "fade-in-right 0.3s cubic-bezier(0.5, 0, 0.5, 1) forwards",
+        "fade-in-left": "fade-in-left 0.3s cubic-bezier(0.5, 0, 0.5, 1) forwards",
         "fade-in-top": "fade-in-top 0.2s cubic-bezier(0.5, 0, 0.5, 1) forwards",
         "fade-out-top":
           "fade-out-top 0.2s cubic-bezier(0.5, 0, 0.5, 1) forwards",

@@ -87,7 +87,7 @@ const Hero = () => {
     height="1000"
     className="absolute right-0 top-0"
   >
-    <source src="/kingsize-hero4.webm" type="video/webm" />
+    <source src="/hubbett-interaktiv.webm" type="video/webm" />
   </video>
 
   <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 space-x-4">
