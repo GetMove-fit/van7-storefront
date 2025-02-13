@@ -152,7 +152,7 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
   }, []);
 
   return (
-    <section ref={containerRef} className="w-full flex gap-x-3 bg-grey-10">
+    <section ref={containerRef} className="w-full max-sm:flex-col flex gap-x-3 bg-grey-10 max-sm:mt-10">
       <video
         ref={videoRef}
         onTimeUpdate={handleTimeUpdate}
