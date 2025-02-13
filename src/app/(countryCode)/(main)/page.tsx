@@ -6,6 +6,8 @@ import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 import VideoSection from "@modules/home/components/video"
 import TestimonialsSection from "@modules/home/components/testimonials"
+import EinbauortSection from "@modules/home/components/einbauorte"
+import OptimiertSection from "@modules/home/components/optimiert"
 
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",
@@ -16,33 +18,30 @@ export const metadata: Metadata = {
 export default async function Home(props: {
   params: Promise<{ countryCode: string }>
 }) {
-  const params = await props.params
+  // const params = await props.params
 
-  const { countryCode } = params
+  // const { countryCode } = params
 
-  const region = await getRegion(countryCode)
+  // const region = await getRegion(countryCode)
 
-  const { collections } = await listCollections({
-    fields: "id, handle, title",
-  })
+  // const { collections } = await listCollections({
+  //   fields: "id, handle, title",
+  // })
 
-  if (!collections || !region) {
-    return null
-  }
+  // if (!collections || !region) {
+  //   return null
+  // }
 
   return (
-    <>
+    <div className="bg-grey-10">
       <Hero />
-
-      {/* <VideoSection /> */}
+      <VideoSection />
 
       <TestimonialsSection />
+
+      <EinbauortSection />
       
-      <div className="py-12">
-        <ul className="flex flex-col gap-x-6">
-          <FeaturedProducts collections={collections} region={region} />
-        </ul>
-      </div>
-    </>
+      <OptimiertSection />
+    </div>
   )
 }
