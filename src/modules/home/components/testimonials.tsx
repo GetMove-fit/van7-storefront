@@ -19,7 +19,7 @@ const TestimonialsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const wordRef = useRef<HTMLSpanElement>(null);
   const splideRef = useRef<any>(null);
-  const words = ["Abenteuerer", "Camper", "Motorsportler", "Outdoorsportler", "Handwerker"];
+  const words = ["Abenteuerern", "Campern", "Motorsportlern", "Outdoorsportlern", "Handwerkern"];
   const [currentWord, setCurrentWord] = useState(0);
   const testimonials = [
     "Habe einige Nächte in diesem Bett verbracht und bin begeistert, sehr komfortabel und gemütlich. Das Ausrichten und Fixieren des Hubbettens gestaltet sich spielend leicht. Alles in allem eine sehr gute Investition.",
@@ -85,11 +85,11 @@ const TestimonialsSection = () => {
   }, [isPaused]);
 
   return (
-    <section ref={sectionRef} className="max-sm:pt-5 flex max-sm:flex-col gap-y-5 items-center justify-between w-full overflow-hidden relative">
+    <section id="bewertungen" ref={sectionRef} className="max-sm:pt-5 flex max-sm:flex-col gap-y-5 items-center justify-between w-full overflow-hidden relative sm:py-20 bg-grey-5">
       <div className="flex items-start sm:items-center gap-x-2.5 max-sm:px-5">
         <div className="flex flex-col gap-y-2.5">
           <img 
-            className="fade-sm:in-left sm:opacity-0"
+            className="fade-in-left sm:opacity-0"
             src={kundenBild1.src} 
             alt="Customer 1" 
             width={kundenBild1.width} 

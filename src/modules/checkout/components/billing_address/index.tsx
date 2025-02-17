@@ -31,7 +31,7 @@ const BillingAddress = ({ cart }: { cart: HttpTypes.StoreCart | null }) => {
     <>
       <div className="grid grid-cols-2 gap-4">
         <Input
-          label="First name"
+          label="Vorname"
           name="billing_address.first_name"
           autoComplete="given-name"
           value={formData["billing_address.first_name"]}
@@ -41,7 +41,7 @@ const BillingAddress = ({ cart }: { cart: HttpTypes.StoreCart | null }) => {
         />
 
         <Input
-          label="Last name"
+          label="Nachname"
           name="billing_address.last_name"
           autoComplete="family-name"
           value={formData["billing_address.last_name"]}
@@ -51,7 +51,7 @@ const BillingAddress = ({ cart }: { cart: HttpTypes.StoreCart | null }) => {
         />
 
         <Input
-          label="Address"
+          label="Adresse"
           name="billing_address.address_1"
           autoComplete="address-line1"
           value={formData["billing_address.address_1"]}
@@ -61,7 +61,7 @@ const BillingAddress = ({ cart }: { cart: HttpTypes.StoreCart | null }) => {
         />
 
         <Input
-          label="Company"
+          label="Firma"
           name="billing_address.company"
           value={formData["billing_address.company"]}
           onChange={handleChange}
@@ -70,7 +70,7 @@ const BillingAddress = ({ cart }: { cart: HttpTypes.StoreCart | null }) => {
         />
 
         <Input
-          label="Postal code"
+          label="Postleitzahl"
           name="billing_address.postal_code"
           autoComplete="postal-code"
           value={formData["billing_address.postal_code"]}
@@ -80,7 +80,7 @@ const BillingAddress = ({ cart }: { cart: HttpTypes.StoreCart | null }) => {
         />
 
         <Input
-          label="City"
+          label="Stadt"
           name="billing_address.city"
           autoComplete="address-level2"
           value={formData["billing_address.city"]}
@@ -97,7 +97,7 @@ const BillingAddress = ({ cart }: { cart: HttpTypes.StoreCart | null }) => {
         />
 
         <Input
-          label="State / Province"
+          label="Bundesland / Provinz"
           name="billing_address.province"
           autoComplete="address-level1"
           value={formData["billing_address.province"]}
@@ -106,7 +106,7 @@ const BillingAddress = ({ cart }: { cart: HttpTypes.StoreCart | null }) => {
         />
 
         <Input
-          label="Phone"
+          label="Telefon"
           name="billing_address.phone"
           autoComplete="tel"
           value={formData["billing_address.phone"]}

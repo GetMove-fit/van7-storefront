@@ -33,7 +33,8 @@ export default function ProductActions({
 }: ProductActionsProps) {
   const [options, setOptions] = useState<Record<string, string | undefined>>({})
   const [isAdding, setIsAdding] = useState(false)
-  const countryCode = useParams().countryCode as string
+  // const countryCode = useParams().countryCode as string
+  const countryCode = "at" // TODO: fix
 
   // If there is only 1 variant, preselect the options
   useEffect(() => {
@@ -154,11 +155,11 @@ export default function ProductActions({
           isLoading={isAdding}
           data-testid="add-product-button"
         >
-          {!selectedVariant && !options
-            ? "Select variant"
+          {!selectedVariant && options
+            ? "Bitte Variante auswählen"
             : !inStock || !isValidVariant
-              ? "Out of stock"
-              : "Add to cart"}
+              ? "Ausverkauft"
+              : "Zum Warenkorb hinzufügen"}
         </Button>
         <MobileActions
           product={product}

@@ -63,7 +63,7 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
 
   const currentInfo = useMemo(() => {
     if (!billingAddress) {
-      return "No billing address"
+      return "Keine Rechnungsadresse"
     }
 
     const country =
@@ -94,7 +94,7 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
       <input type="hidden" name="addressId" value={billingAddress?.id} />
 
       <AccountInfo
-        label="Billing address"
+        label="Rechnungsadresse"
         currentInfo={currentInfo}
         isSuccess={successState}
         isError={!!state.error}
@@ -104,7 +104,7 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
         <div className="grid grid-cols-1 gap-y-2">
           <div className="grid grid-cols-2 gap-x-2">
             <Input
-              label="First name"
+              label="Vorname"
               name="first_name"
               defaultValue={billingAddress?.first_name || undefined}
               required
@@ -112,7 +112,7 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
             />
 
             <Input
-              label="Last name"
+              label="Nachname"
               name="last_name"
               defaultValue={billingAddress?.last_name || undefined}
               required
@@ -120,14 +120,14 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
             />
           </div>
           <Input
-            label="Company"
+            label="Firma"
             name="company"
             defaultValue={billingAddress?.company || undefined}
             data-testid="billing-company-input"
           />
 
           <Input
-            label="Address"
+            label="Adresse"
             name="address_1"
             defaultValue={billingAddress?.address_1 || undefined}
             required
@@ -135,7 +135,7 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
           />
 
           <Input
-            label="Apartment, suite, etc."
+            label="Wohnung, Suite, etc."
             name="address_2"
             defaultValue={billingAddress?.address_2 || undefined}
             data-testid="billing-address-2-input"
@@ -143,7 +143,7 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
 
           <div className="grid grid-cols-[144px_1fr] gap-x-2">
             <Input
-              label="Postal code"
+              label="Postleitzahl"
               name="postal_code"
               defaultValue={billingAddress?.postal_code || undefined}
               required
@@ -151,7 +151,7 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
             />
 
             <Input
-              label="City"
+              label="Stadt"
               name="city"
               defaultValue={billingAddress?.city || undefined}
               required
@@ -159,7 +159,7 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
             />
           </div>
           <Input
-            label="Province"
+            label="Provinz"
             name="province"
             defaultValue={billingAddress?.province || undefined}
             data-testid="billing-province-input"

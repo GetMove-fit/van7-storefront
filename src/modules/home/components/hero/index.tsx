@@ -1,8 +1,8 @@
 "use client"
 import Stars from "/public/stars.svg"
-import Check from "/public/check.svg"
 import React from "react"
 import InteractiveVideo from "../interactive-video"
+import Vorteile from "./vorteile"
 
 const Hero = () => {
   return <section className="flex pl-5 sm:pl-36 py-6 sm:py-10 overflow-hidden relative max-sm:h-screen">
@@ -23,24 +23,7 @@ const Hero = () => {
       </p>
     </div>
 
-    <div className="flex flex-col text-lg sm:text-xl">
-      <div className="flex gap-x-2.5">
-        <Check/>
-        Aufbauen und verstauen innerhalb von Sekunden
-      </div>
-      <div className="flex gap-x-2.5">
-        <Check/>
-        Stabil fixierbar, kein Schwingen oder Schwanken
-      </div>
-      <div className="flex gap-x-2.5">
-        <Check/>
-        Ausreichend Raum für Ausrüstung, Bikes, oder Möbel
-      </div>
-      <div className="flex gap-x-2.5">
-        <Check/>
-        Keine störende Führungsschienen
-      </div>
-    </div>
+    <Vorteile/>
 
     <button className="uppercase bg-gradient-to-b from-brand-light to-brand-dark font-bold text-white py-5 px-6 rounded h-fit text-xl sm:text-2xl leading-none hover:shadow-brand-highlight/30 hover:shadow-lg transition-shadow w-fit">
       Neue Serie vorbestellen

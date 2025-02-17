@@ -8,6 +8,10 @@ import VideoSection from "@modules/home/components/video"
 import TestimonialsSection from "@modules/home/components/testimonials"
 import EinbauortSection from "@modules/home/components/einbauorte"
 import OptimiertSection from "@modules/home/components/optimiert"
+import FollowUsSection from "@modules/home/components/FollowUsSection"
+import ProduktSection from "./hubbett-kaufen/produkte"
+import BannerNeu from "/public/banner-neu.jpg"
+import { Parallax } from "@modules/home/components/hero/parallax"
 
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",
@@ -34,14 +38,25 @@ export default async function Home(props: {
 
   return (
     <div className="bg-grey-10">
+      {/* <Parallax/> */}
+
       <Hero />
       <VideoSection />
 
       <TestimonialsSection />
 
+      <ProduktSection bannerSrc={BannerNeu.src} >
+        <h2>
+          Neue Serie,<br/>
+          Neue Bettarten
+        </h2>
+      </ProduktSection>
+
       <EinbauortSection />
       
       <OptimiertSection />
+
+      {/* <FollowUsSection/> */}
     </div>
   )
 }

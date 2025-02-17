@@ -365,8 +365,9 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
     return e.message
   }
 
+  // formData.get("shipping_address.country_code")
   redirect(
-    `/${formData.get("shipping_address.country_code")}/checkout?step=delivery`
+    `/checkout?step=payment`
   )
 }
 
@@ -399,7 +400,7 @@ export async function placeOrder(cartId?: string) {
     const countryCode =
       cartRes.order.shipping_address?.country_code?.toLowerCase()
     removeCartId()
-    redirect(`/${countryCode}/order/${cartRes?.order.id}/confirmed`)
+    redirect(`/order/${cartRes?.order.id}/confirmed`)
   }
 
   return cartRes.cart

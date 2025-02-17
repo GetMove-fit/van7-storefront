@@ -1,9 +1,14 @@
 "use client"
 import React from "react"
+import FunktionButton from "/public/funktion.svg"
 
 export default function InteractiveVideo() {
   const videoRef = React.useRef<HTMLVideoElement>(null)
-  const segments = [4, 7, 9, 15]
+  const segments = [
+    { time: 4, name: "Ausnivellieren", position: { x: 0.28, y: -0.65 } },
+    { time: 8, name: "Fixieren", position: { x: 0.75, y: 0.1 } },
+    { time: 15, name: "Ausziehen", position: { x: -0.2, y: -0.1 } },
+  ]
   const [currentSegment, setCurrentSegment] = React.useState(0)
   const [showButton, setShowButton] = React.useState(false)
 
@@ -13,19 +18,16 @@ export default function InteractiveVideo() {
 
   React.useEffect(() => {
     const video = videoRef.current
-    if (!video) return
+    if (!video || currentSegment >= segments.length) return
     const onTimeUpdate = () => {
-      if (
-        currentSegment < segments.length &&
-        video.currentTime >= segments[currentSegment]
-      ) {
+      if (video.currentTime >= segments[currentSegment].time) {
         video.pause()
         setShowButton(true)
       }
     }
     video.addEventListener("timeupdate", onTimeUpdate)
     return () => video.removeEventListener("timeupdate", onTimeUpdate)
-  }, [currentSegment, segments])
+  }, [currentSegment])
 
   return (
     <div className="absolute sm:-right-20 max-sm:-bottom-20 max-sm:-left-10 max-sm:-right-10 sm:top-0">
@@ -39,22 +41,25 @@ export default function InteractiveVideo() {
       >
         <source src="/hubbett-interaktiv.webm" type="video/webm" />
       </video>
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 space-x-4">
-        {segments.map((ts, idx) => (
-          <button
-            key={idx}
-            disabled={!(showButton && currentSegment === idx)}
-            onClick={() => {
-              setShowButton(false)
-              setCurrentSegment(currentSegment + 1)
-              if (videoRef.current) videoRef.current.play()
-            }}
-            className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
-          >
-            Continue {idx + 1}
-          </button>
-        ))}
-      </div>
+      {showButton && currentSegment < segments.length && (
+        <button
+          onClick={() => {
+            setShowButton(false)
+            setCurrentSegment(currentSegment + 1)
+            if (videoRef.current) videoRef.current.play()
+          }}
+          style={{
+            position: "absolute",
+            left: `calc(50% + ${segments[currentSegment].position.x * 50}%)`,
+            top: `calc(50% + ${segments[currentSegment].position.y * 50}%)`,
+            transform: "translate(-50%, -50%)"
+          }}
+          className="flex flex-col items-center justify-center text-white text-2xl"
+        >
+          <FunktionButton/>
+          <p className="absolute left-20">{segments[currentSegment].name}</p>
+        </button>
+      )}
     </div>
   )
 }

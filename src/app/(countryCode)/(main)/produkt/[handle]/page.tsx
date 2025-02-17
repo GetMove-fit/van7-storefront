@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { listProducts } from "@lib/data/products"
-import { getRegion, listRegions } from "@lib/data/regions"
+import { getRegion, listRegions, retrieveRegion } from "@lib/data/regions"
 import ProductTemplate from "@modules/products/templates"
 
 type Props = {
@@ -18,6 +18,7 @@ export async function generateStaticParams() {
       return []
     }
 
+    // TODO: fix?
     const products = await listProducts({
       countryCode: "US",
       queryParams: { fields: "handle" },
@@ -43,17 +44,18 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
-  const params = await props.params
-  const { handle } = params
-  const region = await getRegion(params.countryCode)
+  // const params = await props.params
+  // const { handle } = params
+  // const region = await getRegion(params.countryCode)
 
-  if (!region) {
-    notFound()
-  }
+  // if (!region) {
+  //   notFound()
+  // }
 
   const product = await listProducts({
-    countryCode: params.countryCode,
+    // countryCode: params.countryCode,
     // queryParams: { handle },
+    regionId: process.env.NEXT_PUBLIC_REGION_ID
   }).then(({ response }) => response.products[0])
 
   if (!product) {
@@ -61,10 +63,10 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${product.title} | Medusa Store`,
+    title: `${product.title} | Van7 Shop`,
     description: `${product.title}`,
     openGraph: {
-      title: `${product.title} | Medusa Store`,
+      title: `${product.title} | Van7 Shop`,
       description: `${product.title}`,
       images: product.thumbnail ? [product.thumbnail] : [],
     },
@@ -73,15 +75,20 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
 export default async function ProductPage(props: Props) {
   const params = await props.params
-  const region = await getRegion(params.countryCode)
+  // const region = await getRegion(params.countryCode)
 
-  if (!region) {
-    notFound()
-  }
+  // if (!region) {
+  //   notFound()
+  // }
+  
+  const region = await retrieveRegion(process.env.NEXT_PUBLIC_REGION_ID ?? "")
 
   const pricedProduct = await listProducts({
     countryCode: params.countryCode,
-    // queryParams: { handle: params.handle },
+    regionId: process.env.NEXT_PUBLIC_REGION_ID,
+    queryParams: {
+      handle: params.handle,
+    },
   }).then(({ response }) => response.products[0])
 
   if (!pricedProduct) {

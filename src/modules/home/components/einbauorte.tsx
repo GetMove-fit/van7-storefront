@@ -5,16 +5,17 @@ import '@splidejs/splide/dist/css/splide.min.css';
 import Einbauorte from "/public/einbauorte.jpg";
 
 const cardData = [
-  { name: "Card 1", image: "/path/to/image1.jpg" },
-  { name: "Card 2", image: "/path/to/image2.jpg" },
-  { name: "Card 3", image: "/path/to/image3.jpg" },
-  { name: "Card 4", image: "/path/to/image4.jpg" },
-  { name: "Card 5", image: "/path/to/image5.jpg" },
-  { name: "Card 6", image: "/path/to/image6.jpg" },
+  { name: "Camper/Transporter", image: "/path/to/image1.jpg" },
+  { name: "Kleinbus", image: "/path/to/image2.jpg" },
+  { name: "Expeditionsmobil", image: "/path/to/image3.jpg" },
+  { name: "Kofferanhänger", image: "/path/to/image4.jpg" },
+  { name: "Tiny House", image: "/path/to/image5.jpg" },
+  { name: "Container", image: "/path/to/image6.jpg" },
+  { name: "Wohnraum", image: "/path/to/image6.jpg" },
 ];
 
 const EinbauortSection = () => (
-  <section className="flex flex-col gap-y-3 overflow-hidden max-sm:mt-5">
+  <section className="flex flex-col gap-y-3 overflow-hidden max-sm:mt-5 pt-5">
     <div className="relative w-full h-80 xl:h-[500px] px-5 sm:px-48">
       <img src={Einbauorte.src} className="rounded h-full w-full object-cover" />
       <div className="absolute inset-0 flex flex-col px-10 sm:px-64 py-5 sm:py-12 h-full justify-between">

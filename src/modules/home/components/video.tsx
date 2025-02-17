@@ -67,25 +67,25 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
   const features = [
     {
       title: "Stufenlos Höhe einstellen",
-      text: "Das Van7 Hubbett bietet besten Schlafkomfort und maximale Raumnutzung: stufenlos Höhenverstellbar oder am Dach verstaut.",
+      text: "Mit dem Van7 Hubbett musst du dich nicht mehr zwischen Komfort und Raum entscheiden – du bekommst beides. Dank der stufenlosen Höhenverstellung kannst du das Bett mühelos mit der Kurbel auf deine Wunschhöhe einstellen. So nutzt du den Stauraum optimal für Fahrräder, Motorräder oder andere Ausrüstung und schläfst trotzdem in höchstem Komfort.",
       icon: <StufenlosIcon />,
       timestamp: 7.5
     },
     {
       title: "Ausnivellieren",
-      text: "Das Van7 Hubbett bietet besten Schlafkomfort und maximale Raumnutzung: stufenlos Höhenverstellbar oder am Dach verstaut.",
+      text: "Egal, wie uneben das Gelände ist - das Van7 Hubbett passt sich mühelos deinen Bedürfnissen an. Mit der flexiblen Gurtfixierung kannst du das Bett an allen vier Ecken individuell ausnivellieren, sodass du immer in einer perfekten, waagerechten Position schläfst. Wähle deinen Schlafplatz frei, ohne dabei auf Komfort verzichten zu müssen, und genieße erholsame Nächte, wo immer du parkst.",
       icon: <WaagrechtIcon />,
       timestamp: 16
     },
     {
       title: "An der Wand fixieren",
-      text: "Das Van7 Hubbett bietet besten Schlafkomfort und maximale Raumnutzung: stufenlos Höhenverstellbar oder am Dach verstaut.",
+      text: "Im Gegensatz zu herkömmlichen Lösungen kommt unser Hubbett komplett ohne störende Führungsschienen aus. Mithilfe unseres patentierten Seilzugsystems wird das Bett sicher an die Seitenwand deines Fahrzeugs fixiert, sodass es weder wackelt noch schwankt – egal, auf welchem Untergrund du parkst.",
       icon: <StabilFixiertIcon />,
       timestamp: 28
     },
     {
       title: "Lattenrost ausziehen",
-      text: "Das Van7 Hubbett bietet besten Schlafkomfort und maximale Raumnutzung: stufenlos Höhenverstellbar oder am Dach verstaut.",
+      text: "Bisher war die Breite deines Fahrzeugs nur ein Richtwert - jetzt kannst du sie endlich voll ausnutzen! Mit der neuen Verbreiterungs-Funktion kannst du den Lattenrost einfach ausziehen und so die komplette Fahrzeugbreite für dein Bett nutzen.",
       icon: <LattenrostIcon />,
       timestamp: 31
     }
@@ -152,7 +152,7 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
   }, []);
 
   return (
-    <section ref={containerRef} className="w-full max-sm:flex-col flex gap-x-3 bg-grey-10 max-sm:mt-10">
+    <section ref={containerRef} className="w-full max-sm:flex-col flex gap-x-3 bg-grey-10 max-sm:mt-10 pb-5">
       <video
         ref={videoRef}
         onTimeUpdate={handleTimeUpdate}
