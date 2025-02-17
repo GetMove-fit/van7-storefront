@@ -1,26 +1,26 @@
-import { Dialog, Transition } from "@headlessui/react"
-import { Button, clx } from "@medusajs/ui"
-import React, { Fragment, useMemo } from "react"
+import { Dialog, Transition } from "@headlessui/react";
+import { Button, clx } from "@medusajs/ui";
+import React, { Fragment, useMemo } from "react";
 
-import useToggleState from "@lib/hooks/use-toggle-state"
-import ChevronDown from "@modules/common/icons/chevron-down"
-import X from "@modules/common/icons/x"
+import useToggleState from "@lib/hooks/use-toggle-state";
+import ChevronDown from "@modules/common/icons/chevron-down";
+import X from "@modules/common/icons/x";
 
-import { getProductPrice } from "@lib/util/get-product-price"
-import OptionSelect from "./option-select"
-import { HttpTypes } from "@medusajs/types"
+import { getProductPrice } from "@lib/util/get-product-price";
+import OptionSelect from "./option-select";
+import { HttpTypes } from "@medusajs/types";
 
 type MobileActionsProps = {
-  product: HttpTypes.StoreProduct
-  variant?: HttpTypes.StoreProductVariant
-  options: Record<string, string | undefined>
-  updateOptions: (title: string, value: string) => void
-  inStock?: boolean
-  handleAddToCart: () => void
-  isAdding?: boolean
-  show: boolean
-  optionsDisabled: boolean
-}
+  product: HttpTypes.StoreProduct;
+  variant?: HttpTypes.StoreProductVariant;
+  options: Record<string, string | undefined>;
+  updateOptions: (title: string, value: string) => void;
+  inStock?: boolean;
+  handleAddToCart: () => void;
+  isAdding?: boolean;
+  show: boolean;
+  optionsDisabled: boolean;
+};
 
 const MobileActions: React.FC<MobileActionsProps> = ({
   product,
@@ -33,21 +33,21 @@ const MobileActions: React.FC<MobileActionsProps> = ({
   show,
   optionsDisabled,
 }) => {
-  const { state, open, close } = useToggleState()
+  const { state, open, close } = useToggleState();
 
   const price = getProductPrice({
     product: product,
     variantId: variant?.id,
-  })
+  });
 
   const selectedPrice = useMemo(() => {
     if (!price) {
-      return null
+      return null;
     }
-    const { variantPrice, cheapestPrice } = price
+    const { variantPrice, cheapestPrice } = price;
 
-    return variantPrice || cheapestPrice || null
-  }, [price])
+    return variantPrice || cheapestPrice || null;
+  }, [price]);
 
   return (
     <>
@@ -121,8 +121,8 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                 {!variant
                   ? "Select variant"
                   : !inStock
-                    ? "Out of stock"
-                    : "Add to cart"}
+                  ? "Out of stock"
+                  : "Add to cart"}
               </Button>
             </div>
           </div>
@@ -180,7 +180,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                                 disabled={optionsDisabled}
                               />
                             </div>
-                          )
+                          );
                         })}
                       </div>
                     )}
@@ -192,7 +192,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
         </Dialog>
       </Transition>
     </>
-  )
-}
+  );
+};
 
-export default MobileActions
+export default MobileActions;

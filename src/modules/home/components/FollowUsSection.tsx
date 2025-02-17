@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import { InstagramEmbed } from "react-social-media-embed";
@@ -14,7 +14,10 @@ export default function FollowUsSection() {
         </h2>
       </div>
       <div className="mt-8">
-        <InstagramEmbed url="https://instagram.com/van7.at" className="w-full" />
+        <InstagramEmbed
+          url="https://instagram.com/van7.at"
+          className="w-full"
+        />
       </div>
     </section>
   );

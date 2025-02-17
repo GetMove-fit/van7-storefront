@@ -1,6 +1,6 @@
-import { Heading, Text } from "@medusajs/ui"
+import { Heading, Text } from "@medusajs/ui";
 
-import InteractiveLink from "@modules/common/components/interactive-link"
+import InteractiveLink from "@modules/common/components/interactive-link";
 
 const EmptyCartMessage = () => {
   return (
@@ -18,10 +18,12 @@ const EmptyCartMessage = () => {
         Du hast noch keine Produkte in deinem Warenkorb.
       </Text>
       <div>
-        <InteractiveLink href="/hubbett-kaufen">Hubbetten entdecken</InteractiveLink>
+        <InteractiveLink href="/hubbett-kaufen">
+          Hubbetten entdecken
+        </InteractiveLink>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default EmptyCartMessage
+export default EmptyCartMessage;

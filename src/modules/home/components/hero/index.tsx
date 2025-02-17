@@ -1,37 +1,47 @@
-"use client"
-import Stars from "/public/stars.svg"
-import React from "react"
-import InteractiveVideo from "../interactive-video"
-import Vorteile from "./vorteile"
+"use client";
+import Stars from "/public/stars.svg";
+import React from "react";
+import InteractiveVideo from "../interactive-video";
+import Vorteile from "./vorteile";
 
 const Hero = () => {
-  return <section className="flex pl-5 sm:pl-36 py-6 sm:py-10 overflow-hidden relative max-sm:h-screen">
-  <div className="flex flex-col gap-y-6 sm:gap-y-10">
-    <div className="flex flex-col gap-y-4 sm:gap-y-6 text-lg sm:text-2xl">
-      <div className="flex gap-x-4">
-        <Stars className="" />
-        500+ zufriedene Kunden
+  return (
+    <section className="flex pl-5 sm:pl-36 py-6 sm:py-10 overflow-hidden relative max-sm:h-screen">
+      <div className="flex flex-col gap-y-6 sm:gap-y-10">
+        <div className="flex flex-col gap-y-4 sm:gap-y-6 text-lg sm:text-2xl">
+          <div className="flex gap-x-4">
+            <Stars className="" />
+            500+ zufriedene Kunden
+          </div>
+
+          <h1 className="text-5xl sm:text-8xl leading-none uppercase font-title">
+            Das Hubbett
+            <br />
+            mit dem höchsten
+            <br />
+            Komfort & Raumnutzung
+            <br />
+          </h1>
+
+          <p className="hidden sm:block">
+            Stelle die perfekte Höhe ein und hol das Beste aus deinem Raum
+            heraus.
+            <br />
+            Ausnivellieren und Schlafkomfort genießen wie Zuhause - egal wo du
+            parkst.
+          </p>
+        </div>
+
+        <Vorteile />
+
+        <button className="uppercase bg-gradient-to-b from-brand-light to-brand-dark font-bold text-white py-5 px-6 rounded h-fit text-xl sm:text-2xl leading-none hover:shadow-brand-highlight/30 hover:shadow-lg transition-shadow w-fit">
+          Neue Serie vorbestellen
+        </button>
       </div>
 
-      <h1 className="text-5xl sm:text-8xl leading-none uppercase font-title">
-        Das Hubbett<br/>mit dem höchsten<br/>Komfort & Raumnutzung<br/>
-      </h1>
+      <InteractiveVideo />
+    </section>
+  );
+};
 
-      <p className="hidden sm:block">
-        Stelle die perfekte Höhe ein und hol das Beste aus deinem Raum heraus.<br/>
-        Ausnivellieren und Schlafkomfort genießen wie Zuhause - egal wo du parkst.
-      </p>
-    </div>
-
-    <Vorteile/>
-
-    <button className="uppercase bg-gradient-to-b from-brand-light to-brand-dark font-bold text-white py-5 px-6 rounded h-fit text-xl sm:text-2xl leading-none hover:shadow-brand-highlight/30 hover:shadow-lg transition-shadow w-fit">
-      Neue Serie vorbestellen
-    </button>
-  </div>
-  
-  <InteractiveVideo />
-</section>
-}
-
-export default Hero
+export default Hero;

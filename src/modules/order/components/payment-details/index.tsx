@@ -1,16 +1,16 @@
-import { Container, Heading, Text } from "@medusajs/ui"
+import { Container, Heading, Text } from "@medusajs/ui";
 
-import { isStripe, paymentInfoMap } from "@lib/constants"
-import Divider from "@modules/common/components/divider"
-import { convertToLocale } from "@lib/util/money"
-import { HttpTypes } from "@medusajs/types"
+import { isStripe, paymentInfoMap } from "@lib/constants";
+import Divider from "@modules/common/components/divider";
+import { convertToLocale } from "@lib/util/money";
+import { HttpTypes } from "@medusajs/types";
 
 type PaymentDetailsProps = {
-  order: HttpTypes.StoreOrder
-}
+  order: HttpTypes.StoreOrder;
+};
 
 const PaymentDetails = ({ order }: PaymentDetailsProps) => {
-  const payment = order.payment_collections?.[0].payments?.[0]
+  const payment = order.payment_collections?.[0].payments?.[0];
 
   return (
     <div>
@@ -57,7 +57,7 @@ const PaymentDetails = ({ order }: PaymentDetailsProps) => {
 
       <Divider className="mt-8" />
     </div>
-  )
-}
+  );
+};
 
-export default PaymentDetails
+export default PaymentDetails;

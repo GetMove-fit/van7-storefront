@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import { Heading, Text, clx } from "@medusajs/ui"
+import { Heading, Text, clx } from "@medusajs/ui";
 
-import PaymentButton from "../payment-button"
-import { useSearchParams } from "next/navigation"
+import PaymentButton from "../payment-button";
+import { useSearchParams } from "next/navigation";
 
 const Review = ({ cart }: { cart: any }) => {
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams();
 
-  const isOpen = searchParams.get("step") === "review"
+  const isOpen = searchParams.get("step") === "review";
 
   const paidByGiftcard =
-    cart?.gift_cards && cart?.gift_cards?.length > 0 && cart?.total === 0
+    cart?.gift_cards && cart?.gift_cards?.length > 0 && cart?.total === 0;
 
   const previousStepsCompleted =
     cart.shipping_address &&
     cart.shipping_methods.length > 0 &&
-    (cart.payment_collection || paidByGiftcard)
+    (cart.payment_collection || paidByGiftcard);
 
   return (
     <div className="bg-white">
@@ -40,8 +40,8 @@ const Review = ({ cart }: { cart: any }) => {
               <Text className="txt-medium-plus text-ui-fg-base mb-1">
                 Durch Klicken auf die Schaltfläche Bestellung aufgeben
                 bestätigen Sie, dass Sie unsere Nutzungsbedingungen,
-                Verkaufsbedingungen und Rückgabebedingungen gelesen,
-                verstanden und akzeptiert haben und bestätigen, dass Sie die
+                Verkaufsbedingungen und Rückgabebedingungen gelesen, verstanden
+                und akzeptiert haben und bestätigen, dass Sie die
                 Datenschutzrichtlinie von Medusa Store gelesen haben.
               </Text>
             </div>
@@ -50,7 +50,7 @@ const Review = ({ cart }: { cart: any }) => {
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Review
+export default Review;

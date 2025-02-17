@@ -1,17 +1,17 @@
-import { HttpTypes } from "@medusajs/types"
-import { Text } from "@medusajs/ui"
+import { HttpTypes } from "@medusajs/types";
+import { Text } from "@medusajs/ui";
 
 type OrderDetailsProps = {
-  order: HttpTypes.StoreOrder
-  showStatus?: boolean
-}
+  order: HttpTypes.StoreOrder;
+  showStatus?: boolean;
+};
 
 const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
   const formatStatus = (str: string) => {
-    const formatted = str.split("_").join(" ")
+    const formatted = str.split("_").join(" ");
 
-    return formatted.slice(0, 1).toUpperCase() + formatted.slice(1)
-  }
+    return formatted.slice(0, 1).toUpperCase() + formatted.slice(1);
+  };
 
   return (
     <div>
@@ -58,7 +58,7 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default OrderDetails
+export default OrderDetails;

@@ -1,16 +1,16 @@
-import ItemsTemplate from "./items"
-import Summary from "./summary"
-import EmptyCartMessage from "../components/empty-cart-message"
-import SignInPrompt from "../components/sign-in-prompt"
-import Divider from "@modules/common/components/divider"
-import { HttpTypes } from "@medusajs/types"
+import ItemsTemplate from "./items";
+import Summary from "./summary";
+import EmptyCartMessage from "../components/empty-cart-message";
+import SignInPrompt from "../components/sign-in-prompt";
+import Divider from "@modules/common/components/divider";
+import { HttpTypes } from "@medusajs/types";
 
 const CartTemplate = ({
   cart,
   customer,
 }: {
-  cart: HttpTypes.StoreCart | null
-  customer: HttpTypes.StoreCustomer | null
+  cart: HttpTypes.StoreCart | null;
+  customer: HttpTypes.StoreCustomer | null;
 }) => {
   return (
     <div className="py-12">
@@ -45,7 +45,7 @@ const CartTemplate = ({
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CartTemplate
+export default CartTemplate;

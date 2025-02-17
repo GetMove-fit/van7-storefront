@@ -1,15 +1,15 @@
-import { HttpTypes } from "@medusajs/types"
-import { clx } from "@medusajs/ui"
-import React from "react"
+import { HttpTypes } from "@medusajs/types";
+import { clx } from "@medusajs/ui";
+import React from "react";
 
 type OptionSelectProps = {
-  option: HttpTypes.StoreProductOption
-  current: string | undefined
-  updateOption: (title: string, value: string) => void
-  title: string
-  disabled: boolean
-  "data-testid"?: string
-}
+  option: HttpTypes.StoreProductOption;
+  current: string | undefined;
+  updateOption: (title: string, value: string) => void;
+  title: string;
+  disabled: boolean;
+  "data-testid"?: string;
+};
 
 const OptionSelect: React.FC<OptionSelectProps> = ({
   option,
@@ -19,7 +19,7 @@ const OptionSelect: React.FC<OptionSelectProps> = ({
   "data-testid": dataTestId,
   disabled,
 }) => {
-  const filteredOptions = (option.values ?? []).map((v) => v.value)
+  const filteredOptions = (option.values ?? []).map((v) => v.value);
 
   return (
     <div className="flex flex-col gap-y-3">
@@ -46,11 +46,11 @@ const OptionSelect: React.FC<OptionSelectProps> = ({
             >
               {v}
             </button>
-          )
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default OptionSelect
+export default OptionSelect;

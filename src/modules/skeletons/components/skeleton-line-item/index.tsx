@@ -1,4 +1,4 @@
-import { Table } from "@medusajs/ui"
+import { Table } from "@medusajs/ui";
 
 const SkeletonLineItem = () => {
   return (
@@ -31,7 +31,7 @@ const SkeletonLineItem = () => {
         </div>
       </Table.Cell>
     </Table.Row>
-  )
-}
+  );
+};
 
-export default SkeletonLineItem
+export default SkeletonLineItem;

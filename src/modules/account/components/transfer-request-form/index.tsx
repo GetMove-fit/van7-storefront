@@ -1,26 +1,33 @@
-"use client"
+"use client";
 
-import { useActionState } from "react"
-import { createTransferRequest } from "@lib/data/orders"
-import { Text, Heading, Input, Button, IconButton, Toaster } from "@medusajs/ui"
-import { SubmitButton } from "@modules/checkout/components/submit-button"
-import { CheckCircleMiniSolid, XCircleSolid } from "@medusajs/icons"
-import { useEffect, useState } from "react"
+import { useActionState } from "react";
+import { createTransferRequest } from "@lib/data/orders";
+import {
+  Text,
+  Heading,
+  Input,
+  Button,
+  IconButton,
+  Toaster,
+} from "@medusajs/ui";
+import { SubmitButton } from "@modules/checkout/components/submit-button";
+import { CheckCircleMiniSolid, XCircleSolid } from "@medusajs/icons";
+import { useEffect, useState } from "react";
 
 export default function TransferRequestForm() {
-  const [showSuccess, setShowSuccess] = useState(false)
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const [state, formAction] = useActionState(createTransferRequest, {
     success: false,
     error: null,
     order: null,
-  })
+  });
 
   useEffect(() => {
     if (state.success && state.order) {
-      setShowSuccess(true)
+      setShowSuccess(true);
     }
-  }, [state.success, state.order])
+  }, [state.success, state.order]);
 
   return (
     <div className="flex flex-col gap-y-4 w-full">
@@ -79,5 +86,5 @@ export default function TransferRequestForm() {
         </div>
       )}
     </div>
-  )
+  );
 }

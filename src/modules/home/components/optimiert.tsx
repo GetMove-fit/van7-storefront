@@ -1,14 +1,24 @@
-"use client"
+"use client";
 
 import Hintergrund from "/public/optimiert.png";
 import HintergrundMobile from "/public/optimiert-mobile.png";
 
-const SeriesCircle = ({ number, isActive } : { number: number, isActive: boolean}) => (
+const SeriesCircle = ({
+  number,
+  isActive,
+}: {
+  number: number;
+  isActive: boolean;
+}) => (
   <div
-    className={`w-12 h-12 sm:w-20 sm:h-20 rounded-full border border-white bg-grey-90/80 flex items-center justify-center relative ${isActive ? "" : "opacity-50"}`}
+    className={`w-12 h-12 sm:w-20 sm:h-20 rounded-full border border-white bg-grey-90/80 flex items-center justify-center relative ${
+      isActive ? "" : "opacity-50"
+    }`}
     style={{ boxShadow: "inset 0 0 0 4px #ED1C24" }}
   >
-    <span className="text-2xl sm:text-4xl text-white font-barlow font-bold">{number}</span>
+    <span className="text-2xl sm:text-4xl text-white font-barlow font-bold">
+      {number}
+    </span>
   </div>
 );
 
@@ -28,7 +38,9 @@ const Timeline = () => (
       <div className="block sm:hidden h-[50px] border-l-4 border-dashed border-white/50" />
       <SeriesCircle number={4} isActive={true} />
     </div>
-    <p className="font-title text-2xl max-sm:mt-2 sm:text-4xl uppercase text-white">Aktuelle Serie</p>
+    <p className="font-title text-2xl max-sm:mt-2 sm:text-4xl uppercase text-white">
+      Aktuelle Serie
+    </p>
   </div>
 );
 
@@ -54,7 +66,13 @@ const OptimiertSection = () => {
             Getestet und optimiert
           </h2>
           <p className="text-lg sm:text-2xl text-white max-w-2xl">
-            Das Van7 Hubbett ist das Ergebnis jahrelanger Entwicklung und Optimierung. Durch sorgfältige Tests und kontinuierliche Verbesserungen über verschiedene Serien hinweg wurden zahlreiche Herausforderungen gelöst, wie etwa die Haltbarkeit der Zahnräder, die Effizienz der Seilwinden und die Vermeidung von Verschleiß. Was für dich Zeit, Geld und viele Fehler kosten würde, haben wir bereits durch intensive Entwicklungsarbeit getestet und optimiert.
+            Das Van7 Hubbett ist das Ergebnis jahrelanger Entwicklung und
+            Optimierung. Durch sorgfältige Tests und kontinuierliche
+            Verbesserungen über verschiedene Serien hinweg wurden zahlreiche
+            Herausforderungen gelöst, wie etwa die Haltbarkeit der Zahnräder,
+            die Effizienz der Seilwinden und die Vermeidung von Verschleiß. Was
+            für dich Zeit, Geld und viele Fehler kosten würde, haben wir bereits
+            durch intensive Entwicklungsarbeit getestet und optimiert.
           </p>
         </div>
         <Timeline />

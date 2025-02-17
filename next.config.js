@@ -1,6 +1,6 @@
-const checkEnvVariables = require("./check-env-variables")
+const checkEnvVariables = require("./check-env-variables");
 
-checkEnvVariables()
+checkEnvVariables();
 
 /**
  * @type {import('next').NextConfig}
@@ -11,12 +11,12 @@ const nextConfig = {
     config.module.rules.push({
       test: /\.svg$/,
       use: {
-        loader: '@svgr/webpack',
+        loader: "@svgr/webpack",
         options: {
           svgoConfig: {
             plugins: [
               {
-                name: 'preset-default',
+                name: "preset-default",
                 params: {
                   overrides: {
                     // disable a default plugin
@@ -63,6 +63,6 @@ const nextConfig = {
       },
     ],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

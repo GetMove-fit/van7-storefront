@@ -1,95 +1,95 @@
-"use client"
+"use client";
 
-import { RadioGroup, Radio } from "@headlessui/react"
-import { setShippingMethod } from "@lib/data/cart"
-import { calculatePriceForShippingOption } from "@lib/data/fulfillment"
-import { convertToLocale } from "@lib/util/money"
-import { CheckCircleSolid, Loader } from "@medusajs/icons"
-import { HttpTypes } from "@medusajs/types"
-import { Button, Heading, Text, clx } from "@medusajs/ui"
-import ErrorMessage from "@modules/checkout/components/error-message"
-import Divider from "@modules/common/components/divider"
-import MedusaRadio from "@modules/common/components/radio"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { useEffect, useState } from "react"
+import { RadioGroup, Radio } from "@headlessui/react";
+import { setShippingMethod } from "@lib/data/cart";
+import { calculatePriceForShippingOption } from "@lib/data/fulfillment";
+import { convertToLocale } from "@lib/util/money";
+import { CheckCircleSolid, Loader } from "@medusajs/icons";
+import { HttpTypes } from "@medusajs/types";
+import { Button, Heading, Text, clx } from "@medusajs/ui";
+import ErrorMessage from "@modules/checkout/components/error-message";
+import Divider from "@modules/common/components/divider";
+import MedusaRadio from "@modules/common/components/radio";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 type ShippingProps = {
-  cart: HttpTypes.StoreCart
-  availableShippingMethods: HttpTypes.StoreCartShippingOption[] | null
-}
+  cart: HttpTypes.StoreCart;
+  availableShippingMethods: HttpTypes.StoreCartShippingOption[] | null;
+};
 
 const Shipping: React.FC<ShippingProps> = ({
   cart,
   availableShippingMethods,
 }) => {
-  const [isLoading, setIsLoading] = useState(false)
-  const [isLoadingPrices, setIsLoadingPrices] = useState(true)
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingPrices, setIsLoadingPrices] = useState(true);
   const [calculatedPricesMap, setCalculatedPricesMap] = useState<
     Record<string, number>
-  >({})
-  const [error, setError] = useState<string | null>(null)
+  >({});
+  const [error, setError] = useState<string | null>(null);
   const [shippingMethodId, setShippingMethodId] = useState<string | null>(
     cart.shipping_methods?.at(-1)?.shipping_option_id || null
-  )
+  );
 
-  const searchParams = useSearchParams()
-  const router = useRouter()
-  const pathname = usePathname()
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const isOpen = searchParams.get("step") === "delivery"
+  const isOpen = searchParams.get("step") === "delivery";
 
   useEffect(() => {
-    setIsLoadingPrices(true)
+    setIsLoadingPrices(true);
 
     if (availableShippingMethods?.length) {
       const promises = availableShippingMethods
         .filter((sm) => sm.price_type === "calculated")
-        .map((sm) => calculatePriceForShippingOption(sm.id, cart.id))
+        .map((sm) => calculatePriceForShippingOption(sm.id, cart.id));
 
       if (promises.length) {
         Promise.allSettled(promises).then((res) => {
-          const pricesMap: Record<string, number> = {}
+          const pricesMap: Record<string, number> = {};
           res
             .filter((r) => r.status === "fulfilled")
-            .forEach((p) => (pricesMap[p.value?.id || ""] = p.value?.amount!))
+            .forEach((p) => (pricesMap[p.value?.id || ""] = p.value?.amount!));
 
-          setCalculatedPricesMap(pricesMap)
-          setIsLoadingPrices(false)
-        })
+          setCalculatedPricesMap(pricesMap);
+          setIsLoadingPrices(false);
+        });
       }
     }
-  }, [availableShippingMethods])
+  }, [availableShippingMethods]);
 
   const handleEdit = () => {
-    router.push(pathname + "?step=delivery", { scroll: false })
-  }
+    router.push(pathname + "?step=delivery", { scroll: false });
+  };
 
   const handleSubmit = () => {
-    router.push(pathname + "?step=payment", { scroll: false })
-  }
+    router.push(pathname + "?step=payment", { scroll: false });
+  };
 
   const handleSetShippingMethod = async (id: string) => {
-    setError(null)
-    let currentId: string | null = null
-    setIsLoading(true)
+    setError(null);
+    let currentId: string | null = null;
+    setIsLoading(true);
     setShippingMethodId((prev) => {
-      currentId = prev
-      return id
-    })
+      currentId = prev;
+      return id;
+    });
 
     await setShippingMethod({ cartId: cart.id, shippingMethodId: id })
       .catch((err) => {
-        setShippingMethodId(currentId)
-        setError(err.message)
+        setShippingMethodId(currentId);
+        setError(err.message);
       })
       .finally(() => {
-        setIsLoading(false)
-      })
-  }
+        setIsLoading(false);
+      });
+  };
 
   useEffect(() => {
-    setError(null)
-  }, [isOpen])
+    setError(null);
+  }, [isOpen]);
 
   return (
     <div className="bg-white">
@@ -135,7 +135,7 @@ const Shipping: React.FC<ShippingProps> = ({
                 const isDisabled =
                   option.price_type === "calculated" &&
                   !isLoadingPrices &&
-                  typeof calculatedPricesMap[option.id] !== "number"
+                  typeof calculatedPricesMap[option.id] !== "number";
 
                 return (
                   <Radio
@@ -176,7 +176,7 @@ const Shipping: React.FC<ShippingProps> = ({
                       )}
                     </span>
                   </Radio>
-                )
+                );
               })}
             </RadioGroup>
           </div>
@@ -219,7 +219,7 @@ const Shipping: React.FC<ShippingProps> = ({
       )}
       <Divider className="mt-8" />
     </div>
-  )
-}
+  );
+};
 
-export default Shipping
+export default Shipping;

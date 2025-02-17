@@ -1,10 +1,10 @@
-import { HttpTypes } from "@medusajs/types"
-import { Container } from "@medusajs/ui"
-import Image from "next/image"
+import { HttpTypes } from "@medusajs/types";
+import { Container } from "@medusajs/ui";
+import Image from "next/image";
 
 type ImageGalleryProps = {
-  images: HttpTypes.StoreProductImage[]
-}
+  images: HttpTypes.StoreProductImage[];
+};
 
 const ImageGallery = ({ images }: ImageGalleryProps) => {
   return (
@@ -31,11 +31,11 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                 />
               )}
             </Container>
-          )
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ImageGallery
+export default ImageGallery;

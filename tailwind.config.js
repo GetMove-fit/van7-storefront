@@ -1,4 +1,4 @@
-const path = require("path")
+const path = require("path");
 
 module.exports = {
   darkMode: "class",
@@ -38,8 +38,8 @@ module.exports = {
           light: "#D83E44",
           dark: "#941E23",
           content: "#A50D13",
-          highlight: "#ED1C24"
-        }
+          highlight: "#ED1C24",
+        },
       },
       borderRadius: {
         none: "0px",
@@ -163,7 +163,8 @@ module.exports = {
         ring: "ring 2.2s cubic-bezier(0.5, 0, 0.5, 1) infinite",
         "fade-in-right":
           "fade-in-right 0.3s cubic-bezier(0.5, 0, 0.5, 1) forwards",
-        "fade-in-left": "fade-in-left 0.3s cubic-bezier(0.5, 0, 0.5, 1) forwards",
+        "fade-in-left":
+          "fade-in-left 0.3s cubic-bezier(0.5, 0, 0.5, 1) forwards",
         "fade-in-top": "fade-in-top 0.2s cubic-bezier(0.5, 0, 0.5, 1) forwards",
         "fade-out-top":
           "fade-out-top 0.2s cubic-bezier(0.5, 0, 0.5, 1) forwards",
@@ -178,4 +179,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-radix")()],
-}
+};

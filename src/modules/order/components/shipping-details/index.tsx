@@ -1,12 +1,12 @@
-import { convertToLocale } from "@lib/util/money"
-import { HttpTypes } from "@medusajs/types"
-import { Heading, Text } from "@medusajs/ui"
+import { convertToLocale } from "@lib/util/money";
+import { HttpTypes } from "@medusajs/types";
+import { Heading, Text } from "@medusajs/ui";
 
-import Divider from "@modules/common/components/divider"
+import Divider from "@modules/common/components/divider";
 
 type ShippingDetailsProps = {
-  order: HttpTypes.StoreOrder
-}
+  order: HttpTypes.StoreOrder;
+};
 
 const ShippingDetails = ({ order }: ShippingDetailsProps) => {
   return (
@@ -69,7 +69,7 @@ const ShippingDetails = ({ order }: ShippingDetailsProps) => {
       </div>
       <Divider className="mt-8" />
     </div>
-  )
-}
+  );
+};
 
-export default ShippingDetails
+export default ShippingDetails;

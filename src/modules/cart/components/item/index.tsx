@@ -1,48 +1,48 @@
-"use client"
+"use client";
 
-import { Table, Text, clx } from "@medusajs/ui"
-import { updateLineItem } from "@lib/data/cart"
-import { HttpTypes } from "@medusajs/types"
-import CartItemSelect from "@modules/cart/components/cart-item-select"
-import ErrorMessage from "@modules/checkout/components/error-message"
-import DeleteButton from "@modules/common/components/delete-button"
-import LineItemOptions from "@modules/common/components/line-item-options"
-import LineItemPrice from "@modules/common/components/line-item-price"
-import LineItemUnitPrice from "@modules/common/components/line-item-unit-price"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import Spinner from "@modules/common/icons/spinner"
-import Thumbnail from "@modules/products/components/thumbnail"
-import { useState } from "react"
+import { Table, Text, clx } from "@medusajs/ui";
+import { updateLineItem } from "@lib/data/cart";
+import { HttpTypes } from "@medusajs/types";
+import CartItemSelect from "@modules/cart/components/cart-item-select";
+import ErrorMessage from "@modules/checkout/components/error-message";
+import DeleteButton from "@modules/common/components/delete-button";
+import LineItemOptions from "@modules/common/components/line-item-options";
+import LineItemPrice from "@modules/common/components/line-item-price";
+import LineItemUnitPrice from "@modules/common/components/line-item-unit-price";
+import LocalizedClientLink from "@modules/common/components/localized-client-link";
+import Spinner from "@modules/common/icons/spinner";
+import Thumbnail from "@modules/products/components/thumbnail";
+import { useState } from "react";
 
 type ItemProps = {
-  item: HttpTypes.StoreCartLineItem
-  type?: "full" | "preview"
-  currencyCode: string
-}
+  item: HttpTypes.StoreCartLineItem;
+  type?: "full" | "preview";
+  currencyCode: string;
+};
 
 const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
-  const [updating, setUpdating] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+  const [updating, setUpdating] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const changeQuantity = async (quantity: number) => {
-    setError(null)
-    setUpdating(true)
+    setError(null);
+    setUpdating(true);
 
     await updateLineItem({
       lineId: item.id,
       quantity,
     })
       .catch((err) => {
-        setError(err.message)
+        setError(err.message);
       })
       .finally(() => {
-        setUpdating(false)
-      })
-  }
+        setUpdating(false);
+      });
+  };
 
   // TODO: Aktualisieren Sie dies, um das tatsächliche maximale Inventar zu erfassen
-  const maxQtyFromInventory = 10
-  const maxQuantity = item.variant?.manage_inventory ? 10 : maxQtyFromInventory
+  const maxQtyFromInventory = 10;
+  const maxQuantity = item.variant?.manage_inventory ? 10 : maxQtyFromInventory;
 
   return (
     <Table.Row className="w-full" data-testid="product-row">
@@ -139,7 +139,7 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
         </span>
       </Table.Cell>
     </Table.Row>
-  )
-}
+  );
+};
 
-export default Item
+export default Item;

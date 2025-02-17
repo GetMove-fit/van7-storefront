@@ -1,4 +1,4 @@
-import { Table } from "@medusajs/ui"
+import { Table } from "@medusajs/ui";
 
 const SkeletonCartItem = () => {
   return (
@@ -31,7 +31,7 @@ const SkeletonCartItem = () => {
         </div>
       </Table.Cell>
     </Table.Row>
-  )
-}
+  );
+};
 
-export default SkeletonCartItem
+export default SkeletonCartItem;

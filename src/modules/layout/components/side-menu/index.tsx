@@ -1,24 +1,29 @@
-"use client"
+"use client";
 
-import { Popover, PopoverButton, PopoverPanel, Transition } from "@headlessui/react"
-import { ArrowRightMini, XMark } from "@medusajs/icons"
-import { Text, clx, useToggleState } from "@medusajs/ui"
-import { Fragment } from "react"
+import {
+  Popover,
+  PopoverButton,
+  PopoverPanel,
+  Transition,
+} from "@headlessui/react";
+import { ArrowRightMini, XMark } from "@medusajs/icons";
+import { Text, clx, useToggleState } from "@medusajs/ui";
+import { Fragment } from "react";
 
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import CountrySelect from "../country-select"
-import { HttpTypes } from "@medusajs/types"
-import MenuIcon from "/public/icons/menu.svg"
+import LocalizedClientLink from "@modules/common/components/localized-client-link";
+import CountrySelect from "../country-select";
+import { HttpTypes } from "@medusajs/types";
+import MenuIcon from "/public/icons/menu.svg";
 
 const SideMenuItems = {
   Home: "/",
   Store: "/store",
   Account: "/account",
   Cart: "/cart",
-}
+};
 
 const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
-  const toggleState = useToggleState()
+  const toggleState = useToggleState();
 
   return (
     <div className="h-full">
@@ -68,7 +73,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                               {name}
                             </LocalizedClientLink>
                           </li>
-                        )
+                        );
                       })}
                     </ul>
                     <div className="flex flex-col gap-y-6">
@@ -91,9 +96,8 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                         />
                       </div>
                       <Text className="flex justify-between txt-compact-small">
-                        Designed & crafted by Ryze Media GmbH
-                        © VAN7 {new Date().getFullYear()} All rights
-                        reserved.
+                        Designed & crafted by Ryze Media GmbH © VAN7{" "}
+                        {new Date().getFullYear()} All rights reserved.
                       </Text>
                     </div>
                   </div>
@@ -104,7 +108,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
         </Popover>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SideMenu
+export default SideMenu;
