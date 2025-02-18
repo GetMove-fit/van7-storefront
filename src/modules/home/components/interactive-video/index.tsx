@@ -30,7 +30,7 @@ export default function InteractiveVideo() {
   }, [currentSegment]);
 
   return (
-    <div className="absolute sm:-right-20 max-sm:-bottom-20 max-sm:-left-10 max-sm:-right-10 sm:top-0">
+    <div className="max-sm:-bottom-20 max-sm:-left-10 max-sm:-right-10 sm:absolute sm:-right-20 sm:top-0">
       <video
         ref={videoRef}
         playsInline
@@ -54,7 +54,7 @@ export default function InteractiveVideo() {
             top: `calc(50% + ${segments[currentSegment].position.y * 50}%)`,
             transform: "translate(-50%, -50%)",
           }}
-          className="flex flex-col items-center justify-center text-white text-2xl max-sm:text-lg"
+          className="flex flex-col items-center justify-center text-2xl text-white max-sm:text-lg"
         >
           <FunktionButton className="max-sm:scale-75" />
           <p className="absolute left-20">{segments[currentSegment].name}</p>

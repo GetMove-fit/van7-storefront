@@ -76,12 +76,12 @@ const CartDropdown = ({
 
   return (
     <div
-      className="h-full z-50"
+      className="z-50 h-full"
       onMouseEnter={openAndCancel}
       onMouseLeave={close}
     >
       <Popover className="relative h-full">
-        <PopoverButton className="h-full p-8">
+        <PopoverButton className="h-full p-5 sm:p-8">
           <LocalizedClientLink
             className="hover:text-ui-fg-base"
             href="/cart"
@@ -90,7 +90,7 @@ const CartDropdown = ({
             <div className="relative">
               <WarenkorbIcon />
               {totalItems > 0 && (
-                <span className="absolute top-[-4px] right-[-4px] bg-brand-highlight text-white rounded-full text-xs px-1">
+                <span className="absolute right-[-4px] top-[-4px] rounded-full bg-brand-highlight px-1 text-xs text-white">
                   {totalItems}
                 </span>
               )}
@@ -109,15 +109,15 @@ const CartDropdown = ({
         >
           <PopoverPanel
             static
-            className="hidden small:block absolute top-[calc(100%+1px)] right-0 bg-white border-x border-b border-gray-200 w-[420px] text-ui-fg-base"
+            className="absolute right-0 top-[calc(100%+1px)] hidden w-[420px] border-x border-b border-gray-200 bg-white text-ui-fg-base small:block"
             data-testid="nav-cart-dropdown"
           >
-            <div className="p-4 flex items-center justify-center">
+            <div className="flex items-center justify-center p-4">
               <h3 className="text-large-semi">Warenkorb</h3>
             </div>
             {cartState && cartState.items?.length ? (
               <>
-                <div className="overflow-y-scroll max-h-[402px] px-4 grid grid-cols-1 gap-y-8 no-scrollbar p-px">
+                <div className="no-scrollbar grid max-h-[402px] grid-cols-1 gap-y-8 overflow-y-scroll p-px px-4">
                   {cartState.items
                     .sort((a, b) => {
                       return (a.created_at ?? "") > (b.created_at ?? "")
@@ -140,10 +140,10 @@ const CartDropdown = ({
                             size="square"
                           />
                         </LocalizedClientLink>
-                        <div className="flex flex-col justify-between flex-1">
-                          <div className="flex flex-col flex-1">
+                        <div className="flex flex-1 flex-col justify-between">
+                          <div className="flex flex-1 flex-col">
                             <div className="flex items-start justify-between">
-                              <div className="flex flex-col overflow-ellipsis whitespace-nowrap mr-4 w-[180px]">
+                              <div className="mr-4 flex w-[180px] flex-col overflow-ellipsis whitespace-nowrap">
                                 <h3 className="text-base-regular overflow-hidden text-ellipsis">
                                   <LocalizedClientLink
                                     href={`/produkt/${item.product_handle}`}
@@ -186,9 +186,9 @@ const CartDropdown = ({
                       </div>
                     ))}
                 </div>
-                <div className="p-4 flex flex-col gap-y-4 text-small-regular">
+                <div className="text-small-regular flex flex-col gap-y-4 p-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-ui-fg-base font-semibold">
+                    <span className="font-semibold text-ui-fg-base">
                       Zwischensumme{" "}
                       {/* <span className="font-normal">(excl. taxes)</span> */}
                     </span>
@@ -216,8 +216,8 @@ const CartDropdown = ({
               </>
             ) : (
               <div>
-                <div className="flex py-16 flex-col gap-y-4 items-center justify-center">
-                  <div className="bg-grey-90 text-small-regular flex items-center justify-center w-6 h-6 rounded-full text-white">
+                <div className="flex flex-col items-center justify-center gap-y-4 py-16">
+                  <div className="text-small-regular flex h-6 w-6 items-center justify-center rounded-full bg-grey-90 text-white">
                     <span>0</span>
                   </div>
                   <span>Dein Warenkorb ist leer.</span>

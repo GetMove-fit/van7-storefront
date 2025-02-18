@@ -1,32 +1,40 @@
-"use client"
+"use client";
 
 import React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import Background from "/public/video-background.png";
-import StufenlosIcon from "/public/icons/stufenlos.svg";
-import WaagrechtIcon from "/public/icons/waagrecht.svg";
-import StabilFixiertIcon from "/public/icons/stabil-fixiert.svg";
-import LattenrostIcon from "/public/icons/lattenrost.svg";
+import StufenlosIcon from "/public/icons/funktionen/stufenlos.svg";
+import WaagrechtIcon from "/public/icons/funktionen/waagrecht.svg";
+import StabilFixiertIcon from "/public/icons/funktionen/stabil-fixiert.svg";
+import LattenrostIcon from "/public/icons/funktionen/lattenrost.svg";
 
 // Update FeatureCard to accept hover event props
-const FeatureCard = ({ title, icon, text, progress = 100, isActive, onHoverEnter, onHoverLeave }: {
-  title: string,
-  text: string,
-  icon: React.ReactNode,
-  progress?: number,
-  isActive?: boolean,
-  onHoverEnter?: React.MouseEventHandler<HTMLDivElement>,
-  onHoverLeave?: React.MouseEventHandler<HTMLDivElement>
+const FeatureCard = ({
+  title,
+  icon,
+  text,
+  progress = 100,
+  isActive,
+  onHoverEnter,
+  onHoverLeave,
+}: {
+  title: string;
+  text: string;
+  icon: React.ReactNode;
+  progress?: number;
+  isActive?: boolean;
+  onHoverEnter?: React.MouseEventHandler<HTMLDivElement>;
+  onHoverLeave?: React.MouseEventHandler<HTMLDivElement>;
 }) => (
-  <AccordionPrimitive.Item 
-    value={title} 
-    className="w-full relative"
+  <AccordionPrimitive.Item
+    value={title}
+    className="relative w-full"
     onMouseEnter={onHoverEnter}
     onMouseLeave={onHoverLeave}
   >
     {/* Vertical progress bar only visible when active */}
     {isActive && (
-      <div className="absolute left-0 top-0 bottom-0">
+      <div className="absolute bottom-0 left-0 top-0">
         <div
           style={{ height: `${progress}%` }}
           className="w-2 bg-gradient-to-b from-[#231F20] to-[#CC181F] transition-all duration-300"
@@ -34,22 +42,30 @@ const FeatureCard = ({ title, icon, text, progress = 100, isActive, onHoverEnter
       </div>
     )}
     {/* Add left padding to avoid overlap with progress bar */}
-    <div className="w-full bg-white rounded-l">
+    <div className="w-full rounded-l bg-white">
       <AccordionPrimitive.Header className="w-full">
-        <AccordionPrimitive.Trigger className="w-full flex justify-between py-5 px-8 group">
-          <h2 className={`transition-colors duration-300 text-3xl font-title uppercase ${isActive ? "text-grey-90" : "text-grey-90/40 group-hover:text-grey-90/80"}`}>
+        <AccordionPrimitive.Trigger className="group flex w-full items-center justify-between px-8 py-5">
+          <h2
+            className={`text-left font-title text-2xl uppercase transition-colors duration-300 sm:text-3xl ${
+              isActive
+                ? "text-grey-90"
+                : "text-grey-90/40 group-hover:text-grey-90/80"
+            }`}
+          >
             {title}
           </h2>
-          <span className={`transition-all duration-300 ${isActive ? "" : "opacity-40 group-hover:opacity-80"}`}>
+          <span
+            className={`transition-all duration-300 ${
+              isActive ? "" : "opacity-40 group-hover:opacity-80"
+            }`}
+          >
             {icon}
           </span>
         </AccordionPrimitive.Trigger>
       </AccordionPrimitive.Header>
-      <AccordionPrimitive.Content className="overflow-hidden transition-all duration-300 data-[state=open]:animate-accordion-open data-[state=closed]:animate-accordion-close">
+      <AccordionPrimitive.Content className="overflow-hidden transition-all duration-300 data-[state=closed]:animate-accordion-close data-[state=open]:animate-accordion-open">
         <div className="w-full px-8 pb-5 pt-0">
-          <p className="text-xl">
-            {text}
-          </p>
+          <p className="sm:text-xl">{text}</p>
         </div>
       </AccordionPrimitive.Content>
     </div>
@@ -69,30 +85,32 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
       title: "Stufenlos Höhe einstellen",
       text: "Mit dem Van7 Hubbett musst du dich nicht mehr zwischen Komfort und Raum entscheiden – du bekommst beides. Dank der stufenlosen Höhenverstellung kannst du das Bett mühelos mit der Kurbel auf deine Wunschhöhe einstellen. So nutzt du den Stauraum optimal für Fahrräder, Motorräder oder andere Ausrüstung und schläfst trotzdem in höchstem Komfort.",
       icon: <StufenlosIcon />,
-      timestamp: 7.5
+      timestamp: 7.5,
     },
     {
       title: "Ausnivellieren",
       text: "Egal, wie uneben das Gelände ist - das Van7 Hubbett passt sich mühelos deinen Bedürfnissen an. Mit der flexiblen Gurtfixierung kannst du das Bett an allen vier Ecken individuell ausnivellieren, sodass du immer in einer perfekten, waagerechten Position schläfst. Wähle deinen Schlafplatz frei, ohne dabei auf Komfort verzichten zu müssen, und genieße erholsame Nächte, wo immer du parkst.",
       icon: <WaagrechtIcon />,
-      timestamp: 16
+      timestamp: 16,
     },
     {
       title: "An der Wand fixieren",
       text: "Im Gegensatz zu herkömmlichen Lösungen kommt unser Hubbett komplett ohne störende Führungsschienen aus. Mithilfe unseres patentierten Seilzugsystems wird das Bett sicher an die Seitenwand deines Fahrzeugs fixiert, sodass es weder wackelt noch schwankt – egal, auf welchem Untergrund du parkst.",
       icon: <StabilFixiertIcon />,
-      timestamp: 28
+      timestamp: 28,
     },
     {
       title: "Lattenrost ausziehen",
       text: "Bisher war die Breite deines Fahrzeugs nur ein Richtwert - jetzt kannst du sie endlich voll ausnutzen! Mit der neuen Verbreiterungs-Funktion kannst du den Lattenrost einfach ausziehen und so die komplette Fahrzeugbreite für dein Bett nutzen.",
       icon: <LattenrostIcon />,
-      timestamp: 31
-    }
+      timestamp: 31,
+    },
     // ...add more features if needed
   ];
 
-  const [accordionValue, setAccordionValue] = React.useState(open ? features[0].title : undefined);
+  const [accordionValue, setAccordionValue] = React.useState(
+    open ? features[0].title : undefined
+  );
 
   const handleTimeUpdate = () => {
     if (videoRef.current) {
@@ -103,7 +121,7 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
   const handleAccordionChange = (value: string | undefined) => {
     setAccordionValue(value);
     if (value) {
-      const index = features.findIndex(feature => feature.title === value);
+      const index = features.findIndex((feature) => feature.title === value);
       const newTime = index === 0 ? 0 : features[index - 1].timestamp;
       if (videoRef.current) {
         videoRef.current.currentTime = newTime;
@@ -124,14 +142,16 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
   }, [videoHovered, cardHovered]);
 
   React.useEffect(() => {
-    const openFeature = features.find(feature => currentTime < feature.timestamp);
+    const openFeature = features.find(
+      (feature) => currentTime < feature.timestamp
+    );
     setAccordionValue(openFeature ? openFeature.title : undefined);
   }, [currentTime]);
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (videoRef.current) {
             if (entry.isIntersecting) {
               videoRef.current.play();
@@ -152,7 +172,10 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
   }, []);
 
   return (
-    <section ref={containerRef} className="w-full max-sm:flex-col flex gap-x-3 bg-grey-10 max-sm:mt-10 pb-5">
+    <section
+      ref={containerRef}
+      className="flex w-full gap-x-3 bg-grey-10 pb-5 max-sm:mt-10 max-sm:flex-col"
+    >
       <video
         ref={videoRef}
         onTimeUpdate={handleTimeUpdate}
@@ -177,8 +200,14 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
         {features.map((feature, index) => {
           let computedProgress = 0;
           if (accordionValue === feature.title) {
-            const segmentStart = index === 0 ? 0 : features[index - 1].timestamp;
-            computedProgress = Math.min(((currentTime - segmentStart) / (feature.timestamp - segmentStart)) * 100, 100);
+            const segmentStart =
+              index === 0 ? 0 : features[index - 1].timestamp;
+            computedProgress = Math.min(
+              ((currentTime - segmentStart) /
+                (feature.timestamp - segmentStart)) *
+                100,
+              100
+            );
           }
           return (
             // Pass hover handlers only to the active card
@@ -189,8 +218,16 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
               icon={feature.icon}
               progress={computedProgress}
               isActive={accordionValue === feature.title}
-              onHoverEnter={accordionValue === feature.title ? () => setCardHovered(true) : undefined}
-              onHoverLeave={accordionValue === feature.title ? () => setCardHovered(false) : undefined}
+              onHoverEnter={
+                accordionValue === feature.title
+                  ? () => setCardHovered(true)
+                  : undefined
+              }
+              onHoverLeave={
+                accordionValue === feature.title
+                  ? () => setCardHovered(false)
+                  : undefined
+              }
             />
           );
         })}

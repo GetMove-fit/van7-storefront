@@ -38,6 +38,26 @@ export default function ProductActions({
   // const countryCode = useParams().countryCode as string
   const countryCode = "at"; // TODO: fix
 
+  // New state for montage console and LED options
+  const [montageConsole, setMontageConsole] = useState("nein");
+  const [consoleVariant, setConsoleVariant] = useState("");
+  const [ledOption, setLedOption] = useState("none");
+
+  // New constant for montage console option and predefined console variants
+  const montageOption = {
+    id: "montage_console",
+    title: "Montagekonsole mitbestellen",
+    values: [
+      { id: "ja", value: "ja" },
+      { id: "nein", value: "nein" },
+    ],
+  };
+
+  const consoleVariants = [
+    { id: "1", name: "Console Variante 1" },
+    { id: "2", name: "Console Variante 2" },
+  ];
+
   // If there is only 1 variant, preselect the options
   useEffect(() => {
     if (product.variants?.length === 1) {
@@ -136,6 +156,51 @@ export default function ProductActions({
                   </div>
                 );
               })}
+
+              {/* New: Montagekonsole mit OptionSelect */}
+              <div>
+                <OptionSelect
+                  option={montageOption}
+                  current={montageConsole}
+                  updateOption={(optionId, value) => setMontageConsole(value)}
+                  title={montageOption.title}
+                  data-testid="montage-console-option"
+                  disabled={!!disabled || isAdding}
+                />
+              </div>
+
+              {/* New: If "ja" selected, show predefined console variant dropdown */}
+              {montageConsole === "ja" && (
+                <div>
+                  <label>Wähle Konsolenvariante</label>
+                  <select
+                    onChange={(e) => setConsoleVariant(e.target.value)}
+                    value={consoleVariant}
+                  >
+                    <option value="">Bitte wählen</option>
+                    {consoleVariants.map((variant) => (
+                      <option key={variant.id} value={variant.id}>
+                        {variant.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
+              {/* New: LED Optionen */}
+              <div>
+                <label>LED Optionen</label>
+                <select
+                  onChange={(e) => setLedOption(e.target.value)}
+                  value={ledOption}
+                >
+                  <option value="none">none</option>
+                  <option value="indirekt">indirekt Laderaum</option>
+                  <option value="direkt_kalt">direkt kalt</option>
+                  <option value="direkt_warm">direkt warm</option>
+                </select>
+              </div>
+
               <Divider />
             </div>
           )}
@@ -153,15 +218,15 @@ export default function ProductActions({
             !isValidVariant
           }
           variant="primary"
-          className="w-full h-10"
+          className="h-10 w-full"
           isLoading={isAdding}
           data-testid="add-product-button"
         >
           {!selectedVariant && options
             ? "Bitte Variante auswählen"
             : !inStock || !isValidVariant
-            ? "Ausverkauft"
-            : "Zum Warenkorb hinzufügen"}
+              ? "Ausverkauft"
+              : "Zum Warenkorb hinzufügen"}
         </Button>
         <MobileActions
           product={product}

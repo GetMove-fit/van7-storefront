@@ -102,9 +102,9 @@ const TestimonialsSection = () => {
     <section
       id="bewertungen"
       ref={sectionRef}
-      className="max-sm:pt-5 flex max-sm:flex-col gap-y-5 items-center justify-between w-full overflow-hidden relative sm:py-20 bg-grey-5"
+      className="relative flex w-full items-center justify-between gap-y-5 overflow-hidden bg-grey-5 max-sm:flex-col max-sm:pt-5 sm:py-20"
     >
-      <div className="flex items-start sm:items-center gap-x-2.5 max-sm:px-5">
+      <div className="flex items-start gap-x-2.5 max-sm:px-5 sm:items-center">
         <div className="flex flex-col gap-y-2.5">
           <img
             className="fade-in-left sm:opacity-0"
@@ -121,7 +121,7 @@ const TestimonialsSection = () => {
             height={kundenBild2.height}
           />
           <img
-            className="fade-in-left sm:opacity-0 max-sm:hidden"
+            className="fade-in-left max-sm:hidden sm:opacity-0"
             src={kundenBild3.src}
             alt="Customer 3"
             width={kundenBild3.width}
@@ -146,10 +146,10 @@ const TestimonialsSection = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-y-5 sm:gap-y-16 items-center max-sm:w-full">
-        <div className="flex flex-col gap-y-5 items-center">
+      <div className="flex flex-col items-center gap-y-5 max-sm:w-full sm:gap-y-16">
+        <div className="flex flex-col items-center gap-y-5">
           <Stars />
-          <h2 className="text-5xl sm:text-7xl text-center font-title">
+          <h2 className="text-center font-title text-5xl sm:text-7xl">
             Das beliebteste Hubbett von
             <br />
             <span ref={wordRef}>{words[currentWord]}</span>
@@ -157,19 +157,19 @@ const TestimonialsSection = () => {
         </div>
         <Quotes className="absolute translate-y-44 place-self-center max-sm:scale-50" />
         <div
-          className="max-w-4xl w-full overflow-hidden flex flex-col items-center"
+          className="flex w-full max-w-4xl flex-col items-center overflow-hidden"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
           {/* Custom arrow container with progress ring between arrows */}
-          <div className="flex justify-center items-center gap-x-5 mb-2">
+          <div className="z-20 mb-2 flex items-center justify-center gap-x-5">
             <button
               onClick={() => splideRef.current?.splide.go("<")}
-              className="bg-gray-200 p-2 rounded"
+              className="rounded bg-gray-200 p-2"
             >
               ◀
             </button>
-            <svg className="w-6 h-6" viewBox="0 0 36 36">
+            <svg className="h-6 w-6" viewBox="0 0 36 36">
               <path
                 className="fill-none stroke-grey-40"
                 strokeWidth="4"
@@ -189,7 +189,7 @@ const TestimonialsSection = () => {
             </svg>
             <button
               onClick={() => splideRef.current?.splide.go(">")}
-              className="bg-gray-200 p-2 rounded"
+              className="rounded bg-gray-200 p-2"
             >
               ▶
             </button>
@@ -206,11 +206,11 @@ const TestimonialsSection = () => {
               pagination: true,
               pauseOnHover: true,
             }}
-            className="w-full px-5 sm:px-20 pt-5 pb-8"
+            className="w-full px-5 pb-8 pt-5 sm:px-20"
           >
             {testimonials.map((text, index) => (
               <SplideSlide key={index}>
-                <p className="text-xl sm:text-2xl text-center">{text}</p>
+                <p className="text-center text-xl sm:text-2xl">{text}</p>
               </SplideSlide>
             ))}
           </Splide>
@@ -218,7 +218,7 @@ const TestimonialsSection = () => {
       </div>
 
       <div className="flex items-center gap-x-2.5 max-sm:px-5">
-        <div className="flex flex-col gap-y-2.5 items-end">
+        <div className="flex flex-col items-end gap-y-2.5">
           <img
             className="fade-in-right sm:opacity-0"
             src={kundenBild6.src}
@@ -241,7 +241,7 @@ const TestimonialsSection = () => {
             height={kundenBild7.height}
           />
         </div>
-        <div className="flex flex-col gap-y-2.5 items-end">
+        <div className="flex flex-col items-end gap-y-2.5">
           <img
             className="fade-in-right sm:opacity-0"
             src={kundenBild8.src}
