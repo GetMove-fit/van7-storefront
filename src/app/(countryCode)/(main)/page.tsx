@@ -12,6 +12,7 @@ import FollowUsSection from "@modules/home/components/FollowUsSection";
 import ProduktSection from "./hubbett-kaufen/produkte";
 import BannerNeu from "/public/banner-neu.jpg";
 import { Parallax } from "@modules/home/components/hero/parallax";
+import Installation from "@modules/home/components/installation";
 
 export const metadata: Metadata = {
   title: "Das flexibelste Campingbett für deinen Camper",
@@ -56,6 +57,8 @@ export default async function Home(props: {
       {/* <EinbauortSection /> */}
 
       <OptimiertSection />
+
+      <Installation />
 
       {/* <FollowUsSection/> */}
     </div>
