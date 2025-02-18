@@ -1,157 +1,120 @@
-import { listCategories } from "@lib/data/categories"
-import { listCollections } from "@lib/data/collections"
-import { Text, clx } from "@medusajs/ui"
+import FooterMask from "/public/footer-mask.svg";
+import FooterHintergrund from "/public/footer.png";
+import Logo from "/public/van7-logo.svg";
 
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import MedusaCTA from "@modules/layout/components/medusa-cta"
+import InstaIcon from "/public/icons/social/instagram.svg";
+import FacebookIcon from "/public/icons/social/facebook.svg";
+import YoutubeIcon from "/public/icons/social/youtube.svg";
+
+import StandortIcon from "/public/icons/kontakt/standort.svg";
+import TelefonIcon from "/public/icons/kontakt/telefon.svg";
+import MailIcon from "/public/icons/kontakt/email.svg";
+import WhatsappIcon from "/public/icons/kontakt/whatsapp.svg";
 
 export default async function Footer() {
-  const { collections } = await listCollections({
-    fields: "*products",
-  })
-  const productCategories = await listCategories()
-
   return (
-    <footer className="border-t border-ui-border-base w-full">
-      <div className="content-container flex flex-col w-full">
-        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
-          <div>
-            <LocalizedClientLink
-              href="/"
-              className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
-            >
-              Medusa Store
-            </LocalizedClientLink>
-          </div>
-          <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
-            {productCategories && productCategories?.length > 0 && (
-              <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
-                  Categories
-                </span>
-                <ul
-                  className="grid grid-cols-1 gap-2"
-                  data-testid="footer-categories"
-                >
-                  {productCategories?.slice(0, 6).map((c) => {
-                    if (c.parent_category) {
-                      return
-                    }
+    <footer className="relative flex w-full flex-col items-center text-white">
+      <img
+        src={FooterHintergrund.src}
+        width={FooterHintergrund.width}
+        height={FooterHintergrund.height}
+        className="absolute h-full w-full object-cover"
+      />
+      <FooterMask className="absolute w-full max-sm:h-10" />
 
-                    const children =
-                      c.category_children?.map((child) => ({
-                        name: child.name,
-                        handle: child.handle,
-                        id: child.id,
-                      })) || null
+      <div className="z-20 mt-10 flex max-w-md flex-col items-center justify-center gap-y-4 text-center text-lg max-sm:px-5 sm:absolute sm:mt-20 sm:gap-y-8">
+        <Logo className="w-[120px] sm:w-[150px]" />
+        <p>
+          Das Hubbett für jede (Park)situation! Waagerecht schlafen und dennoch
+          genügend Stauraum im Camper? Mit VAN7 musst du keine Kompromisse
+          eingehen!
+        </p>
+      </div>
 
-                    return (
-                      <li
-                        className="flex flex-col gap-2 text-ui-fg-subtle txt-small"
-                        key={c.id}
-                      >
-                        <LocalizedClientLink
-                          className={clx(
-                            "hover:text-ui-fg-base",
-                            children && "txt-small-plus"
-                          )}
-                          href={`/categories/${c.handle}`}
-                          data-testid="category-link"
-                        >
-                          {c.name}
-                        </LocalizedClientLink>
-                        {children && (
-                          <ul className="grid grid-cols-1 ml-3 gap-2">
-                            {children &&
-                              children.map((child) => (
-                                <li key={child.id}>
-                                  <LocalizedClientLink
-                                    className="hover:text-ui-fg-base"
-                                    href={`/categories/${child.handle}`}
-                                    data-testid="category-link"
-                                  >
-                                    {child.name}
-                                  </LocalizedClientLink>
-                                </li>
-                              ))}
-                          </ul>
-                        )}
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-            )}
-            {collections && collections.length > 0 && (
-              <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
-                  Collections
-                </span>
-                <ul
-                  className={clx(
-                    "grid grid-cols-1 gap-2 text-ui-fg-subtle txt-small",
-                    {
-                      "grid-cols-2": (collections?.length || 0) > 3,
-                    }
-                  )}
-                >
-                  {collections?.slice(0, 6).map((c) => (
-                    <li key={c.id}>
-                      <LocalizedClientLink
-                        className="hover:text-ui-fg-base"
-                        href={`/collections/${c.handle}`}
-                      >
-                        {c.title}
-                      </LocalizedClientLink>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">Medusa</span>
-              <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
-                <li>
-                  <a
-                    href="https://github.com/medusajs"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    GitHub
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://docs.medusajs.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    Documentation
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/medusajs/nextjs-starter-medusa"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    Source code
-                  </a>
-                </li>
-              </ul>
+      <div className="z-10 flex w-full flex-col gap-y-5 px-5 py-20 pt-5 sm:gap-y-10 sm:px-80 sm:pt-32">
+        <div className="flex justify-between gap-y-5 text-lg max-sm:flex-col-reverse sm:text-xl">
+          <div className="flex flex-col gap-y-2 sm:gap-y-4">
+            <p className="text-xl font-medium sm:text-2xl">
+              Folge uns auf unsere Reisen
+            </p>
+            <div className="flex gap-x-5">
+              <a
+                href="https://www.instagram.com/van7.at/"
+                className="flex h-12 w-12 place-content-center items-center border border-white transition-transform hover:scale-105"
+              >
+                <InstaIcon />
+              </a>
+              <a
+                href="https://www.facebook.com/van7.at"
+                className="flex h-12 w-12 place-content-center items-center border border-white transition-transform hover:scale-105"
+              >
+                <FacebookIcon />
+              </a>
+              <a
+                href="https://www.youtube.com/@Van-si3rr"
+                className="flex h-12 w-12 place-content-center items-center border border-white transition-transform hover:scale-105"
+              >
+                <YoutubeIcon />
+              </a>
             </div>
           </div>
+
+          <div className="flex flex-col gap-y-2 sm:items-end sm:gap-y-4">
+            <p className="text-xl font-medium sm:text-2xl">
+              Kontaktinformation
+            </p>
+            <div className="flex items-center gap-x-2 sm:flex-row-reverse sm:gap-x-5">
+              <StandortIcon />
+              Dorfstraße 5, 8753 Fohnsdorf
+            </div>
+            <a
+              className="flex items-center gap-x-2 sm:flex-row-reverse sm:gap-x-5"
+              href="mailto:info@van7.at"
+            >
+              <MailIcon />
+              info@van7.at
+            </a>
+            <a
+              className="flex items-center gap-x-2 sm:flex-row-reverse sm:gap-x-5"
+              href="tel:+436763372556"
+            >
+              <TelefonIcon />
+              (+43) 676 337 25 56
+            </a>
+            <a
+              className="flex items-center gap-x-2 sm:flex-row-reverse sm:gap-x-5"
+              href="https://wa.me/436763372556"
+            >
+              <WhatsappIcon />
+              (+43) 676 337 25 56
+            </a>
+          </div>
         </div>
-        <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
-          <Text className="txt-compact-small">
-            © {new Date().getFullYear()} Medusa Store. All rights reserved.
-          </Text>
-          <MedusaCTA />
+
+        <hr />
+
+        <div className="flex flex-wrap justify-center gap-x-5 text-lg sm:justify-between">
+          <div className="flex gap-x-5 sm:gap-x-20">
+            <a href="/hubbett-kaufen">Shop</a>
+            <a href="/impressum">Impressum</a>
+          </div>
+
+          <div className="flex gap-x-5 sm:gap-x-20">
+            <a href="/hubbett-kaufen">AGBs</a>
+            <a href="/impressum">Datenschutzerklärung</a>
+          </div>
         </div>
       </div>
+
+      <div className="absolute bottom-5 z-20 flex items-center justify-center gap-x-5 text-lg max-sm:flex-col-reverse sm:bottom-20">
+        <p>© {new Date().getFullYear()} VAN7</p>
+        <p>
+          Designed & crafted by{" "}
+          <a className="font-bold" href="https://www.ryze-media.at">
+            Ryze Media
+          </a>
+        </p>
+      </div>
     </footer>
-  )
+  );
 }
