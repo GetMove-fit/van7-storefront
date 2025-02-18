@@ -18,7 +18,6 @@ export async function generateStaticParams() {
       return [];
     }
 
-    // TODO: fix?
     const products = await listProducts({
       countryCode: "US",
       queryParams: { fields: "handle" },
@@ -44,18 +43,12 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
-  // const params = await props.params
-  // const { handle } = params
-  // const region = await getRegion(params.countryCode)
-
-  // if (!region) {
-  //   notFound()
-  // }
+  const params = await props.params;
+  const { handle } = params;
 
   const product = await listProducts({
-    // countryCode: params.countryCode,
-    // queryParams: { handle },
-    regionId: process.env.NEXT_PUBLIC_REGION_ID,
+    countryCode: params.countryCode,
+    queryParams: { handle },
   }).then(({ response }) => response.products[0]);
 
   if (!product) {
@@ -75,17 +68,14 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
 export default async function ProductPage(props: Props) {
   const params = await props.params;
-  // const region = await getRegion(params.countryCode)
+  const region = await getRegion(params.countryCode);
 
-  // if (!region) {
-  //   notFound()
-  // }
-
-  const region = await retrieveRegion(process.env.NEXT_PUBLIC_REGION_ID ?? "");
+  if (!region) {
+    notFound();
+  }
 
   const pricedProduct = await listProducts({
     countryCode: params.countryCode,
-    regionId: process.env.NEXT_PUBLIC_REGION_ID,
     queryParams: {
       handle: params.handle,
     },

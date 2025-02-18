@@ -23,13 +23,14 @@ type Params = {
 };
 
 export default async function StorePage(props: Params) {
-  // const params = await props.params
+  const { countryCode } = await props.params;
+  console.log(countryCode);
   // const searchParams = await props.searchParams
   // const { sortBy, page } = searchParams
 
   return (
     <div className="flex flex-col">
-      <ProduktSection bannerSrc={Banner.src}>
+      <ProduktSection bannerSrc={Banner.src} countryCode={countryCode}>
         <h1>
           Entdecke
           <br />

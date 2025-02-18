@@ -23,9 +23,8 @@ export const metadata: Metadata = {
 export default async function Home(props: {
   params: Promise<{ countryCode: string }>;
 }) {
-  // const params = await props.params
-
-  // const { countryCode } = params
+  const params = await props.params;
+  const { countryCode } = params;
 
   // const region = await getRegion(countryCode)
 
@@ -46,7 +45,7 @@ export default async function Home(props: {
 
       <TestimonialsSection />
 
-      <ProduktSection bannerSrc={BannerNeu.src}>
+      <ProduktSection bannerSrc={BannerNeu.src} countryCode={countryCode}>
         <h2>
           Neue Serie,
           <br />

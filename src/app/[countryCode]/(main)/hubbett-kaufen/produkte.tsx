@@ -3,31 +3,33 @@ import ProductPreview from "@modules/products/components/product-preview";
 
 export default async function ProduktSection({
   children,
+  countryCode,
   bannerSrc,
 }: {
   bannerSrc: string;
+  countryCode: string;
   children: React.ReactNode;
 }) {
   let {
     response: { products },
   } = await listProducts({
-    regionId: process.env.NEXT_PUBLIC_REGION_ID,
+    countryCode,
   });
 
   return (
-    <div className="flex flex-col gap-y-5 p-5 sm:px-36 bg-grey-10">
-      <div className="h-[33vh] relative">
+    <div className="flex flex-col gap-y-5 bg-grey-10 p-5 sm:px-36">
+      <div className="relative h-[33vh]">
         <img
           src={bannerSrc}
           className="h-full w-full rounded-lg object-cover"
         />
-        <div className="absolute text-5xl sm:text-8xl leading-none inset-0 uppercase font-title text-white p-5">
+        <div className="absolute inset-0 p-5 font-title text-5xl uppercase leading-none text-white sm:text-8xl">
           {children}
         </div>
       </div>
 
       <ul
-        className="grid grid-cols-2 w-full small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8"
+        className="grid w-full grid-cols-2 gap-x-6 gap-y-8 small:grid-cols-3 medium:grid-cols-4"
         data-testid="products-list"
       >
         {products.map((p) => {
