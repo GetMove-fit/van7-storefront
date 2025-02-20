@@ -180,7 +180,7 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
         onTimeUpdate={handleTimeUpdate}
         onMouseEnter={() => setVideoHovered(true)}
         onMouseLeave={() => setVideoHovered(false)}
-        src="/NeueSerie.mp4"
+        src="/videos/NeueSerie.mp4"
         playsInline
         webkit-playsinline="true"
         preload="metadata"

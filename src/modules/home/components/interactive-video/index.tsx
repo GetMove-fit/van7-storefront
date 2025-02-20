@@ -52,7 +52,7 @@ export default function InteractiveVideo() {
         width="1280"
         height="1280"
       >
-        <source src="/hubbett-interaktiv.webm" type="video/webm" />
+        <source src="/videos/hubbett-interaktiv.webm" type="video/webm" />
       </video>
       {showButton && currentSegment < segments.length && (
         <button
