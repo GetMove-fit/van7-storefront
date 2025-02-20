@@ -16,14 +16,12 @@ const SeriesCircle = ({
     }`}
     style={{ boxShadow: "inset 0 0 0 4px #ED1C24" }}
   >
-    <span className="font-barlow text-2xl font-bold text-white sm:text-4xl">
-      {number}
-    </span>
+    <span className="text-2xl font-bold text-white sm:text-4xl">{number}</span>
   </div>
 );
 
 const Timeline = () => (
-  <div className="flex gap-8 sm:items-center sm:pt-24">
+  <div className="flex gap-8 sm:items-center lg:pt-24">
     <div className="flex items-center gap-2.5">
       <SeriesCircle number={1} isActive={false} />
       <div className="w-[50px] border-t-4 border-dashed border-white/50" />
@@ -41,7 +39,7 @@ const Timeline = () => (
 
 const OptimiertSection = () => {
   return (
-    <section className="relative w-full bg-grey-90 sm:h-[700px]">
+    <section className="relative w-full overflow-hidden bg-grey-90 sm:h-[700px]">
       {/* Desktop background */}
       <img
         src={Hintergrund.src}
@@ -55,7 +53,7 @@ const OptimiertSection = () => {
         alt="Optimiert mobil"
       />
       <div className="absolute inset-0 bg-grey-90 opacity-50"></div>
-      <div className="relative z-10 flex h-full w-full flex-col content-center items-end justify-between gap-y-5 px-5 py-12 sm:flex-row sm:items-center sm:px-48 sm:py-24">
+      <div className="relative z-10 flex h-full w-full flex-col content-center items-end justify-between gap-y-5 px-5 py-12 sm:items-center sm:px-10 sm:py-24 lg:px-20 xl:flex-row xl:px-36 2xl:px-48">
         <div className="flex flex-col gap-y-5 sm:gap-y-16">
           <h2 className="font-title text-4xl uppercase text-white sm:text-7xl">
             Getestet und optimiert

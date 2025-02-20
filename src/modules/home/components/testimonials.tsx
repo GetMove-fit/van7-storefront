@@ -104,7 +104,7 @@ const TestimonialsSection = () => {
       ref={sectionRef}
       className="relative flex w-full items-center justify-between gap-y-5 overflow-hidden bg-grey-5 max-sm:flex-col max-sm:pt-5 sm:py-20"
     >
-      <div className="flex items-start gap-x-2.5 max-sm:px-5 sm:items-center">
+      <div className="flex items-start gap-2.5 max-sm:px-5 sm:items-center sm:max-xl:flex-col">
         <div className="flex flex-col gap-y-2.5">
           <img
             className="fade-in-left sm:opacity-0"
@@ -206,7 +206,7 @@ const TestimonialsSection = () => {
               pagination: true,
               pauseOnHover: true,
             }}
-            className="w-full px-5 pb-8 pt-5 sm:px-20"
+            className="w-full px-5 pb-8 pt-5 max-xl:max-w-lg xl:px-20"
           >
             {testimonials.map((text, index) => (
               <SplideSlide key={index}>
@@ -217,7 +217,7 @@ const TestimonialsSection = () => {
         </div>
       </div>
 
-      <div className="flex items-center gap-x-2.5 max-sm:px-5">
+      <div className="flex items-center gap-2.5 max-sm:px-5 sm:max-xl:flex-col">
         <div className="flex flex-col items-end gap-y-2.5">
           <img
             className="fade-in-right sm:opacity-0"

@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import FunktionButton from "/public/funktion.svg";
+import Pfeil from "/public/pfeil.png";
 
 export default function InteractiveVideo() {
   const videoRef = React.useRef<HTMLVideoElement>(null);
@@ -30,7 +31,19 @@ export default function InteractiveVideo() {
   }, [currentSegment]);
 
   return (
-    <div className="max-sm:-bottom-20 max-sm:-left-10 max-sm:-right-10 sm:absolute sm:-right-20 sm:top-0">
+    <div className="relative lg:absolute lg:-right-20 lg:w-[60vw] lg:max-2xl:-bottom-80 2xl:top-20">
+      {currentSegment === 0 && showButton && (
+        <div className="absolute top-10 z-10 flex items-center font-semibold italic max-sm:left-0 sm:right-[45%] sm:text-2xl 2xl:top-20">
+          Einfach ausprobieren!
+          <img
+            src={Pfeil.src}
+            width={Pfeil.width}
+            height={Pfeil.height}
+            className="max-sm:w-14"
+          />
+        </div>
+      )}
+
       <video
         ref={videoRef}
         playsInline

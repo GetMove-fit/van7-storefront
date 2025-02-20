@@ -16,7 +16,7 @@ const NavLink = ({
 
   return (
     <LocalizedClientLink
-      className={`flex gap-2 px-8 py-2 hover:text-ui-fg-base max-sm:hidden sm:py-5 ${
+      className={`flex gap-2 px-8 py-2 hover:text-ui-fg-base max-lg:hidden sm:py-5 ${
         isActive ? "text-brand-content" : ""
       }`}
       href={href}

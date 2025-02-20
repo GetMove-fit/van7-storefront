@@ -17,9 +17,9 @@ import MenuIcon from "/public/icons/menu.svg";
 
 const SideMenuItems = {
   Home: "/",
-  Store: "/store",
-  Account: "/account",
-  Cart: "/cart",
+  Produkte: "/hubbett-kaufen",
+  Bewertungen: "/#bewertungen",
+  Warenkorb: "/cart",
 };
 
 const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {

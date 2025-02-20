@@ -22,7 +22,7 @@ export default async function Footer() {
       />
       <FooterMask className="absolute w-full max-sm:h-10" />
 
-      <div className="z-20 mt-10 flex max-w-md flex-col items-center justify-center gap-y-4 text-center text-lg max-sm:px-5 sm:absolute sm:mt-20 sm:gap-y-8">
+      <div className="z-20 mt-10 flex max-w-sm flex-col items-center justify-center gap-y-4 text-center text-lg max-sm:px-5 sm:mt-20 sm:gap-y-8 md:absolute 2xl:max-w-md">
         <Logo className="w-[120px] sm:w-[150px]" />
         <p>
           Das Hubbett für jede (Park)situation! Waagerecht schlafen und dennoch
@@ -31,7 +31,7 @@ export default async function Footer() {
         </p>
       </div>
 
-      <div className="z-10 flex w-full flex-col gap-y-5 px-5 py-20 pt-5 sm:gap-y-10 sm:px-80 sm:pt-32">
+      <div className="z-10 flex w-full flex-col gap-y-5 px-5 py-20 pt-5 sm:gap-y-10 sm:px-10 md:pt-32 lg:px-20 xl:px-36 2xl:px-80">
         <div className="flex justify-between gap-y-5 text-lg max-sm:flex-col-reverse sm:text-xl">
           <div className="flex flex-col gap-y-2 sm:gap-y-4">
             <p className="text-xl font-medium sm:text-2xl">
@@ -106,7 +106,7 @@ export default async function Footer() {
         </div>
       </div>
 
-      <div className="absolute bottom-5 z-20 flex items-center justify-center gap-x-5 text-lg max-sm:flex-col-reverse sm:bottom-20">
+      <div className="absolute bottom-5 z-20 flex items-center justify-center gap-x-5 text-lg max-md:flex-col-reverse md:bottom-20">
         <p>© {new Date().getFullYear()} VAN7</p>
         <p>
           Designed & crafted by{" "}

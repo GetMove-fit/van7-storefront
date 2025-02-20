@@ -17,7 +17,7 @@ export default async function ProduktSection({
   });
 
   return (
-    <div className="flex flex-col gap-y-5 bg-grey-10 p-5 sm:px-36">
+    <div className="flex flex-col gap-y-5 bg-grey-10 p-5 px-5 sm:px-10 lg:px-20 xl:pl-36">
       <div className="relative h-[33vh]">
         <img
           src={bannerSrc}

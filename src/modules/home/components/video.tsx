@@ -174,7 +174,7 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
   return (
     <section
       ref={containerRef}
-      className="flex w-full gap-x-3 bg-grey-10 pb-5 max-sm:mt-10 max-sm:flex-col"
+      className="flex w-full gap-x-3 bg-grey-10 pb-5 max-lg:flex-col max-sm:mt-10"
     >
       <video
         ref={videoRef}
@@ -186,16 +186,14 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
         webkit-playsinline="true"
         preload="metadata"
         muted
-        width="1280"
-        height="720"
-        className="rounded-r"
+        className="min-w-0 rounded-r"
       />
 
       <AccordionPrimitive.Root
         type="single"
         value={accordionValue}
         onValueChange={handleAccordionChange}
-        className="w-full"
+        className="w-full lg:max-w-lg" // fixed accordion width
       >
         {features.map((feature, index) => {
           let computedProgress = 0;

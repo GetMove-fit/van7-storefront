@@ -11,14 +11,14 @@ export default async function Nav() {
   const regions = await listRegions().then((regions: StoreRegion[]) => regions);
 
   return (
-    <div className="sticky top-0 inset-x-0 z-50 group">
-      <header className="relative h-fit duration-200 backdrop-blur-sm bg-white/80">
-        <nav className="text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular px-5 sm:px-36 sm:py-3 uppercase text-xl font-semibold">
+    <div className="group sticky inset-x-0 top-0 z-50">
+      <header className="relative h-fit bg-white/80 backdrop-blur-sm duration-200">
+        <nav className="text-small-regular flex h-full w-full items-center justify-between px-5 text-xl font-semibold uppercase text-ui-fg-subtle sm:px-10 sm:py-3 lg:px-20 xl:px-36">
           <LocalizedClientLink href="/" data-testid="nav-store-link">
             <Logo className="w-[120px] sm:w-[180px]" />
           </LocalizedClientLink>
 
-          <div className="flex items-center gap-x-6 h-full justify-end">
+          <div className="flex h-full items-center justify-end gap-x-6">
             <NavLink href="/">Home</NavLink>
             <NavLink href="/hubbett-kaufen">Produkte</NavLink>
             <NavLink href="/#bewertungen">Bewertungen</NavLink>
@@ -27,7 +27,7 @@ export default async function Nav() {
             <Suspense
               fallback={
                 <LocalizedClientLink
-                  className="hover:text-ui-fg-base flex gap-2"
+                  className="flex gap-2 hover:text-ui-fg-base"
                   href="/cart"
                   data-testid="nav-cart-link"
                 >
@@ -38,7 +38,7 @@ export default async function Nav() {
               <CartButton />
             </Suspense>
 
-            <div className="flex-1 basis-0 h-full flex items-center sm:hidden">
+            <div className="flex h-full flex-1 basis-0 items-center lg:hidden">
               <div className="h-full">
                 <SideMenu regions={regions} />
               </div>
