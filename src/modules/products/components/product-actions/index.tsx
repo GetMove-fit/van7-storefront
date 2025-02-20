@@ -117,10 +117,7 @@ export default function ProductActions({
     }
 
     setIsAdding(false);
-    // Added delay to ensure state updates before redirecting to checkout
-    setTimeout(() => {
-      router.push(`/${countryCode}/checkout`);
-    }, 300);
+    router.push(`/${countryCode}/checkout?step=address`);
   };
 
   return (
