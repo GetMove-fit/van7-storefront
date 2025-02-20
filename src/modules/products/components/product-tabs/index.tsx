@@ -43,35 +43,52 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
 
 const ProductInfoTab = ({ product }: ProductTabsProps) => {
   return (
-    <div className="text-small-regular py-8">
-      <div className="grid grid-cols-2 gap-x-8">
-        <div className="flex flex-col gap-y-4">
-          <div>
-            <span className="font-semibold">Material</span>
-            <p>{product.material ? product.material : "-"}</p>
-          </div>
-          <div>
-            <span className="font-semibold">Country of origin</span>
-            <p>{product.origin_country ? product.origin_country : "-"}</p>
-          </div>
-          <div>
-            <span className="font-semibold">Type</span>
-            <p>{product.type ? product.type.value : "-"}</p>
-          </div>
+    <div className="text-small-regular py-8 text-base">
+      <div className="flex flex-col gap-y-4">
+        {/* Dynamic weight */}
+        <div>
+          <span className="font-semibold">Weight</span>
+          <p>{product.weight ? `${product.weight} g` : "-"}</p>
         </div>
-        <div className="flex flex-col gap-y-4">
-          <div>
-            <span className="font-semibold">Weight</span>
-            <p>{product.weight ? `${product.weight} g` : "-"}</p>
-          </div>
-          <div>
-            <span className="font-semibold">Dimensions</span>
-            <p>
-              {product.length && product.width && product.height
-                ? `${product.length}L x ${product.width}W x ${product.height}H`
-                : "-"}
-            </p>
-          </div>
+        {/* Dynamic dimensions */}
+        <div>
+          <span className="font-semibold">Dimensions</span>
+          <p>
+            {product.length && product.width && product.height
+              ? `${product.length}L x ${product.width}W x ${product.height}H`
+              : "-"}
+          </p>
+        </div>
+        {/* Static specifications */}
+        <div>
+          <span className="font-semibold">
+            Maximale Absenkung von der Decke
+          </span>
+          <p>130cm</p>
+        </div>
+        <div>
+          <span className="font-semibold">Rahmen</span>
+          <p>Robust aus Metall und Mehrschichtholz</p>
+        </div>
+        <div>
+          <span className="font-semibold">Kompatibel</span>
+          <p>Normmatratze 140cm x 200cm</p>
+        </div>
+        <div>
+          <span className="font-semibold">Gewichtbelastung</span>
+          <p>Bis zu 240kg</p>
+        </div>
+        <div>
+          <span className="font-semibold">Typisierung</span>
+          <p>Typisierungsfrei</p>
+        </div>
+        <div>
+          <span className="font-semibold">System</span>
+          <p>Rein mechanisch</p>
+        </div>
+        <div>
+          <span className="font-semibold">Sicherheitsgurt</span>
+          <p>vorhanden</p>
         </div>
       </div>
     </div>

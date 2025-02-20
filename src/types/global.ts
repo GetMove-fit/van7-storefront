@@ -22,3 +22,18 @@ export type StoreFreeShippingPrice = StorePrice & {
   target_remaining: number;
   remaining_percentage: number;
 };
+
+export type Pricing = {
+  brutto: number;
+  brutto_format: string;
+  original_brutto: number;
+  original_brutto_format: string;
+  netto: number;
+  netto_format: string;
+  original_netto: number;
+  original_netto_format: string;
+  tax: number;
+  tax_format: string;
+  tax_rate: number;
+  discount_percent: number;
+};

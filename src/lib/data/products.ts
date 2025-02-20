@@ -2,10 +2,11 @@
 
 import { sdk } from "@lib/config";
 import { sortProducts } from "@lib/util/sort-products";
-import { HttpTypes } from "@medusajs/types";
+import { HttpTypes, StoreProductParams } from "@medusajs/types";
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products";
 import { getAuthHeaders, getCacheOptions } from "./cookies";
-import { getRegion, retrieveRegion } from "./regions";
+import { getRegion } from "./regions";
+import { BaseProductListParams } from "@medusajs/types/dist/http/product/common";
 
 export const listProducts = async ({
   pageParam = 1,
@@ -14,16 +15,13 @@ export const listProducts = async ({
   regionId,
 }: {
   pageParam?: number;
-  queryParams?: HttpTypes.FindParams &
-    HttpTypes.StoreProductParams & {
-      handle?: string;
-    };
-  countryCode?: string;
+  queryParams?: BaseProductListParams & StoreProductParams;
+  countryCode: string;
   regionId?: string;
 }): Promise<{
   response: { products: HttpTypes.StoreProduct[]; count: number };
   nextPage: number | null;
-  queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductParams;
+  queryParams?: BaseProductListParams & StoreProductParams;
 }> => {
   if (!countryCode && !regionId) {
     throw new Error("Country code or region ID is required");
@@ -33,19 +31,8 @@ export const listProducts = async ({
   const _pageParam = Math.max(pageParam, 1);
   const offset = (_pageParam - 1) * limit;
 
-  let region: HttpTypes.StoreRegion | undefined | null;
-
-  if (countryCode) {
-    region = await getRegion(countryCode);
-  } else {
-    region = await retrieveRegion(regionId!);
-  }
-
-  if (!region) {
-    return {
-      response: { products: [], count: 0 },
-      nextPage: null,
-    };
+  if (!regionId) {
+    regionId = await getRegion(countryCode).then((r) => r?.id);
   }
 
   const headers = {
@@ -64,7 +51,8 @@ export const listProducts = async ({
         query: {
           limit,
           offset,
-          region_id: region?.id,
+          region_id: regionId,
+          country_code: countryCode,
           fields:
             "*variants.calculated_price,+variants.inventory_quantity,+metadata,+tags",
           ...queryParams,
@@ -99,13 +87,13 @@ export const listProductsWithSort = async ({
   countryCode,
 }: {
   page?: number;
-  queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductParams;
+  queryParams: BaseProductListParams & StoreProductParams;
   sortBy?: SortOptions;
   countryCode: string;
 }): Promise<{
   response: { products: HttpTypes.StoreProduct[]; count: number };
   nextPage: number | null;
-  queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductParams;
+  queryParams?: BaseProductListParams & StoreProductParams;
 }> => {
   const limit = queryParams?.limit || 12;
 

@@ -9,8 +9,9 @@ import {
 } from "@headlessui/react";
 import { Fragment, useEffect, useMemo, useState } from "react";
 import ReactCountryFlag from "react-country-flag";
+import { ArrowRightMini } from "@medusajs/icons";
+import { clx, useToggleState } from "@medusajs/ui";
 
-import { StateType } from "@lib/hooks/use-toggle-state";
 import { useParams, usePathname } from "next/navigation";
 import { updateRegion } from "@lib/data/cart";
 import { HttpTypes } from "@medusajs/types";
@@ -22,11 +23,11 @@ type CountryOption = {
 };
 
 type CountrySelectProps = {
-  toggleState: StateType;
   regions: HttpTypes.StoreRegion[];
+  up: boolean;
 };
 
-const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
+const CountrySelect = ({ regions, up }: CountrySelectProps) => {
   const [current, setCurrent] = useState<
     | { country: string | undefined; region: string; label: string | undefined }
     | undefined
@@ -35,7 +36,7 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
   const { countryCode } = useParams();
   const currentPath = usePathname().split(`/${countryCode}`)[1];
 
-  const { state, close } = toggleState;
+  const { state, open, close } = useToggleState(false);
 
   const options = useMemo(() => {
     return regions
@@ -52,8 +53,7 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
 
   useEffect(() => {
     if (countryCode) {
-      const option = options?.find((o) => o?.country === countryCode);
-      setCurrent(option);
+      setCurrent(options?.find((o) => o?.country === countryCode));
     }
   }, [options, countryCode]);
 
@@ -63,7 +63,11 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
   };
 
   return (
-    <div>
+    <div
+      className="flex w-full justify-between"
+      onMouseEnter={open}
+      onMouseLeave={close}
+    >
       <Listbox
         as="span"
         onChange={handleChange}
@@ -73,9 +77,9 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
             : undefined
         }
       >
-        <ListboxButton className="py-1 w-full">
+        <ListboxButton className="w-full py-1">
           <div className="txt-compact-small flex items-start gap-x-2">
-            <span>Shipping to:</span>
+            <span>Versand nach:</span>
             {current && (
               <span className="txt-compact-small flex items-center gap-x-2">
                 {/* @ts-ignore */}
@@ -93,7 +97,7 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
             )}
           </div>
         </ListboxButton>
-        <div className="flex relative w-full min-w-[320px]">
+        <div className="relative flex w-full min-w-[320px]">
           <Transition
             show={state}
             as={Fragment}
@@ -102,7 +106,12 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
             leaveTo="opacity-0"
           >
             <ListboxOptions
-              className="absolute -bottom-[calc(100%-36px)] left-0 xsmall:left-auto xsmall:right-0 max-h-[442px] overflow-y-scroll z-[900] bg-white drop-shadow-md text-small-regular uppercase text-black no-scrollbar rounded-rounded w-full"
+              className={clx(
+                "text-small-regular no-scrollbar absolute left-0 z-[900] max-h-[442px] w-full overflow-y-scroll rounded-rounded bg-white uppercase text-black drop-shadow-md xsmall:left-auto xsmall:right-0",
+                {
+                  up: "-bottom-[calc(100%-36px)]",
+                }
+              )}
               static
             >
               {options?.map((o, index) => {
@@ -110,7 +119,7 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
                   <ListboxOption
                     key={index}
                     value={o}
-                    className="py-2 hover:bg-gray-200 px-3 cursor-pointer flex items-center gap-x-2"
+                    className="flex cursor-pointer items-center gap-x-2 px-3 py-2 hover:bg-gray-200"
                   >
                     {/* @ts-ignore */}
                     <ReactCountryFlag
@@ -129,6 +138,13 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
           </Transition>
         </div>
       </Listbox>
+
+      <ArrowRightMini
+        className={clx(
+          "transition-transform duration-150",
+          state ? "-rotate-90" : ""
+        )}
+      />
     </div>
   );
 };

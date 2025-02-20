@@ -36,7 +36,7 @@ const CartDropdown = ({
       return acc + item.quantity;
     }, 0) || 0;
 
-  const subtotal = cartState?.subtotal ?? 0;
+  const subtotal = cartState?.total ?? 0;
   const itemRef = useRef<number>(totalItems || 0);
 
   const timedOpen = () => {

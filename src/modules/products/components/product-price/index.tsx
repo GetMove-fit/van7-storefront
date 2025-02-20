@@ -1,55 +1,77 @@
 import { clx } from "@medusajs/ui";
-
-import { getProductPrice } from "@lib/util/get-product-price";
+import {
+  getCheapestVariantPricing,
+  getTotalPricing,
+} from "@lib/util/get-product-price";
 import { HttpTypes } from "@medusajs/types";
+import Divider from "@modules/common/components/divider";
+import { useMemo } from "react";
+
+export type ProductPriceProps = {
+  products: HttpTypes.StoreProduct[]; // first product is primary
+  variantIds: string[]; // corresponding variant ids
+};
 
 export default function ProductPrice({
-  product,
-  variant,
-}: {
-  product: HttpTypes.StoreProduct;
-  variant?: HttpTypes.StoreProductVariant;
-}) {
-  const { cheapestPrice, variantPrice } = getProductPrice({
-    product,
-    variantId: variant?.id,
-  });
+  products,
+  variantIds,
+}: ProductPriceProps) {
+  const cheapestPrice = getCheapestVariantPricing(products[0])!;
 
-  const selectedPrice = variant ? variantPrice : cheapestPrice;
+  // Compute pricing based on current products and variantIds using useMemo.
+  const pricing = useMemo(() => {
+    return variantIds[0]
+      ? getTotalPricing({ products, variantIds })
+      : cheapestPrice;
+  }, [products, variantIds, cheapestPrice]);
 
-  if (!selectedPrice) {
-    return <div className="block w-32 h-9 bg-gray-100 animate-pulse" />;
+  if (!pricing) {
+    return <div className="block h-9 w-32 animate-pulse bg-gray-100" />;
   }
 
   return (
     <div className="flex flex-col text-ui-fg-base">
+      {variantIds[0] && (
+        <>
+          <div className="flex justify-between">
+            <span>Netto Preis:</span>
+            <span>{pricing.netto_format}</span>
+          </div>
+
+          <div className="flex justify-between">
+            <span>MwSt. ({cheapestPrice?.tax_rate}%):</span>
+            <span>{pricing.tax_format}</span>
+          </div>
+
+          <Divider />
+        </>
+      )}
+
       <span
-        className={clx("text-xl-semi", {
-          "text-ui-fg-interactive": selectedPrice.price_type === "sale",
+        className={clx("text-xl-semi place-self-end py-1", {
+          "text-ui-fg-interactive": pricing.discount_percent > 0,
         })}
       >
-        {!variant && "Ab "}
-        <span
-          data-testid="product-price"
-          data-value={selectedPrice.calculated_price_number}
-        >
-          {selectedPrice.calculated_price}
+        {!variantIds[0] && "Ab "}
+        <span data-testid="product-price" data-value={pricing}>
+          {pricing.brutto_format}
         </span>
       </span>
-      {selectedPrice.price_type === "sale" && (
+
+      {pricing.discount_percent > 0 && (
         <>
           <p>
             <span className="text-ui-fg-subtle">Original: </span>
             <span
               className="line-through"
               data-testid="original-product-price"
-              data-value={selectedPrice.original_price_number}
+              data-value={pricing.original_brutto}
             >
-              {selectedPrice.original_price}
+              {pricing.original_brutto_format}
             </span>
           </p>
           <span className="text-ui-fg-interactive">
-            -{selectedPrice.percentage_diff}%
+            -{pricing.discount_percent}%
           </span>
         </>
       )}

@@ -1,14 +1,17 @@
-import { Dialog, Transition } from "@headlessui/react";
-import { Button, clx } from "@medusajs/ui";
-import React, { Fragment, useMemo } from "react";
+import { Dialog, Transition, Select } from "@headlessui/react"; // Added Select import if necessary
+import { Button, clx, Select as SelectUI } from "@medusajs/ui";
+import React, { Fragment, useMemo, useState } from "react";
 
 import useToggleState from "@lib/hooks/use-toggle-state";
 import ChevronDown from "@modules/common/icons/chevron-down";
 import X from "@modules/common/icons/x";
 
-import { getProductPrice } from "@lib/util/get-product-price";
 import OptionSelect from "./option-select";
 import { HttpTypes } from "@medusajs/types";
+import {
+  getCheapestVariantPricing,
+  getTotalPricing,
+} from "@lib/util/get-product-price"; // New imports
 
 type MobileActionsProps = {
   product: HttpTypes.StoreProduct;
@@ -20,6 +23,7 @@ type MobileActionsProps = {
   isAdding?: boolean;
   show: boolean;
   optionsDisabled: boolean;
+  accessoryProducts?: HttpTypes.StoreProduct[]; // New accessoryProducts prop
 };
 
 const MobileActions: React.FC<MobileActionsProps> = ({
@@ -32,27 +36,46 @@ const MobileActions: React.FC<MobileActionsProps> = ({
   isAdding,
   show,
   optionsDisabled,
+  accessoryProducts,
 }) => {
   const { state, open, close } = useToggleState();
 
-  const price = getProductPrice({
-    product: product,
-    variantId: variant?.id,
-  });
+  // Local state for accessory variants selection
+  const [selectedAccessoryVariants, setSelectedAccessoryVariants] = useState<
+    Record<string, string>
+  >({});
 
-  const selectedPrice = useMemo(() => {
-    if (!price) {
-      return null;
+  // New: Compute pricing the same way as in desktop version
+  const productsForPrice =
+    accessoryProducts && accessoryProducts.length > 0
+      ? [product, ...accessoryProducts]
+      : [product];
+  const variantIdsForPrice =
+    accessoryProducts && accessoryProducts.length > 0
+      ? [
+          variant?.id || "",
+          ...accessoryProducts.map(
+            (accessory) => selectedAccessoryVariants[accessory.id] || ""
+          ),
+        ]
+      : [variant?.id || ""];
+
+  const price = useMemo(() => {
+    if (accessoryProducts && accessoryProducts.length > 0) {
+      return getTotalPricing({
+        products: productsForPrice,
+        variantIds: variantIdsForPrice,
+      });
     }
-    const { variantPrice, cheapestPrice } = price;
+    return getCheapestVariantPricing(product);
+  }, [product, accessoryProducts, variant, selectedAccessoryVariants]);
 
-    return variantPrice || cheapestPrice || null;
-  }, [price]);
-
+  // Remove old price fetching logic
+  // ...existing code for header UI...
   return (
     <>
       <div
-        className={clx("lg:hidden inset-x-0 bottom-0 fixed", {
+        className={clx("fixed inset-x-0 bottom-0 lg:hidden", {
           "pointer-events-none": !show,
         })}
       >
@@ -67,46 +90,76 @@ const MobileActions: React.FC<MobileActionsProps> = ({
           leaveTo="opacity-0"
         >
           <div
-            className="bg-white flex flex-col gap-y-3 justify-center items-center text-large-regular p-4 h-full w-full border-t border-gray-200"
+            className="text-large-regular flex h-full w-full flex-col items-center justify-center gap-y-3 border-t border-gray-200 bg-white p-4"
             data-testid="mobile-actions"
           >
-            <div className="flex items-center gap-x-2">
-              <span data-testid="mobile-title">{product.title}</span>
-              <span>—</span>
-              {selectedPrice ? (
-                <div className="flex items-end gap-x-2 text-ui-fg-base">
-                  {selectedPrice.price_type === "sale" && (
-                    <p>
-                      <span className="line-through text-small-regular">
-                        {selectedPrice.original_price}
-                      </span>
-                    </p>
-                  )}
-                  <span
-                    className={clx({
-                      "text-ui-fg-interactive":
-                        selectedPrice.price_type === "sale",
-                    })}
-                  >
-                    {selectedPrice.calculated_price}
-                  </span>
+            <div className="flex flex-col gap-y-2">
+              <div className="flex items-center gap-x-2">
+                <span data-testid="mobile-title">{product.title}</span>
+                {price && (
+                  <div className="flex items-end gap-x-2 text-ui-fg-base">
+                    {price.discount_percent > 0 && (
+                      <p>
+                        <span className="text-small-regular line-through">
+                          {price.original_brutto_format}
+                        </span>
+                      </p>
+                    )}
+                    <span
+                      className={clx({
+                        "text-ui-fg-interactive": price.discount_percent > 0,
+                      })}
+                    >
+                      {price.brutto_format}
+                    </span>
+                  </div>
+                )}
+              </div>
+              {/* NEW: Accessory dropdowns displayed outside the popup */}
+              {accessoryProducts && accessoryProducts.length > 0 && (
+                <div className="flex flex-col gap-y-4">
+                  {accessoryProducts.map((accessory) => (
+                    <div key={accessory.id} className="flex flex-col gap-y-1">
+                      <span className="text-sm">{`${accessory.title} auswählen`}</span>
+                      <SelectUI
+                        value={selectedAccessoryVariants[accessory.id] || ""}
+                        onValueChange={(value: string) =>
+                          setSelectedAccessoryVariants((prev) => ({
+                            ...prev,
+                            [accessory.id]: value,
+                          }))
+                        }
+                      >
+                        <SelectUI.Trigger className="text-sm">
+                          <SelectUI.Value placeholder="Nicht mitbestellen" />
+                        </SelectUI.Trigger>
+                        <SelectUI.Content>
+                          {accessory.variants?.map((variant) => (
+                            <SelectUI.Item key={variant.id} value={variant.id}>
+                              {variant.title}{" "}
+                              {variant.calculated_price &&
+                                `(+${variant.calculated_price.calculated_amount})`}
+                            </SelectUI.Item>
+                          ))}
+                        </SelectUI.Content>
+                      </SelectUI>
+                    </div>
+                  ))}
                 </div>
-              ) : (
-                <div></div>
               )}
             </div>
-            <div className="grid grid-cols-2 w-full gap-x-4">
+            <div className="grid w-full grid-cols-2 gap-x-4">
               <Button
                 onClick={open}
                 variant="secondary"
                 className="w-full"
                 data-testid="mobile-actions-button"
               >
-                <div className="flex items-center justify-between w-full">
+                <div className="flex w-full items-center justify-between">
                   <span>
                     {variant
                       ? Object.values(options).join(" / ")
-                      : "Select Options"}
+                      : "Größe auswählen"}
                   </span>
                   <ChevronDown />
                 </div>
@@ -119,10 +172,10 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                 data-testid="mobile-cart-button"
               >
                 {!variant
-                  ? "Select variant"
+                  ? "Bitte Variante auswählen"
                   : !inStock
-                  ? "Out of stock"
-                  : "Add to cart"}
+                    ? "usverkauft"
+                    : "Jetzt bestellen"}
               </Button>
             </div>
           </div>
@@ -141,9 +194,8 @@ const MobileActions: React.FC<MobileActionsProps> = ({
           >
             <div className="fixed inset-0 bg-gray-700 bg-opacity-75 backdrop-blur-sm" />
           </Transition.Child>
-
-          <div className="fixed bottom-0 inset-x-0">
-            <div className="flex min-h-full h-full items-center justify-center text-center">
+          <div className="fixed inset-x-0 bottom-0">
+            <div className="flex h-full min-h-full items-center justify-center text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -154,13 +206,13 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                 leaveTo="opacity-0"
               >
                 <Dialog.Panel
-                  className="w-full h-full transform overflow-hidden text-left flex flex-col gap-y-3"
+                  className="flex h-full w-full transform flex-col gap-y-3 overflow-hidden text-left"
                   data-testid="mobile-actions-modal"
                 >
-                  <div className="w-full flex justify-end pr-6">
+                  <div className="flex w-full justify-end pr-6">
                     <button
                       onClick={close}
-                      className="bg-white w-12 h-12 rounded-full text-ui-fg-base flex justify-center items-center"
+                      className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-ui-fg-base"
                       data-testid="close-modal-button"
                     >
                       <X />
@@ -169,19 +221,17 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                   <div className="bg-white px-6 py-12">
                     {(product.variants?.length ?? 0) > 1 && (
                       <div className="flex flex-col gap-y-6">
-                        {(product.options || []).map((option) => {
-                          return (
-                            <div key={option.id}>
-                              <OptionSelect
-                                option={option}
-                                current={options[option.title ?? ""]}
-                                updateOption={updateOptions}
-                                title={option.title ?? ""}
-                                disabled={optionsDisabled}
-                              />
-                            </div>
-                          );
-                        })}
+                        {(product.options || []).map((option) => (
+                          <div key={option.id}>
+                            <OptionSelect
+                              option={option}
+                              current={options[option.title ?? ""]}
+                              updateOption={updateOptions}
+                              title={option.title ?? ""}
+                              disabled={optionsDisabled}
+                            />
+                          </div>
+                        ))}
                       </div>
                     )}
                   </div>

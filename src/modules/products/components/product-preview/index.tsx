@@ -1,10 +1,8 @@
-import { Text } from "@medusajs/ui";
-import { listProducts } from "@lib/data/products";
-import { getProductPrice } from "@lib/util/get-product-price";
 import { HttpTypes } from "@medusajs/types";
 import LocalizedClientLink from "@modules/common/components/localized-client-link";
 import Thumbnail from "../thumbnail";
 import PreviewPrice from "./price";
+import { getCheapestVariantPricing } from "@lib/util/get-product-price";
 
 export default async function ProductPreview({
   product,
@@ -24,9 +22,7 @@ export default async function ProductPreview({
   //   return null
   // }
 
-  const { cheapestPrice } = getProductPrice({
-    product,
-  });
+  const cheapestPrice = getCheapestVariantPricing(product);
 
   return (
     <LocalizedClientLink href={`/produkt/${product.handle}`} className="group">
@@ -38,8 +34,8 @@ export default async function ProductPreview({
           isFeatured={isFeatured}
         />
 
-        <div className="flex max-sm:flex-col mt-4 justify-between sm:items-end">
-          <p className="uppercase font-title leading-none text-lg sm:text-3xl text-grey-90">
+        <div className="mt-4 flex justify-between max-sm:flex-col sm:items-end">
+          <p className="font-title text-lg uppercase leading-none text-grey-90 sm:text-3xl">
             {product.title}
           </p>
           <div className="flex items-center gap-x-2">

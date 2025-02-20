@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { listProducts } from "@lib/data/products";
 import { getRegion, listRegions, retrieveRegion } from "@lib/data/regions";
 import ProductTemplate from "@modules/products/templates";
+import { getCollectionByHandle } from "@lib/data/collections";
 
 type Props = {
   params: Promise<{ countryCode: string; handle: string }>;
@@ -76,6 +77,7 @@ export default async function ProductPage(props: Props) {
 
   const pricedProduct = await listProducts({
     countryCode: params.countryCode,
+    regionId: region.id,
     queryParams: {
       handle: params.handle,
     },
@@ -85,11 +87,25 @@ export default async function ProductPage(props: Props) {
     notFound();
   }
 
+  const accessories = await listProducts({
+    countryCode: params.countryCode,
+    regionId: region.id,
+    queryParams: {
+      collection_id: process.env.NEXT_PUBLIC_ACCESSORY_COLLECTION_ID,
+    },
+  }).then(({ response }) => response.products);
+
+  if (!accessories) {
+    notFound();
+  }
+
   return (
     <ProductTemplate
       product={pricedProduct}
-      region={region}
-      countryCode={params.countryCode}
+      accessoires={accessories}
+      regions={await listRegions()}
+      // region={region}
+      // countryCode={params.countryCode}
     />
   );
 }
