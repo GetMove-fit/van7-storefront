@@ -44,6 +44,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+    domains: ["admin.van7.com"],
     remotePatterns: [
       {
         protocol: "http",
