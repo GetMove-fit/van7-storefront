@@ -185,6 +185,7 @@ export async function deleteLineItem(lineId: string) {
   }
 
   const cartId = await getCartId();
+  console.log("cartId", cartId);
 
   if (!cartId) {
     throw new Error("Missing cart ID when deleting line item");
@@ -193,14 +194,15 @@ export async function deleteLineItem(lineId: string) {
   const headers = {
     ...(await getAuthHeaders()),
   };
+  console.log("headers", headers);
 
-  await sdk.store.cart
-    .deleteLineItem(cartId, lineId, headers)
-    .then(async () => {
-      const cartCacheTag = await getCacheTag("carts");
-      revalidateTag(cartCacheTag);
-    })
-    .catch(medusaError);
+  const result = await sdk.store.cart.deleteLineItem(cartId, lineId, headers);
+
+  console.log("deleteLineItem", result);
+
+  const cartCacheTag = await getCacheTag("carts");
+  console.log("cartCacheTag", cartCacheTag);
+  revalidateTag(cartCacheTag);
 }
 
 export async function setShippingMethod({
