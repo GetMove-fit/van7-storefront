@@ -1,7 +1,12 @@
+import { clx } from "@medusajs/ui";
 import Check from "/public/check.svg";
 
-const VorteileListe = () => (
-  <div className="flex flex-col sm:text-xl">
+const VorteileListe = ({ small }: { small: boolean }) => (
+  <div
+    className={clx("flex flex-col", {
+      "sm:text-xl": !small,
+    })}
+  >
     <div className="flex items-center gap-x-1 sm:gap-x-2.5">
       <Check />
       Aufbauen und verstauen innerhalb von Sekunden

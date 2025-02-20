@@ -2,7 +2,6 @@
 
 import React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import Background from "/public/video-background.png";
 import StufenlosIcon from "/public/icons/funktionen/stufenlos.svg";
 import WaagrechtIcon from "/public/icons/funktionen/waagrecht.svg";
 import StabilFixiertIcon from "/public/icons/funktionen/stabil-fixiert.svg";
@@ -83,7 +82,7 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
   const features = [
     {
       title: "Stufenlos Höhe einstellen",
-      text: "Mit dem Van7 Hubbett musst du dich nicht mehr zwischen Komfort und Raum entscheiden – du bekommst beides. Dank der stufenlosen Höhenverstellung kannst du das Bett mühelos mit der Kurbel auf deine Wunschhöhe einstellen. So nutzt du den Stauraum optimal für Fahrräder, Motorräder oder andere Ausrüstung und schläfst trotzdem in höchstem Komfort.",
+      text: "Du musst nicht mehr zwischen Komfort oder Raum entscheiden - du bekommst beides. Dank der stufenlosen Höhenverstellung kannst du das Bett mühelos mit der Kurbel auf deine Wunschhöhe einstellen. So nutzt du den Stauraum optimal für Fahrräder, Motorräder oder andere Ausrüstung und schläfst trotzdem in höchstem Komfort.",
       icon: <StufenlosIcon />,
       timestamp: 7.5,
     },
@@ -95,7 +94,7 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
     },
     {
       title: "An der Wand fixieren",
-      text: "Im Gegensatz zu herkömmlichen Lösungen kommt unser Hubbett komplett ohne störende Führungsschienen aus. Mithilfe unseres patentierten Seilzugsystems wird das Bett sicher an die Seitenwand deines Fahrzeugs fixiert, sodass es weder wackelt noch schwankt – egal, auf welchem Untergrund du parkst.",
+      text: "Im Gegensatz zu herkömmlichen Lösungen kommt unser Hubbett komplett ohne störende Führungsschienen aus. Mithilfe unseres patentierten Seilzugsystems wird das Bett sicher an die Seitenwand deines Fahrzeugs fixiert, sodass es weder wackelt noch schwankt - egal, auf welchem Untergrund du parkst.",
       icon: <StabilFixiertIcon />,
       timestamp: 28,
     },
@@ -186,6 +185,7 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
         webkit-playsinline="true"
         preload="metadata"
         muted
+        loop
         className="min-w-0 rounded-r"
       />
 

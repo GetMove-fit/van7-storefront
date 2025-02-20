@@ -13,6 +13,7 @@ import ProduktSection from "./hubbett-kaufen/produkte";
 import BannerNeu from "/public/banner-neu.jpg";
 import { Parallax } from "@modules/home/components/hero/parallax";
 import Installation from "@modules/home/components/installation";
+import VideoBackground from "/public/video-background.png";
 
 export const metadata: Metadata = {
   title: "Das flexibelste Campingbett für deinen Camper",
@@ -42,6 +43,25 @@ export default async function Home(props: {
 
       <Hero />
       <VideoSection />
+
+      <div className="relative flex content-center">
+        <img
+          src={VideoBackground.src}
+          width={VideoBackground.width}
+          height={VideoBackground.height}
+          className="w-full"
+        />
+        <video
+          src="/2025.mp4"
+          playsInline
+          webkit-playsinline="true"
+          preload="metadata"
+          muted
+          autoPlay
+          loop
+          className="absolute left-1/2 top-4 h-full -translate-x-1/2 transform pb-10 xl:pb-40"
+        />
+      </div>
 
       <TestimonialsSection />
 

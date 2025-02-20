@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import { HttpTypes } from "@medusajs/types";
 import VorteileListe from "@modules/home/components/hero/vorteile";
 import CountrySelect from "@modules/layout/components/country-select";
+import VideoBackground from "/public/video-background.png";
 
 type ProductTemplateProps = {
   product: HttpTypes.StoreProduct;
@@ -36,7 +37,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
           <ProductInfo product={product} />
           <ProductTabs product={product} />
           <div className="max-sm:hidden">
-            <VorteileListe />
+            <VorteileListe small={true} />
           </div>
         </div>
         <div className="relative block w-full">
@@ -51,14 +52,20 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
           <ProductActions product={product} accessoryProducts={accessoires} />
         </div>
       </div>
-      {/* <div
-        className="content-container my-16 small:my-32"
-        data-testid="related-products-container"
-      >
-        <Suspense fallback={<SkeletonRelatedProducts />}>
-          <RelatedProducts product={product} countryCode={countryCode} />
-        </Suspense>
-      </div> */}
+      <div className="relative flex content-center">
+        <img
+          src={VideoBackground.src}
+          width={VideoBackground.width}
+          height={VideoBackground.height}
+          className="w-full"
+        />
+        <iframe
+          width="1280"
+          height="720"
+          src="https://www.youtube.com/embed/ou391qcj56U"
+          className="absolute left-1/2 top-4 -translate-x-1/2 transform"
+        ></iframe>
+      </div>
     </>
   );
 };

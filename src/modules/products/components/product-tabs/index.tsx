@@ -2,13 +2,13 @@
 
 import Back from "@modules/common/icons/back";
 import FastDelivery from "@modules/common/icons/fast-delivery";
-import Refresh from "@modules/common/icons/refresh";
 
 import Accordion from "./accordion";
 import { HttpTypes } from "@medusajs/types";
 
 type ProductTabsProps = {
   product: HttpTypes.StoreProduct;
+  open?: boolean;
 };
 
 const ProductTabs = ({ product }: ProductTabsProps) => {
@@ -97,7 +97,7 @@ const ProductInfoTab = ({ product }: ProductTabsProps) => {
 
 const ShippingInfoTab = () => {
   return (
-    <div className="text-small-regular py-8">
+    <div className="py-8">
       <div className="grid grid-cols-1 gap-y-8">
         <div className="flex items-start gap-x-2">
           <FastDelivery />
@@ -106,14 +106,14 @@ const ShippingInfoTab = () => {
               Auslieferung startet demnächst
             </span>
             <p className="max-w-sm">
-              Die Auslieferung der neuen Serie beginnt am 10.03.2025
+              Die voraussichtliche Lieferzeit beträgt 6-8 Wochen.
             </p>
           </div>
         </div>
         <div className="flex items-start gap-x-2">
           <Back />
           <div>
-            <span className="font-semibold">30 Tage Rückgabegarantie</span>
+            <span className="font-semibold">3 Jahre Garantie</span>
             <p className="max-w-sm"></p>
           </div>
         </div>

@@ -14,6 +14,9 @@ export default async function ProduktSection({
     response: { products },
   } = await listProducts({
     countryCode,
+    queryParams: {
+      collection_id: process.env.NEXT_PUBLIC_HUBBETT_COLLECTION_ID,
+    },
   });
 
   return (
