@@ -13,6 +13,12 @@ footer a {
   @apply underline underline-offset-2 transition-all hover:underline-offset-4;
 }
 
+:root {
+  --cc-btn-primary-bg: #d83e44;
+  --cc-btn-primary-hover-bg: #941e23;
+  --cc-font-family: "Barlow", sans-serif;
+}
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {

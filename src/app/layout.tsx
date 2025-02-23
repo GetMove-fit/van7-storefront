@@ -1,5 +1,5 @@
 import { getBaseURL } from "@lib/util/env";
-import PixelInit from "@modules/common/components/PixelInit";
+import RunCookieConsent from "@modules/common/components/RunCookieConsent";
 import WhatsappBubble from "@modules/common/components/WhatsappBubble";
 import { Metadata } from "next";
 import "styles/globals.css";
@@ -28,7 +28,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
         />
       </head>
       <body>
-        <PixelInit />
+        <RunCookieConsent />
         <WhatsappBubble />
         <main className="relative">{props.children}</main>
       </body>
