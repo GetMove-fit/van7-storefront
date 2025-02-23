@@ -130,27 +130,43 @@ const CartDropdown = ({
                         key={item.id}
                         data-testid="cart-item"
                       >
-                        <LocalizedClientLink
-                          href={`/produkt/${item.product_handle}`}
-                          className="w-24"
-                        >
-                          <Thumbnail
-                            thumbnail={item.thumbnail}
-                            images={item.variant?.product?.images}
-                            size="square"
-                          />
-                        </LocalizedClientLink>
+                        {item.product_collection === "Hubbetten" ? (
+                          <LocalizedClientLink
+                            href={`/produkt/${item.product_handle}`}
+                            className="w-24"
+                          >
+                            <Thumbnail
+                              thumbnail={item.thumbnail}
+                              images={item.variant?.product?.images}
+                              size="square"
+                            />
+                          </LocalizedClientLink>
+                        ) : (
+                          <div className="w-24">
+                            <Thumbnail
+                              thumbnail={item.thumbnail}
+                              images={item.variant?.product?.images}
+                              size="square"
+                            />
+                          </div>
+                        )}
                         <div className="flex flex-1 flex-col justify-between">
                           <div className="flex flex-1 flex-col">
                             <div className="flex items-start justify-between">
                               <div className="mr-4 flex w-[180px] flex-col overflow-ellipsis whitespace-nowrap">
                                 <h3 className="text-base-regular overflow-hidden text-ellipsis">
-                                  <LocalizedClientLink
-                                    href={`/produkt/${item.product_handle}`}
-                                    data-testid="product-link"
-                                  >
-                                    {item.product_title}
-                                  </LocalizedClientLink>
+                                  {item.product_collection === "Hubbetten" ? (
+                                    <LocalizedClientLink
+                                      href={`/produkt/${item.product_handle}`}
+                                      data-testid="product-link"
+                                    >
+                                      {item.product_title}
+                                    </LocalizedClientLink>
+                                  ) : (
+                                    <span data-testid="product-name">
+                                      {item.product_title}
+                                    </span>
+                                  )}
                                 </h3>
                                 <LineItemOptions
                                   variant={item.variant}

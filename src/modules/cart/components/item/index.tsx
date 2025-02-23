@@ -46,20 +46,35 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
 
   return (
     <Table.Row className="w-full" data-testid="product-row">
-      <Table.Cell className="!pl-0 p-4 w-24">
-        <LocalizedClientLink
-          href={`/produkt/${item.product_handle}`}
-          className={clx("flex", {
-            "w-16": type === "preview",
-            "small:w-24 w-12": type === "full",
-          })}
-        >
-          <Thumbnail
-            thumbnail={item.thumbnail}
-            images={item.variant?.product?.images}
-            size="square"
-          />
-        </LocalizedClientLink>
+      <Table.Cell className="w-24 p-4 !pl-0">
+        {item.product_collection === "Hubbetten" ? (
+          <LocalizedClientLink
+            href={`/produkt/${item.product_handle}`}
+            className={clx("flex", {
+              "w-16": type === "preview",
+              "w-12 small:w-24": type === "full",
+            })}
+          >
+            <Thumbnail
+              thumbnail={item.thumbnail}
+              images={item.variant?.product?.images}
+              size="square"
+            />
+          </LocalizedClientLink>
+        ) : (
+          <div
+            className={clx("flex", {
+              "w-16": type === "preview",
+              "w-12 small:w-24": type === "full",
+            })}
+          >
+            <Thumbnail
+              thumbnail={item.thumbnail}
+              images={item.variant?.product?.images}
+              size="square"
+            />
+          </div>
+        )}
       </Table.Cell>
 
       <Table.Cell className="text-left">
@@ -74,13 +89,13 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
 
       {type === "full" && (
         <Table.Cell>
-          <div className="flex gap-2 items-center w-28">
+          <div className="flex w-28 items-center gap-2">
             <DeleteButton id={item.id} data-testid="product-delete-button" />
 
             <CartItemSelect
               value={item.quantity}
               onChange={(value) => changeQuantity(parseInt(value.target.value))}
-              className="w-14 h-10 p-4"
+              className="h-10 w-14 p-4"
               data-testid="product-select-button"
             >
               {/* TODO: Aktualisieren Sie dies mit der v2-Methode zur Verwaltung des Inventars */}
@@ -118,11 +133,11 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
       <Table.Cell className="!pr-0">
         <span
           className={clx("!pr-0", {
-            "flex flex-col items-end h-full justify-center": type === "preview",
+            "flex h-full flex-col items-end justify-center": type === "preview",
           })}
         >
           {type === "preview" && (
-            <span className="flex gap-x-1 ">
+            <span className="flex gap-x-1">
               <Text className="text-ui-fg-muted">{item.quantity}x </Text>
               <LineItemUnitPrice
                 item={item}
