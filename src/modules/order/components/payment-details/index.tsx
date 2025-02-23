@@ -14,15 +14,15 @@ const PaymentDetails = ({ order }: PaymentDetailsProps) => {
 
   return (
     <div>
-      <Heading level="h2" className="flex flex-row text-3xl-regular my-6">
-        Payment
+      <Heading level="h2" className="text-3xl-regular my-6 flex flex-row">
+        Zahlung
       </Heading>
       <div>
         {payment && (
-          <div className="flex items-start gap-x-1 w-full">
-            <div className="flex flex-col w-1/3">
-              <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                Payment method
+          <div className="flex w-full items-start gap-x-1">
+            <div className="flex w-1/3 flex-col">
+              <Text className="txt-medium-plus mb-1 text-ui-fg-base">
+                Zahlungsmethode
               </Text>
               <Text
                 className="txt-medium text-ui-fg-subtle"
@@ -31,12 +31,12 @@ const PaymentDetails = ({ order }: PaymentDetailsProps) => {
                 {paymentInfoMap[payment.provider_id].title}
               </Text>
             </div>
-            <div className="flex flex-col w-2/3">
-              <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                Payment details
+            <div className="flex w-2/3 flex-col">
+              <Text className="txt-medium-plus mb-1 text-ui-fg-base">
+                Zahlungsdetails
               </Text>
-              <div className="flex gap-2 txt-medium text-ui-fg-subtle items-center">
-                <Container className="flex items-center h-7 w-fit p-2 bg-ui-button-neutral-hover">
+              <div className="txt-medium flex items-center gap-2 text-ui-fg-subtle">
+                <Container className="flex h-7 w-fit items-center bg-ui-button-neutral-hover p-2">
                   {paymentInfoMap[payment.provider_id].icon}
                 </Container>
                 <Text data-testid="payment-amount">
@@ -45,7 +45,7 @@ const PaymentDetails = ({ order }: PaymentDetailsProps) => {
                     : `${convertToLocale({
                         amount: payment.amount,
                         currency_code: order.currency_code,
-                      })} paid at ${new Date(
+                      })} bezahlt am ${new Date(
                         payment.created_at ?? ""
                       ).toLocaleString()}`}
                 </Text>
