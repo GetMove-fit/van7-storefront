@@ -41,10 +41,10 @@ const Addresses = ({
 
   return (
     <div className="bg-white">
-      <div className="flex flex-row items-center justify-between mb-6">
+      <div className="mb-6 flex flex-row items-center justify-between">
         <Heading
           level="h2"
-          className="flex flex-row text-3xl-regular gap-x-2 items-baseline"
+          className="text-3xl-regular flex flex-row items-baseline gap-x-2"
         >
           Lieferadresse
           {!isOpen && <CheckCircleSolid />}
@@ -53,7 +53,7 @@ const Addresses = ({
           <Text>
             <button
               onClick={handleEdit}
-              className="text-brand-light hover:text-brand-highlight"
+              className="text-brand-content hover:text-brand-light"
               data-testid="edit-address-button"
             >
               Bearbeiten
@@ -94,12 +94,12 @@ const Addresses = ({
           <div className="text-small-regular">
             {cart && cart.shipping_address ? (
               <div className="flex items-start gap-x-8">
-                <div className="flex items-start gap-x-1 w-full">
+                <div className="flex w-full items-start gap-x-1">
                   <div
-                    className="flex flex-col w-1/3"
+                    className="flex w-1/3 flex-col"
                     data-testid="shipping-address-summary"
                   >
-                    <Text className="txt-medium-plus text-ui-fg-base mb-1">
+                    <Text className="txt-medium-plus mb-1 text-ui-fg-base">
                       Lieferadresse
                     </Text>
                     <Text className="txt-medium text-ui-fg-subtle">
@@ -120,10 +120,10 @@ const Addresses = ({
                   </div>
 
                   <div
-                    className="flex flex-col w-1/3 "
+                    className="flex w-1/3 flex-col"
                     data-testid="shipping-contact-summary"
                   >
-                    <Text className="txt-medium-plus text-ui-fg-base mb-1">
+                    <Text className="txt-medium-plus mb-1 text-ui-fg-base">
                       Kontakt
                     </Text>
                     <Text className="txt-medium text-ui-fg-subtle">
@@ -135,10 +135,10 @@ const Addresses = ({
                   </div>
 
                   <div
-                    className="flex flex-col w-1/3"
+                    className="flex w-1/3 flex-col"
                     data-testid="billing-address-summary"
                   >
-                    <Text className="txt-medium-plus text-ui-fg-base mb-1">
+                    <Text className="txt-medium-plus mb-1 text-ui-fg-base">
                       Rechnungsadresse
                     </Text>
 
