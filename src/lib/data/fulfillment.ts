@@ -13,17 +13,10 @@ export const listCartShippingMethods = async (cartId: string) => {
     ...(await getCacheOptions("fulfillment")),
   };
 
-  return sdk.client
-    .fetch<HttpTypes.StoreShippingOptionListResponse>(
-      `/store/shipping-options`,
-      {
-        method: "GET",
-        query: { cart_id: cartId },
-        headers,
-        next,
-        cache: "force-cache",
-      }
-    )
+  return sdk.store.fulfillment
+    .listCartOptions({
+      cart_id: cartId,
+    })
     .then(({ shipping_options }) => shipping_options)
     .catch(() => {
       return null;
