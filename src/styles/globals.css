@@ -13,6 +13,18 @@ footer a {
   @apply underline underline-offset-2 transition-all hover:underline-offset-4;
 }
 
+.legal-page p {
+  @apply whitespace-pre-wrap sm:text-lg;
+}
+
+.legal-page h1 {
+  @apply font-title text-xl sm:text-2xl lg:text-4xl;
+}
+
+.legal-page h2 {
+  @apply mt-10 font-title text-lg sm:text-xl lg:text-3xl;
+}
+
 :root {
   --cc-btn-primary-bg: #d83e44;
   --cc-btn-primary-hover-bg: #941e23;

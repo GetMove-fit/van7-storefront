@@ -10,6 +10,7 @@ import StandortIcon from "/public/icons/kontakt/standort.svg";
 import TelefonIcon from "/public/icons/kontakt/telefon.svg";
 import MailIcon from "/public/icons/kontakt/email.svg";
 import WhatsappIcon from "/public/icons/kontakt/whatsapp.svg";
+import LocalizedClientLink from "@modules/common/components/localized-client-link";
 
 export default async function Footer() {
   return (
@@ -95,13 +96,19 @@ export default async function Footer() {
 
         <div className="flex flex-wrap justify-center gap-x-5 text-lg sm:justify-between">
           <div className="flex gap-x-5 sm:gap-x-20">
-            <a href="/hubbett-kaufen">Shop</a>
-            <a href="/impressum">Impressum</a>
+            <LocalizedClientLink href="/hubbett-kaufen">
+              Shop
+            </LocalizedClientLink>
+            <LocalizedClientLink href="/impressum">
+              Impressum
+            </LocalizedClientLink>
           </div>
 
           <div className="flex gap-x-5 sm:gap-x-20">
-            <a href="/hubbett-kaufen">AGBs</a>
-            <a href="/impressum">Datenschutzerklärung</a>
+            <LocalizedClientLink href="/agb">AGB</LocalizedClientLink>
+            <LocalizedClientLink href="/datenschutz">
+              Datenschutzerklärung
+            </LocalizedClientLink>
           </div>
         </div>
       </div>
