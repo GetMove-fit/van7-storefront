@@ -185,7 +185,6 @@ export async function deleteLineItem(lineId: string) {
   }
 
   const cartId = await getCartId();
-  console.log("cartId", cartId);
 
   if (!cartId) {
     throw new Error("Missing cart ID when deleting line item");
@@ -194,14 +193,10 @@ export async function deleteLineItem(lineId: string) {
   const headers = {
     ...(await getAuthHeaders()),
   };
-  console.log("headers", headers);
 
-  const result = await sdk.store.cart.deleteLineItem(cartId, lineId, headers);
-
-  console.log("deleteLineItem", result);
+  await sdk.store.cart.deleteLineItem(cartId, lineId, headers);
 
   const cartCacheTag = await getCacheTag("carts");
-  console.log("cartCacheTag", cartCacheTag);
   revalidateTag(cartCacheTag);
 }
 
@@ -369,8 +364,9 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
     return e.message;
   }
 
-  // formData.get("shipping_address.country_code")
-  redirect(`/checkout?step=payment`);
+  redirect(
+    `/${formData.get("shipping_address.country_code")}/checkout?step=delivery`
+  );
 }
 
 /**
@@ -402,7 +398,7 @@ export async function placeOrder(cartId?: string) {
     const countryCode =
       cartRes.order.shipping_address?.country_code?.toLowerCase();
     removeCartId();
-    redirect(`/order/${cartRes?.order.id}/confirmed`);
+    redirect(`/${countryCode}/order/${cartRes?.order.id}/confirmed`);
   }
 
   return cartRes.cart;
