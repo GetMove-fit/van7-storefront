@@ -174,7 +174,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                 {!variant
                   ? "Bitte Variante auswählen"
                   : !inStock
-                    ? "usverkauft"
+                    ? "Ausverkauft"
                     : "Jetzt bestellen"}
               </Button>
             </div>
