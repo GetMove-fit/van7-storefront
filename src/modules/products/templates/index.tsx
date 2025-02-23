@@ -52,19 +52,19 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
           <ProductActions product={product} accessoryProducts={accessoires} />
         </div>
       </div>
-      <div className="relative flex content-center">
-        <img
-          src={VideoBackground.src}
-          width={VideoBackground.width}
-          height={VideoBackground.height}
-          className="w-full"
-        />
+      <div className="relative flex h-fit place-content-center">
         <iframe
           width="1280"
           height="720"
           src="https://www.youtube.com/embed/ou391qcj56U"
-          className="absolute left-1/2 top-4 -translate-x-1/2 transform"
+          className="z-10 mb-20 mt-4 aspect-video h-fit max-w-full sm:mb-64"
         ></iframe>
+        <img
+          src={VideoBackground.src}
+          width={VideoBackground.width}
+          height={VideoBackground.height}
+          className="absolute h-full w-full object-cover"
+        />
       </div>
     </>
   );
