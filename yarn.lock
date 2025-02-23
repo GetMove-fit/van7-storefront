@@ -5503,6 +5503,7 @@ mdn-data@2.0.30:
     react "19.0.0-rc-66855b96-20241106"
     react-country-flag "^3.1.0"
     react-dom "19.0.0-rc-66855b96-20241106"
+    react-facebook-pixel "^1.0.4"
     react-social-media-embed "^2.5.17"
     server-only "^0.0.1"
     tailwindcss-radix "^2.8.0"
@@ -6183,6 +6184,11 @@ react-facebook-pixel@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npmjs.org/react-facebook-pixel/-/react-facebook-pixel-1.0.4.tgz"
   integrity sha512-givZY8MS0v/mdbRzvcvouBo/j0TtDiu/93f4gIjJXwDDgwlf6bYUiQvb2qcqjluOOD/hIKUQHNYLNsSOnoEklg==
+
+react-floating-whatsapp@^5.0.8:
+  version "5.0.8"
+  resolved "https://registry.npmjs.org/react-floating-whatsapp/-/react-floating-whatsapp-5.0.8.tgz"
+  integrity sha512-4X485d04u7MoWpn61OpWPO/mL94P3gaFq1L932ztH7bo9eClAFcg5ufIxNKbJo9/1h0xpjWZKEW0KBB0apWzZw==
 
 react-html-props@^2.0.3:
   version "2.0.9"
