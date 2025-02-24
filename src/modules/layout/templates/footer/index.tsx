@@ -96,17 +96,17 @@ export default async function Footer() {
 
         <div className="flex flex-wrap justify-center gap-x-5 text-lg sm:justify-between">
           <div className="flex gap-x-5 sm:gap-x-20">
-            <LocalizedClientLink href="/hubbett-kaufen">
+            <LocalizedClientLink href="hubbett-kaufen">
               Shop
             </LocalizedClientLink>
-            <LocalizedClientLink href="/impressum">
+            <LocalizedClientLink href="impressum">
               Impressum
             </LocalizedClientLink>
           </div>
 
           <div className="flex gap-x-5 sm:gap-x-20">
-            <LocalizedClientLink href="/agb">AGB</LocalizedClientLink>
-            <LocalizedClientLink href="/datenschutz">
+            <LocalizedClientLink href="agb">AGB</LocalizedClientLink>
+            <LocalizedClientLink href="datenschutz">
               Datenschutzerklärung
             </LocalizedClientLink>
           </div>

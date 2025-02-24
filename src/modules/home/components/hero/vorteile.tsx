@@ -21,7 +21,7 @@ const VorteileListe = ({ small }: { small: boolean }) => (
     </div>
     <div className="flex items-center gap-x-1 sm:gap-x-2.5">
       <Check />
-      Keine störende Führungsschienen
+      Keine störenden Führungsschienen
     </div>
   </div>
 );

@@ -1,23 +1,23 @@
-"use client";
-import Stars from "/public/stars.svg";
 import React from "react";
 import InteractiveVideo from "../interactive-video";
 import Vorteile from "./vorteile";
-import { useParams } from "next/navigation";
+import LocalizedClientLink from "@modules/common/components/localized-client-link";
+
+import Stars from "/public/stars.svg";
+import Trees from "/public/trees.svg";
 
 const Hero = () => {
-  const { countryCode } = useParams();
-
   return (
-    <section className="relative flex overflow-hidden bg-gradient-to-b from-grey-5 to-white py-6 pl-5 max-xl:flex-col sm:py-10 sm:pl-10 lg:pl-20 xl:pl-36">
-      <div className="flex flex-col gap-y-6 sm:gap-y-10">
-        <div className="flex flex-col gap-y-4 text-lg sm:gap-y-6 sm:text-xl lg:text-2xl">
-          <div className="flex gap-x-4">
+    <section className="relative flex overflow-hidden py-6 pl-5 max-xl:flex-col sm:py-10 sm:pl-10 lg:pl-20 xl:pl-48">
+      <Trees className="absolute left-0 top-40 max-lg:hidden max-sm:bottom-0 max-sm:place-self-end" />
+      <div className="z-10 flex flex-col gap-y-6 sm:gap-y-10">
+        <div className="flex flex-col gap-y-4 text-lg sm:gap-y-6 sm:text-xl lg:text-xl">
+          <div className="flex gap-x-4 font-medium">
             <Stars className="max-sm:w-32" />
             500+ zufriedene Kunden
           </div>
 
-          <h1 className="font-title text-[40px] uppercase leading-none text-grey-90 sm:text-5xl lg:text-[80px]">
+          <h1 className="font-title text-[40px] uppercase leading-none sm:text-5xl lg:text-[80px]">
             Das Hubbett
             <br />
             mit dem höchsten
@@ -37,12 +37,12 @@ const Hero = () => {
 
         <Vorteile small={false} />
 
-        <a
-          href={`/${countryCode}/hubbett-kaufen`}
-          className="h-fit w-fit rounded bg-gradient-to-b from-brand-light to-brand-dark px-6 py-4 font-bold uppercase leading-none text-white transition-shadow hover:shadow-lg hover:shadow-brand-highlight/30 sm:py-5 sm:text-xl lg:text-2xl"
+        <LocalizedClientLink
+          href="hubbett-kaufen"
+          className="h-fit w-fit rounded bg-gradient-to-b from-brand-light to-brand-dark px-6 py-4 font-bold uppercase leading-none text-white transition-shadow hover:shadow-lg hover:shadow-brand-highlight/30 sm:px-8 sm:py-5 sm:text-lg lg:text-xl"
         >
           Neue Serie vorbestellen
-        </a>
+        </LocalizedClientLink>
       </div>
 
       <InteractiveVideo />

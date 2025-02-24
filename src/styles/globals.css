@@ -9,6 +9,14 @@ html {
   scroll-behavior: smooth;
 }
 
+form a {
+  @apply text-brand-content underline underline-offset-2 transition-all hover:text-brand-light hover:underline-offset-4;
+}
+
+.link {
+  @apply text-brand-content underline underline-offset-2 transition-all hover:text-brand-light hover:underline-offset-4;
+}
+
 footer a {
   @apply underline underline-offset-2 transition-all hover:underline-offset-4;
 }

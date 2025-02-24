@@ -53,8 +53,6 @@ export default async function Home(props: {
         />
         <video
           src="/videos/2025.mp4"
-          playsInline
-          webkit-playsinline="true"
           preload="metadata"
           muted
           autoPlay

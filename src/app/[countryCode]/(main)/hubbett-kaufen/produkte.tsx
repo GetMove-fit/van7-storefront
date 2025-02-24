@@ -26,7 +26,7 @@ export default async function ProduktSection({
           src={bannerSrc}
           className="h-full w-full rounded-lg object-cover"
         />
-        <div className="absolute inset-0 p-5 font-title text-5xl uppercase leading-none text-white sm:text-8xl">
+        <div className="absolute bottom-0 p-5 font-title text-5xl uppercase leading-none text-white sm:inset-0 sm:text-8xl">
           {children}
         </div>
       </div>

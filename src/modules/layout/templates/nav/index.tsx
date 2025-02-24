@@ -20,7 +20,7 @@ export default async function Nav() {
 
           <div className="flex h-full items-center justify-end gap-x-6">
             <NavLink href="/">Home</NavLink>
-            <NavLink href="/hubbett-kaufen">Produkte</NavLink>
+            <NavLink href="hubbett-kaufen">Produkte</NavLink>
             <NavLink href="/#bewertungen">Bewertungen</NavLink>
             <NavLink href="/#kontakt">Kontakt</NavLink>
 

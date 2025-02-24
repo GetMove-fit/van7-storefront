@@ -35,7 +35,7 @@ export default async function ProductPreview({
         />
 
         <div className="mt-4 flex justify-between max-sm:flex-col sm:items-end">
-          <p className="font-title text-lg uppercase leading-none text-grey-90 sm:text-3xl">
+          <p className="font-title text-xl uppercase leading-none text-grey-90 sm:text-3xl">
             {product.title}
           </p>
           <div className="flex items-center gap-x-2">

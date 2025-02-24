@@ -31,9 +31,9 @@ export default function InteractiveVideo() {
   }, [currentSegment]);
 
   return (
-    <div className="relative lg:absolute lg:-right-20 lg:w-[60vw] lg:max-2xl:-bottom-80 2xl:top-20">
+    <div className="relative lg:absolute lg:-right-20 lg:w-[60vw] lg:max-2xl:-bottom-80 xl:-right-10 2xl:top-10">
       {currentSegment === 0 && showButton && (
-        <div className="absolute top-10 z-10 flex items-center font-semibold italic max-sm:left-0 sm:right-[45%] sm:text-2xl 2xl:top-20">
+        <div className="absolute top-5 z-10 flex items-center font-semibold italic max-sm:left-0 sm:right-[45%] sm:text-2xl 2xl:top-20">
           Einfach ausprobieren!
           <img
             src={Pfeil.src}
@@ -67,7 +67,7 @@ export default function InteractiveVideo() {
             top: `calc(50% + ${segments[currentSegment].position.y * 50}%)`,
             transform: "translate(-50%, -50%)",
           }}
-          className="flex flex-col items-center justify-center text-2xl text-white max-sm:text-lg"
+          className="flex flex-col items-center justify-center text-lg font-medium text-white sm:text-xl"
         >
           <FunktionButton className="max-sm:scale-75" />
           <p className="absolute left-20">{segments[currentSegment].name}</p>
