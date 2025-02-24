@@ -6,6 +6,7 @@ import { HttpTypes } from "@medusajs/types";
 import { Button, Select } from "@medusajs/ui";
 import Divider from "@modules/common/components/divider";
 import OptionSelect from "@modules/products/components/product-actions/option-select";
+import AccessorySelect from "@modules/products/components/product-actions/accessory-select";
 import { isEqual } from "lodash";
 import { useRouter, useParams } from "next/navigation"; // Modified import
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -121,6 +122,14 @@ export default function ProductActions({
     router.push(`/${countryCode}/checkout?step=address`);
   };
 
+  // Handler for accessory select change
+  const handleAccessoryChange = (accessoryId: string, variantId: string) => {
+    setSelectedAccessoryVariants((prev) => ({
+      ...prev,
+      [accessoryId]: variantId,
+    }));
+  };
+
   // New conditional: if there are no variants, render minimal UI
   if (!product.variants || product.variants.length === 0) {
     return (
@@ -137,6 +146,8 @@ export default function ProductActions({
           show={true}
           optionsDisabled={false}
           accessoryProducts={[]}
+          selectedAccessoryVariants={{}}
+          onAccessoryVariantChange={() => {}}
         />
       </>
     );
@@ -164,35 +175,11 @@ export default function ProductActions({
               })}
 
               {accessoryProducts && accessoryProducts.length > 0 && (
-                <div className="flex flex-col gap-y-4">
-                  {accessoryProducts.map((accessory) => (
-                    <div key={accessory.id} className="flex flex-col gap-y-3">
-                      <span>{`${accessory.title} auswählen`}</span>
-                      <Select
-                        value={selectedAccessoryVariants[accessory.id] || ""}
-                        onValueChange={(value: string) =>
-                          setSelectedAccessoryVariants((prev) => ({
-                            ...prev,
-                            [accessory.id]: value,
-                          }))
-                        }
-                      >
-                        <Select.Trigger className="text-sm">
-                          <Select.Value placeholder="Nicht mitbestellen" />
-                        </Select.Trigger>
-                        <Select.Content>
-                          {accessory.variants?.map((variant) => (
-                            <Select.Item key={variant.id} value={variant.id}>
-                              {variant.title}{" "}
-                              {variant.calculated_price &&
-                                `(+${variant.calculated_price.calculated_amount})`}
-                            </Select.Item>
-                          ))}
-                        </Select.Content>
-                      </Select>
-                    </div>
-                  ))}
-                </div>
+                <AccessorySelect
+                  accessoryProducts={accessoryProducts}
+                  selectedAccessoryVariants={selectedAccessoryVariants}
+                  onAccessoryVariantChange={handleAccessoryChange}
+                />
               )}
               <Divider />
             </div>
@@ -243,6 +230,8 @@ export default function ProductActions({
           show={!inView}
           optionsDisabled={!!disabled || isAdding}
           accessoryProducts={accessoryProducts}
+          selectedAccessoryVariants={selectedAccessoryVariants}
+          onAccessoryVariantChange={handleAccessoryChange}
         />
       </div>
     </>

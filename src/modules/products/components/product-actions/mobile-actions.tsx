@@ -1,4 +1,4 @@
-import { Dialog, Transition, Select } from "@headlessui/react"; // Added Select import if necessary
+import { Dialog, Transition } from "@headlessui/react"; // removed unused Select import
 import { Button, clx, Select as SelectUI } from "@medusajs/ui";
 import React, { Fragment, useMemo, useState } from "react";
 
@@ -13,8 +13,7 @@ import {
   getTotalPricing,
 } from "@lib/util/get-product-price"; // New imports
 import KontaktFormularDialog from "../sondermasse-dialog";
-import { addToCart } from "@lib/data/cart";
-import { useRouter, useParams } from "next/navigation";
+import AccessorySelect from "@modules/products/components/product-actions/accessory-select";
 
 type MobileActionsProps = {
   product: HttpTypes.StoreProduct;
@@ -22,11 +21,13 @@ type MobileActionsProps = {
   options: Record<string, string | undefined>;
   updateOptions: (title: string, value: string) => void;
   inStock?: boolean;
-  handleAddToCart: () => void;
   isAdding?: boolean;
   show: boolean;
   optionsDisabled: boolean;
-  accessoryProducts?: HttpTypes.StoreProduct[]; // New accessoryProducts prop
+  accessoryProducts?: HttpTypes.StoreProduct[];
+  handleAddToCart: () => void;
+  selectedAccessoryVariants: Record<string, string>;
+  onAccessoryVariantChange: (accessoryId: string, variantId: string) => void;
 };
 
 const MobileActions: React.FC<MobileActionsProps> = ({
@@ -35,21 +36,15 @@ const MobileActions: React.FC<MobileActionsProps> = ({
   options,
   updateOptions,
   inStock,
-  // Remove handleAddToCart prop usage
-  // handleAddToCart,
   isAdding,
   show,
   optionsDisabled,
   accessoryProducts,
+  handleAddToCart,
+  selectedAccessoryVariants,
+  onAccessoryVariantChange,
 }) => {
   const { state, open, close } = useToggleState();
-  const router = useRouter();
-  const countryCode = useParams().countryCode as string;
-
-  // Local state for accessory variants selection
-  const [selectedAccessoryVariants, setSelectedAccessoryVariants] = useState<
-    Record<string, string>
-  >({});
 
   // New: Compute pricing the same way as in desktop version
   const productsForPrice =
@@ -80,29 +75,6 @@ const MobileActions: React.FC<MobileActionsProps> = ({
   const handleOptionUpdate = (title: string, value: string) => {
     updateOptions(title, value);
     close();
-  };
-
-  // NEW: Local handle function replicating ProductActions' add-to-cart behavior
-  const handleMobileAddToCart = async () => {
-    if (!variant?.id) return;
-    await addToCart({
-      variantId: variant.id,
-      quantity: 1,
-      countryCode,
-    });
-    if (accessoryProducts && accessoryProducts.length > 0) {
-      for (const accessory of accessoryProducts) {
-        const accessoryVariantId = selectedAccessoryVariants[accessory.id];
-        if (accessoryVariantId) {
-          await addToCart({
-            variantId: accessoryVariantId,
-            quantity: 1,
-            countryCode,
-          });
-        }
-      }
-    }
-    router.push(`/${countryCode}/checkout?step=address`);
   };
 
   return (
@@ -151,47 +123,12 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                       </div>
                     )}
                   </div>
-                  {/* NEW: Accessory dropdowns displayed outside the popup */}
-                  {accessoryProducts && accessoryProducts.length > 0 && (
-                    <div className="flex flex-col gap-y-4">
-                      {accessoryProducts.map((accessory) => (
-                        <div
-                          key={accessory.id}
-                          className="flex flex-col gap-y-1"
-                        >
-                          <span className="text-sm">{`${accessory.title} auswählen`}</span>
-                          <SelectUI
-                            value={
-                              selectedAccessoryVariants[accessory.id] || ""
-                            }
-                            onValueChange={(value: string) =>
-                              setSelectedAccessoryVariants((prev) => ({
-                                ...prev,
-                                [accessory.id]: value,
-                              }))
-                            }
-                          >
-                            <SelectUI.Trigger className="text-sm">
-                              <SelectUI.Value placeholder="Nicht mitbestellen" />
-                            </SelectUI.Trigger>
-                            <SelectUI.Content>
-                              {accessory.variants?.map((variant) => (
-                                <SelectUI.Item
-                                  key={variant.id}
-                                  value={variant.id}
-                                >
-                                  {variant.title}{" "}
-                                  {variant.calculated_price &&
-                                    `(+${variant.calculated_price.calculated_amount})`}
-                                </SelectUI.Item>
-                              ))}
-                            </SelectUI.Content>
-                          </SelectUI>
-                        </div>
-                      ))}
-                    </div>
-                  )}
                 </div>
+                <AccessorySelect
+                  accessoryProducts={accessoryProducts}
+                  selectedAccessoryVariants={selectedAccessoryVariants}
+                  onAccessoryVariantChange={onAccessoryVariantChange}
+                />
                 <div className="grid w-full grid-cols-2 gap-x-4">
                   <Button
                     onClick={open}
@@ -209,8 +146,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                     </div>
                   </Button>
                   <Button
-                    // Updated handler call:
-                    onClick={handleMobileAddToCart}
+                    onClick={handleAddToCart}
                     disabled={!inStock || !variant}
                     className="w-full"
                     isLoading={isAdding}
@@ -275,7 +211,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                             <OptionSelect
                               option={option}
                               current={options[option.title ?? ""]}
-                              updateOption={handleOptionUpdate} // Updated callback
+                              updateOption={handleOptionUpdate}
                               title={option.title ?? ""}
                               disabled={optionsDisabled}
                             />
