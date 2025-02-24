@@ -3,14 +3,14 @@
 import { useEffect, useState } from "react";
 import * as CookieConsent from "vanilla-cookieconsent";
 import "vanilla-cookieconsent/dist/cookieconsent.css";
-import PixelInit from "./PixelInit"; // import the PixelInit component
+import PixelInit from "./PixelInit";
 
-// Renamed from RunCookieConstent to RunCookieConsent
 export default function RunCookieConsent() {
   const [analyticsAccepted, setAnalyticsAccepted] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+
     CookieConsent.run({
       categories: {
         necessary: {
