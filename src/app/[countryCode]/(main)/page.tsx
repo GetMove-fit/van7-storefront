@@ -14,6 +14,7 @@ import BannerNeu from "/public/banner-neu.jpg";
 import { Parallax } from "@modules/home/components/hero/parallax";
 import Installation from "@modules/home/components/installation";
 import VideoBackground from "/public/video-background.png";
+import Kontakt from "@modules/home/components/kontakt";
 
 export const metadata: Metadata = {
   title: "Das flexibelste Campingbett für deinen Camper",
@@ -57,7 +58,8 @@ export default async function Home(props: {
           muted
           autoPlay
           loop
-          className="absolute left-1/2 top-4 h-full -translate-x-1/2 transform pb-10 xl:pb-40"
+          controls
+          className="absolute left-1/2 h-full -translate-x-1/2 transform xl:pb-40"
         />
       </div>
 
@@ -76,6 +78,8 @@ export default async function Home(props: {
       <OptimiertSection />
 
       <Installation />
+
+      <Kontakt />
 
       {/* <FollowUsSection/> */}
     </div>
