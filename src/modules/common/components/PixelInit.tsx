@@ -4,6 +4,8 @@ import ReactPixel from "react-facebook-pixel";
 
 export default function PixelInit() {
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     ReactPixel.init(process.env.PIXEL_ID ?? "");
     ReactPixel.pageView();
     console.log("Pixel initialized");

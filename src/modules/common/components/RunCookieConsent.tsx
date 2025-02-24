@@ -10,6 +10,7 @@ export default function RunCookieConsent() {
   const [analyticsAccepted, setAnalyticsAccepted] = useState(false);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     CookieConsent.run({
       categories: {
         necessary: {
