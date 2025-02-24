@@ -6,15 +6,15 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 export default function KontaktFormular() {
   return (
     <form
-      action="https://formspree.io/f/xqaeobav"
+      action="https://formsubmit.co/info@van7.at"
       method="POST"
       className="flex max-w-lg flex-col gap-y-5"
     >
-      <Input label="Name" name="full_name" required autoComplete="name" />
+      <Input label="Name" name="Name" required autoComplete="name" />
 
       <Input
         label="Telefonnummer"
-        name="phone"
+        name="Telefonnummer"
         type="tel"
         required
         autoComplete="tel"
@@ -22,13 +22,13 @@ export default function KontaktFormular() {
 
       <Input
         label="E-Mail"
-        name="email"
+        name="E-Mail"
         type="email"
         required
         autoComplete="email"
       />
 
-      <Textarea name="message" required className="h-40" />
+      <Textarea name="Nachricht" required className="h-40" />
 
       <label className="flex w-full flex-wrap items-center gap-x-2 text-lg">
         <Checkbox required />
