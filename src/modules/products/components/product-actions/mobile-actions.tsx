@@ -13,6 +13,8 @@ import {
   getTotalPricing,
 } from "@lib/util/get-product-price"; // New imports
 import KontaktFormularDialog from "../sondermasse-dialog";
+import { addToCart } from "@lib/data/cart";
+import { useRouter, useParams } from "next/navigation";
 
 type MobileActionsProps = {
   product: HttpTypes.StoreProduct;
@@ -33,13 +35,16 @@ const MobileActions: React.FC<MobileActionsProps> = ({
   options,
   updateOptions,
   inStock,
-  handleAddToCart,
+  // Remove handleAddToCart prop usage
+  // handleAddToCart,
   isAdding,
   show,
   optionsDisabled,
   accessoryProducts,
 }) => {
   const { state, open, close } = useToggleState();
+  const router = useRouter();
+  const countryCode = useParams().countryCode as string;
 
   // Local state for accessory variants selection
   const [selectedAccessoryVariants, setSelectedAccessoryVariants] = useState<
@@ -77,8 +82,29 @@ const MobileActions: React.FC<MobileActionsProps> = ({
     close();
   };
 
-  // Remove old price fetching logic
-  // ...existing code for header UI...
+  // NEW: Local handle function replicating ProductActions' add-to-cart behavior
+  const handleMobileAddToCart = async () => {
+    if (!variant?.id) return;
+    await addToCart({
+      variantId: variant.id,
+      quantity: 1,
+      countryCode,
+    });
+    if (accessoryProducts && accessoryProducts.length > 0) {
+      for (const accessory of accessoryProducts) {
+        const accessoryVariantId = selectedAccessoryVariants[accessory.id];
+        if (accessoryVariantId) {
+          await addToCart({
+            variantId: accessoryVariantId,
+            quantity: 1,
+            countryCode,
+          });
+        }
+      }
+    }
+    router.push(`/${countryCode}/checkout?step=address`);
+  };
+
   return (
     <>
       <div
@@ -183,7 +209,8 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                     </div>
                   </Button>
                   <Button
-                    onClick={handleAddToCart}
+                    // Updated handler call:
+                    onClick={handleMobileAddToCart}
                     disabled={!inStock || !variant}
                     className="w-full"
                     isLoading={isAdding}
