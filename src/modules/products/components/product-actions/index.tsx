@@ -11,6 +11,7 @@ import { useRouter, useParams } from "next/navigation"; // Modified import
 import { useEffect, useMemo, useRef, useState } from "react";
 import ProductPrice from "../product-price";
 import MobileActions from "./mobile-actions";
+import KontaktFormularDialog from "../sondermasse-dialog";
 
 type ProductActionsProps = {
   product: HttpTypes.StoreProduct;
@@ -120,6 +121,27 @@ export default function ProductActions({
     router.push(`/${countryCode}/checkout?step=address`);
   };
 
+  // New conditional: if there are no variants, render minimal UI
+  if (!product.variants || product.variants.length === 0) {
+    return (
+      <>
+        <KontaktFormularDialog typ="Anfrage" />
+        <MobileActions
+          product={product}
+          variant={undefined}
+          options={{}}
+          updateOptions={() => {}}
+          inStock={true}
+          handleAddToCart={() => {}}
+          isAdding={false}
+          show={true}
+          optionsDisabled={false}
+          accessoryProducts={[]}
+        />
+      </>
+    );
+  }
+
   return (
     <>
       <div className="flex flex-col gap-y-2" ref={actionsRef}>
@@ -207,6 +229,9 @@ export default function ProductActions({
               ? "Ausverkauft"
               : "Jetzt bestellen"}
         </Button>
+
+        <KontaktFormularDialog />
+
         <MobileActions
           product={product}
           variant={selectedVariant}

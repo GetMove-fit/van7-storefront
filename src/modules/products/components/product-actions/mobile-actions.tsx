@@ -12,6 +12,7 @@ import {
   getCheapestVariantPricing,
   getTotalPricing,
 } from "@lib/util/get-product-price"; // New imports
+import KontaktFormularDialog from "../sondermasse-dialog";
 
 type MobileActionsProps = {
   product: HttpTypes.StoreProduct;
@@ -70,6 +71,12 @@ const MobileActions: React.FC<MobileActionsProps> = ({
     return getCheapestVariantPricing(product);
   }, [product, accessoryProducts, variant, selectedAccessoryVariants]);
 
+  // New: Wrapper to update option and close dialog if "Größe" is selected
+  const handleOptionUpdate = (title: string, value: string) => {
+    updateOptions(title, value);
+    close();
+  };
+
   // Remove old price fetching logic
   // ...existing code for header UI...
   return (
@@ -93,91 +100,106 @@ const MobileActions: React.FC<MobileActionsProps> = ({
             className="text-large-regular flex h-full w-full flex-col items-center justify-center gap-y-3 border-t border-gray-200 bg-white p-4"
             data-testid="mobile-actions"
           >
-            <div className="flex flex-col gap-y-2">
-              <div className="flex items-center gap-x-2">
-                <span data-testid="mobile-title">{product.title}</span>
-                {price && (
-                  <div className="flex items-end gap-x-2 text-ui-fg-base">
-                    {price.discount_percent > 0 && (
-                      <p>
-                        <span className="text-small-regular line-through">
-                          {price.original_brutto_format}
+            {product.variants && product.variants.length > 0 ? (
+              <>
+                <div className="flex w-full flex-col gap-y-2">
+                  <div className="flex items-center justify-between gap-x-2">
+                    <span data-testid="mobile-title">{product.title}</span>
+                    {price && (
+                      <div className="flex items-end gap-x-2 text-ui-fg-base">
+                        {price.discount_percent > 0 && (
+                          <p>
+                            <span className="text-small-regular line-through">
+                              {price.original_brutto_format}
+                            </span>
+                          </p>
+                        )}
+                        <span
+                          className={clx({
+                            "text-ui-fg-interactive":
+                              price.discount_percent > 0,
+                          })}
+                        >
+                          {price.brutto_format}
                         </span>
-                      </p>
+                      </div>
                     )}
-                    <span
-                      className={clx({
-                        "text-ui-fg-interactive": price.discount_percent > 0,
-                      })}
-                    >
-                      {price.brutto_format}
-                    </span>
                   </div>
-                )}
-              </div>
-              {/* NEW: Accessory dropdowns displayed outside the popup */}
-              {accessoryProducts && accessoryProducts.length > 0 && (
-                <div className="flex flex-col gap-y-4">
-                  {accessoryProducts.map((accessory) => (
-                    <div key={accessory.id} className="flex flex-col gap-y-1">
-                      <span className="text-sm">{`${accessory.title} auswählen`}</span>
-                      <SelectUI
-                        value={selectedAccessoryVariants[accessory.id] || ""}
-                        onValueChange={(value: string) =>
-                          setSelectedAccessoryVariants((prev) => ({
-                            ...prev,
-                            [accessory.id]: value,
-                          }))
-                        }
-                      >
-                        <SelectUI.Trigger className="text-sm">
-                          <SelectUI.Value placeholder="Nicht mitbestellen" />
-                        </SelectUI.Trigger>
-                        <SelectUI.Content>
-                          {accessory.variants?.map((variant) => (
-                            <SelectUI.Item key={variant.id} value={variant.id}>
-                              {variant.title}{" "}
-                              {variant.calculated_price &&
-                                `(+${variant.calculated_price.calculated_amount})`}
-                            </SelectUI.Item>
-                          ))}
-                        </SelectUI.Content>
-                      </SelectUI>
+                  {/* NEW: Accessory dropdowns displayed outside the popup */}
+                  {accessoryProducts && accessoryProducts.length > 0 && (
+                    <div className="flex flex-col gap-y-4">
+                      {accessoryProducts.map((accessory) => (
+                        <div
+                          key={accessory.id}
+                          className="flex flex-col gap-y-1"
+                        >
+                          <span className="text-sm">{`${accessory.title} auswählen`}</span>
+                          <SelectUI
+                            value={
+                              selectedAccessoryVariants[accessory.id] || ""
+                            }
+                            onValueChange={(value: string) =>
+                              setSelectedAccessoryVariants((prev) => ({
+                                ...prev,
+                                [accessory.id]: value,
+                              }))
+                            }
+                          >
+                            <SelectUI.Trigger className="text-sm">
+                              <SelectUI.Value placeholder="Nicht mitbestellen" />
+                            </SelectUI.Trigger>
+                            <SelectUI.Content>
+                              {accessory.variants?.map((variant) => (
+                                <SelectUI.Item
+                                  key={variant.id}
+                                  value={variant.id}
+                                >
+                                  {variant.title}{" "}
+                                  {variant.calculated_price &&
+                                    `(+${variant.calculated_price.calculated_amount})`}
+                                </SelectUI.Item>
+                              ))}
+                            </SelectUI.Content>
+                          </SelectUI>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  )}
                 </div>
-              )}
-            </div>
-            <div className="grid w-full grid-cols-2 gap-x-4">
-              <Button
-                onClick={open}
-                variant="secondary"
-                className="w-full"
-                data-testid="mobile-actions-button"
-              >
-                <div className="flex w-full items-center justify-between">
-                  <span>
-                    {variant
-                      ? Object.values(options).join(" / ")
-                      : "Größe auswählen"}
-                  </span>
-                  <ChevronDown />
+                <div className="grid w-full grid-cols-2 gap-x-4">
+                  <Button
+                    onClick={open}
+                    variant="secondary"
+                    className="w-full"
+                    data-testid="mobile-actions-button"
+                  >
+                    <div className="flex w-full items-center justify-between">
+                      <span>
+                        {variant
+                          ? Object.values(options).join(" / ")
+                          : "Größe auswählen"}
+                      </span>
+                      <ChevronDown />
+                    </div>
+                  </Button>
+                  <Button
+                    onClick={handleAddToCart}
+                    disabled={!inStock || !variant}
+                    className="w-full"
+                    isLoading={isAdding}
+                    data-testid="mobile-cart-button"
+                  >
+                    {!variant
+                      ? "Bitte Variante auswählen"
+                      : !inStock
+                        ? "Ausverkauft"
+                        : "Jetzt bestellen"}
+                  </Button>
                 </div>
-              </Button>
-              <Button
-                onClick={handleAddToCart}
-                disabled={!inStock || !variant}
-                className="w-full"
-                isLoading={isAdding}
-                data-testid="mobile-cart-button"
-              >
-                {!variant
-                  ? "Bitte Variante auswählen"
-                  : !inStock
-                    ? "Ausverkauft"
-                    : "Jetzt bestellen"}
-              </Button>
-            </div>
+              </>
+            ) : (
+              <KontaktFormularDialog typ="Anfrage" />
+            )}
           </div>
         </Transition>
       </div>
@@ -226,7 +248,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                             <OptionSelect
                               option={option}
                               current={options[option.title ?? ""]}
-                              updateOption={updateOptions}
+                              updateOption={handleOptionUpdate} // Updated callback
                               title={option.title ?? ""}
                               disabled={optionsDisabled}
                             />
