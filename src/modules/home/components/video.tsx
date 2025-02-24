@@ -180,6 +180,8 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
         onTimeUpdate={handleTimeUpdate}
         onMouseEnter={() => setVideoHovered(true)}
         onMouseLeave={() => setVideoHovered(false)}
+        onTouchStart={() => setVideoHovered(true)} // added for mobile hold pause
+        onTouchEnd={() => setVideoHovered(false)} // added for mobile hold resume
         src="/videos/NeueSerie.mp4"
         playsInline
         webkit-playsinline="true"
