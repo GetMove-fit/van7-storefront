@@ -17,18 +17,17 @@ const Register = ({ setCurrentView }: Props) => {
 
   return (
     <div
-      className="max-w-sm flex flex-col items-center"
+      className="flex max-w-sm flex-col items-center"
       data-testid="register-page"
     >
-      <h1 className="text-large-semi uppercase mb-6">
-        Become a Medusa Store Member
+      <h1 className="text-large-semi mb-6 uppercase">
+        Werde Mitglied bei VAN7
       </h1>
-      <p className="text-center text-base-regular text-ui-fg-base mb-4">
-        Create your Medusa Store Member profile, and get access to an enhanced
-        shopping experience.
+      <p className="text-base-regular mb-4 text-center text-ui-fg-base">
+        Erstelle ein Konto wenn du mit Banüberweisung zahlen möchtest.
       </p>
-      <form className="w-full flex flex-col" action={formAction}>
-        <div className="flex flex-col w-full gap-y-2">
+      <form className="flex w-full flex-col" action={formAction}>
+        <div className="flex w-full flex-col gap-y-2">
           <Input
             label="First name"
             name="first_name"
@@ -73,34 +72,28 @@ const Register = ({ setCurrentView }: Props) => {
         </div>
         <ErrorMessage error={message} data-testid="register-error" />
 
-        <span className="text-center text-ui-fg-base text-small-regular mt-6">
-          By creating an account, you agree to Medusa Store&apos;s{" "}
-          <LocalizedClientLink
-            href="/content/privacy-policy"
-            className="underline"
-          >
-            Privacy Policy
+        <span className="text-small-regular mt-6 text-center text-ui-fg-base">
+          Wenn du dein Konto erstellt, bist du einvertanden mit der{" "}
+          <LocalizedClientLink href="/datenschutz" className="link">
+            Datenschutzerklärung
           </LocalizedClientLink>{" "}
-          and{" "}
-          <LocalizedClientLink
-            href="/content/terms-of-use"
-            className="underline"
-          >
-            Terms of Use
+          und{" "}
+          <LocalizedClientLink href="/agb" className="link">
+            AGB
           </LocalizedClientLink>
           .
         </span>
-        <SubmitButton className="w-full mt-6" data-testid="register-button">
+        <SubmitButton className="mt-6 w-full" data-testid="register-button">
           Join
         </SubmitButton>
       </form>
-      <span className="text-center text-ui-fg-base text-small-regular mt-6">
-        Already a member?{" "}
+      <span className="text-small-regular mt-6 text-center text-ui-fg-base">
+        Schon Mitglied?{" "}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
           className="underline"
         >
-          Sign in
+          Anmelden
         </button>
         .
       </span>
