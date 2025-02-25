@@ -7,7 +7,6 @@ import ProductTabs from "@modules/products/components/product-tabs";
 import ProductInfo from "@modules/products/templates/product-info";
 import { notFound } from "next/navigation";
 import { HttpTypes } from "@medusajs/types";
-import VorteileListe from "@modules/home/components/hero/vorteile";
 import CountrySelect from "@modules/layout/components/country-select";
 import VideoBackground from "/public/video-background.png";
 
@@ -35,13 +34,19 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
       >
         <div className="flex w-full flex-col gap-y-6 py-8 small:sticky small:top-48 small:max-w-[300px] small:py-0">
           <ProductInfo product={product} />
-          <ProductTabs product={product} />
           <div className="max-sm:hidden">
-            <VorteileListe small={true} />
+            <ProductTabs product={product} />
           </div>
+          {/* <div className="max-sm:hidden">
+            <VorteileListe small={true} />
+          </div> */}
         </div>
         <div className="relative block w-full">
           <ImageGallery images={product?.images || []} />
+        </div>
+
+        <div className="sm:hidden">
+          <ProductTabs product={product} />
         </div>
 
         <div className="flex w-full flex-col gap-y-12 py-8 small:sticky small:top-48 small:max-w-[300px] small:py-0">
