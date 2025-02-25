@@ -27,7 +27,21 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
 
   const paymentSession = cart.payment_collection?.payment_sessions?.[0];
 
+  const onPaymentCompleted = async () => {
+    await placeOrder();
+  };
+
   switch (true) {
+    case paymentSession?.data?.bank_transfer:
+      return (
+        <Button
+          onClick={onPaymentCompleted}
+          size="large"
+          data-testid={dataTestId}
+        >
+          Bestellung aufgeben
+        </Button>
+      );
     case isStripe(paymentSession?.provider_id):
       return (
         <StripePaymentButton

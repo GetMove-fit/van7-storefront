@@ -11,9 +11,11 @@ import {
   getCacheTag,
   getCartId,
   removeCartId,
+  setAuthToken,
   setCartId,
 } from "./cookies";
 import { getRegion } from "./regions";
+import { signup } from "./customer";
 
 /**
  * Retrieves a cart by its ID. If no ID is provided, it will use the cart ID from the cookies.
@@ -224,11 +226,15 @@ export async function initiatePaymentSession(
   cart: HttpTypes.StoreCart,
   data: {
     provider_id: string;
-    context?: Record<string, unknown>;
+    data?: Record<string, unknown>;
   }
 ) {
   const headers = {
     ...(await getAuthHeaders()),
+  };
+
+  data.data = {
+    cart_id: cart.id,
   };
 
   return sdk.store.payment
@@ -237,6 +243,56 @@ export async function initiatePaymentSession(
       const cartCacheTag = await getCacheTag("carts");
       revalidateTag(cartCacheTag);
       return resp;
+    })
+    .catch(medusaError);
+}
+
+/**
+ * Sets the bank_transfer property in the payment session context
+ * @param selected - Whether to enable or disable bank transfer
+ * @returns A promise that resolves when the payment session is updated
+ */
+export async function setBankTransferPaymentOption(selected: boolean) {
+  const cartId = await getCartId();
+
+  if (!cartId) {
+    throw new Error("No existing cart found");
+  }
+
+  const headers = {
+    ...(await getAuthHeaders()),
+  };
+
+  // Get the current cart
+  const cart = await retrieveCart(cartId);
+
+  if (!cart) {
+    throw new Error("Cart not found");
+  }
+
+  if (!cart?.payment_collection?.payment_sessions?.length) {
+    throw new Error("No payment sessions found in payment collection");
+  }
+
+  // Find the payment session to update
+  const paymentSession = cart.payment_collection.payment_sessions[0];
+
+  // Update the payment session with the bank_transfer setting
+  return sdk.client
+    .fetch(`/store/payment-sessions/${paymentSession.id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        ...headers,
+      },
+      body: {
+        bank_transfer: selected,
+      },
+    })
+    .then(async () => {
+      console.log("Bank transfer option updated");
+      const cartCacheTag = await getCacheTag("carts");
+      revalidateTag(cartCacheTag);
     })
     .catch(medusaError);
 }

@@ -8,6 +8,8 @@ const Bank = () => {
       y="0px"
       viewBox="0 0 48 48"
       enable-background="new 0 0 48 48"
+      width="40px"
+      height="40px"
     >
       <g>
         <rect x="7" y="19.06" width="10" height="2" />
