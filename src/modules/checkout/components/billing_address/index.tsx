@@ -111,7 +111,6 @@ const BillingAddress = ({ cart }: { cart: HttpTypes.StoreCart | null }) => {
           autoComplete="tel"
           value={formData["billing_address.phone"]}
           onChange={handleChange}
-          required
           data-testid="billing-phone-input"
         />
       </div>
