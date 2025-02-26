@@ -5,7 +5,7 @@ import {
   initiatePaymentSession,
   setBankTransferPaymentOption,
 } from "@lib/data/cart";
-import { CheckCircleSolid, CreditCard } from "@medusajs/icons";
+import { CheckCircleSolid, CreditCard, Spinner } from "@medusajs/icons";
 import { Button, Container, Heading, Text, clx } from "@medusajs/ui";
 import ErrorMessage from "@modules/checkout/components/error-message";
 import { StripeContext } from "@modules/checkout/components/payment-wrapper/stripe-wrapper";
@@ -33,6 +33,7 @@ const Payment = ({
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<string>();
   const [isBankTransferSelected, setIsBankTransferSelected] = useState(false);
   const [paymentFormValid, setPaymentFormValid] = useState(false);
+  const [isPaymentElementLoading, setIsPaymentElementLoading] = useState(true);
 
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -103,8 +104,12 @@ const Payment = ({
   const handlePaymentElementChange = async (
     event: StripePaymentElementChangeEvent
   ) => {
-    console.log("bank", isBankTransferSelected);
     if (!isOpen && isBankTransferSelected) return;
+
+    // Ignore payment element changes during loading if bank transfer is selected
+    if (isPaymentElementLoading && isBankTransferSelected) {
+      return;
+    }
 
     if (!!event.value.type) {
       console.log("Payment method selected:", event.value.type);
@@ -230,11 +235,17 @@ const Payment = ({
                   </div>
                 </div>
 
+                {isPaymentElementLoading && (
+                  <Spinner className="animate-spin" />
+                )}
+
                 <div
                   className={`mt-5 transition-all duration-150 ease-in-out ${isBankTransferSelected ? "opacity-50" : ""}`}
                 >
                   <PaymentElement
                     onChange={handlePaymentElementChange}
+                    onLoaderStart={() => setIsPaymentElementLoading(true)}
+                    onReady={() => setIsPaymentElementLoading(false)}
                     options={{
                       layout: "accordion",
                     }}
