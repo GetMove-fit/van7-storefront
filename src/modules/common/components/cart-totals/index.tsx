@@ -55,8 +55,8 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
         )}
         <div className="flex justify-between">
           <span className="flex items-center gap-x-1">MwSt.</span>
-          <span data-testid="cart-taxes" data-value={calculatedTax || 0}>
-            {convertToLocale({ amount: calculatedTax ?? 0, currency_code })}
+          <span data-testid="cart-taxes" data-value={tax_total || 0}>
+            {convertToLocale({ amount: tax_total ?? 0, currency_code })}
           </span>
         </div>
         <div className="flex items-center justify-between">
