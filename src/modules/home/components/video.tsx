@@ -81,26 +81,26 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
 
   const features = [
     {
-      title: "Stufenlos Höhe einstellen",
+      title: "Höhe stufenlos einstellen",
       text: "Du musst nicht mehr zwischen Komfort oder Raum entscheiden - du bekommst beides. Dank der stufenlosen Höhenverstellung kannst du das Bett mühelos mit der Kurbel auf deine Wunschhöhe einstellen. So nutzt du den Stauraum optimal für Fahrräder, Motorräder oder andere Ausrüstung und schläfst trotzdem in höchstem Komfort.",
       icon: <StufenlosIcon />,
       timestamp: 7.5,
     },
     {
       title: "Ausnivellieren",
-      text: "Egal, wie uneben das Gelände ist - das Van7 Hubbett passt sich mühelos deinen Bedürfnissen an. Mit der flexiblen Gurtfixierung kannst du das Bett an allen vier Ecken individuell ausnivellieren, sodass du immer in einer perfekten, waagerechten Position schläfst. Wähle deinen Schlafplatz frei, ohne dabei auf Komfort verzichten zu müssen, und genieße erholsame Nächte, wo immer du parkst.",
+      text: "Egal, wie uneben das Gelände ist - das Van7 Hubbett passt sich deinen Bedürfnissen an. Mit der flexiblen Gurtfixierung kannst du das Bett an allen vier Ecken individuell ausnivellieren, sodass du immer in einer komfortablen, waagerechten Position schläfst. Wähle deinen Schlafplatz frei, und genieße erholsame Nächte, wo immer du parkst.",
       icon: <WaagrechtIcon />,
       timestamp: 16,
     },
     {
       title: "An der Wand fixieren",
-      text: "Im Gegensatz zu herkömmlichen Lösungen kommt unser Hubbett komplett ohne störende Führungsschienen aus. Mithilfe unseres patentierten Seilzugsystems wird das Bett sicher an die Seitenwand deines Fahrzeugs fixiert, sodass es weder wackelt noch schwankt - egal, auf welchem Untergrund du parkst.",
+      text: "Im Gegensatz zu herkömmlichen Lösungen kommt unser Hubbett komplett ohne störende Führungsschienen aus. Mit unserer patentierten Fixierfunktion wird das Bett fest an die Seitenwand gezogen, sodass es weder wackelt noch schwankt.",
       icon: <StabilFixiertIcon />,
       timestamp: 28,
     },
     {
       title: "Lattenrost ausziehen",
-      text: "Bisher war die Breite deines Fahrzeugs nur ein Richtwert - jetzt kannst du sie endlich voll ausnutzen! Mit der neuen Verbreiterungs-Funktion kannst du den Lattenrost einfach ausziehen und so die komplette Fahrzeugbreite für dein Bett nutzen.",
+      text: "Platz für drei Personen? Kein Problem. Nutze die gesamte Breite des Fahrzeuges mit den optionalen Auszug auf maximal 190 cm Breite.",
       icon: <LattenrostIcon />,
       timestamp: 31,
     },

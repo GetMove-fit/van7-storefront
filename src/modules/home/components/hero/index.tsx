@@ -20,18 +20,18 @@ const Hero = () => {
           <h1 className="3xl:text-9xl whitespace-nowrap font-title text-[40px] uppercase leading-none sm:text-5xl sm:text-[60px] 2xl:text-[80px]">
             Das Hubbett
             <br />
-            mit dem höchsten
+            mit dem höchsten Komfort
             <br />
-            Komfort & Raumnutzung
+            & der besten Raumnutzung
             <br />
           </h1>
 
           <p className="hidden sm:block">
-            Stelle die perfekte Höhe ein und hol das Beste aus deinem Raum
+            Stelle die perfekte Höhe ein und hole das Beste aus deinem Raum
             heraus.
             <br />
-            Ausnivellieren und Schlafkomfort genießen wie Zuhause - egal wo du
-            parkst.
+            Ausnivellieren und Schlafkomfort genießen wie Zuhause - egal wie
+            schräg dein Fahrzeug steht.
           </p>
         </div>
 

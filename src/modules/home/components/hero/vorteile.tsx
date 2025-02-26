@@ -9,11 +9,11 @@ const VorteileListe = ({ small }: { small: boolean }) => (
   >
     <div className="flex items-center gap-x-1 sm:gap-x-2.5">
       <Check />
-      Aufbauen und verstauen innerhalb von Sekunden
+      Abgesenkt und verstaut innerhalb von Sekunden
     </div>
     <div className="flex items-center gap-x-1 sm:gap-x-2.5">
       <Check />
-      Stabil fixierbar, kein Schwingen oder Schwanken
+      Stabil fixierbar, kein Schwingen oder Schaukeln
     </div>
     <div className="flex items-center gap-x-1 sm:gap-x-2.5">
       <Check />

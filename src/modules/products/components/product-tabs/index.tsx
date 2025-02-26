@@ -14,13 +14,13 @@ type ProductTabsProps = {
 const ProductTabs = ({ product }: ProductTabsProps) => {
   const tabs = [
     {
-      label: "Einzigartigen Campingkomfort",
+      label: "Einzigartiger Campingkomfort",
       component: (
         <p>
           Was unsere Kunden am meisten lieben ist die einzigartige
           Nivellierfunktion, womit man bei jedem noch so schrägen Campingplatz
           mit einem Zug das Bett in eine waagrechte Position bringt und somit so
-          Komfortabel wie Zuhause Ruht.
+          Komfortabel wie Zuhause ruht.
         </p>
       ),
     },
@@ -28,8 +28,8 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
       label: "Patentierte Fixierfunktion",
       component: (
         <p>
-          Nur mit dieser Funktion ist es möglich ein freischwebendes Hubbett –
-          Auf deine Wunschhöhe und Neigung stabil an der Seite zu Fixieren- so
+          Nur mit dieser Funktion ist es möglich, ein freischwebendes Hubbett
+          auf deine Wunschhöhe und Neigung stabil an der Seite zu Fixieren- so
           dass das Bett NICHT schaukelt!
         </p>
       ),
@@ -42,7 +42,7 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
           sehr wichtig. Der Kurbelmechanismus ist schneller und um 17kg leichter
           als ein Elektromotor. Das VAN7 Hubbett funktioniert immer, und noch
           dazu dank unserer Fixierfunktion ohne Ablagekonstruktionen und
-          Schienen die den Raum stark beeinflussen und bei der Fahrt, Geräusche
+          Schienen die den Raum stark beeinflussen und bei der Fahrt Geräusche
           erzeugen.
         </p>
       ),
@@ -51,10 +51,10 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
       label: "Maximale Liegefläche",
       component: (
         <p>
-          Im 140cm Breiten Bett Steckt eine 190cm Breite Liegefläche. das erste
-          Hubbett Weltweit mit Lattenrostauszug. Dieser ermöglicht nach dem
+          Im 140cm breiten Bett steckt eine 190cm breite Liegefläche. Das erste
+          Hubbett weltweit mit Lattenrostauszug. Dieser ermöglicht es nach dem
           Absenken die Liegefläche auf die maximale Breite deines Fahrzeuges
-          auszuziehen. 140
+          auszuziehen.
         </p>
       ),
     },
@@ -64,7 +64,7 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
         <p>
           Wir haben bei der Konstruktion darauf geachtet, dass das Bett keine
           Geräusche während der Fahrt erzeugt, damit man die Fahrt genießen
-          kann. Bei Hubbetten mit Schienen geführt ist das umgekehrt.
+          kann.
         </p>
       ),
     },
@@ -73,11 +73,11 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
       component: (
         <p>
           Wenn du mit Akkuschrauber und Maßband umgehen kannst oder jemanden
-          kennst, ist die Installation der neuen Serie mit der mitgelieferten
-          Videoanleitung Kinderleicht. Natürlich haben wir auch Einbaupartner
-          die die Installation des Hubbettes übernehmen können. Je Nach Fahrzeug
-          gibt es die passenden Montagekonsolen. Manche Fahrzeuge wie der H2
-          Sprinter brauchen keine Montagekonsolen.
+          dazu kennst, ist die Installation der neuen Serie mit der
+          mitgelieferten Videoanleitung kinderleicht. Natürlich haben wir auch
+          Einbaupartner, die die Installation des Hubbettes übernehmen können.
+          Je nach Fahrzeug gibt es die passenden Montagekonsolen. Manche
+          Fahrzeuge wie der H2 Sprinter brauchen keine Montagekonsolen.
         </p>
       ),
     },
@@ -85,9 +85,9 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
       label: "Praktisch und Romantisch",
       component: (
         <p>
-          Die indirekt, je nach Lust und Laune dimmbare Beleuchtung gibt dir
-          eine angenehme Ambiente Beleuchtung über und unter dem Bett. Der LED
-          Streifen ist dabei in die Aluprofile sauber integriert.
+          Die indirekte, je nach Lust und Laune dimmbare Beleuchtung sorgt für
+          eine angenehme Ambiente über und unter dem Bett. Der LED Streifen ist
+          dabei in die Aluprofile sauber integriert.
         </p>
       ),
     },
@@ -95,23 +95,23 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
       label: "Sichere Gurtbefestigung",
       component: (
         <p>
-          Das VAN7 Hubbett hängt an 4x 25mm Sicherheitsgurten und Schnallen die
-          jeweils für 400daN ausgelegt sind. Das Bedeutet 1600kg – Belastung des
-          Bettes ist mit 270kg dynamisch zulässig. Jeder Gurt wird am Ende der
-          Wand am Fahrzeug mit oder ohne Montagekonsolen und 2x M6 Einziehmutter
-          befestigt. Eine Einziehmutter M6 hält bei einem Fahrzeugblech unter
-          Abscherung 4-5kN – das sind 400-500kg pro Nietmutter. Für die VAN7
-          Hubbett Gurtaufhängung werden 8 Nietmuttern am letzten Bereich der
-          Wand deines Fahrzeuges installiert.
+          Das VAN7 Hubbett hängt an 4x 25mm Sicherheitsgurten und Schnallen, die
+          jeweils für 400daN ausgelegt sind. Das bedeutet 1600kg – die Belastung
+          des Bettes ist mit 270kg dynamisch zulässig. Jede Gurtaufhängung wird
+          mit 2x M6 Einziehmutter befestigt. Eine Einziehmutter M6 hält bei
+          einem Fahrzeugblech unter Abscherung 4-5kN – das sind 400-500kg pro
+          Nietmutter. Für die VAN7 Hubbett Gurtaufhängungen werden 8
+          Einziehmuttern am letzten Bereich der Wand deines Fahrzeuges
+          installiert.
         </p>
       ),
     },
     {
-      label: "Maximalen Platz",
+      label: "Maximaler Platz",
       component: (
         <p>
-          Das VAN7 Hubbett bietet dir den Platz und den Komfort was du beim
-          Übernachten auf mobilen kleinen Raum brauchst. Ruck zuck verschwindet
+          Das VAN7 Hubbett bietet dir den Platz und den Komfort, den du beim
+          Übernachten auf mobilem kleinen Raum brauchst. Ruck zuck verschwindet
           es an der Decke und du hast mega viel Stauraum für Bikes oder für eine
           zusätzliche Sitzgruppe.
         </p>
@@ -168,7 +168,7 @@ const ProductInfoTab = ({ product }: ProductTabsProps) => {
           <span className="font-semibold">
             Maximale Absenkung von der Decke
           </span>
-          <p>130cm</p>
+          <p>170cm</p>
         </div>
         <div>
           <span className="font-semibold">Material</span>

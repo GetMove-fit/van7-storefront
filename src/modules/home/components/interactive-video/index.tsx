@@ -33,7 +33,7 @@ export default function InteractiveVideo() {
   return (
     <div className="relative flex place-self-start sm:max-lg:-mt-10 2xl:-mb-40 2xl:place-self-end">
       {currentSegment === 0 && showButton && (
-        <div className="absolute top-5 z-10 flex items-center whitespace-nowrap font-semibold italic max-sm:left-0 sm:right-[45%] sm:text-2xl 2xl:top-20">
+        <div className="absolute top-5 z-10 flex items-center whitespace-nowrap font-semibold italic max-sm:left-0 sm:right-[45%] sm:text-2xl 2xl:top-16">
           Einfach ausprobieren!
           <img
             src={Pfeil.src}

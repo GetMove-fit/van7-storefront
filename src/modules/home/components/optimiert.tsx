@@ -63,9 +63,7 @@ const OptimiertSection = () => {
             Optimierung. Durch sorgfältige Tests und kontinuierliche
             Verbesserungen über verschiedene Serien hinweg wurden zahlreiche
             Herausforderungen gelöst, wie etwa die Haltbarkeit der Zahnräder,
-            die Effizienz der Seilwinden und die Vermeidung von Verschleiß. Was
-            für dich Zeit, Geld und viele Fehler kosten würde, haben wir bereits
-            durch intensive Entwicklungsarbeit getestet und optimiert.
+            die Effizienz der Seilwinden und die Vermeidung von Verschleiß.
           </p>
         </div>
         <Timeline />

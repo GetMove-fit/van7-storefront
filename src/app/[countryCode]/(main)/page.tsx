@@ -69,7 +69,7 @@ export default async function Home(props: {
         <h2>
           Neue Serie,
           <br />
-          Neue Bettarten
+          Neue Ausbaukonzepte
         </h2>
       </ProduktSection>
 

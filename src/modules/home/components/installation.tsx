@@ -20,7 +20,7 @@ const Installation = () => {
         <div className="z-10 flex h-full flex-col items-center justify-end p-2 py-4 text-lg text-white sm:p-12 sm:text-2xl lg:pt-40">
           Installation
           <h2 className="text-center font-title text-3xl font-bold tracking-wider sm:text-5xl">
-            Installateur finden
+            Einbaupartner finden
           </h2>
           <p className="mt-5 text-center sm:mt-8">
             Sorgloser Einbau durch unsere Einbaupartner. Schnell und
@@ -50,7 +50,7 @@ const Installation = () => {
           </h2>
           <p className="mt-5 text-center sm:mt-8">
             Für viele beginnt das Abenteuer schon vor dem ersten Roadtrip.
-            Unsere Videos zeigen dir, wie du das Bett mühelos und schnell
+            Unsere Videos zeigt dir, wie du das Bett mühelos und schnell selbst
             montierst.
           </p>
           <p className="mt-4 font-bold uppercase sm:mt-8">Mehr erfahren</p>
