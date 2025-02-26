@@ -6,7 +6,7 @@ export default function Kontakt() {
   return (
     <section
       id="kontakt"
-      className="relative flex place-content-center place-items-center gap-x-8 px-5 max-sm:flex-col-reverse sm:px-10 lg:px-20 xl:px-36 2xl:px-48"
+      className="relative flex place-content-center place-items-center gap-x-8 px-5 max-lg:flex-col-reverse sm:px-10 lg:px-20 xl:px-36 2xl:px-48"
     >
       <div className="flex flex-col gap-y-10 py-5">
         <h2 className="font-title text-4xl text-grey-90 sm:text-6xl">
@@ -19,7 +19,7 @@ export default function Kontakt() {
       <Image
         src={StefanBild}
         alt="Stefan zeigt auf Hubbett"
-        className="object-cover object-top max-sm:h-96"
+        className="object-cover object-top max-lg:h-96 sm:object-center"
       />
     </section>
   );

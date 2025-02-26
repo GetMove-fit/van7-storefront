@@ -27,7 +27,7 @@ const FeatureCard = ({
 }) => (
   <AccordionPrimitive.Item
     value={title}
-    className="relative w-full"
+    className="relative w-full overflow-hidden rounded-l"
     onMouseEnter={onHoverEnter}
     onMouseLeave={onHoverLeave}
   >
@@ -41,7 +41,7 @@ const FeatureCard = ({
       </div>
     )}
     {/* Add left padding to avoid overlap with progress bar */}
-    <div className="w-full rounded-l bg-white">
+    <div className="w-full bg-white">
       <AccordionPrimitive.Header className="w-full">
         <AccordionPrimitive.Trigger className="group flex w-full items-center justify-between px-8 py-5">
           <h2
@@ -188,14 +188,14 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
         preload="metadata"
         muted
         loop
-        className="min-w-0 rounded-r"
+        className="w-full min-w-0 rounded-r"
       />
 
       <AccordionPrimitive.Root
         type="single"
         value={accordionValue}
         onValueChange={handleAccordionChange}
-        className="w-full lg:max-w-lg" // fixed accordion width
+        className="3xl:space-y-5 w-full space-y-3 lg:max-w-lg xl:max-w-xl" // fixed accordion width
       >
         {features.map((feature, index) => {
           let computedProgress = 0;

@@ -21,9 +21,9 @@ export default async function Footer() {
         height={FooterHintergrund.height}
         className="absolute h-full w-full object-cover"
       />
-      <FooterMask className="absolute w-full max-sm:h-10" />
+      <FooterMask className="absolute w-full fill-grey-10 max-sm:h-10" />
 
-      <div className="z-20 mt-10 flex max-w-sm flex-col items-center justify-center gap-y-4 text-center text-lg max-sm:px-5 sm:mt-20 sm:gap-y-8 md:absolute 2xl:max-w-md">
+      <div className="z-20 mt-10 flex max-w-sm flex-col items-center justify-center gap-y-4 text-center text-lg max-sm:px-5 sm:mt-20 sm:gap-y-8 lg:absolute 2xl:max-w-md">
         <Logo className="w-[120px] sm:w-[150px]" />
         <p>
           Das Hubbett für jede (Park)situation! Waagerecht schlafen und dennoch
@@ -113,7 +113,7 @@ export default async function Footer() {
         </div>
       </div>
 
-      <div className="absolute bottom-5 z-20 flex items-center justify-center gap-x-5 text-lg max-md:flex-col-reverse md:bottom-20">
+      <div className="absolute bottom-5 z-20 flex items-center justify-center gap-x-5 text-lg max-md:flex-col-reverse lg:bottom-20">
         <p>© {new Date().getFullYear()} VAN7</p>
         <p>
           Designed & crafted by{" "}

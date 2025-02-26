@@ -152,7 +152,7 @@ const ProductInfoTab = ({ product }: ProductTabsProps) => {
         {/* Dynamic weight */}
         <div>
           <span className="font-semibold">Gewicht</span>
-          <p>{product.weight ? `${product.weight} g` : "-"}</p>
+          <p>{product.weight ? `${product.weight} kg` : "-"}</p>
         </div>
         {/* Dynamic dimensions */}
         <div>

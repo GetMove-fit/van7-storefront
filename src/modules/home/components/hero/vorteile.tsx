@@ -4,7 +4,7 @@ import Check from "/public/check.svg";
 const VorteileListe = ({ small }: { small: boolean }) => (
   <div
     className={clx("flex flex-col", {
-      "sm:text-xl": !small,
+      "3xl:text-2xl 3xl:gap-y-3 sm:text-xl": !small,
     })}
   >
     <div className="flex items-center gap-x-1 sm:gap-x-2.5">

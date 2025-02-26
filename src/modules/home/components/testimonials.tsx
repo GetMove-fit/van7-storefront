@@ -155,7 +155,7 @@ const TestimonialsSection = () => {
             <span ref={wordRef}>{words[currentWord]}</span>
           </h2>
         </div>
-        <Quotes className="absolute translate-y-44 place-self-center max-sm:scale-50" />
+        <Quotes className="absolute translate-y-44 place-self-center opacity-50 max-sm:scale-50" />
         <div
           className="flex w-full max-w-4xl flex-col items-center overflow-hidden"
           onMouseEnter={() => setIsPaused(true)}
