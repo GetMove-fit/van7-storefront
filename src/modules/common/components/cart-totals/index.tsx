@@ -13,6 +13,7 @@ type CartTotalsProps = {
     gift_card_total?: number | null;
     currency_code: string;
     shipping_subtotal?: number | null;
+    item_subtotal?: number | null;
   };
 };
 
@@ -25,6 +26,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
     discount_total,
     gift_card_total,
     shipping_subtotal,
+    item_subtotal,
   } = totals;
 
   // Calculate tax manually if Medusa returns 0 for tax_total in tax inclusive regions.
@@ -36,8 +38,8 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
       <div className="txt-medium flex flex-col gap-y-2 text-ui-fg-subtle">
         <div className="flex items-center justify-between">
           <span className="flex items-center gap-x-1">Zwischensumme</span>
-          <span data-testid="cart-subtotal" data-value={subtotal || 0}>
-            {convertToLocale({ amount: subtotal ?? 0, currency_code })}
+          <span data-testid="cart-subtotal" data-value={item_subtotal || 0}>
+            {convertToLocale({ amount: item_subtotal ?? 0, currency_code })}
           </span>
         </div>
         {!!discount_total && (

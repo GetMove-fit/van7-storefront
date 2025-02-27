@@ -69,7 +69,7 @@ const Payment = ({
   };
 
   useEffect(() => {
-    console.log(cart.payment_collection?.payment_sessions?.[0]?.data);
+    // console.log(cart.payment_collection?.payment_sessions?.[0]?.data);
     if (cart.payment_collection?.payment_sessions?.[0]?.data.bank_transfer) {
       setSelectedPaymentMethod("banküberweisung");
       setIsBankTransferSelected(true);
