@@ -45,21 +45,17 @@ export default async function Home(props: {
       <Hero />
       <VideoSection />
 
-      <div className="relative flex content-center">
+      <div className="relative flex h-fit place-content-center">
+        <iframe
+          width="1080"
+          src="https://www.youtube.com/embed/RqGRhn8rhI8"
+          className="z-10 mb-20 mt-4 aspect-[4/3] h-fit max-w-full sm:mb-64"
+        ></iframe>
         <img
           src={VideoBackground.src}
           width={VideoBackground.width}
           height={VideoBackground.height}
-          className="w-full"
-        />
-        <video
-          src="/videos/2025.mp4"
-          preload="metadata"
-          muted
-          autoPlay
-          loop
-          controls
-          className="absolute left-1/2 h-full -translate-x-1/2 transform xl:pb-40"
+          className="absolute h-full w-full object-cover"
         />
       </div>
 
