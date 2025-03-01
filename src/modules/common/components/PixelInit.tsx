@@ -3,7 +3,8 @@ import { useEffect } from "react";
 
 export default function PixelInit() {
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || process.env.NODE_ENV === "development")
+      return;
 
     const script = document.createElement("script");
     script.id = "meta-pixel-script";
