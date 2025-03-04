@@ -18,7 +18,7 @@ export default async function PreviewPrice({ price }: { price: Pricing }) {
       )}
       <Text
         className={clx("text-base text-ui-fg-muted sm:text-xl", {
-          "text-ui-fg-interactive": price.discount_percent > 0,
+          "text-brand-content": price.discount_percent > 0,
         })}
         data-testid="price"
       >

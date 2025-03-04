@@ -49,7 +49,7 @@ export default function ProductPrice({
 
       <span
         className={clx("text-xl-semi place-self-end py-1", {
-          "text-ui-fg-interactive": pricing.discount_percent > 0,
+          "text-brand-content": pricing.discount_percent > 0,
         })}
       >
         {!variantIds[0] && "Ab "}
@@ -70,7 +70,7 @@ export default function ProductPrice({
               {pricing.original_brutto_format}
             </span>
           </p>
-          <span className="text-ui-fg-interactive">
+          <span className="text-brand-content">
             -{pricing.discount_percent}%
           </span>
         </>

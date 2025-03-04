@@ -114,8 +114,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                         )}
                         <span
                           className={clx({
-                            "text-ui-fg-interactive":
-                              price.discount_percent > 0,
+                            "text-brand-content": price.discount_percent > 0,
                           })}
                         >
                           {price.brutto_format}

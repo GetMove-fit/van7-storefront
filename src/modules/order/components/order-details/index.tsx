@@ -30,7 +30,7 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
           {new Date(order.created_at).toLocaleDateString("de-DE")}
         </span>
       </Text>
-      {/* <Text className="mt-2 text-ui-fg-interactive">
+      {/* <Text className="mt-2 text-brand-content">
         Bestellnummer: <span data-testid="order-id">{order.display_id}</span>
       </Text> */}
 

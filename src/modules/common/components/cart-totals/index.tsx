@@ -46,7 +46,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
           <div className="flex items-center justify-between">
             <span>Rabatt</span>
             <span
-              className="text-ui-fg-interactive"
+              className="text-brand-content"
               data-testid="cart-discount"
               data-value={discount_total || 0}
             >
@@ -71,7 +71,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
           <div className="flex items-center justify-between">
             <span>Geschenkkarte</span>
             <span
-              className="text-ui-fg-interactive"
+              className="text-brand-content"
               data-testid="cart-gift-card-amount"
               data-value={gift_card_total || 0}
             >

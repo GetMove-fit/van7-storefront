@@ -61,10 +61,10 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="txt-medium text-brand-content hover:text-brand-light"
+              className="txt-medium text-brand-light hover:text-brand-highlight"
               data-testid="add-discount-button"
             >
-              Promotion Code(s) hinzufügen
+              Promotionscode einlösen
             </button>
 
             {/* <Tooltip content="You can add multiple promotion codes">
@@ -104,7 +104,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
           <div className="flex w-full items-center">
             <div className="flex w-full flex-col">
               <Heading className="txt-medium mb-2">
-                Angewendete Promotion(s):
+                Angewendete Promotionen:
               </Heading>
 
               {promotions.map((promotion) => {
