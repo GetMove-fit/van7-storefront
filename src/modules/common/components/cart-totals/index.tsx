@@ -9,10 +9,9 @@ type CartTotalsProps = {
     subtotal?: number | null;
     tax_total?: number | null;
     shipping_total?: number | null;
-    discount_total?: number | null;
+    discount_subtotal?: number | null;
     gift_card_total?: number | null;
     currency_code: string;
-    shipping_subtotal?: number | null;
     item_subtotal?: number | null;
   };
 };
@@ -23,15 +22,11 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
     total,
     subtotal,
     tax_total,
-    discount_total,
+    discount_subtotal,
     gift_card_total,
-    shipping_subtotal,
+    shipping_total,
     item_subtotal,
   } = totals;
-
-  // Calculate tax manually if Medusa returns 0 for tax_total in tax inclusive regions.
-  const netSubtotal = subtotal ? subtotal - (discount_total || 0) : 0;
-  const calculatedTax = netSubtotal - netSubtotal / 1.2;
 
   return (
     <div>
@@ -42,16 +37,19 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
             {convertToLocale({ amount: item_subtotal ?? 0, currency_code })}
           </span>
         </div>
-        {!!discount_total && (
+        {!!discount_subtotal && (
           <div className="flex items-center justify-between">
             <span>Rabatt</span>
             <span
               className="text-brand-content"
               data-testid="cart-discount"
-              data-value={discount_total || 0}
+              data-value={discount_subtotal || 0}
             >
               -{" "}
-              {convertToLocale({ amount: discount_total ?? 0, currency_code })}
+              {convertToLocale({
+                amount: discount_subtotal ?? 0,
+                currency_code,
+              })}
             </span>
           </div>
         )}
@@ -63,8 +61,8 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
         </div>
         <div className="flex items-center justify-between">
           <span>Versand</span>
-          <span data-testid="cart-shipping" data-value={shipping_subtotal || 0}>
-            {convertToLocale({ amount: shipping_subtotal ?? 0, currency_code })}
+          <span data-testid="cart-shipping" data-value={shipping_total || 0}>
+            {convertToLocale({ amount: shipping_total ?? 0, currency_code })}
           </span>
         </div>
         {!!gift_card_total && (

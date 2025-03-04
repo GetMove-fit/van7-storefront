@@ -25,23 +25,22 @@ export default async function ProductPreview({
   const cheapestPrice = getCheapestVariantPricing(product);
 
   return (
-    <LocalizedClientLink href={`/produkt/${product.handle}`} className="group">
-      <div data-testid="product-wrapper">
-        <Thumbnail
-          thumbnail={product.thumbnail}
-          images={product.images}
-          size="square"
-          isFeatured={isFeatured}
-        />
+    <LocalizedClientLink
+      href={`produkt/${product.handle}`}
+      className="group flex h-full flex-col gap-y-4"
+    >
+      <Thumbnail
+        thumbnail={product.thumbnail}
+        images={product.images}
+        size="square"
+        isFeatured={isFeatured}
+      />
 
-        <div className="mt-4 flex justify-between max-sm:flex-col sm:items-end">
-          <p className="font-title text-xl uppercase leading-none text-grey-90 sm:text-3xl">
-            {product.title}
-          </p>
-          <div className="flex items-center gap-x-2">
-            {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
-          </div>
-        </div>
+      <div className="flex grow flex-col justify-between">
+        <p className="w-full font-title text-xl leading-none text-grey-90 group-hover:text-brand-content sm:text-3xl">
+          {product.title}
+        </p>
+        {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
       </div>
     </LocalizedClientLink>
   );

@@ -53,12 +53,12 @@ export function getVariantPricing({
 export function formatPricing({
   brutto,
   netto,
-  originalNetto,
+  original_netto: originalNetto,
   currency_code,
 }: {
   brutto: number;
   netto: number;
-  originalNetto: number;
+  original_netto: number;
   currency_code: string;
 }) {
   const tax = brutto - netto;
@@ -101,7 +101,7 @@ export function transformPricing(pricing: BaseCalculatedPriceSet) {
   return formatPricing({
     brutto,
     netto,
-    originalNetto: pricing.original_amount!,
+    original_netto: pricing.original_amount!,
     currency_code: pricing.currency_code!,
   });
 }
@@ -139,7 +139,7 @@ export function getTotalPricing({
   return formatPricing({
     brutto,
     netto,
-    originalNetto,
+    original_netto: originalNetto,
     currency_code:
       products[0].variants![0]?.calculated_price?.currency_code || "USD",
   });

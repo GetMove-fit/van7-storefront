@@ -7,7 +7,7 @@ export default async function PreviewPrice({ price }: { price: Pricing }) {
   }
 
   return (
-    <>
+    <div>
       {price.discount_percent > 0 && (
         <Text
           className="text-ui-fg-muted line-through"
@@ -17,13 +17,21 @@ export default async function PreviewPrice({ price }: { price: Pricing }) {
         </Text>
       )}
       <Text
-        className={clx("text-base text-ui-fg-muted sm:text-xl", {
+        className={clx("text-sm text-ui-fg-muted", {
           "text-brand-content": price.discount_percent > 0,
         })}
         data-testid="price"
       >
-        {price.netto_format}
+        ({price.netto_format} exkl. MwSt.)
       </Text>
-    </>
+      <Text
+        className={clx("text-base font-medium text-ui-fg-muted sm:text-xl", {
+          "text-brand-content": price.discount_percent > 0,
+        })}
+        data-testid="price"
+      >
+        {price.brutto_format} <span className="text-sm">(inkl. MwSt.)</span>
+      </Text>
+    </div>
   );
 }
