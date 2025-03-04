@@ -6,26 +6,24 @@ import React from "react";
 type CartTotalsProps = {
   totals: {
     total?: number | null;
-    subtotal?: number | null;
+    item_subtotal?: number | null;
     tax_total?: number | null;
-    shipping_total?: number | null;
+    shipping_subtotal?: number | null;
     discount_subtotal?: number | null;
     gift_card_total?: number | null;
     currency_code: string;
-    item_subtotal?: number | null;
   };
 };
 
 const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
   const {
-    currency_code,
     total,
-    subtotal,
+    item_subtotal,
     tax_total,
+    shipping_subtotal,
     discount_subtotal,
     gift_card_total,
-    shipping_total,
-    item_subtotal,
+    currency_code,
   } = totals;
 
   return (
@@ -35,6 +33,12 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
           <span className="flex items-center gap-x-1">Zwischensumme</span>
           <span data-testid="cart-subtotal" data-value={item_subtotal || 0}>
             {convertToLocale({ amount: item_subtotal ?? 0, currency_code })}
+          </span>
+        </div>
+        <div className="flex items-center justify-between">
+          <span>Versand</span>
+          <span data-testid="cart-shipping" data-value={shipping_subtotal || 0}>
+            {convertToLocale({ amount: shipping_subtotal ?? 0, currency_code })}
           </span>
         </div>
         {!!discount_subtotal && (
@@ -57,12 +61,6 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
           <span className="flex items-center gap-x-1">MwSt.</span>
           <span data-testid="cart-taxes" data-value={tax_total || 0}>
             {convertToLocale({ amount: tax_total ?? 0, currency_code })}
-          </span>
-        </div>
-        <div className="flex items-center justify-between">
-          <span>Versand</span>
-          <span data-testid="cart-shipping" data-value={shipping_total || 0}>
-            {convertToLocale({ amount: shipping_total ?? 0, currency_code })}
           </span>
         </div>
         {!!gift_card_total && (
