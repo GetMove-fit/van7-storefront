@@ -1,6 +1,6 @@
 "use client";
 
-import { setAddresses } from "@lib/data/cart";
+import { setAddresses, setDefaultShippingMethod } from "@lib/data/cart";
 import compareAddresses from "@lib/util/compare-addresses";
 import { CheckCircleSolid } from "@medusajs/icons";
 import { HttpTypes } from "@medusajs/types";
@@ -8,7 +8,7 @@ import { Heading, Text, useToggleState } from "@medusajs/ui";
 import Divider from "@modules/common/components/divider";
 import Spinner from "@modules/common/icons/spinner";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import BillingAddress from "../billing_address";
 import ErrorMessage from "../error-message";
 import ShippingAddress from "../shipping-address";
@@ -38,6 +38,12 @@ const Addresses = ({
   };
 
   const [message, formAction] = useActionState(setAddresses, null);
+
+  useEffect(() => {
+    if (cart?.shipping_methods?.length === 0) {
+      setDefaultShippingMethod(cart.id);
+    }
+  });
 
   return (
     <div className="bg-white">
@@ -84,7 +90,7 @@ const Addresses = ({
               </div>
             )}
             <SubmitButton className="mt-6" data-testid="submit-address-button">
-              Weiter zur Lieferung
+              Weiter zur Zahlung
             </SubmitButton>
             <ErrorMessage error={message} data-testid="address-error-message" />
           </div>

@@ -16,6 +16,7 @@ import {
 } from "./cookies";
 import { getRegion } from "./regions";
 import { signup } from "./customer";
+import { listCartShippingMethods } from "./fulfillment";
 
 /**
  * Retrieves a cart by its ID. If no ID is provided, it will use the cart ID from the cookies.
@@ -222,6 +223,14 @@ export async function setShippingMethod({
     .catch(medusaError);
 }
 
+export async function setDefaultShippingMethod(cartId: string) {
+  const shippingMethods = await listCartShippingMethods(cartId);
+  await setShippingMethod({
+    cartId,
+    shippingMethodId: shippingMethods![0].id,
+  });
+}
+
 export async function initiatePaymentSession(
   cart: HttpTypes.StoreCart,
   data: {
@@ -378,7 +387,7 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
     if (!formData) {
       throw new Error("No form data found when setting addresses");
     }
-    const cartId = getCartId();
+    const cartId = await getCartId();
     if (!cartId) {
       throw new Error("No existing cart found when setting addresses");
     }
@@ -416,12 +425,13 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
         phone: formData.get("billing_address.phone"),
       };
     await updateCart(data);
+    await setDefaultShippingMethod(cartId);
   } catch (e: any) {
     return e.message;
   }
 
   redirect(
-    `/${formData.get("shipping_address.country_code")}/checkout?step=delivery`
+    `/${formData.get("shipping_address.country_code")}/checkout?step=payment`
   );
 }
 
