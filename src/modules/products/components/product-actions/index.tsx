@@ -219,7 +219,7 @@ export default function ProductActions({
 
         <KontaktFormularDialog />
 
-        <MobileActions
+        {/* <MobileActions
           product={product}
           variant={selectedVariant}
           options={options}
@@ -232,7 +232,7 @@ export default function ProductActions({
           accessoryProducts={accessoryProducts}
           selectedAccessoryVariants={selectedAccessoryVariants}
           onAccessoryVariantChange={handleAccessoryChange}
-        />
+        /> */}
       </div>
     </>
   );
