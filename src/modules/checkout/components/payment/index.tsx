@@ -5,7 +5,7 @@ import {
   initiatePaymentSession,
   setBankTransferPaymentOption,
 } from "@lib/data/cart";
-import { CheckCircleSolid, CreditCard, Spinner } from "@medusajs/icons";
+import { CheckCircleSolid, CreditCard, Spinner, Stripe } from "@medusajs/icons";
 import { Button, Container, Heading, Text, clx } from "@medusajs/ui";
 import ErrorMessage from "@modules/checkout/components/error-message";
 import { StripeContext } from "@modules/checkout/components/payment-wrapper/stripe-wrapper";
@@ -20,6 +20,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useContext, useEffect, useState } from "react";
 import MedusaRadio from "@modules/common/components/radio";
 import Bank from "@modules/common/icons/bank";
+import * as AccordionPrimitive from "@radix-ui/react-accordion";
 
 const Payment = ({
   cart,
@@ -31,9 +32,7 @@ const Payment = ({
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<string>();
-  const [isBankTransferSelected, setIsBankTransferSelected] = useState(false);
   const [paymentFormValid, setPaymentFormValid] = useState(false);
-  const [isPaymentElementLoading, setIsPaymentElementLoading] = useState(true);
 
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -72,7 +71,6 @@ const Payment = ({
     // console.log(cart.payment_collection?.payment_sessions?.[0]?.data);
     if (cart.payment_collection?.payment_sessions?.[0]?.data.bank_transfer) {
       setSelectedPaymentMethod("banküberweisung");
-      setIsBankTransferSelected(true);
     }
   }, []);
 
@@ -81,7 +79,7 @@ const Payment = ({
 
   const handleBankTransferSelection = async () => {
     // Only process if not already selected
-    if (!isBankTransferSelected) {
+    if (selectedPaymentMethod !== "banküberweisung") {
       if (elements) {
         try {
           // Clear Stripe selection
@@ -95,19 +93,30 @@ const Payment = ({
       }
 
       // Update states
-      setIsBankTransferSelected(true);
       setSelectedPaymentMethod("banküberweisung");
       setPaymentFormValid(true); // Bank transfer is always valid once selected
+    }
+  };
+
+  const handleOnlinePaymentSelection = () => {
+    // Set initial state for online payment
+    // This will cause the accordion to open, showing payment options
+    if (selectedPaymentMethod === "banküberweisung") {
+      setSelectedPaymentMethod(undefined);
+      setPaymentFormValid(false);
     }
   };
 
   const handlePaymentElementChange = async (
     event: StripePaymentElementChangeEvent
   ) => {
-    if (!isOpen && isBankTransferSelected) return;
+    if (!isOpen && selectedPaymentMethod === "banküberweisung") return;
 
     // Ignore payment element changes during loading if bank transfer is selected
-    if (isPaymentElementLoading && isBankTransferSelected) {
+    if (
+      (!activeSession || !stripeReady) &&
+      selectedPaymentMethod === "banküberweisung"
+    ) {
       return;
     }
 
@@ -118,11 +127,6 @@ const Payment = ({
       // If a payment method is selected, consider the form valid for submission
       // Even if Stripe doesn't consider it "complete" yet
       setPaymentFormValid(event.complete);
-
-      // If a Stripe payment method is selected, deselect bank transfer
-      if (isBankTransferSelected) {
-        setIsBankTransferSelected(false);
-      }
     } else {
       setPaymentFormValid(false);
     }
@@ -137,9 +141,7 @@ const Payment = ({
     setError(null);
 
     try {
-      setBankTransferPaymentOption(isBankTransferSelected);
-
-      if (!isBankTransferSelected) {
+      if (selectedPaymentMethod !== "banküberweisung") {
         if (!stripe || !elements) {
           setError("Payment processing not ready. Please try again.");
           return;
@@ -151,6 +153,10 @@ const Payment = ({
           return;
         });
       }
+
+      await setBankTransferPaymentOption(
+        selectedPaymentMethod === "banküberweisung"
+      );
 
       router.push(pathname + "?" + createQueryString("step", "review"), {
         scroll: false,
@@ -213,46 +219,76 @@ const Payment = ({
       </div>
       <div>
         <div className={isOpen ? "block" : "hidden"}>
-          {!paidByGiftcard &&
-            availablePaymentMethods?.length &&
-            stripeReady && (
-              <div>
-                <div
-                  onClick={handleBankTransferSelection}
-                  className={clx(
-                    "mb-2 mt-4 flex cursor-pointer items-center justify-between rounded-rounded border px-4 py-3 shadow-sm",
-                    {
-                      "border-brand-content": isBankTransferSelected,
-                    }
-                  )}
-                >
-                  <div className="flex items-center gap-x-4 text-lg text-ui-fg-subtle">
-                    <MedusaRadio checked={isBankTransferSelected} />
-                    <Bank />
-                    <p className="w-full whitespace-nowrap font-medium">
-                      Direkte Banküberweisung
-                    </p>
-                  </div>
-                </div>
-
-                {isPaymentElementLoading && (
-                  <Spinner className="animate-spin" />
+          {!paidByGiftcard && availablePaymentMethods?.length && (
+            <div>
+              <div
+                onClick={handleBankTransferSelection}
+                className={clx(
+                  "mb-2 mt-4 flex cursor-pointer items-center justify-between rounded-rounded border px-4 py-3 shadow-sm",
+                  {
+                    "border-brand-light":
+                      selectedPaymentMethod === "banküberweisung",
+                  }
                 )}
-
-                <div
-                  className={`mt-5 transition-all duration-150 ease-in-out ${isBankTransferSelected ? "opacity-50" : ""}`}
-                >
-                  <PaymentElement
-                    onChange={handlePaymentElementChange}
-                    onLoaderStart={() => setIsPaymentElementLoading(true)}
-                    onReady={() => setIsPaymentElementLoading(false)}
-                    options={{
-                      layout: "accordion",
-                    }}
+              >
+                <div className="flex items-center gap-x-4 text-lg text-ui-fg-subtle">
+                  <MedusaRadio
+                    checked={selectedPaymentMethod === "banküberweisung"}
                   />
+                  <Bank />
+                  <p className="w-full whitespace-nowrap font-medium">
+                    Direkte Banküberweisung
+                  </p>
                 </div>
               </div>
-            )}
+
+              <AccordionPrimitive.Root
+                type="single"
+                value={
+                  selectedPaymentMethod !== "banküberweisung"
+                    ? "Stripe"
+                    : undefined
+                }
+              >
+                <AccordionPrimitive.Item value="Stripe">
+                  <AccordionPrimitive.Header>
+                    <div
+                      onClick={handleOnlinePaymentSelection}
+                      className="mb-2 mt-4 flex cursor-pointer items-center justify-between rounded-rounded border px-4 py-3 shadow-sm radix-state-open:border-brand-light"
+                    >
+                      <div className="flex items-center gap-x-4 text-lg text-ui-fg-subtle">
+                        <MedusaRadio
+                          checked={selectedPaymentMethod !== "banküberweisung"}
+                        />
+                        <Stripe />
+                        <p className="w-full whitespace-nowrap font-medium">
+                          Sichere Online-Zahlung
+                        </p>
+                      </div>
+                    </div>
+                  </AccordionPrimitive.Header>
+                  <AccordionPrimitive.Content
+                    className={clx(
+                      "radix-state-closed:pointer-events-none radix-state-closed:animate-accordion-close radix-state-open:animate-accordion-open"
+                    )}
+                  >
+                    {(!activeSession || !stripeReady) && (
+                      <Spinner className="animate-spin" />
+                    )}
+
+                    {stripeReady && (
+                      <PaymentElement
+                        onChange={handlePaymentElementChange}
+                        options={{
+                          layout: "accordion",
+                        }}
+                      />
+                    )}
+                  </AccordionPrimitive.Content>
+                </AccordionPrimitive.Item>
+              </AccordionPrimitive.Root>
+            </div>
+          )}
           {paidByGiftcard && (
             <div className="flex w-1/3 flex-col">
               <Text className="txt-medium-plus mb-1 text-ui-fg-base">
@@ -278,7 +314,8 @@ const Payment = ({
             onClick={handleSubmit}
             isLoading={isLoading}
             disabled={
-              (!paymentFormValid && !isBankTransferSelected) ||
+              (!paymentFormValid &&
+                selectedPaymentMethod !== "banküberweisung") ||
               (!selectedPaymentMethod && !paidByGiftcard)
             }
             data-testid="submit-payment-button"
