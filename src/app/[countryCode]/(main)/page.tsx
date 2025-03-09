@@ -1,14 +1,9 @@
 import { Metadata } from "next";
 
-import FeaturedProducts from "@modules/home/components/featured-products";
 import Hero from "@modules/home/components/hero";
-import { listCollections } from "@lib/data/collections";
-import { getRegion } from "@lib/data/regions";
 import VideoSection from "@modules/home/components/video";
 import TestimonialsSection from "@modules/home/components/testimonials";
-import EinbauortSection from "@modules/home/components/einbauorte";
 import OptimiertSection from "@modules/home/components/optimiert";
-import FollowUsSection from "@modules/home/components/FollowUsSection";
 import ProduktSection from "./hubbett-kaufen/produkte";
 import BannerNeu from "/public/banner-neu.jpg";
 import { Parallax } from "@modules/home/components/hero/parallax";
@@ -17,9 +12,9 @@ import VideoBackground from "/public/video-background.png";
 import Kontakt from "@modules/home/components/kontakt";
 
 export const metadata: Metadata = {
-  title: "Das flexibelste Campingbett für deinen Camper",
+  title: "Das flexibelste Hubbett Wohnmobil und Kastenwagen | VAN7",
   description:
-    "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
+    "Entdecke das Hubbett mit höchstem Komfort und optimaler Raumnutzung für Camper, Transporter, Wohnmobile oder Anhänger. Nie wieder schief schlafen und den Raum bestmöglich nutzen.",
 };
 
 export default async function Home(props: {
@@ -40,7 +35,7 @@ export default async function Home(props: {
 
   return (
     <div className="bg-grey-10">
-      {/* <Parallax/> */}
+      {/* <Parallax /> */}
 
       <Hero />
       <VideoSection />

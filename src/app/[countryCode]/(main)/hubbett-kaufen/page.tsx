@@ -7,9 +7,9 @@ import TestimonialsSection from "@modules/home/components/testimonials";
 import ProduktSection from "./produkte";
 
 export const metadata: Metadata = {
-  title: "Hubbetten kaufen für jede Situation & jeden Einbauort | Van7 Shop",
+  title: "Hubbett kaufen für jede Situation & jeden Einbauort | VAN7 Shop",
   description:
-    "Entdecke die besten Hubbetten für jede Einbausituation: Kingsize, Querschläfer, Längshubbett, Cockpit oder Stock Hubbett. Platzsparend, stabil & bequem - für höchsten Schlafkomfort unterwegs. Jetzt das perfekte Hubbett finden!",
+    "Entdecke Hubbetten für jede Einbausituation: Kingsize, Querschläfer, Längshubbett, Cockpit oder Stock Hubbett. Platzsparend, stabil & bequem - für höchsten Schlafkomfort unterwegs. Jetzt das perfekte Hubbett finden!",
 };
 
 type Params = {

@@ -82,13 +82,13 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
   const features = [
     {
       title: "Höhe stufenlos einstellen",
-      text: "Du musst nicht mehr zwischen Komfort oder Raum entscheiden - du bekommst beides. Dank der stufenlosen Höhenverstellung kannst du das Bett mühelos mit der Kurbel auf deine Wunschhöhe einstellen. So nutzt du den Stauraum optimal für Fahrräder, Motorräder oder andere Ausrüstung und schläfst trotzdem in höchstem Komfort.",
+      text: "Du musst nicht mehr zwischen Komfort oder Raum entscheiden - du bekommst beides. Dank der stufenlosen Höhenverstellung kannst du das Bett mühelos mit der Kurbel auf deine Wunschhöhe einstellen. Egal, ob du ein Wohnmobil oder einen Kastenwagen fährst, so nutzt du den Stauraum optimal für Fahrräder, Motorräder oder andere Ausrüstung und schläfst trotzdem in höchstem Komfort.",
       icon: <StufenlosIcon />,
       timestamp: 7.5,
     },
     {
       title: "Ausnivellieren",
-      text: "Egal, wie uneben das Gelände ist - das Van7 Hubbett passt sich deinen Bedürfnissen an. Mit der flexiblen Gurtfixierung kannst du das Bett an allen vier Ecken individuell ausnivellieren, sodass du immer in einer komfortablen, waagerechten Position schläfst. Wähle deinen Schlafplatz frei, und genieße erholsame Nächte, wo immer du parkst.",
+      text: "Egal, wie uneben das Gelände ist - das Van7 Hubbett passt sich deinen Bedürfnissen an. Mit der flexiblen Gurtfixierung kannst du das Bett an allen vier Ecken individuell ausnivellieren, sodass du immer in einer komfortablen, waagerechten Position schläfst. Ob im Wohnmobil auf dem Campingplatz oder mit deinem Kastenwagen in der Wildnis - wähle deinen Schlafplatz frei und genieße erholsame Nächte, wo immer du parkst.",
       icon: <WaagrechtIcon />,
       timestamp: 16,
     },
@@ -195,7 +195,7 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
         type="single"
         value={accordionValue}
         onValueChange={handleAccordionChange}
-        className="3xl:space-y-5 w-full space-y-3 lg:max-w-lg xl:max-w-xl" // fixed accordion width
+        className="w-full space-y-3 lg:max-w-lg xl:max-w-xl 3xl:space-y-5" // fixed accordion width
       >
         {features.map((feature, index) => {
           let computedProgress = 0;
