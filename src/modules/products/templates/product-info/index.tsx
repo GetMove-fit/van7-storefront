@@ -1,12 +1,15 @@
 import { HttpTypes } from "@medusajs/types";
 import { Heading, Text } from "@medusajs/ui";
-import LocalizedClientLink from "@modules/common/components/localized-client-link";
+import { useLocale, useTranslations } from "next-intl";
 
 type ProductInfoProps = {
   product: HttpTypes.StoreProduct;
 };
 
 const ProductInfo = ({ product }: ProductInfoProps) => {
+  const locale = useLocale();
+  const t = locale === "de" ? undefined : useTranslations("products");
+
   return (
     <div id="product-info">
       <div className="mx-auto flex flex-col gap-y-4 lg:max-w-[500px]">
@@ -23,14 +26,14 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
           className="font-title text-3xl leading-10"
           data-testid="product-title"
         >
-          {product.title}
+          {t ? t(`${product.handle}.title`) : product.title}
         </Heading>
 
         <Text
           className="text-medium whitespace-pre-line text-ui-fg-subtle"
           data-testid="product-description"
         >
-          {product.description}
+          {t ? t(`${product.handle}.description`) : product.description}
         </Text>
       </div>
     </div>

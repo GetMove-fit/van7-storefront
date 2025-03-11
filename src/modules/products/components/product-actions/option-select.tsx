@@ -1,5 +1,6 @@
 import { HttpTypes } from "@medusajs/types";
 import { clx } from "@medusajs/ui";
+import { useLocale, useTranslations } from "next-intl";
 import React from "react";
 
 type OptionSelectProps = {
@@ -20,10 +21,16 @@ const OptionSelect: React.FC<OptionSelectProps> = ({
   disabled,
 }) => {
   const filteredOptions = (option.values ?? []).map((v) => v.value);
+  const locale = useLocale();
+  const t = useTranslations("product");
 
   return (
     <div className="flex flex-col gap-y-3">
-      <span>{title} auswählen</span>
+      <span>
+        {t("selectOption", {
+          option: locale === "de" ? title : t(`options.${title}`),
+        })}
+      </span>
       <div
         className="flex flex-wrap justify-between gap-2"
         data-testid={dataTestId}

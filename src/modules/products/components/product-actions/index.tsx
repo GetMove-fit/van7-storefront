@@ -13,6 +13,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import ProductPrice from "../product-price";
 import MobileActions from "./mobile-actions";
 import KontaktFormularDialog from "../sondermasse-dialog";
+import { useTranslations } from "next-intl";
 
 type ProductActionsProps = {
   product: HttpTypes.StoreProduct;
@@ -34,12 +35,14 @@ export default function ProductActions({
   accessoryProducts,
   disabled,
 }: ProductActionsProps) {
-  const router = useRouter(); // Added router
+  const router = useRouter();
   const [options, setOptions] = useState<Record<string, string | undefined>>(
     {}
   );
   const [isAdding, setIsAdding] = useState(false);
   const countryCode = useParams().countryCode as string;
+
+  const t = useTranslations("product");
 
   const [selectedAccessoryVariants, setSelectedAccessoryVariants] = useState<
     Record<string, string>
@@ -93,7 +96,7 @@ export default function ProductActions({
   }, [selectedVariant]);
 
   const actionsRef = useRef<HTMLDivElement>(null);
-  const inView = useIntersection(actionsRef, "0px");
+  // const inView = useIntersection(actionsRef, "0px");
 
   const handleAddToCart = async () => {
     if (!selectedVariant?.id) return null;
@@ -132,25 +135,7 @@ export default function ProductActions({
 
   // New conditional: if there are no variants, render minimal UI
   if (!product.variants || product.variants.length === 0) {
-    return (
-      <>
-        <KontaktFormularDialog typ="Anfrage" />
-        <MobileActions
-          product={product}
-          variant={undefined}
-          options={{}}
-          updateOptions={() => {}}
-          inStock={true}
-          handleAddToCart={() => {}}
-          isAdding={false}
-          show={true}
-          optionsDisabled={false}
-          accessoryProducts={[]}
-          selectedAccessoryVariants={{}}
-          onAccessoryVariantChange={() => {}}
-        />
-      </>
-    );
+    return <KontaktFormularDialog typ="Anfrage" />;
   }
 
   return (
@@ -211,10 +196,10 @@ export default function ProductActions({
           data-testid="add-product-button"
         >
           {!selectedVariant && options
-            ? "Bitte Variante auswählen"
+            ? t("button.selectVariant")
             : !inStock || !isValidVariant
-              ? "Ausverkauft"
-              : "Jetzt bestellen"}
+              ? t("button.outOfStock")
+              : t("button.orderNow")}
         </Button>
 
         <KontaktFormularDialog />

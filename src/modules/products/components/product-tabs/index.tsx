@@ -5,6 +5,7 @@ import FastDelivery from "@modules/common/icons/fast-delivery";
 
 import Accordion from "./accordion";
 import { HttpTypes } from "@medusajs/types";
+import { useTranslations } from "use-intl";
 
 type ProductTabsProps = {
   product: HttpTypes.StoreProduct;
@@ -12,111 +13,23 @@ type ProductTabsProps = {
 };
 
 const ProductTabs = ({ product }: ProductTabsProps) => {
+  const t = useTranslations();
+
   const tabs = [
-    {
-      label: "Einzigartiger Campingkomfort",
-      component: (
-        <p>
-          Was unsere Kunden am meisten lieben ist die einzigartige
-          Nivellierfunktion, womit man bei jedem noch so schrägen Campingplatz
-          mit einem Zug das Bett in eine waagrechte Position bringt und somit so
-          Komfortabel wie Zuhause ruht.
-        </p>
-      ),
-    },
-    {
-      label: "Patentierte Fixierfunktion",
-      component: (
-        <p>
-          Nur mit dieser Funktion ist es möglich, ein freischwebendes Hubbett
-          auf deine Wunschhöhe und Neigung stabil an der Seite zu Fixieren- so
-          dass das Bett NICHT schaukelt!
-        </p>
-      ),
-    },
-    {
-      label: "Ohne Strom und Führungsschienen",
-      component: (
-        <p>
-          Vielen Campern ist das Gewicht und die Funktionalität auf kleinen Raum
-          sehr wichtig. Der Kurbelmechanismus ist schneller und um 17kg leichter
-          als ein Elektromotor. Das VAN7 Hubbett funktioniert immer, und noch
-          dazu dank unserer Fixierfunktion ohne Ablagekonstruktionen und
-          Schienen die den Raum stark beeinflussen und bei der Fahrt Geräusche
-          erzeugen.
-        </p>
-      ),
-    },
-    {
-      label: "Maximale Liegefläche",
-      component: (
-        <p>
-          Im 140cm breiten Bett steckt eine 190cm breite Liegefläche. Das erste
-          Hubbett weltweit mit Lattenrostauszug. Dieser ermöglicht es nach dem
-          Absenken die Liegefläche auf die maximale Breite deines Fahrzeuges
-          auszuziehen.
-        </p>
-      ),
-    },
-    {
-      label: "Offroad Fahren ohne Klappergeräusche",
-      component: (
-        <p>
-          Wir haben bei der Konstruktion darauf geachtet, dass das Bett keine
-          Geräusche während der Fahrt erzeugt, damit man die Fahrt genießen
-          kann.
-        </p>
-      ),
-    },
-    {
-      label: "Einfache Installation",
-      component: (
-        <p>
-          Wenn du mit Akkuschrauber und Maßband umgehen kannst oder jemanden
-          dazu kennst, ist die Installation der neuen Serie mit der
-          mitgelieferten Videoanleitung kinderleicht. Natürlich haben wir auch
-          Einbaupartner, die die Installation des Hubbettes übernehmen können.
-          Je nach Fahrzeug gibt es die passenden Montagekonsolen. Manche
-          Fahrzeuge wie der H2 Sprinter brauchen keine Montagekonsolen.
-        </p>
-      ),
-    },
-    {
-      label: "Praktisch und Romantisch",
-      component: (
-        <p>
-          Die indirekte, je nach Lust und Laune dimmbare Beleuchtung sorgt für
-          eine angenehme Ambiente über und unter dem Bett. Der LED Streifen ist
-          dabei in die Aluprofile sauber integriert.
-        </p>
-      ),
-    },
-    {
-      label: "Sichere Gurtbefestigung",
-      component: (
-        <p>
-          Das VAN7 Hubbett hängt an 4x 25mm Sicherheitsgurten und Schnallen, die
-          jeweils für 400daN ausgelegt sind. Das bedeutet 1600kg – die Belastung
-          des Bettes ist mit 270kg dynamisch zulässig. Jede Gurtaufhängung wird
-          mit 2x M6 Einziehmutter befestigt. Eine Einziehmutter M6 hält bei
-          einem Fahrzeugblech unter Abscherung 4-5kN – das sind 400-500kg pro
-          Nietmutter. Für die VAN7 Hubbett Gurtaufhängungen werden 8
-          Einziehmuttern am letzten Bereich der Wand deines Fahrzeuges
-          installiert.
-        </p>
-      ),
-    },
-    {
-      label: "Maximaler Platz",
-      component: (
-        <p>
-          Das VAN7 Hubbett bietet dir den Platz und den Komfort, den du beim
-          Übernachten auf mobilem kleinen Raum brauchst. Ruck zuck verschwindet
-          es an der Decke und du hast mega viel Stauraum für Bikes oder für eine
-          zusätzliche Sitzgruppe.
-        </p>
-      ),
-    },
+    ...[
+      "comfortable",
+      "fixed",
+      "mechanic",
+      "extendable",
+      "noiseFree",
+      "easyInstallation",
+      "romantic",
+      "safety",
+      "space",
+    ].map((key) => ({
+      label: t(`product.tabs.${key}.title`),
+      component: <p>{t(`product.tabs.${key}.text`)}</p>,
+    })),
     {
       label: "Versand & Rückgabe",
       component: <ShippingInfoTab />,

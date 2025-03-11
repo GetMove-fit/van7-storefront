@@ -6,6 +6,7 @@ import {
 import { HttpTypes } from "@medusajs/types";
 import Divider from "@modules/common/components/divider";
 import { useMemo } from "react";
+import { useTranslations } from "next-intl";
 
 export type ProductPriceProps = {
   products: HttpTypes.StoreProduct[]; // first product is primary
@@ -29,17 +30,21 @@ export default function ProductPrice({
     return <div className="block h-9 w-32 animate-pulse bg-gray-100" />;
   }
 
+  const t = useTranslations("product.pricing");
+
   return (
     <div className="flex flex-col text-ui-fg-base">
       {variantIds[0] && (
         <>
           <div className="flex justify-between">
-            <span>Netto Preis:</span>
+            <span>{t("netto")}:</span>
             <span>{pricing.netto_format}</span>
           </div>
 
           <div className="flex justify-between">
-            <span>MwSt. ({cheapestPrice?.tax_rate}%):</span>
+            <span>
+              {t("tax")} ({cheapestPrice?.tax_rate}%):
+            </span>
             <span>{pricing.tax_format}</span>
           </div>
 
@@ -52,10 +57,13 @@ export default function ProductPrice({
           "text-brand-content": pricing.discount_percent > 0,
         })}
       >
-        {!variantIds[0] && "Ab "}
-        <span data-testid="product-price" data-value={pricing}>
-          {pricing.brutto_format}
-        </span>
+        {variantIds[0] ? (
+          <span data-testid="product-price" data-value={pricing}>
+            {pricing.brutto_format}
+          </span>
+        ) : (
+          t("from", { price: cheapestPrice.brutto_format })
+        )}
       </span>
 
       {pricing.discount_percent > 0 && (

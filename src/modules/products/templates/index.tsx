@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use } from "react";
 
 import ImageGallery from "@modules/products/components/image-gallery";
 import ProductActions from "@modules/products/components/product-actions";
@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import { HttpTypes } from "@medusajs/types";
 import CountrySelect from "@modules/layout/components/country-select";
 import VideoBackground from "/public/video-background.png";
+import { useTranslations } from "next-intl";
 
 type ProductTemplateProps = {
   product: HttpTypes.StoreProduct;
@@ -25,6 +26,8 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
   if (!product || !product.id) {
     return notFound();
   }
+
+  const t = useTranslations("product");
 
   return (
     <>
@@ -51,11 +54,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
 
         <div className="flex w-full flex-col gap-y-12 py-8 small:sticky small:top-48 small:max-w-[300px] small:py-0">
           <CountrySelect regions={regions} up={false} />
-          <p>
-            Die mögliche Größe des VAN7 Hubbettes für dein Fahrzeug hängt von
-            der Deckenbreite ab. Gerne beraten wir dich auch gerne telefonisch
-            oder per Whatsapp.
-          </p>
+          <p>{t("sizeGuide")}</p>
           <ProductOnboardingCta />
           <ProductActions product={product} accessoryProducts={accessoires} />
         </div>

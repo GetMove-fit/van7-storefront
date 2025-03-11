@@ -4,6 +4,7 @@ import KontaktFormular from "@modules/home/components/kontakt/form";
 import React, { Fragment } from "react";
 import useToggleState from "@lib/hooks/use-toggle-state";
 import { Button } from "@medusajs/ui";
+import { useTranslations } from "next-intl";
 
 interface KontaktFormularDialogProps {
   typ?: "Anfrage" | "Sondermass";
@@ -13,6 +14,7 @@ const KontaktFormularDialog: React.FC<KontaktFormularDialogProps> = ({
   typ = "Sondermass",
 }) => {
   const { state, open, close } = useToggleState();
+  const t = useTranslations("product.button");
 
   return (
     <>
@@ -21,7 +23,7 @@ const KontaktFormularDialog: React.FC<KontaktFormularDialogProps> = ({
         variant={typ === "Anfrage" ? "primary" : "secondary"}
         className="h-10 w-full"
       >
-        {typ === "Anfrage" ? "Auf Anfrage bestellen" : "Sondermaß anfragen"}
+        {typ === "Anfrage" ? t("requestOrder") : t("customSize")}
       </Button>
       <Transition appear show={state} as={Fragment}>
         <Dialog as="div" className="relative z-50" onClose={close}>

@@ -3,6 +3,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import Thumbnail from "../thumbnail";
 import PreviewPrice from "./price";
 import { getCheapestVariantPricing } from "@lib/util/get-product-price";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export default async function ProductPreview({
   product,
@@ -23,6 +24,8 @@ export default async function ProductPreview({
   // }
 
   const cheapestPrice = getCheapestVariantPricing(product);
+  const locale = await getLocale();
+  const t = locale === "de" ? undefined : await getTranslations("products");
 
   return (
     <LocalizedClientLink
@@ -38,7 +41,7 @@ export default async function ProductPreview({
 
       <div className="flex grow flex-col justify-between">
         <p className="w-full font-title text-xl leading-none text-grey-90 group-hover:text-brand-content sm:text-3xl">
-          {product.title}
+          {t ? t(`${product.handle}.title`) : product.title}
         </p>
         {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
       </div>

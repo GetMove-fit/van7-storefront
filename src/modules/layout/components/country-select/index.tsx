@@ -15,6 +15,7 @@ import { clx, useToggleState } from "@medusajs/ui";
 import { useParams, usePathname } from "next/navigation";
 import { updateRegion } from "@lib/data/cart";
 import { HttpTypes } from "@medusajs/types";
+import { useTranslations } from "next-intl";
 
 type CountryOption = {
   country: string;
@@ -62,6 +63,8 @@ const CountrySelect = ({ regions, up }: CountrySelectProps) => {
     close();
   };
 
+  const t = useTranslations();
+
   return (
     <div
       className="flex w-full justify-between"
@@ -79,7 +82,7 @@ const CountrySelect = ({ regions, up }: CountrySelectProps) => {
       >
         <ListboxButton className="w-full py-1">
           <div className="txt-compact-small flex items-start gap-x-2">
-            <span>Versand nach:</span>
+            <span>{t("shipTo")}:</span>
             {current && (
               <span className="txt-compact-small flex items-center gap-x-2">
                 {/* @ts-ignore */}

@@ -1,6 +1,7 @@
 import { Select as SelectUI } from "@medusajs/ui";
 import React from "react";
 import { HttpTypes } from "@medusajs/types";
+import { useLocale, useTranslations } from "next-intl";
 
 interface AccessorySelectProps {
   accessoryProducts?: HttpTypes.StoreProduct[];
@@ -14,11 +15,22 @@ export default function AccessorySelect({
   onAccessoryVariantChange,
 }: AccessorySelectProps) {
   if (!accessoryProducts || accessoryProducts.length === 0) return null;
+
+  const locale = useLocale();
+  const t = useTranslations("product");
+
   return (
     <div className="flex w-full flex-col gap-y-4">
       {accessoryProducts.map((accessory) => (
         <div key={accessory.id} className="flex flex-col gap-y-1">
-          <span className="text-sm">{`${accessory.title} auswählen`}</span>
+          <span className="text-sm">
+            {t("selectOption", {
+              option:
+                locale === "de"
+                  ? accessory.title
+                  : t(`options.${accessory.title}`),
+            })}
+          </span>
           <SelectUI
             value={selectedAccessoryVariants[accessory.id] || ""}
             onValueChange={(value: string) =>
@@ -26,7 +38,7 @@ export default function AccessorySelect({
             }
           >
             <SelectUI.Trigger className="text-sm">
-              <SelectUI.Value placeholder="Nicht mitbestellen" />
+              <SelectUI.Value placeholder={t("notSelected")} />
             </SelectUI.Trigger>
             <SelectUI.Content>
               {accessory.variants?.map((variant) => (

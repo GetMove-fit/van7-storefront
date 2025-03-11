@@ -1,4 +1,5 @@
 {
+  "shipTo": "Shipping to",
   "nav": {
     "products": "Products",
     "reviews": "Reviews",
@@ -83,6 +84,95 @@
     "contact": {
       "stillQuestions": "Still have questions?",
       "StefanWillHelp": "Stefan will be happy to help you."
+    }
+  },
+  "shop": {
+    "meta": {
+      "title": "Buy lift beds for every situation & installation location | VAN7 Shop",
+      "description": "Discover lift beds for every installation situation: king size, cross sleeper, longitudinal lift bed, cockpit or bunk lift bed. Space-saving, stable & comfortable - for the highest sleeping comfort on the go. Find the perfect lift bed now!"
+    },
+    "title": "Discover<br></br>the best<br></br>lift bed for you"
+  },
+  "products": {
+    "kingsize-hubbett-mit-lattenrostauszug": {
+      "title": "VAN7 Kingsize Lift Bed with Slatted Frame Extension",
+      "description": "Create a huge sleeping oasis in your vehicle with a length of 200cm x 160cm max. 190cm width - The slatted frame can be extended to a maximum of 190cm. Even with three people, sleeping is comfortable with this bed size."
+    },
+    "laengs-hubbett": {
+      "title": "VAN7 Lift Bed",
+      "description": "Create a sleeping oasis in your vehicle with a length of 200cm and width of 140 or 160 cm."
+    },
+    "cockpit-hubbett": {
+      "title": "VAN7 Cockpit Lift Bed with Slatted Frame Extension",
+      "description": "For campers who want to save even more space and weight. The cockpit lift bed is a real innovation that makes new conversion concepts possible. Compact 140x110cm or 160x110cm under the ceiling with an extension to 200cm length. After stepless lowering, leveling - so you always sleep horizontally, no matter how uneven the vehicle is, and the fixation function, the integrated slatted frame is extended to a maximum of 200cm - e.g., into the driver's cab to make use of the space there. The extension is secured with a 25mm strap."
+    },
+    "querschlaefer-hubbett": {
+      "title": "VAN7 Cross Sleeper Lift Bed with Slatted Frame Extension",
+      "description": "For campers who want to save even more space and weight. The cross lift bed is a real innovation. Compact 140x140cm (160x160) under the ceiling with an extension to 200cm length. After stepless lowering, leveling - so you always sleep horizontally, no matter how uneven the vehicle is, and the fixation function, the integrated slatted frame is extended to a maximum of 200cm - With flares (wall extensions) on one side, you get at least 190cm width (length of the extension)."
+    },
+    "stock-hubbett": {
+      "title": "VAN7 Bunk Lift Bed for up to 5 people",
+      "description": ""
+    }
+  },
+  "product": {
+    "sizeGuide": "The possible size of the VAN7 lift bed for your vehicle depends on the ceiling width. We are happy to advise you by phone or WhatsApp.",
+    "selectOption": "Select {option}",
+    "options": {
+      "Größe": "size",
+      "Montagekonsole": "mounting bracket",
+      "LEDs": "LED kit"
+    },
+    "notSelected": "Do not order",
+    "button": {
+      "selectVariant": "Please select a variant",
+      "outOfStock": "Currently out of stock",
+      "orderNow": "Order now",
+      "customSize": "Request custom size",
+      "requestOrder": "Order on request"
+    },
+    "pricing": {
+      "netto": "Net price",
+      "tax": "VAT",
+      "from": "From {price}"
+    },
+    "tabs": {
+      "comfortable": {
+        "title": "Unique Camping Comfort",
+        "text": "What our customers love the most is the unique leveling function, which allows you to bring the bed into a horizontal position with one pull, even on the most uneven campsite, and thus rest as comfortably as at home."
+      },
+      "fixed": {
+        "title": "Patented Fixation Function",
+        "text": "Only with this function is it possible to stably fix a free-floating lift bed to your desired height and inclination on the side - so that the bed does NOT rock!"
+      },
+      "mechanic": {
+        "title": "Without Electricity and Guide Rails",
+        "text": "For many campers, weight and functionality in a small space are very important. The crank mechanism is faster and 17kg lighter than an electric motor. The VAN7 lift bed always works, and thanks to our fixation function, it does so without storage constructions and rails that greatly affect the space and create noise during the ride."
+      },
+      "extendable": {
+        "title": "Maximum Lying Surface",
+        "text": "The 140cm wide bed contains a 190cm wide lying surface. The first lift bed in the world with a slatted frame extension. This allows you to extend the lying surface to the maximum width of your vehicle after lowering."
+      },
+      "noiseFree": {
+        "title": "Off-road Driving Without Rattling Noises",
+        "text": "We made sure during the construction that the bed does not create any noise during the ride, so you can enjoy the ride."
+      },
+      "easyInstallation": {
+        "title": "Easy Installation",
+        "text": "If you can handle a cordless screwdriver and a tape measure or know someone who can, the installation of the new series with the supplied video instructions is child's play. Of course, we also have installation partners who can take over the installation of the lift bed. Depending on the vehicle, there are suitable mounting brackets. Some vehicles, like the H2 Sprinter, do not need mounting brackets."
+      },
+      "romantic": {
+        "title": "Practical and Romantic",
+        "text": "The indirect, dimmable lighting according to your mood creates a pleasant ambiance above and below the bed. The LED strip is neatly integrated into the aluminum profiles."
+      },
+      "safety": {
+        "title": "Secure Belt Attachment",
+        "text": "The VAN7 lift bed hangs on 4x 25mm safety belts and buckles, each rated for 400daN. That means 1600kg - the load capacity of the bed is dynamically permissible with 270kg. Each belt suspension is attached with 2x M6 rivet nuts. A M6 rivet nut holds 4-5kN under shear in a vehicle sheet metal - that's 400-500kg per rivet nut. For the VAN7 lift bed belt suspensions, 8 rivet nuts are installed in the last area of the wall of your vehicle."
+      },
+      "space": {
+        "title": "Maximum Space",
+        "text": "The VAN7 lift bed offers you the space and comfort you need when staying overnight in a small mobile space. In no time, it disappears at the ceiling, and you have a lot of storage space for bikes or an additional seating area."
+      }
     }
   }
 }
