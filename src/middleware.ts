@@ -121,6 +121,19 @@ export async function middleware(request: NextRequest) {
   const urlHasCountryCode =
     countryCode && request.nextUrl.pathname.split("/")[1].includes(countryCode);
 
+  // Set locale cookie if it doesn't exist yet
+  const hasLocaleCookie = request.cookies.has("NEXT_LOCALE");
+  if (!hasLocaleCookie && countryCode) {
+    // Set German locale for German-speaking countries
+    const germanSpeakingCountries = ["de", "at", "ch", "li"];
+    const locale = germanSpeakingCountries.includes(countryCode) ? "de" : "en";
+
+    // Add locale cookie to the response
+    response.cookies.set("NEXT_LOCALE", locale, {
+      maxAge: 60 * 60 * 24 * 365, // 1 year
+    });
+  }
+
   // if one of the country codes is in the url and the cache id is set, return next
   if (urlHasCountryCode && cacheIdCookie) {
     return NextResponse.next();
