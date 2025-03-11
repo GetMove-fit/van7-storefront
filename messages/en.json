@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "products": "Products",
+    "reviews": "Reviews",
+    "contact": "Contact"
+  },
+  "home": {
+    "meta": {
+      "title": "The most flexible lift bed for motorhomes and vans | VAN7",
+      "description": "Discover the lift bed with the highest comfort and optimal space utilization for campers, transporters, motorhomes, or trailers. Never sleep unevenly again and make the best use of the space."
+    },
+    "hero": {
+      "socialProof": "500+ satisfied customers",
+      "h1": "The lift bed<br></br>with the highest comfort<br></br>& the best space utilization",
+      "context": "Set the perfect height and make the most of your space.<br></br>Level out and enjoy sleeping comfort like at home - no matter how uneven your van is.",
+      "benefits": {
+        "fast": "Lowered and stowed within seconds",
+        "noMovement": "Stably fixed, no swinging or rocking",
+        "enoughSpace": "Enough space for equipment, bikes, furniture",
+        "noTracks": "No annoying guide rails"
+      },
+      "cta": "Pre-order new series",
+      "interactions": {
+        "tryNow": "Try it now!",
+        "levelOut": "Level out",
+        "fix": "Fix",
+        "extend": "Extend"
+      }
+    },
+    "features": {
+      "setHeight": {
+        "title": "Adjust height continuously",
+        "text": "You no longer have to choose between comfort or space - you get both. Thanks to the stepless height adjustment, you can easily set the bed to your desired height with the crank. Whether you drive a motorhome or a van, you can optimally use the storage space for bicycles, motorcycles, or other equipment and still sleep in the highest comfort."
+      },
+      "levelOut": {
+        "title": "Level out",
+        "text": "No matter how uneven the terrain is - the Van7 lift bed adapts to your needs. With the flexible strap fixation, you can level the bed individually at all four corners, so you always sleep in a comfortable, horizontal position. Whether in a motorhome at the campsite or with your van in the wilderness - choose your sleeping place freely and enjoy restful nights wherever you park."
+      },
+      "fix": {
+        "title": "Fix to the wall",
+        "text": "Unlike conventional solutions, our lift bed comes completely without annoying guide rails. With our patented fixation function, the bed is firmly pulled to the side wall, so it neither wobbles nor sways."
+      },
+      "extend": {
+        "title": "Extend slatted frame",
+        "text": "Space for three people? No problem. Use the entire width of the vehicle with the optional extension to a maximum width of 190 cm."
+      }
+    },
+    "reviews": {
+      "title": "The most popular lift bed among",
+      "audience": {
+        "adventurers": "adventurers",
+        "campers": "campers",
+        "motorsports": "motorsport enthusiasts",
+        "outdoorSports": "outdoor sports enthusiasts",
+        "handyman": "handymen"
+      },
+      "reviews": {
+        "Customer": "I spent a few nights in this bed and loved it, very comfortable and cozy. Aligning and fixing the fold-down bed is child's play. All in all a very good investment.",
+        "Stefan": "Absolutely brilliant product! Not only does this make the interior of the vehicle much more flexible and multifunctional, the technical details and quality are also outstanding. By the way, the team behind Van7 is also very committed and helpful. 6 stars",
+        "Andreas": "Simply great if you want to install a bed in your bus or van. This gives us maximum space to store the mountain bikes or motorcycle and by leveling the bed incl. The fixation function means you always have a horizontal position when sleeping and can start again the next day. I can only recommend it to everyone. 👍 🚐",
+        "Lorenz": "I am super happy with my bed!! Finally having more space in the car makes things a lot easier for me when camping, I can only recommend the Van7 bed!!",
+        "Jean-Marc": "Super intelligent filing system, very good workmanship, and competent/friendly contact person! It's a pleasure!"
+      }
+    },
+    "products": {
+      "title": "New series,<br></br>New conversion concepts"
+    },
+    "optimized": {
+      "title": "Tested and optimized",
+      "text": "The Van7 lift bed is the result of years of development and optimization. Through careful tests and continuous improvements over various series, numerous challenges have been solved, such as the durability of the gears, the efficiency of the winches, and the prevention of wear."
+    },
+    "installation": {
+      "button": "Learn more",
+      "partner": {
+        "title": "Find installation partner",
+        "text": "Worry-free installation by our installation partners. Quick and reliable, so you can fully focus on your adventure."
+      },
+      "diy": {
+        "title": "DIY instructions",
+        "text": "For many, the adventure begins before the first road trip. Our videos show you how to easily and quickly install the bed yourself."
+      }
+    },
+    "contact": {
+      "stillQuestions": "Still have questions?",
+      "StefanWillHelp": "Stefan will be happy to help you."
+    }
+  }
+}

@@ -2,13 +2,27 @@
 import React from "react";
 import FunktionButton from "/public/funktion.svg";
 import Pfeil from "/public/pfeil.png";
+import { useTranslations } from "next-intl";
 
 export default function InteractiveVideo() {
+  const t = useTranslations("home.hero.interactions");
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const segments = [
-    { time: 4, name: "Ausnivellieren", position: { x: 0.28, y: -0.65 } },
-    { time: 8, name: "Fixieren", position: { x: 0.75, y: 0.1 } },
-    { time: 15, name: "Ausziehen", position: { x: -0.2, y: -0.1 } },
+    {
+      time: 4,
+      name: t("levelOut"),
+      position: { x: 0.28, y: -0.65 },
+    },
+    {
+      time: 8,
+      name: t("fix"),
+      position: { x: 0.75, y: 0.1 },
+    },
+    {
+      time: 15,
+      name: t("extend"),
+      position: { x: -0.2, y: -0.1 },
+    },
   ];
   const [currentSegment, setCurrentSegment] = React.useState(0);
   const [showButton, setShowButton] = React.useState(false);
@@ -33,8 +47,8 @@ export default function InteractiveVideo() {
   return (
     <div className="relative flex place-self-start sm:max-lg:-mt-10 2xl:-mb-40 2xl:place-self-end">
       {currentSegment === 0 && showButton && (
-        <div className="absolute top-5 z-10 flex items-center whitespace-nowrap font-semibold italic max-sm:left-0 sm:right-[45%] sm:text-2xl 2xl:top-16">
-          Einfach ausprobieren!
+        <div className="absolute top-5 z-10 flex items-center whitespace-nowrap font-semibold italic max-sm:left-0 sm:right-[45%] sm:text-2xl 2xl:top-10">
+          {t("tryNow")}
           <img
             src={Pfeil.src}
             width={Pfeil.width}

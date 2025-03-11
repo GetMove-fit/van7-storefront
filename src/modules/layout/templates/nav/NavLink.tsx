@@ -1,5 +1,5 @@
 "use client";
-import { useParams, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import LocalizedClientLink from "@modules/common/components/localized-client-link";
 
 const NavLink = ({
@@ -9,7 +9,6 @@ const NavLink = ({
   href: string;
   children: React.ReactNode;
 }) => {
-  const { countryCode } = useParams();
   const pathname = usePathname();
   // TODO: fix on /
   const isActive = pathname === href;

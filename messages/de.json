@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "products": "Produkte",
+    "reviews": "Reviews",
+    "contact": "Kontakt"
+  },
+  "home": {
+    "meta": {
+      "title": "Das flexibelste Hubbett Wohnmobil und Kastenwagen | VAN7",
+      "description": "Entdecke das Hubbett mit höchstem Komfort und optimaler Raumnutzung für Camper, Transporter, Wohnmobile oder Anhänger. Nie wieder schief schlafen und den Raum bestmöglich nutzen."
+    },
+    "hero": {
+      "socialProof": "500+ zufriedene Kunden",
+      "h1": "Das Hubbett<br></br>mit dem höchsten Komfort<br></br>& der besten Raumnutzung",
+      "context": "Stelle die perfekte Höhe ein und hole das Beste aus deinem Raum heraus.<br></br>Ausnivellieren und Schlafkomfort genießen wie Zuhause - egal wie schräg dein Kastenwagen steht.",
+      "benefits": {
+        "fast": "Abgesenkt und verstaut innerhalb von Sekunden",
+        "noMovement": "Stabil fixierbar, kein Schwingen oder Schaukeln",
+        "enoughSpace": "Ausreichend Raum für Ausrüstung, Bikes, Möbel",
+        "noTracks": "Keine störenden Führungsschienen"
+      },
+      "cta": "Neue Serie vorbestellen",
+      "interactions": {
+        "tryNow": "Einfach ausprobieren!",
+        "levelOut": "Ausnivellieren",
+        "fix": "Fixieren",
+        "extend": "Ausziehen"
+      }
+    },
+    "features": {
+      "setHeight": {
+        "title": "Höhe stufenlos einstellen",
+        "text": "Du musst nicht mehr zwischen Komfort oder Raum entscheiden - du bekommst beides. Dank der stufenlosen Höhenverstellung kannst du das Bett mühelos mit der Kurbel auf deine Wunschhöhe einstellen. Egal, ob du ein Wohnmobil oder einen Kastenwagen fährst, so nutzt du den Stauraum optimal für Fahrräder, Motorräder oder andere Ausrüstung und schläfst trotzdem in höchstem Komfort."
+      },
+      "levelOut": {
+        "title": "Ausnivellieren",
+        "text": "Egal, wie uneben das Gelände ist - das Van7 Hubbett passt sich deinen Bedürfnissen an. Mit der flexiblen Gurtfixierung kannst du das Bett an allen vier Ecken individuell ausnivellieren, sodass du immer in einer komfortablen, waagerechten Position schläfst. Ob im Wohnmobil auf dem Campingplatz oder mit deinem Kastenwagen in der Wildnis - wähle deinen Schlafplatz frei und genieße erholsame Nächte, wo immer du parkst."
+      },
+      "fix": {
+        "title": "An der Wand fixieren",
+        "text": "Im Gegensatz zu herkömmlichen Lösungen kommt unser Hubbett komplett ohne störende Führungsschienen aus. Mit unserer patentierten Fixierfunktion wird das Bett fest an die Seitenwand gezogen, sodass es weder wackelt noch schwankt."
+      },
+      "extend": {
+        "title": "Lattenrost ausziehen",
+        "text": "Platz für drei Personen? Kein Problem. Nutze die gesamte Breite des Fahrzeuges mit den optionalen Auszug auf maximal 190 cm Breite."
+      }
+    },
+    "reviews": {
+      "title": "Das beliebteste Hubbett von",
+      "audience": {
+        "adventurers": "Abenteuerern",
+        "campers": "Campern",
+        "motorsports": "Motorsportlern",
+        "outdoorSports": "Outdoorsportlern",
+        "handyman": "Handwerkern"
+      },
+      "reviews": {
+        "Käufer": "Habe einige Nächte in diesem Bett verbracht und bin begeistert, sehr komfortabel und gemütlich. Das ausrichten und fixieren des Hubbetts gestaltet sich spielend leicht. Alles in allem eine sehr gute Investition.",
+        "Stefan": "Absolut geniales Produkt! Nicht nur das dadurch der Innenraum des Fahrzeugs wesentlich flexibler und multifunktionaler nutzbar wird, auch die technischen Details und die Qualität sind herausragend. Nebenbei bemerkt ist auch das Team hinter Van7 sehr engagiert und hilfsbereit. 6 Sterne",
+        "Andreas": "Einfach Top, wenn man in seinen Bus oder Van ein Bett einbauen möchte. So haben wir maximalen Platz um die Mountainbikes oder das Motorrad zu verstauen und durch das ausnivellieren des Bettes ink. Fixierfunktion hat man immer eine waagerechte Position beim schlafen und kann am nächsten Tag wieder voll durchstarten. Kann ich nur jedem weiterempfehlen. 👍 🚐",
+        "Lorenz": "Ich bin mit meinem Bett super zufrieden!! Endlich mehr Platz im Wagen zu haben erleichtert mir beim Campen einiges, kann das Van7 Bett nur weiterempfehlen!!",
+        "Jean-Marc": "Super intelligentes Ablagesystem, sehr gute Verarbeitung, und kompetenter/freundlicher Ansprechpartner! Immer gerne!"
+      }
+    },
+    "products": {
+      "title": "Neue Serie,<br></br>Neue Ausbaukonzepte"
+    },
+    "optimized": {
+      "title": "Getestet und optimiert",
+      "text": "Das Van7 Hubbett ist das Ergebnis jahrelanger Entwicklung und Optimierung. Durch sorgfältige Tests und kontinuierliche Verbesserungen über verschiedene Serien hinweg wurden zahlreiche Herausforderungen gelöst, wie etwa die Haltbarkeit der Zahnräder, die Effizienz der Seilwinden und die Vermeidung von Verschleiß."
+    },
+    "installation": {
+      "button": "Mehr erfahren",
+      "partner": {
+        "title": "Einbaupartner finden",
+        "text": "Sorgloser Einbau durch unsere Einbaupartner. Schnell und zuverlässig, damit du dich voll und ganz auf dein Abenteuer konzentrieren kannst."
+      },
+      "diy": {
+        "title": "DIY Anleitung",
+        "text": "Für viele beginnt das Abenteuer schon vor dem ersten Roadtrip. Unsere Videos zeigt dir, wie du das Bett mühelos und schnell selbst montierst."
+      }
+    },
+    "contact": {
+      "stillQuestions": "Noch Fragen?",
+      "StefanWillHelp": "Stefan hilft dir gerne weiter."
+    }
+  }
+}

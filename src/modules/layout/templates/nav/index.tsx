@@ -1,13 +1,16 @@
 import { Suspense } from "react";
-import { listRegions } from "@lib/data/regions";
-import { StoreRegion } from "@medusajs/types";
 import LocalizedClientLink from "@modules/common/components/localized-client-link";
 import CartButton from "@modules/layout/components/cart-button";
 import SideMenu from "@modules/layout/components/side-menu";
 import Logo from "/public/van7-logo.svg";
 import NavLink from "./NavLink";
+import LanguageSelect from "@modules/layout/components/language-select";
+import { StoreRegion } from "@medusajs/types";
+import { listRegions } from "@lib/data/regions";
+import { getTranslations } from "next-intl/server";
 
 export default async function Nav() {
+  const t = await getTranslations("nav");
   const regions = await listRegions().then((regions: StoreRegion[]) => regions);
 
   return (
@@ -18,11 +21,13 @@ export default async function Nav() {
             <Logo className="w-[120px] sm:w-[180px]" />
           </LocalizedClientLink>
 
-          <div className="flex h-full items-center justify-end gap-x-6">
+          <div className="flex h-full items-center justify-end">
             <NavLink href="/">Home</NavLink>
-            <NavLink href="hubbett-kaufen">Produkte</NavLink>
-            <NavLink href="/#bewertungen">Bewertungen</NavLink>
-            <NavLink href="/#kontakt">Kontakt</NavLink>
+            <NavLink href="hubbett-kaufen">{t("products")}</NavLink>
+            <NavLink href="/#bewertungen">{t("reviews")}</NavLink>
+            <NavLink href="/#kontakt">{t("contact")}</NavLink>
+
+            <LanguageSelect />
 
             <Suspense
               fallback={

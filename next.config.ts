@@ -1,11 +1,10 @@
+import { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
 const checkEnvVariables = require("./check-env-variables");
 
 checkEnvVariables();
 
-/**
- * @type {import('next').NextConfig}
- */
-const nextConfig = {
+const nextConfig: NextConfig = {
   reactStrictMode: true,
   webpack(config) {
     config.module.rules.push({
@@ -66,4 +65,5 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+const withNextIntl = createNextIntlPlugin();
+export default withNextIntl(nextConfig);

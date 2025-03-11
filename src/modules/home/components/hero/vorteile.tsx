@@ -1,29 +1,20 @@
-import { clx } from "@medusajs/ui";
 import Check from "/public/check.svg";
+import { useTranslations } from "next-intl";
 
-const VorteileListe = ({ small }: { small: boolean }) => (
-  <div
-    className={clx("flex flex-col", {
-      "3xl:text-2xl 3xl:gap-y-3 sm:text-xl": !small,
-    })}
-  >
-    <div className="flex items-center gap-x-1 sm:gap-x-2.5">
-      <Check />
-      Abgesenkt und verstaut innerhalb von Sekunden
-    </div>
-    <div className="flex items-center gap-x-1 sm:gap-x-2.5">
-      <Check />
-      Stabil fixierbar, kein Schwingen oder Schaukeln
-    </div>
-    <div className="flex items-center gap-x-1 sm:gap-x-2.5">
-      <Check />
-      Ausreichend Raum für Ausrüstung, Bikes, Möbel
-    </div>
-    <div className="flex items-center gap-x-1 sm:gap-x-2.5">
-      <Check />
-      Keine störenden Führungsschienen
-    </div>
-  </div>
-);
+const VorteileListe = () => {
+  const t = useTranslations("home.hero.benefits");
+  const keys = ["fast", "noMovement", "enoughSpace", "noTracks"];
+
+  return (
+    <ul className="flex flex-col text-xl">
+      {keys.map((key) => (
+        <li className="flex items-center gap-x-1 sm:gap-x-2.5">
+          <Check />
+          {t(key)}
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 export default VorteileListe;

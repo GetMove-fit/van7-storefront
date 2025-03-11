@@ -122,15 +122,15 @@ export function Parallax() {
   return (
     <div
       id="bg_hero"
-      className="h-4/5 relative w-full overflow-hidden bg-[#fbfbfb] place-items-center"
+      className="relative h-[80vh] w-full place-items-center overflow-hidden bg-[#fbfbfb]"
     >
       <div className="flex w-full place-content-center">
-        <h1 className="font-title uppercase text-white/80 absolute bg-blend-hard-light text-center text-3xl sm:text-6xl sm:leading-none mt-5">
+        <h1 className="absolute mt-5 text-center font-title text-3xl uppercase text-white/80 bg-blend-hard-light sm:text-6xl sm:leading-none">
           <span className="h1-line inline-block">Das</span>
           <br />
           <span
             id="flexibleSpan"
-            className="h1-line inline-block text-5xl sm:text-9xl leading-none"
+            className="h1-line inline-block text-5xl leading-none sm:text-9xl"
           >
             flexibelste Campingbett
           </span>
@@ -141,15 +141,15 @@ export function Parallax() {
         </h1>
       </div>
 
-      <div className="w-full h-full">
-        <HeroParallax className="w-full absolute" />
-        <img src="/sky.png" className="w-full top-0 absolutes" />
+      <div className="h-full w-full">
+        <HeroParallax className="absolute w-full" />
+        <img src="/sky.png" className="absolutes top-0 w-full" />
       </div>
 
       <video
         ref={videoRef}
         // Removed onLoadedData attribute so playback is handled by the effect
-        className="absolute sm:left-1/3 top-10"
+        className="absolute top-20 sm:left-1/3"
         playsInline
         webkit-playsinline="true"
         preload="metadata"
@@ -162,7 +162,7 @@ export function Parallax() {
 
       {/* Render progress bar in first segment */}
       {currentSegment === 0 && (
-        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-64">
+        <div className="absolute bottom-20 left-1/2 w-64 -translate-x-1/2 transform">
           <input
             type="range"
             min="0"
@@ -176,12 +176,12 @@ export function Parallax() {
       )}
 
       {/* Render a button for each segment */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 space-x-4">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 transform space-x-4">
         {segments.map((ts, idx) => (
           <button
             key={idx}
             disabled={!(showButton && currentSegment === idx)}
-            className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
+            className="rounded bg-blue-500 px-4 py-2 text-white disabled:opacity-50"
             onClick={() => {
               setShowButton(false);
               setCurrentSegment(currentSegment + 1);

@@ -2,15 +2,21 @@ import { getBaseURL } from "@lib/util/env";
 import RunCookieConsent from "@modules/common/components/RunCookieConsent";
 import WhatsappBubble from "@modules/common/components/WhatsappBubble";
 import { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 import "styles/globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
 };
 
-export default function RootLayout(props: { children: React.ReactNode }) {
+export default async function RootLayout(props: { children: React.ReactNode }) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+  console.log(locale);
+
   return (
-    <html lang="de" data-mode="light">
+    <html lang={locale} data-mode="light">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -29,8 +35,11 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       </head>
       <body>
         <RunCookieConsent />
+        <NextIntlClientProvider messages={messages}>
+          <main className="relative">{props.children}</main>
+        </NextIntlClientProvider>
+
         <WhatsappBubble />
-        <main className="relative">{props.children}</main>
       </body>
     </html>
   );

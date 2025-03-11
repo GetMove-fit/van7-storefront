@@ -1,8 +1,10 @@
 import Image from "next/image";
 import KontaktFormular from "./form";
 import StefanBild from "/public/dein-berater-stefan.jpg";
+import { useTranslations } from "next-intl";
 
 export default function Kontakt() {
+  const t = useTranslations("home.contact");
   return (
     <section
       id="kontakt"
@@ -10,9 +12,9 @@ export default function Kontakt() {
     >
       <div className="flex flex-col gap-y-10 py-5">
         <h2 className="font-title text-4xl text-grey-90 sm:text-6xl">
-          <span className="text-brand-content">Noch Fragen?</span>
+          <span className="text-brand-content">{t("stillQuestions")}</span>
           <br />
-          Stefan hilft dir gerne weiter.
+          {t("StefanWillHelp")}
         </h2>
         <KontaktFormular />
       </div>

@@ -4,7 +4,8 @@ import { SortOptions } from "@modules/store/components/refinement-list/sort-prod
 
 import Banner from "/public/das-hubbett-für-dich.jpg";
 import TestimonialsSection from "@modules/home/components/testimonials";
-import ProduktSection from "./produkte";
+import ProductsTemplate from "@modules/common/templates/products";
+import { listProducts } from "@lib/data/products";
 
 export const metadata: Metadata = {
   title: "Hubbett kaufen für jede Situation & jeden Einbauort | VAN7 Shop",
@@ -24,12 +25,23 @@ type Params = {
 
 export default async function StorePage(props: Params) {
   const { countryCode } = await props.params;
-  // const searchParams = await props.searchParams
-  // const { sortBy, page } = searchParams
+
+  let {
+    response: { products },
+  } = await listProducts({
+    countryCode,
+    queryParams: {
+      collection_id: process.env.NEXT_PUBLIC_HUBBETT_COLLECTION_ID,
+    },
+  });
 
   return (
     <div className="flex flex-col">
-      <ProduktSection bannerSrc={Banner.src} countryCode={countryCode}>
+      <ProductsTemplate
+        bannerSrc={Banner.src}
+        products={products}
+        className="pb-20 pt-5"
+      >
         <h1>
           Entdecke
           <br />
@@ -37,7 +49,7 @@ export default async function StorePage(props: Params) {
           <br />
           Hubbett für dich
         </h1>
-      </ProduktSection>
+      </ProductsTemplate>
 
       <TestimonialsSection />
     </div>

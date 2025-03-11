@@ -1,8 +1,10 @@
 import React from "react";
 import Einbaupartner from "/public/einbaupartner.png";
 import Anleitung from "/public/anleitung.png";
+import { useTranslations } from "next-intl";
 
 const Installation = () => {
+  const t = useTranslations("home.installation");
   return (
     <section className="flex gap-8 bg-white px-5 py-16 max-md:flex-col sm:px-10 lg:px-20 xl:px-36 2xl:px-48">
       <a
@@ -20,14 +22,10 @@ const Installation = () => {
         <div className="z-10 flex h-full flex-col items-center justify-end p-2 py-4 text-lg text-white sm:p-12 sm:text-2xl lg:pt-40">
           Installation
           <h2 className="text-center font-title text-3xl font-bold tracking-wider sm:text-5xl">
-            Einbaupartner finden
+            {t("partner.title")}
           </h2>
-          <p className="mt-5 text-center sm:mt-8">
-            Sorgloser Einbau durch unsere Einbaupartner. Schnell und
-            zuverlässig, damit du dich voll und ganz auf dein Abenteuer
-            konzentrieren kannst.
-          </p>
-          <p className="mt-4 font-bold uppercase sm:mt-8">Mehr erfahren</p>
+          <p className="mt-5 text-center sm:mt-8">{t("partner.text")}</p>
+          <p className="mt-4 font-bold uppercase sm:mt-8">{t("button")}</p>
         </div>
       </a>
 
@@ -46,14 +44,10 @@ const Installation = () => {
         <div className="z-10 flex h-full flex-col items-center justify-end p-2 py-4 text-lg text-white sm:p-12 sm:text-2xl lg:pt-40">
           Installation
           <h2 className="text-center font-title text-3xl font-bold tracking-wider sm:text-5xl">
-            DIY Anleitung
+            {t("diy.title")}
           </h2>
-          <p className="mt-5 text-center sm:mt-8">
-            Für viele beginnt das Abenteuer schon vor dem ersten Roadtrip.
-            Unsere Videos zeigt dir, wie du das Bett mühelos und schnell selbst
-            montierst.
-          </p>
-          <p className="mt-4 font-bold uppercase sm:mt-8">Mehr erfahren</p>
+          <p className="mt-5 text-center sm:mt-8">{t("diy.text")}</p>
+          <p className="mt-4 font-bold uppercase sm:mt-8">{t("button")}</p>
         </div>
       </a>
     </section>

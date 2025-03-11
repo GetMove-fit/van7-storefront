@@ -14,18 +14,20 @@ import kundenBild9 from "/public/kundengalerie/kundenbild9.png";
 import kundenBild10 from "/public/kundengalerie/kundenbild10.png";
 import Stars from "/public/stars.svg";
 import Quotes from "/public/quotes.svg";
+import { useTranslations } from "next-intl";
 
 const TestimonialsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const wordRef = useRef<HTMLSpanElement>(null);
   const splideRef = useRef<any>(null);
+  const t = useTranslations("home.reviews");
   const words = [
-    "Abenteuerern",
-    "Campern",
-    "Motorsportlern",
-    "Outdoorsportlern",
-    "Handwerkern",
-  ];
+    "adventurers",
+    "campers",
+    "motorsports",
+    "outdoorSports",
+    "handyman",
+  ].map((word) => t(`audience.${word}`));
   const [currentWord, setCurrentWord] = useState(0);
   const testimonials = [
     "Habe einige Nächte in diesem Bett verbracht und bin begeistert, sehr komfortabel und gemütlich. Das Ausrichten und Fixieren des Hubbettens gestaltet sich spielend leicht. Alles in allem eine sehr gute Investition.",
@@ -150,7 +152,7 @@ const TestimonialsSection = () => {
         <div className="flex flex-col items-center gap-y-5">
           <Stars />
           <h2 className="text-center font-title text-5xl sm:text-7xl">
-            Das beliebteste Hubbett von
+            {t("title")}
             <br />
             <span ref={wordRef}>{words[currentWord]}</span>
           </h2>

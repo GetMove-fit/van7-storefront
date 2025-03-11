@@ -2,6 +2,7 @@
 
 import Hintergrund from "/public/optimiert.png";
 import HintergrundMobile from "/public/optimiert-mobile.png";
+import { useTranslations } from "next-intl";
 
 const SeriesCircle = ({
   number,
@@ -38,6 +39,7 @@ const Timeline = () => (
 );
 
 const OptimiertSection = () => {
+  const t = useTranslations("home.optimized");
   return (
     <section className="relative w-full overflow-hidden bg-grey-90 sm:h-[700px]">
       {/* Desktop background */}
@@ -56,14 +58,10 @@ const OptimiertSection = () => {
       <div className="relative z-10 flex h-full w-full flex-col content-center items-end justify-between gap-y-5 px-5 py-12 sm:items-center sm:px-10 sm:py-24 lg:px-20 xl:flex-row xl:px-36 2xl:px-48">
         <div className="flex flex-col gap-y-5 sm:gap-y-16">
           <h2 className="font-title text-4xl uppercase text-white sm:text-7xl">
-            Getestet und optimiert
+            {t("title")}
           </h2>
           <p className="max-w-2xl text-lg text-white sm:text-2xl">
-            Das Van7 Hubbett ist das Ergebnis jahrelanger Entwicklung und
-            Optimierung. Durch sorgfältige Tests und kontinuierliche
-            Verbesserungen über verschiedene Serien hinweg wurden zahlreiche
-            Herausforderungen gelöst, wie etwa die Haltbarkeit der Zahnräder,
-            die Effizienz der Seilwinden und die Vermeidung von Verschleiß.
+            {t("text")}
           </p>
         </div>
         <Timeline />

@@ -6,6 +6,7 @@ import StufenlosIcon from "/public/icons/funktionen/stufenlos.svg";
 import WaagrechtIcon from "/public/icons/funktionen/waagrecht.svg";
 import StabilFixiertIcon from "/public/icons/funktionen/stabil-fixiert.svg";
 import LattenrostIcon from "/public/icons/funktionen/lattenrost.svg";
+import { useTranslations } from "next-intl";
 
 // Update FeatureCard to accept hover event props
 const FeatureCard = ({
@@ -79,28 +80,29 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
 
+  const t = useTranslations("home.features");
   const features = [
     {
-      title: "Höhe stufenlos einstellen",
-      text: "Du musst nicht mehr zwischen Komfort oder Raum entscheiden - du bekommst beides. Dank der stufenlosen Höhenverstellung kannst du das Bett mühelos mit der Kurbel auf deine Wunschhöhe einstellen. Egal, ob du ein Wohnmobil oder einen Kastenwagen fährst, so nutzt du den Stauraum optimal für Fahrräder, Motorräder oder andere Ausrüstung und schläfst trotzdem in höchstem Komfort.",
+      title: t("setHeight.title"),
+      text: t("setHeight.text"),
       icon: <StufenlosIcon />,
       timestamp: 7.5,
     },
     {
-      title: "Ausnivellieren",
-      text: "Egal, wie uneben das Gelände ist - das Van7 Hubbett passt sich deinen Bedürfnissen an. Mit der flexiblen Gurtfixierung kannst du das Bett an allen vier Ecken individuell ausnivellieren, sodass du immer in einer komfortablen, waagerechten Position schläfst. Ob im Wohnmobil auf dem Campingplatz oder mit deinem Kastenwagen in der Wildnis - wähle deinen Schlafplatz frei und genieße erholsame Nächte, wo immer du parkst.",
+      title: t("levelOut.title"),
+      text: t("levelOut.text"),
       icon: <WaagrechtIcon />,
       timestamp: 16,
     },
     {
-      title: "An der Wand fixieren",
-      text: "Im Gegensatz zu herkömmlichen Lösungen kommt unser Hubbett komplett ohne störende Führungsschienen aus. Mit unserer patentierten Fixierfunktion wird das Bett fest an die Seitenwand gezogen, sodass es weder wackelt noch schwankt.",
+      title: t("fix.title"),
+      text: t("fix.text"),
       icon: <StabilFixiertIcon />,
       timestamp: 28,
     },
     {
-      title: "Lattenrost ausziehen",
-      text: "Platz für drei Personen? Kein Problem. Nutze die gesamte Breite des Fahrzeuges mit den optionalen Auszug auf maximal 190 cm Breite.",
+      title: t("extend.title"),
+      text: t("extend.text"),
       icon: <LattenrostIcon />,
       timestamp: 31,
     },

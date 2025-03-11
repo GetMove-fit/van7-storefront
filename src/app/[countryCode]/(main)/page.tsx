@@ -1,21 +1,22 @@
-import { Metadata } from "next";
-
 import Hero from "@modules/home/components/hero";
 import VideoSection from "@modules/home/components/video";
 import TestimonialsSection from "@modules/home/components/testimonials";
 import OptimiertSection from "@modules/home/components/optimiert";
-import ProduktSection from "./hubbett-kaufen/produkte";
-import BannerNeu from "/public/banner-neu.jpg";
 import { Parallax } from "@modules/home/components/hero/parallax";
 import Installation from "@modules/home/components/installation";
 import VideoBackground from "/public/video-background.png";
 import Kontakt from "@modules/home/components/kontakt";
+import ProductsSection from "@modules/home/components/products";
+import { getTranslations } from "next-intl/server";
+import { listProducts } from "@lib/data/products";
 
-export const metadata: Metadata = {
-  title: "Das flexibelste Hubbett Wohnmobil und Kastenwagen | VAN7",
-  description:
-    "Entdecke das Hubbett mit höchstem Komfort und optimaler Raumnutzung für Camper, Transporter, Wohnmobile oder Anhänger. Nie wieder schief schlafen und den Raum bestmöglich nutzen.",
-};
+export async function generateMetadata() {
+  const t = await getTranslations("home.meta");
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 export default async function Home(props: {
   params: Promise<{ countryCode: string }>;
@@ -32,6 +33,15 @@ export default async function Home(props: {
   // if (!collections || !region) {
   //   return null
   // }
+
+  let {
+    response: { products },
+  } = await listProducts({
+    countryCode,
+    queryParams: {
+      collection_id: process.env.NEXT_PUBLIC_HUBBETT_COLLECTION_ID,
+    },
+  });
 
   return (
     <div className="bg-grey-10">
@@ -56,13 +66,7 @@ export default async function Home(props: {
 
       <TestimonialsSection />
 
-      <ProduktSection bannerSrc={BannerNeu.src} countryCode={countryCode}>
-        <h2>
-          Neue Serie,
-          <br />
-          Neue Ausbaukonzepte
-        </h2>
-      </ProduktSection>
+      <ProductsSection products={products} />
 
       {/* <EinbauortSection /> */}
 
