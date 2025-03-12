@@ -1,18 +1,20 @@
 import { convertToLocale } from "@lib/util/money";
 import { HttpTypes } from "@medusajs/types";
 import { Heading, Text } from "@medusajs/ui";
-
 import Divider from "@modules/common/components/divider";
+import { useTranslations } from "next-intl";
 
 type ShippingDetailsProps = {
   order: HttpTypes.StoreOrder;
 };
 
 const ShippingDetails = ({ order }: ShippingDetailsProps) => {
+  const t = useTranslations("order");
+
   return (
     <div>
       <Heading level="h2" className="text-3xl-regular my-6 flex flex-row">
-        Lieferung
+        {t("shipping")}
       </Heading>
       <div className="flex items-start gap-x-8">
         <div
@@ -20,7 +22,7 @@ const ShippingDetails = ({ order }: ShippingDetailsProps) => {
           data-testid="shipping-address-summary"
         >
           <Text className="txt-medium-plus mb-1 text-ui-fg-base">
-            Lieferadresse
+            {t("shipping_address")}
           </Text>
           <Text className="txt-medium text-ui-fg-subtle">
             {order.shipping_address?.first_name}{" "}
@@ -43,7 +45,9 @@ const ShippingDetails = ({ order }: ShippingDetailsProps) => {
           className="flex w-1/3 flex-col"
           data-testid="shipping-contact-summary"
         >
-          <Text className="txt-medium-plus mb-1 text-ui-fg-base">Kontakt</Text>
+          <Text className="txt-medium-plus mb-1 text-ui-fg-base">
+            {t("contact")}
+          </Text>
           <Text className="txt-medium text-ui-fg-subtle">
             {order.shipping_address?.phone}
           </Text>
@@ -54,7 +58,9 @@ const ShippingDetails = ({ order }: ShippingDetailsProps) => {
           className="flex w-1/3 flex-col"
           data-testid="shipping-method-summary"
         >
-          <Text className="txt-medium-plus mb-1 text-ui-fg-base">Methode</Text>
+          <Text className="txt-medium-plus mb-1 text-ui-fg-base">
+            {t("method")}
+          </Text>
           <Text className="txt-medium text-ui-fg-subtle">
             {(order as any).shipping_methods[0]?.name} (
             {convertToLocale({

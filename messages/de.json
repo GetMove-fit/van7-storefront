@@ -1,4 +1,103 @@
 {
+  "cart": {
+    "title": "Warenkorb",
+    "items": {
+      "title": "Artikel",
+      "quantity": "Menge",
+      "price": "Preis",
+      "total": "Gesamt",
+      "remove": "Entfernen"
+    },
+    "variant": "Variante",
+    "summary": "Zusammenfassung",
+    "toCart": "Zum Warenkorb",
+    "toCheckout": "Zur Kasse",
+    "totals": {
+      "subtotal": "Zwischensumme",
+      "shipping": "Versand",
+      "discount": "Rabatt",
+      "tax": "MwSt.",
+      "giftCard": "Geschenkkarte",
+      "total": "Gesamt"
+    },
+    "discount": {
+      "title": "Gutscheincode einlösen",
+      "apply": "Anwenden",
+      "applied": "Angewendete Gutscheincodes:",
+      "remove": "Gutschein entfernen"
+    },
+    "empty": "Dein Warenkorb ist leer.",
+    "viewHubbetten": "Hubbetten ansehen",
+    "exploreHubbetten": "Hubbetten entdecken"
+  },
+  "checkout": {
+    "title": "Kasse",
+    "backToCart": "Zurück zum Warenkorb",
+    "back": "Zurück",
+    "shipping_address": {
+      "use_saved_address": "Hallo {name}, möchten Sie eine Ihrer gespeicherten Adressen verwenden?",
+      "first_name": "Vorname",
+      "last_name": "Nachname",
+      "address": "Adresse",
+      "company": "Firma",
+      "postal_code": "Postleitzahl",
+      "city": "Stadt",
+      "province": "Bundesland / Provinz",
+      "same_as_billing": "Rechnungsadresse entspricht der Lieferadresse",
+      "email": "E-Mail",
+      "valid_email": "Geben Sie eine gültige E-Mail-Adresse ein.",
+      "phone": "Telefon"
+    },
+    "addresses": {
+      "shipping_address": "Lieferadresse",
+      "billing_address": "Rechnungsadresse",
+      "contact": "Kontakt",
+      "edit": "Bearbeiten",
+      "continue_to_payment": "Weiter zur Zahlung",
+      "same_as_shipping": "Rechnungs- und Lieferadresse sind identisch."
+    },
+    "review": {
+      "heading": "Überprüfung",
+      "confirmation_text": "Durch Klicken auf die Schaltfläche Bestellung aufgeben bestätigen Sie, dass Sie unsere",
+      "terms_and_conditions": "AGB",
+      "and": "und",
+      "cancellation_policy": "Widerrufsbelehrung",
+      "read_understood_accepted": "gelesen, verstanden und akzeptiert haben und bestätigen, dass Sie die",
+      "privacy_policy": "Datenschutzerklärung",
+      "read_by_van7": "von VAN7 gelesen haben."
+    },
+    "payment": {
+      "heading": "Zahlungsart",
+      "edit": "Bearbeiten",
+      "bank_transfer": "Direkte Banküberweisung",
+      "online_payment": "Sichere Online-Zahlung",
+      "payment_method": "Zahlungsart",
+      "gift_card": "Geschenkkarte",
+      "continue_to_review": "Weiter zur Überprüfung",
+      "payment_details": "Zahlungsdetails",
+      "bank_transfer_details": "Du erhältst die Rechnung worauf die Bankdaten ersichtlich sind",
+      "online_payment_details": "Ein weiterer Schritt wird folgen",
+      "place_order": "Bestellung aufgeben",
+      "select_payment_method": "Wähle eine Zahlungsart"
+    }
+  },
+  "order": {
+    "thank_you": "Danke!",
+    "order_success": "Ihre Bestellung wurde erfolgreich aufgegeben.",
+    "summary": "Zusammenfassung",
+    "payment": "Zahlung",
+    "payment_method": "Zahlungsmethode",
+    "payment_details": "Zahlungsdetails",
+    "paid_on": "bezahlt am",
+    "shipping": "Lieferung",
+    "shipping_address": "Lieferadresse",
+    "contact": "Kontakt",
+    "method": "Methode",
+    "confirmation": "Wir haben die Bestellbestätigung an <b>{email}</b> geschickt.",
+    "order_date": "Bestelldatum",
+    "order_status": "Bestellstatus",
+    "payment_status": "Zahlungsstatus"
+  },
   "shipTo": "Versand nach",
   "nav": {
     "products": "Produkte",
@@ -147,5 +246,33 @@
         "text": "Das VAN7 Hubbett bietet dir den Platz und den Komfort, den du beim Übernachten auf mobilem kleinen Raum brauchst. Ruck zuck verschwindet es an der Decke und du hast mega viel Stauraum für Bikes oder für eine zusätzliche Sitzgruppe."
       }
     }
+  },
+  "footer": {
+    "description": "Das Hubbett für jede (Park)situation! Waagerecht schlafen und dennoch genügend Stauraum im Camper? Mit VAN7 musst du keine Kompromisse eingehen!",
+    "followUs": "Folge uns auf unsere Reisen",
+    "contactInfo": "Kontaktinformation",
+    "address": "Dorfstraße 5, 8753 Fohnsdorf",
+    "email": "info@van7.at",
+    "phone": "(+43) 676 337 25 56",
+    "whatsapp": "(+43) 676 337 25 56",
+    "shop": "Shop",
+    "impressum": "Impressum",
+    "agb": "AGB",
+    "privacyPolicy": "Datenschutzerklärung",
+    "designedBy": "Designed & crafted by"
+  },
+  "form": {
+    "name": "Name",
+    "phone": "Telefonnummer",
+    "email": "E-Mail",
+    "agreement": {
+      "prefix": "Ich habe die",
+      "privacyPolicy": "Datenschutzerklärung",
+      "terms": "AGB",
+      "and": "und",
+      "cancellationPolicy": "Widerrufsbelehrung",
+      "suffix": "gelesen, verstanden und stimme diesen zu."
+    },
+    "submit": "Nachricht senden"
   }
 }

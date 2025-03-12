@@ -3,12 +3,20 @@ import { retrieveCustomer } from "@lib/data/customer";
 import PaymentWrapper from "@modules/checkout/components/payment-wrapper";
 import CheckoutForm from "@modules/checkout/templates/checkout-form";
 import CheckoutSummary from "@modules/checkout/templates/checkout-summary";
-import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Kasse",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "checkout" });
+  return {
+    title: t("title"),
+  };
+}
 
 export default async function Checkout() {
   const cart = await retrieveCart();

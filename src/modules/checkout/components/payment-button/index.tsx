@@ -8,6 +8,7 @@ import { useElements, useStripe } from "@stripe/react-stripe-js";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import ErrorMessage from "../error-message";
+import { useTranslations } from "next-intl";
 
 type PaymentButtonProps = {
   cart: HttpTypes.StoreCart;
@@ -18,6 +19,7 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
   cart,
   "data-testid": dataTestId,
 }) => {
+  const t = useTranslations("checkout.payment");
   const notReady =
     !cart ||
     !cart.shipping_address ||
@@ -39,7 +41,7 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
           size="large"
           data-testid={dataTestId}
         >
-          Bestellung aufgeben
+          {t("place_order")}
         </Button>
       );
     case isStripe(paymentSession?.provider_id):
@@ -51,7 +53,7 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
         />
       );
     default:
-      return <Button disabled>Wähle eine Zahlungsart</Button>;
+      return <Button disabled>{t("select_payment_method")}</Button>;
   }
 };
 
@@ -64,6 +66,7 @@ const StripePaymentButton = ({
   notReady: boolean;
   "data-testid"?: string;
 }) => {
+  const t = useTranslations("checkout.payment");
   const [submitting, setSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -158,7 +161,7 @@ const StripePaymentButton = ({
         isLoading={submitting}
         data-testid={dataTestId}
       >
-        Bestellung aufgeben
+        {t("place_order")}
       </Button>
       <ErrorMessage
         error={errorMessage}

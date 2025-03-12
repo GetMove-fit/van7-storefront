@@ -6,6 +6,7 @@ import { mapKeys } from "lodash";
 import React, { useEffect, useMemo, useState } from "react";
 import AddressSelect from "../address-select";
 import CountrySelect from "../country-select";
+import { useTranslations } from "use-intl";
 
 const ShippingAddress = ({
   customer,
@@ -92,12 +93,14 @@ const ShippingAddress = ({
     });
   };
 
+  const t = useTranslations("checkout.shipping_address");
+
   return (
     <>
       {customer && (addressesInRegion?.length || 0) > 0 && (
         <Container className="mb-6 flex flex-col gap-y-4 p-5">
           <p className="text-small-regular">
-            {`Hallo ${customer.first_name}, möchten Sie eine Ihrer gespeicherten Adressen verwenden?`}
+            {t("use_saved_address", { name: customer.first_name })}
           </p>
           <AddressSelect
             addresses={customer.addresses}
@@ -112,7 +115,7 @@ const ShippingAddress = ({
       )}
       <div className="grid grid-cols-2 gap-4">
         <Input
-          label="Vorname"
+          label={t("first_name")}
           name="shipping_address.first_name"
           autoComplete="given-name"
           value={formData["shipping_address.first_name"]}
@@ -122,7 +125,7 @@ const ShippingAddress = ({
         />
 
         <Input
-          label="Nachname"
+          label={t("last_name")}
           name="shipping_address.last_name"
           autoComplete="family-name"
           value={formData["shipping_address.last_name"]}
@@ -132,7 +135,7 @@ const ShippingAddress = ({
         />
 
         <Input
-          label="Adresse"
+          label={t("address")}
           name="shipping_address.address_1"
           autoComplete="address-line1"
           value={formData["shipping_address.address_1"]}
@@ -142,7 +145,7 @@ const ShippingAddress = ({
         />
 
         <Input
-          label="Firma"
+          label={t("company")}
           name="shipping_address.company"
           value={formData["shipping_address.company"]}
           onChange={handleChange}
@@ -151,7 +154,7 @@ const ShippingAddress = ({
         />
 
         <Input
-          label="Postleitzahl"
+          label={t("postal_code")}
           name="shipping_address.postal_code"
           autoComplete="postal-code"
           value={formData["shipping_address.postal_code"]}
@@ -161,7 +164,7 @@ const ShippingAddress = ({
         />
 
         <Input
-          label="Stadt"
+          label={t("city")}
           name="shipping_address.city"
           autoComplete="address-level2"
           value={formData["shipping_address.city"]}
@@ -181,7 +184,7 @@ const ShippingAddress = ({
         />
 
         <Input
-          label="Bundesland / Provinz"
+          label={t("province")}
           name="shipping_address.province"
           autoComplete="address-level1"
           value={formData["shipping_address.province"]}
@@ -191,7 +194,7 @@ const ShippingAddress = ({
       </div>
       <div className="my-8">
         <Checkbox
-          label="Rechnungsadresse entspricht der Lieferadresse"
+          label={t("same_as_billing")}
           name="same_as_billing"
           checked={checked}
           onChange={onChange}
@@ -200,10 +203,10 @@ const ShippingAddress = ({
       </div>
       <div className="mb-4 grid grid-cols-2 gap-4">
         <Input
-          label="E-Mail"
+          label={t("email")}
           name="email"
           type="email"
-          title="Geben Sie eine gültige E-Mail-Adresse ein."
+          title={t("valid_email")}
           autoComplete="email"
           value={formData.email}
           onChange={handleChange}
@@ -212,7 +215,7 @@ const ShippingAddress = ({
         />
 
         <Input
-          label="Telefon"
+          label={t("phone")}
           name="shipping_address.phone"
           autoComplete="tel"
           value={formData["shipping_address.phone"]}

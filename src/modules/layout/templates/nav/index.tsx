@@ -35,7 +35,7 @@ export default async function Nav() {
               fallback={
                 <LocalizedClientLink
                   className="flex gap-2 hover:text-ui-fg-base"
-                  href="/cart"
+                  href="cart"
                   data-testid="nav-cart-link"
                 >
                   Warenkorb (0)

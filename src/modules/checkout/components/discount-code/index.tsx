@@ -10,6 +10,7 @@ import { HttpTypes } from "@medusajs/types";
 import Trash from "@modules/common/icons/trash";
 import ErrorMessage from "../error-message";
 import { SubmitButton } from "../submit-button";
+import { useTranslations } from "next-intl";
 
 type DiscountCodeProps = {
   cart: HttpTypes.StoreCart & {
@@ -53,6 +54,8 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
 
   const [message, formAction] = useActionState(submitPromotionForm, null);
 
+  const t = useTranslations("cart.discount");
+
   return (
     <div className="flex w-full flex-col bg-white">
       <div className="txt-medium">
@@ -64,7 +67,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
               className="txt-medium text-brand-light hover:text-brand-highlight"
               data-testid="add-discount-button"
             >
-              Promotionscode einlösen
+              {t("title")}
             </button>
 
             {/* <Tooltip content="You can add multiple promotion codes">
@@ -88,7 +91,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                   variant="secondary"
                   data-testid="discount-apply-button"
                 >
-                  Anwenden
+                  {t("apply")}
                 </SubmitButton>
               </div>
 
@@ -103,9 +106,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
         {promotions.length > 0 && (
           <div className="flex w-full items-center">
             <div className="flex w-full flex-col">
-              <Heading className="txt-medium mb-2">
-                Angewendete Promotionen:
-              </Heading>
+              <Heading className="txt-medium mb-2">{t("applied")}</Heading>
 
               {promotions.map((promotion) => {
                 return (
@@ -159,9 +160,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                         data-testid="remove-discount-button"
                       >
                         <Trash size={14} />
-                        <span className="sr-only">
-                          Rabattcode aus der Bestellung entfernen
-                        </span>
+                        <span className="sr-only">{t("remove")}</span>
                       </button>
                     )}
                   </div>

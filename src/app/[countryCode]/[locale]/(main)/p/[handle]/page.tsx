@@ -4,9 +4,10 @@ import { listProducts } from "@lib/data/products";
 import { getRegion, listRegions, retrieveRegion } from "@lib/data/regions";
 import ProductTemplate from "@modules/products/templates";
 import { getCollectionByHandle } from "@lib/data/collections";
+import { getTranslations } from "next-intl/server";
 
 type Props = {
-  params: Promise<{ countryCode: string; handle: string }>;
+  params: Promise<{ countryCode: string; handle: string; locale: string }>;
 };
 
 export async function generateStaticParams() {
@@ -44,11 +45,10 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
-  const params = await props.params;
-  const { handle } = params;
+  const { handle, countryCode, locale } = await props.params;
 
   const product = await listProducts({
-    countryCode: params.countryCode,
+    countryCode,
     queryParams: { handle },
   }).then(({ response }) => response.products[0]);
 
@@ -56,12 +56,19 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     notFound();
   }
 
+  const t = await getTranslations("products");
+  const title = locale === "de" ? product.title : t(`${product.handle}.title`);
+  const description =
+    locale === "de"
+      ? (product.description ?? "")
+      : t(`${product.handle}.description`);
+
   return {
-    title: product.title,
-    description: product.description,
+    title,
+    description,
     openGraph: {
-      title: product.title,
-      description: product.description || "",
+      title,
+      description,
       images: product.thumbnail ? [product.thumbnail] : [],
     },
   };

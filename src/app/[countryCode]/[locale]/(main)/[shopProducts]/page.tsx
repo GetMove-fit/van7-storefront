@@ -6,8 +6,13 @@ import ProductsTemplate from "@modules/common/templates/products";
 import { listProducts } from "@lib/data/products";
 import { getTranslations } from "next-intl/server";
 
-export async function generateMetadata() {
-  const t = await getTranslations("shop.meta");
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "shop.meta" });
   return {
     title: t("title"),
     description: t("description"),

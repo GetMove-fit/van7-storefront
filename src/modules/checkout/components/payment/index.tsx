@@ -21,6 +21,7 @@ import { useCallback, useContext, useEffect, useState } from "react";
 import MedusaRadio from "@modules/common/components/radio";
 import Bank from "@modules/common/icons/bank";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
+import { useTranslations } from "next-intl";
 
 const Payment = ({
   cart,
@@ -189,6 +190,8 @@ const Payment = ({
     setError(null);
   }, [isOpen]);
 
+  const t = useTranslations("checkout.payment");
+
   return (
     <div className="bg-white">
       <div className="mb-6 flex flex-row items-center justify-between">
@@ -202,7 +205,7 @@ const Payment = ({
             }
           )}
         >
-          Zahlungsart
+          {t("heading")}
           {!isOpen && paymentReady && <CheckCircleSolid />}
         </Heading>
         {!isOpen && paymentReady && (
@@ -212,7 +215,7 @@ const Payment = ({
               className="text-brand-light hover:text-brand-highlight"
               data-testid="edit-payment-button"
             >
-              Bearbeiten
+              {t("edit")}
             </button>
           </Text>
         )}
@@ -237,7 +240,7 @@ const Payment = ({
                   />
                   <Bank />
                   <p className="w-full whitespace-nowrap font-medium">
-                    Direkte Banküberweisung
+                    {t("bank_transfer")}
                   </p>
                 </div>
               </div>
@@ -262,7 +265,7 @@ const Payment = ({
                         />
                         <Stripe />
                         <p className="w-full whitespace-nowrap font-medium">
-                          Sichere Online-Zahlung
+                          {t("online_payment")}
                         </p>
                       </div>
                     </div>
@@ -292,13 +295,13 @@ const Payment = ({
           {paidByGiftcard && (
             <div className="flex w-1/3 flex-col">
               <Text className="txt-medium-plus mb-1 text-ui-fg-base">
-                Zahlungsart
+                {t("payment_method")}
               </Text>
               <Text
                 className="txt-medium text-ui-fg-subtle"
                 data-testid="payment-method-summary"
               >
-                Geschenkkarte
+                {t("gift_card")}
               </Text>
             </div>
           )}
@@ -320,7 +323,7 @@ const Payment = ({
             }
             data-testid="submit-payment-button"
           >
-            Weiter zur Überprüfung
+            {t("continue_to_review")}
           </Button>
         </div>
 
@@ -329,21 +332,21 @@ const Payment = ({
             <div className="flex w-full items-start gap-x-1">
               <div className="flex w-1/3 flex-col">
                 <Text className="txt-medium-plus mb-1 text-ui-fg-base">
-                  Zahlungsart
+                  {t("payment_method")}
                 </Text>
                 <Text
                   className="txt-medium text-ui-fg-subtle"
                   data-testid="payment-method-summary"
                 >
                   {selectedPaymentMethod === "banküberweisung"
-                    ? "Direkte Banküberweisung"
+                    ? t("bank_transfer")
                     : paymentInfoMap[selectedPaymentMethod]?.title ||
                       selectedPaymentMethod}
                 </Text>
               </div>
               <div className="flex w-1/3 flex-col">
                 <Text className="txt-medium-plus mb-1 text-ui-fg-base">
-                  Zahlungsdetails
+                  {t("payment_details")}
                 </Text>
                 <div
                   className="txt-medium flex items-center gap-2 text-ui-fg-subtle"
@@ -360,8 +363,8 @@ const Payment = ({
                   </Container>
                   <Text>
                     {selectedPaymentMethod === "banküberweisung"
-                      ? "Du erhältst die Rechnung worauf die Bankdaten ersichtlich sind"
-                      : "Ein weiterer Schritt wird folgen"}
+                      ? t("bank_transfer_details")
+                      : t("online_payment_details")}
                   </Text>
                 </div>
               </div>
@@ -369,13 +372,13 @@ const Payment = ({
           ) : paidByGiftcard ? (
             <div className="flex w-1/3 flex-col">
               <Text className="txt-medium-plus mb-1 text-ui-fg-base">
-                Zahlungsart
+                {t("payment_method")}
               </Text>
               <Text
                 className="txt-medium text-ui-fg-subtle"
                 data-testid="payment-method-summary"
               >
-                Geschenkkarte
+                {t("gift_card")}
               </Text>
             </div>
           ) : null}

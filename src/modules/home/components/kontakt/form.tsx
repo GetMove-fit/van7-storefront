@@ -2,18 +2,21 @@
 import { Checkbox, Textarea } from "@medusajs/ui";
 import Input from "@modules/common/components/input";
 import LocalizedClientLink from "@modules/common/components/localized-client-link";
+import { useTranslations } from "next-intl";
 
 export default function KontaktFormular() {
+  const t = useTranslations("form");
+
   return (
     <form
       action="https://formsubmit.co/info@van7.at"
       method="POST"
       className="flex max-w-lg flex-col gap-y-5"
     >
-      <Input label="Name" name="Name" required autoComplete="name" />
+      <Input label={t("name")} name="Name" required autoComplete="name" />
 
       <Input
-        label="Telefonnummer"
+        label={t("phone")}
         name="Telefonnummer"
         type="tel"
         required
@@ -21,7 +24,7 @@ export default function KontaktFormular() {
       />
 
       <Input
-        label="E-Mail"
+        label={t("email")}
         name="E-Mail"
         type="email"
         required
@@ -33,15 +36,19 @@ export default function KontaktFormular() {
       <label className="flex w-full flex-wrap items-center gap-x-2 text-lg">
         <Checkbox required />
         <span>
-          Ich habe die{" "}
+          {t("agreement.prefix")}{" "}
           <LocalizedClientLink href="/datenschutz">
-            Datenschutzerklärung
+            {t("agreement.privacyPolicy")}
           </LocalizedClientLink>
-          , <LocalizedClientLink href="/agb">AGB</LocalizedClientLink> und{" "}
-          <LocalizedClientLink href="/widerrufbelehrung">
-            Widerrufsbelehrung
+          ,{" "}
+          <LocalizedClientLink href="/agb">
+            {t("agreement.terms")}
           </LocalizedClientLink>{" "}
-          gelesen, verstanden und stimme diesen zu.
+          {t("agreement.and")}{" "}
+          <LocalizedClientLink href="/widerrufbelehrung">
+            {t("agreement.cancellationPolicy")}
+          </LocalizedClientLink>{" "}
+          {t("agreement.suffix")}
         </span>
       </label>
 
@@ -49,7 +56,7 @@ export default function KontaktFormular() {
         type="submit"
         className="mt-5 h-fit w-fit rounded bg-gradient-to-b from-brand-light to-brand-dark px-4 py-3 font-bold uppercase leading-none text-white transition-shadow hover:shadow-lg hover:shadow-brand-highlight/30 sm:text-lg"
       >
-        Nachricht senden
+        {t("submit")}
       </button>
     </form>
   );

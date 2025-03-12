@@ -5,8 +5,10 @@ import { Heading, Text, clx } from "@medusajs/ui";
 import PaymentButton from "../payment-button";
 import { useSearchParams } from "next/navigation";
 import LocalizedClientLink from "@modules/common/components/localized-client-link";
+import { useTranslations } from "next-intl";
 
 const Review = ({ cart }: { cart: any }) => {
+  const t = useTranslations("checkout.review");
   const searchParams = useSearchParams();
 
   const isOpen = searchParams.get("step") === "review";
@@ -31,7 +33,7 @@ const Review = ({ cart }: { cart: any }) => {
             }
           )}
         >
-          Überprüfung
+          {t("heading")}
         </Heading>
       </div>
       {isOpen && previousStepsCompleted && (
@@ -39,21 +41,19 @@ const Review = ({ cart }: { cart: any }) => {
           <div className="mb-6 flex w-full items-start gap-x-1">
             <div className="w-full">
               <Text className="txt-medium-plus mb-1 text-ui-fg-base">
-                Durch Klicken auf die Schaltfläche Bestellung aufgeben
-                bestätigen Sie, dass Sie unsere{" "}
+                {t("confirmation_text")}{" "}
                 <LocalizedClientLink href="agb" className="link">
-                  AGB
+                  {t("terms_and_conditions")}
                 </LocalizedClientLink>{" "}
-                und{" "}
+                {t("and")}{" "}
                 <LocalizedClientLink href="widerrufsbelehrung" className="link">
-                  Widerrufsbelehrung
+                  {t("cancellation_policy")}
                 </LocalizedClientLink>{" "}
-                gelesen, verstanden und akzeptiert haben und bestätigen, dass
-                Sie die{" "}
+                {t("read_understood_accepted")}{" "}
                 <LocalizedClientLink href="datenschutz" className="link">
-                  Datenschutzerklärung
+                  {t("privacy_policy")}
                 </LocalizedClientLink>{" "}
-                von VAN7 gelesen haben.
+                {t("read_by_van7")}
               </Text>
             </div>
           </div>

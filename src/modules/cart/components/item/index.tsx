@@ -13,6 +13,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import Spinner from "@modules/common/icons/spinner";
 import Thumbnail from "@modules/products/components/thumbnail";
 import { useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 
 type ItemProps = {
   item: HttpTypes.StoreCartLineItem;
@@ -43,6 +44,9 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
   // TODO: Aktualisieren Sie dies, um das tatsächliche maximale Inventar zu erfassen
   const maxQtyFromInventory = 10;
   const maxQuantity = item.variant?.manage_inventory ? 10 : maxQtyFromInventory;
+
+  const locale = useLocale();
+  const t = useTranslations("products");
 
   return (
     <Table.Row className="w-full" data-testid="product-row">
@@ -82,7 +86,9 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
           className="txt-medium-plus text-ui-fg-base"
           data-testid="product-title"
         >
-          {item.product_title}
+          {locale === "de"
+            ? item.product_title
+            : t(`${item.product_handle}.title`)}
         </Text>
         <LineItemOptions variant={item.variant} data-testid="product-variant" />
       </Table.Cell>

@@ -9,6 +9,7 @@ import OrderDetails from "@modules/order/components/order-details";
 import ShippingDetails from "@modules/order/components/shipping-details";
 import PaymentDetails from "@modules/order/components/payment-details";
 import { HttpTypes } from "@medusajs/types";
+import { getTranslations } from "next-intl/server";
 
 type OrderCompletedTemplateProps = {
   order: HttpTypes.StoreOrder;
@@ -20,6 +21,8 @@ export default async function OrderCompletedTemplate({
   const cookies = await nextCookies();
 
   const isOnboarding = cookies.get("_medusa_onboarding")?.value === "true";
+
+  const t = await getTranslations("order");
 
   return (
     <div className="min-h-[calc(100vh-64px)] py-6">
@@ -33,12 +36,12 @@ export default async function OrderCompletedTemplate({
             level="h1"
             className="mb-4 flex flex-col gap-y-3 text-3xl text-ui-fg-base"
           >
-            <span>Danke!</span>
-            <span>Ihre Bestellung wurde erfolgreich aufgegeben.</span>
+            <span>{t("thank_you")}</span>
+            <span>{t("order_success")}</span>
           </Heading>
           <OrderDetails order={order} />
           <Heading level="h2" className="text-3xl-regular flex flex-row">
-            Zusammenfassung
+            {t("summary")}
           </Heading>
           <Items order={order} />
           <CartTotals totals={order} />

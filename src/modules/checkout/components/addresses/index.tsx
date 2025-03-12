@@ -13,6 +13,7 @@ import BillingAddress from "../billing_address";
 import ErrorMessage from "../error-message";
 import ShippingAddress from "../shipping-address";
 import { SubmitButton } from "../submit-button";
+import { useTranslations } from "next-intl";
 
 const Addresses = ({
   cart,
@@ -45,6 +46,8 @@ const Addresses = ({
     }
   });
 
+  const t = useTranslations("checkout.addresses");
+
   return (
     <div className="bg-white">
       <div className="mb-6 flex flex-row items-center justify-between">
@@ -52,7 +55,7 @@ const Addresses = ({
           level="h2"
           className="text-3xl-regular flex flex-row items-baseline gap-x-2"
         >
-          Lieferadresse
+          {t("shipping_address")}
           {!isOpen && <CheckCircleSolid />}
         </Heading>
         {!isOpen && cart?.shipping_address && (
@@ -62,7 +65,7 @@ const Addresses = ({
               className="text-brand-light hover:text-brand-highlight"
               data-testid="edit-address-button"
             >
-              Bearbeiten
+              {t("edit")}
             </button>
           </Text>
         )}
@@ -83,14 +86,14 @@ const Addresses = ({
                   level="h2"
                   className="text-3xl-regular gap-x-4 pb-6 pt-8"
                 >
-                  Rechnungsadresse
+                  {t("billing_address")}
                 </Heading>
 
                 <BillingAddress cart={cart} />
               </div>
             )}
             <SubmitButton className="mt-6" data-testid="submit-address-button">
-              Weiter zur Zahlung
+              {t("continue_to_payment")}
             </SubmitButton>
             <ErrorMessage error={message} data-testid="address-error-message" />
           </div>
@@ -106,7 +109,7 @@ const Addresses = ({
                     data-testid="shipping-address-summary"
                   >
                     <Text className="txt-medium-plus mb-1 text-ui-fg-base">
-                      Lieferadresse
+                      {t("shipping_address")}
                     </Text>
                     <Text className="txt-medium text-ui-fg-subtle">
                       {cart.shipping_address.first_name}{" "}
@@ -130,7 +133,7 @@ const Addresses = ({
                     data-testid="shipping-contact-summary"
                   >
                     <Text className="txt-medium-plus mb-1 text-ui-fg-base">
-                      Kontakt
+                      {t("contact")}
                     </Text>
                     <Text className="txt-medium text-ui-fg-subtle">
                       {cart.shipping_address.phone}
@@ -145,12 +148,12 @@ const Addresses = ({
                     data-testid="billing-address-summary"
                   >
                     <Text className="txt-medium-plus mb-1 text-ui-fg-base">
-                      Rechnungsadresse
+                      {t("billing_address")}
                     </Text>
 
                     {sameAsBilling ? (
                       <Text className="txt-medium text-ui-fg-subtle">
-                        Rechnungs- und Lieferadresse sind identisch.
+                        {t("same_as_shipping")}
                       </Text>
                     ) : (
                       <>

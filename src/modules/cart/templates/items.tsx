@@ -4,6 +4,7 @@ import { Heading, Table } from "@medusajs/ui";
 
 import Item from "@modules/cart/components/item";
 import SkeletonLineItem from "@modules/skeletons/components/skeleton-line-item";
+import { useTranslations } from "next-intl";
 
 type ItemsTemplateProps = {
   cart?: HttpTypes.StoreCart;
@@ -11,23 +12,28 @@ type ItemsTemplateProps = {
 
 const ItemsTemplate = ({ cart }: ItemsTemplateProps) => {
   const items = cart?.items;
+  const t = useTranslations("cart");
   return (
     <div>
-      <div className="pb-3 flex items-center">
-        <Heading className="text-[2rem] leading-[2.75rem]">Warenkorb</Heading>
+      <div className="flex items-center pb-3">
+        <Heading className="text-[2rem] leading-[2.75rem]">
+          {t("title")}
+        </Heading>
       </div>
       <Table>
         <Table.Header className="border-t-0">
-          <Table.Row className="text-ui-fg-subtle txt-medium-plus">
-            <Table.HeaderCell className="!pl-0">Artikel</Table.HeaderCell>
+          <Table.Row className="txt-medium-plus text-ui-fg-subtle">
+            <Table.HeaderCell className="!pl-0">
+              {t("items.title")}
+            </Table.HeaderCell>
             <Table.HeaderCell></Table.HeaderCell>
 
-            <Table.HeaderCell>Menge</Table.HeaderCell>
+            <Table.HeaderCell>{t("items.quantity")}</Table.HeaderCell>
             <Table.HeaderCell className="hidden small:table-cell">
-              Preis
+              {t("items.price")}
             </Table.HeaderCell>
             <Table.HeaderCell className="!pr-0 text-right">
-              Gesamt
+              {t("items.total")}
             </Table.HeaderCell>
           </Table.Row>
         </Table.Header>

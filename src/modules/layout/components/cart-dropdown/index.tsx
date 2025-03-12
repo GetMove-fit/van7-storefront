@@ -17,12 +17,14 @@ import Thumbnail from "@modules/products/components/thumbnail";
 import { usePathname } from "next/navigation";
 import { Fragment, useEffect, useRef, useState } from "react";
 import WarenkorbIcon from "/public/icons/warenkorb.svg";
+import { useTranslations } from "next-intl";
 
 const CartDropdown = ({
   cart: cartState,
 }: {
   cart?: HttpTypes.StoreCart | null;
 }) => {
+  const t = useTranslations("cart");
   const [activeTimer, setActiveTimer] = useState<NodeJS.Timer | undefined>(
     undefined
   );
@@ -84,7 +86,7 @@ const CartDropdown = ({
         <PopoverButton className="h-full p-5 sm:p-8">
           <LocalizedClientLink
             className="hover:text-ui-fg-base"
-            href="/cart"
+            href="cart"
             data-testid="nav-cart-link"
           >
             <div className="relative">
@@ -113,7 +115,7 @@ const CartDropdown = ({
             data-testid="nav-cart-dropdown"
           >
             <div className="flex items-center justify-center p-4">
-              <h3 className="text-large-semi">Warenkorb</h3>
+              <h3 className="text-large-semi">{t("title")}</h3>
             </div>
             {cartState && cartState.items?.length ? (
               <>
@@ -177,9 +179,9 @@ const CartDropdown = ({
                                 <span
                                   data-testid="cart-item-quantity"
                                   data-value={item.quantity}
-                                  className="text-lg"
+                                  className="text-sm text-ui-fg-subtle"
                                 >
-                                  Menge: {item.quantity}
+                                  {t("items.quantity")}: {item.quantity}
                                 </span>
                               </div>
                               <div className="flex justify-end">
@@ -196,7 +198,7 @@ const CartDropdown = ({
                             className="mt-1"
                             data-testid="cart-item-remove-button"
                           >
-                            Remove
+                            {t("items.remove")}
                           </DeleteButton>
                         </div>
                       </div>
@@ -205,7 +207,7 @@ const CartDropdown = ({
                 <div className="text-small-regular flex flex-col gap-y-4 p-4">
                   <div className="flex items-center justify-between">
                     <span className="font-semibold text-ui-fg-base">
-                      Zwischensumme{" "}
+                      {t("totals.subtotal")}{" "}
                       {/* <span className="font-normal">(excl. taxes)</span> */}
                     </span>
                     <span
@@ -219,13 +221,13 @@ const CartDropdown = ({
                       })}
                     </span>
                   </div>
-                  <LocalizedClientLink href="/cart" passHref>
+                  <LocalizedClientLink href="cart" passHref>
                     <Button
                       className="w-full"
                       size="large"
                       data-testid="go-to-cart-button"
                     >
-                      Zum Warenkorb
+                      {t("toCart")}
                     </Button>
                   </LocalizedClientLink>
                 </div>
@@ -236,12 +238,12 @@ const CartDropdown = ({
                   <div className="text-small-regular flex h-6 w-6 items-center justify-center rounded-full bg-grey-90 text-white">
                     <span>0</span>
                   </div>
-                  <span>Dein Warenkorb ist leer.</span>
+                  <span>{t("empty")}</span>
                   <div>
-                    <LocalizedClientLink href="/hubbett-kaufen">
+                    <LocalizedClientLink href="hubbett-kaufen">
                       <>
-                        <span className="sr-only">Hubbetten ansehen</span>
-                        <Button onClick={close}>Hubbetten entdecken</Button>
+                        <span className="sr-only">{t("viewHubbetten")}</span>
+                        <Button onClick={close}>{t("exploreHubbetten")}</Button>
                       </>
                     </LocalizedClientLink>
                   </div>
