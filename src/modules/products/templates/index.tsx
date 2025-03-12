@@ -37,9 +37,19 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
       >
         <div className="flex w-full flex-col gap-y-6 py-8 small:sticky small:top-48 small:max-w-[300px] small:py-0">
           <ProductInfo product={product} />
-          <div className="max-sm:hidden">
-            <ProductTabs product={product} />
-          </div>
+          {product.handle !== "fahrradhalter" && (
+            <div className="max-sm:hidden">
+              <ProductTabs product={product} />
+            </div>
+          )}
+          {product.handle === "fahrradhalter" && (
+            <iframe
+              width="1280"
+              height="720"
+              src="https://www.youtube.com/embed/LIOAmrM33EM"
+              className="z-10 mb-20 mt-4 aspect-video h-fit max-w-full sm:mb-64"
+            ></iframe>
+          )}
           {/* <div className="max-sm:hidden">
             <VorteileListe small={true} />
           </div> */}
@@ -48,31 +58,35 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
           <ImageGallery images={product?.images || []} />
         </div>
 
-        <div className="sm:hidden">
-          <ProductTabs product={product} />
-        </div>
+        {product.handle !== "fahrradhalter" && (
+          <div className="sm:hidden">
+            <ProductTabs product={product} />
+          </div>
+        )}
 
         <div className="flex w-full flex-col gap-y-12 py-8 small:sticky small:top-48 small:max-w-[300px] small:py-0">
           <CountrySelect regions={regions} up={false} />
-          <p>{t("sizeGuide")}</p>
+          {product.handle !== "fahrradhalter" && <p>{t("sizeGuide")}</p>}
           <ProductOnboardingCta />
           <ProductActions product={product} accessoryProducts={accessoires} />
         </div>
       </div>
-      <div className="relative flex h-fit place-content-center">
-        <iframe
-          width="1280"
-          height="720"
-          src="https://www.youtube.com/embed/ou391qcj56U"
-          className="z-10 mb-20 mt-4 aspect-video h-fit max-w-full sm:mb-64"
-        ></iframe>
-        <img
-          src={VideoBackground.src}
-          width={VideoBackground.width}
-          height={VideoBackground.height}
-          className="absolute h-full w-full object-cover"
-        />
-      </div>
+      {product.handle !== "fahrradhalter" && (
+        <div className="relative flex h-fit place-content-center">
+          <iframe
+            width="1280"
+            height="720"
+            src="https://www.youtube.com/embed/ou391qcj56U"
+            className="z-10 mb-20 mt-4 aspect-video h-fit max-w-full sm:mb-64"
+          ></iframe>
+          <img
+            src={VideoBackground.src}
+            width={VideoBackground.width}
+            height={VideoBackground.height}
+            className="absolute h-full w-full object-cover"
+          />
+        </div>
+      )}
     </>
   );
 };

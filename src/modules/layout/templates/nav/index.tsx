@@ -27,7 +27,9 @@ export default async function Nav() {
             <NavLink href="/#bewertungen">{t("reviews")}</NavLink>
             <NavLink href="/#kontakt">{t("contact")}</NavLink>
 
-            <LanguageSelect />
+            <div className="max-sm:hidden">
+              <LanguageSelect />
+            </div>
 
             <Suspense
               fallback={

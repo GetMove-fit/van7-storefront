@@ -202,7 +202,7 @@ export default function ProductActions({
               : t("button.orderNow")}
         </Button>
 
-        <KontaktFormularDialog />
+        {product.handle !== "fahrradhalter" && <KontaktFormularDialog />}
 
         {/* <MobileActions
           product={product}
