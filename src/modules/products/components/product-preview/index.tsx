@@ -29,7 +29,7 @@ export default async function ProductPreview({
 
   return (
     <LocalizedClientLink
-      href={`produkt/${product.handle}`}
+      href={`p/${product.handle}`}
       className="group flex h-full flex-col gap-y-4"
     >
       <Thumbnail
