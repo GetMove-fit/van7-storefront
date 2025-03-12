@@ -11,7 +11,7 @@ import { Fragment, useMemo } from "react";
 import { ArrowRightMini } from "@medusajs/icons";
 import { clx, useToggleState } from "@medusajs/ui";
 import { useLocale } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React from "react";
 import ReactCountryFlag from "react-country-flag";
 
@@ -59,7 +59,6 @@ const LanguageSelect = ({
 }: LanguageSelectProps) => {
   const currentLocale = useLocale();
   const { state, open, close } = useToggleState(false);
-  const router = useRouter();
   const pathname = usePathname();
 
   const options = useMemo(() => {
@@ -127,7 +126,7 @@ const LanguageSelect = ({
             )}
           </div>
         </ListboxButton>
-        <div className="relative flex w-full min-w-40">
+        <div className="relative flex w-32">
           <Transition
             show={state}
             as={Fragment}

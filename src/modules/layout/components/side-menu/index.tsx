@@ -14,6 +14,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import CountrySelect from "../country-select";
 import { HttpTypes } from "@medusajs/types";
 import MenuIcon from "/public/icons/menu.svg";
+import LanguageSelect from "../language-select";
 
 const SideMenuItems = {
   Home: "/",
@@ -74,6 +75,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                         );
                       })}
                     </ul>
+                    <LanguageSelect />
                     <div className="flex flex-col gap-y-6">
                       {regions && <CountrySelect regions={regions} up={true} />}
                       <Text className="txt-compact-small flex justify-between">

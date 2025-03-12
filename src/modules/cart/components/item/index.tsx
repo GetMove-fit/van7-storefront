@@ -49,7 +49,7 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
       <Table.Cell className="w-24 p-4 !pl-0">
         {item.product_collection === "Hubbetten" ? (
           <LocalizedClientLink
-            href={`/produkt/${item.product_handle}`}
+            href={`/p/${item.product_handle}`}
             className={clx("flex", {
               "w-16": type === "preview",
               "w-12 small:w-24": type === "full",

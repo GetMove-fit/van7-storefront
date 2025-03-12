@@ -132,7 +132,7 @@ const CartDropdown = ({
                       >
                         {item.product_collection === "Hubbetten" ? (
                           <LocalizedClientLink
-                            href={`/produkt/${item.product_handle}`}
+                            href={`/p/${item.product_handle}`}
                             className="w-24"
                           >
                             <Thumbnail
@@ -157,7 +157,7 @@ const CartDropdown = ({
                                 <h3 className="text-base-regular overflow-hidden text-ellipsis">
                                   {item.product_collection === "Hubbetten" ? (
                                     <LocalizedClientLink
-                                      href={`/produkt/${item.product_handle}`}
+                                      href={`/p/${item.product_handle}`}
                                       data-testid="product-link"
                                     >
                                       {item.product_title}
