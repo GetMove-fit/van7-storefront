@@ -106,62 +106,68 @@ async function getCountryCode(
  * Middleware to handle region selection and onboarding status.
  */
 export async function middleware(request: NextRequest) {
-  let redirectUrl = request.nextUrl.href;
+  // Constants
+  const CACHE_ID_MAX_AGE = 60 * 60 * 24; // 1 day
+  const LOCALE_MAX_AGE = 60 * 60 * 24 * 365; // 1 year
+  const germanSpeakingCountries = ["de", "at", "ch", "li"];
 
-  let response = NextResponse.redirect(redirectUrl, 307);
-
-  let cacheIdCookie = request.cookies.get("_medusa_cache_id");
-
-  let cacheId = cacheIdCookie?.value || crypto.randomUUID();
-
-  const regionMap = await getRegionMap(cacheId);
-
-  const countryCode = regionMap && (await getCountryCode(request, regionMap));
-
-  const urlHasCountryCode =
-    countryCode && request.nextUrl.pathname.split("/")[1].includes(countryCode);
-
-  // Set locale cookie if it doesn't exist yet
-  const hasLocaleCookie = request.cookies.has("NEXT_LOCALE");
-  if (!hasLocaleCookie && countryCode) {
-    // Set German locale for German-speaking countries
-    const germanSpeakingCountries = ["de", "at", "ch", "li"];
-    const locale = germanSpeakingCountries.includes(countryCode) ? "de" : "en";
-
-    // Add locale cookie to the response
-    response.cookies.set("NEXT_LOCALE", locale, {
-      maxAge: 60 * 60 * 24 * 365, // 1 year
-    });
-  }
-
-  // if one of the country codes is in the url and the cache id is set, return next
-  if (urlHasCountryCode && cacheIdCookie) {
-    return NextResponse.next();
-  }
-
-  // if one of the country codes is in the url and the cache id is not set, set the cache id and redirect
-  if (urlHasCountryCode && !cacheIdCookie) {
-    response.cookies.set("_medusa_cache_id", cacheId, {
-      maxAge: 60 * 60 * 24,
-    });
-
-    return response;
-  }
-
-  // check if the url is a static asset
+  // Handle static assets - pass through immediately
   if (request.nextUrl.pathname.includes(".")) {
     return NextResponse.next();
   }
 
-  const redirectPath =
-    request.nextUrl.pathname === "/" ? "" : request.nextUrl.pathname;
+  // Initialize cache ID
+  const cacheIdCookie = request.cookies.get("_medusa_cache_id");
+  const cacheId = cacheIdCookie?.value || crypto.randomUUID();
 
-  const queryString = request.nextUrl.search ? request.nextUrl.search : "";
+  // Get region information
+  const regionMap = await getRegionMap(cacheId);
+  const countryCode = regionMap && (await getCountryCode(request, regionMap));
+  if (!countryCode) return NextResponse.next();
 
-  // If no country code is set, we redirect to the relevant region.
-  if (!urlHasCountryCode && countryCode) {
-    redirectUrl = `${request.nextUrl.origin}/${countryCode}${redirectPath}${queryString}`;
-    response = NextResponse.redirect(`${redirectUrl}`, 307);
+  // Path analysis
+  const pathParts = request.nextUrl.pathname.split("/").filter(Boolean);
+
+  // Determine locale
+  const hasLocaleCookie = request.cookies.has("NEXT_LOCALE");
+  const isGermanSpeaking = germanSpeakingCountries.includes(countryCode);
+  const locale =
+    request.cookies.get("NEXT_LOCALE")?.value ??
+    (isGermanSpeaking ? "de" : "en");
+
+  // Create a response - either redirect or pass through
+  let response;
+
+  // Check if URL has the correct structure: /{countryCode}/{locale}/...
+  const hasCorrectStructure =
+    pathParts[0] === countryCode &&
+    (pathParts[1] === "en" || pathParts[1] === "de");
+
+  if (hasCorrectStructure) {
+    // URL structure is correct, continue without redirect
+    response = NextResponse.next();
+  } else {
+    // URL needs correction - build proper URL with country and locale
+    const remainingPath =
+      pathParts.length > 0 && pathParts[0] !== countryCode
+        ? `/${pathParts.join("/")}`
+        : pathParts.length > 1 && pathParts[0] === countryCode
+          ? `/${pathParts.slice(1).join("/")}`
+          : "";
+
+    const redirectUrl = `${request.nextUrl.origin}/${countryCode}/${locale}${remainingPath}${request.nextUrl.search}`;
+    response = NextResponse.redirect(redirectUrl, 307);
+  }
+
+  // Set necessary cookies
+  if (!cacheIdCookie) {
+    response.cookies.set("_medusa_cache_id", cacheId, {
+      maxAge: CACHE_ID_MAX_AGE,
+    });
+  }
+
+  if (!hasLocaleCookie) {
+    response.cookies.set("NEXT_LOCALE", locale, { maxAge: LOCALE_MAX_AGE });
   }
 
   return response;

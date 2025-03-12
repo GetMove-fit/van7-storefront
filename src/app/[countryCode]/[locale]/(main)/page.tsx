@@ -9,6 +9,7 @@ import Kontakt from "@modules/home/components/kontakt";
 import ProductsSection from "@modules/home/components/products";
 import { getTranslations } from "next-intl/server";
 import { listProducts } from "@lib/data/products";
+import { listRegions } from "@lib/data/regions";
 
 export async function generateMetadata() {
   const t = await getTranslations("home.meta");

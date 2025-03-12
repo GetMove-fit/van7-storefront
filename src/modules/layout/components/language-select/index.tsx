@@ -11,6 +11,7 @@ import { Fragment, useMemo } from "react";
 import { ArrowRightMini } from "@medusajs/icons";
 import { clx, useToggleState } from "@medusajs/ui";
 import { useLocale } from "next-intl";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import ReactCountryFlag from "react-country-flag";
 
@@ -58,6 +59,8 @@ const LanguageSelect = ({
 }: LanguageSelectProps) => {
   const currentLocale = useLocale();
   const { state, open, close } = useToggleState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   const options = useMemo(() => {
     return locales
@@ -75,11 +78,27 @@ const LanguageSelect = ({
   }, [options, currentLocale]);
 
   const handleChange = (option: LanguageOption) => {
-    // Set cookie for persistent preference - don't redirect
     document.cookie = `NEXT_LOCALE=${option.locale}; path=/; max-age=${60 * 60 * 24 * 30}`;
 
-    // Simple reload to apply the new locale without changing URL
-    window.location.reload();
+    // Split the path into segments
+    const segments = pathname.split("/").filter(Boolean);
+
+    if (segments.length >= 2) {
+      // If we have at least 2 segments, replace the second one (locale)
+      segments[1] = option.locale;
+    } else if (segments.length === 1) {
+      // If we only have one segment, add the locale as the second segment
+      segments.push(option.locale);
+    } else {
+      // If the path is empty, create a path with the locale as the second segment
+      segments.push("", option.locale);
+    }
+
+    // Reconstruct the path
+    const newPath = `/${segments.join("/")}`;
+
+    // Force a full page reload to ensure headers are updated
+    window.location.href = newPath;
     close();
   };
 
