@@ -1,14 +1,17 @@
 import { getBaseURL } from "@lib/util/env";
 import RunCookieConsent from "@modules/common/components/RunCookieConsent";
 import WhatsappBubble from "@modules/common/components/WhatsappBubble";
-import { routing } from "i18n/routing";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import "styles/globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ED1C24",
 };
 
 export default async function RootLayout({
