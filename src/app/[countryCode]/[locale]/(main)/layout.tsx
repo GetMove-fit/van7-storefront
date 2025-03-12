@@ -30,12 +30,10 @@ export async function generateStaticParams() {
       {
         countryCode,
         locale: "de",
-        shopProducts: "hubbett-kaufen",
       },
       {
         countryCode,
         locale: "en",
-        shopProducts: "shop-liftbed",
       }
     );
   }
