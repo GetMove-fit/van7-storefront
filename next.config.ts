@@ -63,6 +63,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/produkt/van7-7-funktionen-hubbett",
+        destination: "/hubbett-kaufen",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const withNextIntl = createNextIntlPlugin();
