@@ -160,8 +160,8 @@ export default function ProductActions({
 
             {accessoryProducts && accessoryProducts.length > 0 && (
               <>
-                <div className="rounded-lg bg-yellow-100 p-2 text-sm">
-                  <div className="p-2">{t("mountingNote")}</div>
+                <div className="rounded-lg border border-gray-200 bg-yellow-100 px-4 py-2.5 text-sm">
+                  {t("mountingNote")}
                 </div>
                 <AccessorySelect
                   accessoryProducts={accessoryProducts}
