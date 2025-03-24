@@ -2,6 +2,7 @@ import { Select as SelectUI } from "@medusajs/ui";
 import React from "react";
 import { HttpTypes } from "@medusajs/types";
 import { useLocale, useTranslations } from "next-intl";
+import { convertToLocale } from "@lib/util/money";
 
 interface AccessorySelectProps {
   accessoryProducts?: HttpTypes.StoreProduct[];
@@ -45,7 +46,11 @@ export default function AccessorySelect({
                 <SelectUI.Item key={variant.id} value={variant.id}>
                   {variant.title}{" "}
                   {variant.calculated_price &&
-                    `(+${variant.calculated_price.calculated_amount}€)`}
+                    `(+${convertToLocale({
+                      amount:
+                        variant.calculated_price.calculated_amount_with_tax!,
+                      currency_code: variant.calculated_price.currency_code!,
+                    })})`}
                 </SelectUI.Item>
               ))}
             </SelectUI.Content>
