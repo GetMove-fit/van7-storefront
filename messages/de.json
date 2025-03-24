@@ -101,7 +101,7 @@
   "shipTo": "Versand nach",
   "nav": {
     "products": "Produkte",
-    "reviews": "Reviews",
+    "reviews": "Bewertungen",
     "contact": "Kontakt"
   },
   "home": {
@@ -194,6 +194,7 @@
   },
   "product": {
     "sizeGuide": "Die mögliche Größe des VAN7 Hubbettes für dein Fahrzeug hängt von der Deckenbreite ab. Gerne beraten wir dich auch gerne telefonisch oder per Whatsapp.",
+    "mountingNote": "Folgende Fahrzeuge erfordern keine Montagekonsolen: Mercedes Sprinter H2-H3 2006-heute, VW Crafter 2006-2016, Opel Monavo, Renault Master, Ford Custom.",
     "selectOption": "{option} auswählen",
     "notSelected": "Nicht mitbestellen",
     "button": {

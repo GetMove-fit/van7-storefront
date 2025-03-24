@@ -139,72 +139,76 @@ export default function ProductActions({
   }
 
   return (
-    <>
-      <div className="flex flex-col gap-y-2" ref={actionsRef}>
-        <div>
-          {(product.variants?.length ?? 0) > 1 && (
-            <div className="flex flex-col gap-y-4">
-              {(product.options || []).map((option) => {
-                return (
-                  <div key={option.id}>
-                    <OptionSelect
-                      option={option}
-                      current={options[option.id]}
-                      updateOption={setOptionValue}
-                      title={option.title ?? ""}
-                      data-testid="product-options"
-                      disabled={!!disabled || isAdding}
-                    />
-                  </div>
-                );
-              })}
+    <div className="flex flex-col gap-y-2" ref={actionsRef}>
+      <div>
+        {(product.variants?.length ?? 0) > 1 && (
+          <div className="flex flex-col gap-y-4">
+            {(product.options || []).map((option) => {
+              return (
+                <div key={option.id}>
+                  <OptionSelect
+                    option={option}
+                    current={options[option.id]}
+                    updateOption={setOptionValue}
+                    title={option.title ?? ""}
+                    data-testid="product-options"
+                    disabled={!!disabled || isAdding}
+                  />
+                </div>
+              );
+            })}
 
-              {accessoryProducts && accessoryProducts.length > 0 && (
+            {accessoryProducts && accessoryProducts.length > 0 && (
+              <>
+                <div className="rounded-lg bg-yellow-100 p-2 text-sm">
+                  <div className="p-2">{t("mountingNote")}</div>
+                </div>
                 <AccessorySelect
                   accessoryProducts={accessoryProducts}
                   selectedAccessoryVariants={selectedAccessoryVariants}
                   onAccessoryVariantChange={handleAccessoryChange}
                 />
-              )}
-              <Divider />
-            </div>
-          )}
-        </div>
+              </>
+            )}
+            <Divider />
+          </div>
+        )}
+      </div>
 
-        <ProductPrice
-          products={[product, ...accessoryProducts]}
-          variantIds={[
-            selectedVariant?.id || "",
-            ...accessoryProducts.map(
-              (accessory) => selectedAccessoryVariants[accessory.id] || ""
-            ),
-          ]}
-        />
+      <ProductPrice
+        products={[product, ...accessoryProducts]}
+        variantIds={[
+          selectedVariant?.id || "",
+          ...accessoryProducts.map(
+            (accessory) => selectedAccessoryVariants[accessory.id] || ""
+          ),
+        ]}
+      />
 
-        <Button
-          onClick={handleAddToCart}
-          disabled={
-            !inStock ||
-            !selectedVariant ||
-            !!disabled ||
-            isAdding ||
-            !isValidVariant
-          }
-          variant="primary"
-          className="h-10 w-full"
-          isLoading={isAdding}
-          data-testid="add-product-button"
-        >
-          {!selectedVariant && options
-            ? t("button.selectVariant")
-            : !inStock || !isValidVariant
-              ? t("button.outOfStock")
-              : t("button.orderNow")}
-        </Button>
+      <Button
+        onClick={handleAddToCart}
+        disabled={
+          !inStock ||
+          !selectedVariant ||
+          !!disabled ||
+          isAdding ||
+          !isValidVariant
+        }
+        variant="primary"
+        className="h-10 w-full"
+        isLoading={isAdding}
+        data-testid="add-product-button"
+      >
+        {!selectedVariant && options
+          ? t("button.selectVariant")
+          : !inStock || !isValidVariant
+            ? t("button.outOfStock")
+            : t("button.orderNow")}
+      </Button>
 
-        {product.handle !== "fahrradhalter" && <KontaktFormularDialog />}
+      {product.handle !== "fahrradhalter" && <KontaktFormularDialog />}
 
-        {/* <MobileActions
+      {/* <MobileActions
           product={product}
           variant={selectedVariant}
           options={options}
@@ -218,7 +222,6 @@ export default function ProductActions({
           selectedAccessoryVariants={selectedAccessoryVariants}
           onAccessoryVariantChange={handleAccessoryChange}
         /> */}
-      </div>
-    </>
+    </div>
   );
 }
