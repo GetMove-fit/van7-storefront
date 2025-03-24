@@ -2,11 +2,7 @@
 
 import React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import StufenlosIcon from "/public/icons/funktionen/stufenlos.svg";
-import WaagrechtIcon from "/public/icons/funktionen/waagrecht.svg";
-import StabilFixiertIcon from "/public/icons/funktionen/stabil-fixiert.svg";
-import LattenrostIcon from "/public/icons/funktionen/lattenrost.svg";
-import { useTranslations } from "next-intl";
+import { clx } from "@medusajs/ui";
 
 // Update FeatureCard to accept hover event props
 const FeatureCard = ({
@@ -37,7 +33,7 @@ const FeatureCard = ({
       <div className="absolute bottom-0 left-0 top-0">
         <div
           style={{ height: `${progress}%` }}
-          className="w-2 bg-gradient-to-b from-[#231F20] to-[#CC181F] transition-all duration-300"
+          className="w-2 bg-gradient-to-b from-[#231F20] to-[#CC181F] transition-all duration-300 ease-linear"
         />
       </div>
     )}
@@ -72,45 +68,32 @@ const FeatureCard = ({
   </AccordionPrimitive.Item>
 );
 
-// In VideoSection, add hover state and pause/resume effect
-const VideoSection = ({ open = true }: { open?: boolean }) => {
+// Make VideoSection universal by accepting videoSrc and sections as props
+const VideoSection = ({
+  videoSrc,
+  sections,
+  open = true,
+  children,
+  flipped = false,
+}: {
+  videoSrc: string;
+  sections: {
+    title: string;
+    text: string;
+    icon: React.ReactNode;
+    timestamp: number;
+  }[];
+  open?: boolean;
+  children?: React.ReactNode;
+  flipped?: boolean;
+}) => {
   const [currentTime, setCurrentTime] = React.useState(0);
-  const [videoHovered, setVideoHovered] = React.useState(false);
-  const [cardHovered, setCardHovered] = React.useState(false);
+  const [isHovered, setIsHovered] = React.useState(false);
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
 
-  const t = useTranslations("home.features");
-  const features = [
-    {
-      title: t("setHeight.title"),
-      text: t("setHeight.text"),
-      icon: <StufenlosIcon />,
-      timestamp: 7.5,
-    },
-    {
-      title: t("levelOut.title"),
-      text: t("levelOut.text"),
-      icon: <WaagrechtIcon />,
-      timestamp: 16,
-    },
-    {
-      title: t("fix.title"),
-      text: t("fix.text"),
-      icon: <StabilFixiertIcon />,
-      timestamp: 28,
-    },
-    {
-      title: t("extend.title"),
-      text: t("extend.text"),
-      icon: <LattenrostIcon />,
-      timestamp: 31,
-    },
-    // ...add more features if needed
-  ];
-
   const [accordionValue, setAccordionValue] = React.useState(
-    open ? features[0].title : undefined
+    open ? sections[0].title : undefined
   );
 
   const handleTimeUpdate = () => {
@@ -122,8 +105,8 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
   const handleAccordionChange = (value: string | undefined) => {
     setAccordionValue(value);
     if (value) {
-      const index = features.findIndex((feature) => feature.title === value);
-      const newTime = index === 0 ? 0 : features[index - 1].timestamp;
+      const index = sections.findIndex((feature) => feature.title === value);
+      const newTime = index === 0 ? 0 : sections[index - 1].timestamp;
       if (videoRef.current) {
         videoRef.current.currentTime = newTime;
         setCurrentTime(newTime);
@@ -131,19 +114,19 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
     }
   };
 
-  // Pause video when either video or active feature card is hovered
+  // Pause video when hovered
   React.useEffect(() => {
     if (videoRef.current) {
-      if (videoHovered || cardHovered) {
+      if (isHovered) {
         videoRef.current.pause();
       } else {
         videoRef.current.play();
       }
     }
-  }, [videoHovered, cardHovered]);
+  }, [isHovered]);
 
   React.useEffect(() => {
-    const openFeature = features.find(
+    const openFeature = sections.find(
       (feature) => currentTime < feature.timestamp
     );
     setAccordionValue(openFeature ? openFeature.title : undefined);
@@ -175,16 +158,22 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
   return (
     <section
       ref={containerRef}
-      className="flex w-full gap-x-3 bg-grey-10 pb-5 max-lg:flex-col max-sm:mt-10"
+      className={clx(
+        "flex w-full gap-x-3 bg-grey-10 pb-5 max-lg:flex-col max-sm:mt-10",
+        {
+          "lg:flex-row-reverse": flipped,
+        }
+      )}
     >
+      {children}
       <video
         ref={videoRef}
         onTimeUpdate={handleTimeUpdate}
-        onMouseEnter={() => setVideoHovered(true)}
-        onMouseLeave={() => setVideoHovered(false)}
-        onTouchStart={() => setVideoHovered(true)} // added for mobile hold pause
-        onTouchEnd={() => setVideoHovered(false)} // added for mobile hold resume
-        src="/videos/NeueSerie.mp4"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onTouchStart={() => setIsHovered(true)} // added for mobile hold pause
+        onTouchEnd={() => setIsHovered(false)} // added for mobile hold resume
+        src={videoSrc}
         playsInline
         webkit-playsinline="true"
         preload="metadata"
@@ -197,13 +186,13 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
         type="single"
         value={accordionValue}
         onValueChange={handleAccordionChange}
-        className="w-full space-y-3 lg:max-w-lg xl:max-w-xl 3xl:space-y-5" // fixed accordion width
+        className="w-full space-y-3 lg:max-w-lg xl:max-w-xl 3xl:space-y-5"
       >
-        {features.map((feature, index) => {
+        {sections.map((feature, index) => {
           let computedProgress = 0;
           if (accordionValue === feature.title) {
             const segmentStart =
-              index === 0 ? 0 : features[index - 1].timestamp;
+              index === 0 ? 0 : sections[index - 1].timestamp;
             computedProgress = Math.min(
               ((currentTime - segmentStart) /
                 (feature.timestamp - segmentStart)) *
@@ -222,12 +211,12 @@ const VideoSection = ({ open = true }: { open?: boolean }) => {
               isActive={accordionValue === feature.title}
               onHoverEnter={
                 accordionValue === feature.title
-                  ? () => setCardHovered(true)
+                  ? () => setIsHovered(true)
                   : undefined
               }
               onHoverLeave={
                 accordionValue === feature.title
-                  ? () => setCardHovered(false)
+                  ? () => setIsHovered(false)
                   : undefined
               }
             />

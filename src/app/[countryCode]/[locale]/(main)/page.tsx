@@ -2,13 +2,17 @@ import Hero from "@modules/home/components/hero";
 import VideoSection from "@modules/home/components/video";
 import TestimonialsSection from "@modules/home/components/testimonials";
 import OptimiertSection from "@modules/home/components/optimiert";
-import { Parallax } from "@modules/home/components/hero/parallax";
 import Installation from "@modules/home/components/installation";
 import VideoBackground from "/public/video-background.png";
 import Kontakt from "@modules/home/components/kontakt";
 import ProductsSection from "@modules/home/components/products";
-import { getTranslations } from "next-intl/server";
 import { listProducts } from "@lib/data/products";
+import { getTranslations } from "next-intl/server";
+
+import StufenlosIcon from "/public/icons/funktionen/stufenlos.svg";
+import WaagrechtIcon from "/public/icons/funktionen/waagrecht.svg";
+import StabilFixiertIcon from "/public/icons/funktionen/stabil-fixiert.svg";
+import LattenrostIcon from "/public/icons/funktionen/lattenrost.svg";
 
 export async function generateMetadata({
   params,
@@ -48,12 +52,42 @@ export default async function Home(props: {
     },
   });
 
+  const t = await getTranslations("home");
+
   return (
     <div className="bg-grey-10">
       {/* <Parallax /> */}
 
       <Hero />
-      <VideoSection />
+      <VideoSection
+        sections={[
+          {
+            title: t("features.setHeight.title"),
+            text: t("features.setHeight.text"),
+            icon: <StufenlosIcon />,
+            timestamp: 7.5,
+          },
+          {
+            title: t("features.levelOut.title"),
+            text: t("features.levelOut.text"),
+            icon: <WaagrechtIcon />,
+            timestamp: 16,
+          },
+          {
+            title: t("features.fix.title"),
+            text: t("features.fix.text"),
+            icon: <StabilFixiertIcon />,
+            timestamp: 28,
+          },
+          {
+            title: t("features.extend.title"),
+            text: t("features.extend.text"),
+            icon: <LattenrostIcon />,
+            timestamp: 31,
+          },
+        ]}
+        videoSrc="/videos/NeueSerie.mp4"
+      />
 
       <div className="relative flex h-fit place-content-center">
         <iframe
