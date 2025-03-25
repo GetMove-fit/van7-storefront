@@ -192,6 +192,23 @@
     },
     "title": "Entdecke<br></br>das beste<br></br>Hubbett für dich"
   },
+  "products": {
+    "kingsize-hubbett-mit-lattenrostauszug": {
+      "name": "Kingsize-Hubbett"
+    },
+    "laengs-hubbett": {
+      "name": "Längs-Hubbett"
+    },
+    "cockpit-hubbett": {
+      "name": "Cockpit-Hubbett"
+    },
+    "querschlaefer-hubbett": {
+      "name": "Querschläfer-Hubbett"
+    },
+    "stock-hubbett": {
+      "name": "Stock-Hubbett"
+    }
+  },
   "product": {
     "sizeGuide": "Die mögliche Größe des VAN7 Hubbettes für dein Fahrzeug hängt von der Deckenbreite ab. Gerne beraten wir dich auch gerne telefonisch oder per Whatsapp.",
     "mountingNote": "Folgende Fahrzeuge erfordern keine Montagekonsolen: Mercedes Sprinter H2-H3 2006-heute, VW Crafter 2006-2016, Opel Monavo, Renault Master, Ford Custom.",

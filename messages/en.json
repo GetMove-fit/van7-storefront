@@ -194,22 +194,27 @@
   },
   "products": {
     "kingsize-hubbett-mit-lattenrostauszug": {
+      "name": "Kingsize Lift Bed",
       "title": "VAN7 Kingsize Lift Bed with Slatted Frame Extension",
       "description": "Create a huge sleeping oasis in your vehicle with a length of 200cm x 160cm max. 190cm width - The slatted frame can be extended to a maximum of 190cm. Even with three people, sleeping is comfortable with this bed size."
     },
     "laengs-hubbett": {
-      "title": "VAN7 Lift Bed",
+      "name": "Lengthwise Lift Bed",
+      "title": "VAN7 Lengthwise Lift Bed",
       "description": "Create a sleeping oasis in your vehicle with a length of 200cm and width of 140 or 160 cm."
     },
     "cockpit-hubbett": {
+      "name": "Cockpit Lift Bed",
       "title": "VAN7 Cockpit Lift Bed with Slatted Frame Extension",
       "description": "For campers who want to save even more space and weight. The cockpit lift bed is a real innovation that makes new conversion concepts possible. Compact 140x110cm or 160x110cm under the ceiling with an extension to 200cm length. After stepless lowering, leveling - so you always sleep horizontally, no matter how uneven the vehicle is, and the fixation function, the integrated slatted frame is extended to a maximum of 200cm - e.g., into the driver's cab to make use of the space there. The extension is secured with a 25mm strap."
     },
     "querschlaefer-hubbett": {
+      "name": "Cross Sleeper Lift Bed",
       "title": "VAN7 Cross Sleeper Lift Bed with Slatted Frame Extension",
       "description": "For campers who want to save even more space and weight. The cross lift bed is a real innovation. Compact 140x140cm (160x160) under the ceiling with an extension to 200cm length. After stepless lowering, leveling - so you always sleep horizontally, no matter how uneven the vehicle is, and the fixation function, the integrated slatted frame is extended to a maximum of 200cm - With flares (wall extensions) on one side, you get at least 190cm width (length of the extension)."
     },
     "stock-hubbett": {
+      "name": "Bunk Lift Bed",
       "title": "VAN7 Bunk Lift Bed for up to 5 people",
       "description": ""
     },

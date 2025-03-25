@@ -16,7 +16,7 @@ const FeatureCard = ({
 }: {
   title: string;
   text: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   progress?: number;
   isActive?: boolean;
   onHoverEnter?: React.MouseEventHandler<HTMLDivElement>;
@@ -24,7 +24,7 @@ const FeatureCard = ({
 }) => (
   <AccordionPrimitive.Item
     value={title}
-    className="relative w-full overflow-hidden rounded-l"
+    className="relative w-full overflow-hidden"
     onMouseEnter={onHoverEnter}
     onMouseLeave={onHoverLeave}
   >
@@ -80,7 +80,7 @@ const VideoSection = ({
   sections: {
     title: string;
     text: string;
-    icon: React.ReactNode;
+    icon?: React.ReactNode;
     timestamp: number;
   }[];
   open?: boolean;
@@ -179,7 +179,7 @@ const VideoSection = ({
         preload="metadata"
         muted
         loop
-        className="w-full min-w-0 rounded-r"
+        className="w-full min-w-0"
       />
 
       <AccordionPrimitive.Root

@@ -28,10 +28,10 @@ export async function generateMetadata({
 }
 
 export default async function Home(props: {
-  params: Promise<{ countryCode: string }>;
+  params: Promise<{ countryCode: string; locale: string }>;
 }) {
   const params = await props.params;
-  const { countryCode } = params;
+  const { countryCode, locale } = params;
 
   // const region = await getRegion(countryCode)
 
@@ -52,7 +52,15 @@ export default async function Home(props: {
     },
   });
 
-  const t = await getTranslations("home");
+  const features = await getTranslations("home.features");
+  const productIntl = await getTranslations("products");
+
+  const videoProducts = {
+    "stock-hubbett": 30,
+    "kingsize-hubbett-mit-lattenrostauszug": 51,
+    "querschlaefer-hubbett": 72,
+    "cockpit-hubbett": 92,
+  } as Record<string, number>;
 
   return (
     <div className="bg-grey-10">
@@ -62,26 +70,26 @@ export default async function Home(props: {
       <VideoSection
         sections={[
           {
-            title: t("features.setHeight.title"),
-            text: t("features.setHeight.text"),
+            title: features("setHeight.title"),
+            text: features("setHeight.text"),
             icon: <StufenlosIcon />,
             timestamp: 7.5,
           },
           {
-            title: t("features.levelOut.title"),
-            text: t("features.levelOut.text"),
+            title: features("levelOut.title"),
+            text: features("levelOut.text"),
             icon: <WaagrechtIcon />,
             timestamp: 16,
           },
           {
-            title: t("features.fix.title"),
-            text: t("features.fix.text"),
+            title: features("fix.title"),
+            text: features("fix.text"),
             icon: <StabilFixiertIcon />,
             timestamp: 28,
           },
           {
-            title: t("features.extend.title"),
-            text: t("features.extend.text"),
+            title: features("extend.title"),
+            text: features("extend.text"),
             icon: <LattenrostIcon />,
             timestamp: 31,
           },
@@ -89,19 +97,18 @@ export default async function Home(props: {
         videoSrc="/videos/NeueSerie.mp4"
       />
 
-      <div className="relative flex h-fit place-content-center">
-        <iframe
-          width="1080"
-          src="https://www.youtube.com/embed/RqGRhn8rhI8"
-          className="z-10 mb-20 mt-4 aspect-[4/3] h-fit max-w-full sm:mb-64"
-        ></iframe>
-        <img
-          src={VideoBackground.src}
-          width={VideoBackground.width}
-          height={VideoBackground.height}
-          className="absolute h-full w-full object-cover"
-        />
-      </div>
+      <VideoSection
+        sections={Object.entries(videoProducts).map(([handle, timestamp]) => ({
+          title: productIntl(`${handle}.name`),
+          text:
+            locale === "de"
+              ? (products.find((p) => p.handle === handle)?.description ?? "")
+              : productIntl(`${handle}.description`),
+          timestamp: timestamp,
+        }))}
+        videoSrc={`/videos/${locale === "de" ? "hubbetten" : "liftbeds"}.mp4`}
+        flipped={true}
+      />
 
       <TestimonialsSection />
 
