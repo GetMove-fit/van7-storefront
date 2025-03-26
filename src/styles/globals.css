@@ -34,8 +34,10 @@ footer a {
 }
 
 :root {
-  --cc-btn-primary-bg: #d83e44;
-  --cc-btn-primary-hover-bg: #941e23;
+  --cc-btn-primary-bg: var(--cc-btn-secondary-bg);
+  --cc-btn-primary-hover-bg: var(--cc-btn-secondary-hover-bg);
+  --cc-btn-primary-color: var(--cc-btn-secondary-color);
+  --cc-btn-primary-hover-color: var(--cc-btn-secondary-hover-color);
   --cc-font-family: "Barlow", sans-serif;
 }
 
