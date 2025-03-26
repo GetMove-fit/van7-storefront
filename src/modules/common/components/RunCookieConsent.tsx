@@ -44,7 +44,7 @@ export default function RunCookieConsent() {
             consentModal: {
               title: "We use cookies",
               description:
-                "We use necessary cookies for the shop to work and analytics cookies to better understand what we can improve.",
+                "We use necessary cookies for the shop to work and analytics cookies to better understand what we can improve. For more information, please see our <a href='/privacy-policy'>Privacy Policy</a>.",
               acceptAllBtn: "Accept all",
               acceptNecessaryBtn: "Reject all",
               showPreferencesBtn: "Manage Individual preferences",
@@ -86,7 +86,7 @@ export default function RunCookieConsent() {
             consentModal: {
               title: "Wir verwenden Cookies",
               description:
-                "Wir verwenden unbedingt notwendige Cookies, damit der Shop funktioniert, und Analytics-Cookies, um zu verstehen, wie wir Ihr Erlebnis verbessern können.",
+                "Wir verwenden unbedingt notwendige Cookies, damit der Shop funktioniert, und Analytics-Cookies, um zu verstehen, wie wir Ihr Erlebnis verbessern können. Weitere Informationen finden Sie in unserer <a href='/datenschutz'>Datenschutzerklärung</a>.",
               acceptAllBtn: "Alle akzeptieren",
               acceptNecessaryBtn: "Alle ablehnen",
               showPreferencesBtn: "Einzelne Einstellungen verwalten",
