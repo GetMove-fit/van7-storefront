@@ -128,20 +128,24 @@ export async function middleware(request: NextRequest) {
   // Path analysis
   const pathParts = request.nextUrl.pathname.split("/").filter(Boolean);
 
-  // Determine locale
-  const hasLocaleCookie = request.cookies.has("NEXT_LOCALE");
-  const isGermanSpeaking = germanSpeakingCountries.includes(countryCode);
-  const locale =
-    request.cookies.get("NEXT_LOCALE")?.value ??
-    (isGermanSpeaking ? "de" : "en");
+  // Determine locale from URL first
+  const validLocales = ["en", "de"];
+  const urlLocale = pathParts.length > 1 ? pathParts[1] : null;
+  const isValidUrlLocale = urlLocale && validLocales.includes(urlLocale);
+
+  // Determine locale - prioritize URL locale, then fall back to country-based default
+  const locale = isValidUrlLocale
+    ? urlLocale
+    : germanSpeakingCountries.includes(countryCode)
+      ? "de"
+      : "en";
 
   // Create a response - either redirect or pass through
   let response;
 
   // Check if URL has the correct structure: /{countryCode}/{locale}/...
   const hasCorrectStructure =
-    pathParts[0] === countryCode &&
-    (pathParts[1] === "en" || pathParts[1] === "de");
+    pathParts[0] === countryCode && validLocales.includes(pathParts[1] || "");
 
   if (hasCorrectStructure) {
     // URL structure is correct, continue without redirect
@@ -159,15 +163,13 @@ export async function middleware(request: NextRequest) {
     response = NextResponse.redirect(redirectUrl, 307);
   }
 
+  response.headers.set("x-locale", locale);
+
   // Set necessary cookies
-  if (!cacheIdCookie) {
+  if (!cacheIdCookie && request.cookies.has("cc_cookie")) {
     response.cookies.set("_medusa_cache_id", cacheId, {
       maxAge: CACHE_ID_MAX_AGE,
     });
-  }
-
-  if (!hasLocaleCookie) {
-    response.cookies.set("NEXT_LOCALE", locale, { maxAge: LOCALE_MAX_AGE });
   }
 
   return response;
