@@ -3,17 +3,20 @@ import { Checkbox, Textarea } from "@medusajs/ui";
 import Input from "@modules/common/components/input";
 import LocalizedClientLink from "@modules/common/components/localized-client-link";
 import { useTranslations } from "next-intl";
+import Head from "next/head"; // Import Head component
 
 export default function KontaktFormular() {
   const t = useTranslations("form");
 
   return (
     <>
-      <script
-        src="https://www.google.com/recaptcha/api.js"
-        async
-        defer
-      ></script>
+      <Head>
+        <script
+          src="https://www.google.com/recaptcha/api.js"
+          async
+          defer
+        ></script>
+      </Head>
       <form
         action="https://formspree.io/f/xqaeobav"
         method="POST"
