@@ -54,7 +54,7 @@ export default function NavBar({
       )}
     >
       <header className="relative h-fit duration-200">
-        <nav className="text-small-regular flex h-full w-full items-center gap-x-10 px-5 text-xl font-semibold uppercase text-ui-fg-subtle sm:px-10 sm:py-3 lg:px-20 xl:px-36">
+        <nav className="text-small-regular flex h-full w-full items-center gap-x-10 pl-5 text-xl font-semibold uppercase text-ui-fg-subtle sm:py-3 sm:pl-10 lg:px-20 xl:px-28 2xl:px-36">
           <LocalizedClientLink href="/" data-testid="nav-store-link">
             <Logo className="w-[120px] sm:w-[180px]" />
           </LocalizedClientLink>
@@ -76,9 +76,12 @@ export default function NavBar({
             </div>
 
             <div
-              className={clx("flex h-full items-center justify-between", {
-                "bg-white/90": hideBg && isHomePage,
-              })}
+              className={clx(
+                "flex h-full items-center justify-between pr-5 md:pr-10 lg:pr-0",
+                {
+                  "bg-white/90": hideBg && isHomePage,
+                }
+              )}
             >
               {children}
             </div>

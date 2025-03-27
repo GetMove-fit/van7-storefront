@@ -45,22 +45,7 @@ export default function InteractiveVideo() {
   }, [currentSegment]);
 
   return (
-    <div className="relative z-20 flex place-self-start sm:max-lg:-mt-10 2xl:-mb-40 2xl:place-self-end">
-      {currentSegment === 0 && showButton && (
-        <div className="absolute top-5 z-10 flex items-center whitespace-nowrap font-semibold italic max-sm:left-0 sm:right-[45%] sm:text-2xl 2xl:top-20">
-          <div className="relative flex">
-            <div className="absolute h-full w-full -skew-x-12 bg-white/90"></div>
-            <div className="z-20 px-2 py-1">{t("tryNow")}</div>
-          </div>
-          <img
-            src={Pfeil.src}
-            width={Pfeil.width}
-            height={Pfeil.height}
-            className="w-32 max-sm:w-14"
-          />
-        </div>
-      )}
-
+    <div className="relative z-20 flex place-self-start sm:max-lg:-mt-10 md:place-self-end lg:-mb-10 2xl:-mb-40">
       <video
         ref={videoRef}
         playsInline
@@ -72,23 +57,40 @@ export default function InteractiveVideo() {
         <source src="/videos/hubbett-interaktiv.webm" type="video/webm" />
       </video>
       {showButton && currentSegment < segments.length && (
-        <button
-          onClick={() => {
-            setShowButton(false);
-            setCurrentSegment(currentSegment + 1);
-            if (videoRef.current) videoRef.current.play();
-          }}
+        <div
+          className="absolute flex"
           style={{
-            position: "absolute",
             left: `calc(50% + ${segments[currentSegment].position.x * 50}%)`,
             top: `calc(50% + ${segments[currentSegment].position.y * 50}%)`,
             transform: "translate(-50%, -50%)",
           }}
-          className="flex flex-col items-center justify-center text-lg font-medium text-white sm:text-xl"
         >
-          <FunktionButton className="max-sm:scale-75" />
-          <p className="absolute left-20">{segments[currentSegment].name}</p>
-        </button>
+          {currentSegment === 0 && (
+            <div className="absolute z-10 flex -translate-x-1/2 -translate-y-full items-center whitespace-nowrap font-semibold italic sm:-translate-x-full sm:text-2xl">
+              <div className="relative flex">
+                <div className="absolute h-full w-full -skew-x-12 bg-white/90"></div>
+                <div className="z-20 px-2 py-1">{t("tryNow")}</div>
+              </div>
+              <img
+                src={Pfeil.src}
+                width={Pfeil.width}
+                height={Pfeil.height}
+                className="w-32 max-sm:w-20 max-sm:invert"
+              />
+            </div>
+          )}
+          <button
+            onClick={() => {
+              setShowButton(false);
+              setCurrentSegment(currentSegment + 1);
+              if (videoRef.current) videoRef.current.play();
+            }}
+            className="flex flex-col items-center justify-center text-lg font-semibold italic text-white sm:text-xl"
+          >
+            <FunktionButton className="max-sm:scale-75" />
+            <p className="absolute left-20">{segments[currentSegment].name}</p>
+          </button>
+        </div>
       )}
     </div>
   );

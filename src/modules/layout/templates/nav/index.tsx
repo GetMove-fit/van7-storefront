@@ -29,9 +29,7 @@ export default async function Nav({ regions }: { regions: StoreRegion[] }) {
         </Suspense>
 
         <div className="flex h-full flex-1 basis-0 items-center lg:hidden">
-          <div className="h-full">
-            <SideMenu regions={regions} />
-          </div>
+          <SideMenu regions={regions} />
         </div>
       </div>
     </NavBar>
