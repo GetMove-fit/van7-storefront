@@ -77,7 +77,7 @@ const LanguageSelect = ({
   }, [options, currentLocale]);
 
   const handleChange = (option: LanguageOption) => {
-    document.cookie = `NEXT_LOCALE=${option.locale}; path=/; max-age=${60 * 60 * 24 * 30}`;
+    // document.cookie = `NEXT_LOCALE=${option.locale}; path=/; max-age=${60 * 60 * 24 * 30}`;
 
     // Split the path into segments
     const segments = pathname.split("/").filter(Boolean);
