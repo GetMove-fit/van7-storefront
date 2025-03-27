@@ -2,17 +2,23 @@ import React from "react";
 import InteractiveVideo from "../interactive-video";
 import Vorteile from "./vorteile";
 import LocalizedClientLink from "@modules/common/components/localized-client-link";
+import Image from "next/image";
 
 import Stars from "/public/stars.svg";
-import Trees from "/public/trees.svg";
 import { useTranslations } from "next-intl";
+import HeroBg from "/public/hero-bg4.png";
 
 const Hero = () => {
   const t = useTranslations("home.hero");
   return (
-    <section className="relative flex justify-between overflow-hidden pl-5 max-xl:flex-col sm:pl-10 lg:max-h-screen lg:pl-32 2xl:pl-48">
-      <Trees className="absolute left-0 top-40 max-lg:hidden max-sm:bottom-0 max-sm:place-self-end" />
-      <div className="z-10 flex flex-col gap-y-6 py-6 sm:gap-y-10 sm:py-10">
+    <section className="relative flex justify-between overflow-hidden max-xl:flex-col lg:max-h-[95vh]">
+      <Image
+        src={HeroBg}
+        alt=""
+        className="absolute h-full w-full object-cover object-bottom"
+      />
+
+      <div className="z-10 my-10 -mr-14 mt-32 flex flex-col gap-y-6 bg-gradient-to-br from-white/90 from-75% to-transparent to-75% px-5 py-6 sm:gap-y-10 sm:px-10 lg:ml-20 2xl:ml-40">
         <div className="flex flex-col gap-y-4 text-lg sm:gap-y-6 sm:text-xl lg:text-xl 3xl:text-3xl 3xl:leading-normal">
           <div className="flex place-items-center gap-x-4 font-medium">
             <Stars className="max-sm:w-32" />

@@ -45,15 +45,18 @@ export default function InteractiveVideo() {
   }, [currentSegment]);
 
   return (
-    <div className="relative flex place-self-start sm:max-lg:-mt-10 2xl:-mb-40 2xl:place-self-end">
+    <div className="relative z-20 flex place-self-start sm:max-lg:-mt-10 2xl:-mb-40 2xl:place-self-end">
       {currentSegment === 0 && showButton && (
-        <div className="absolute top-5 z-10 flex items-center whitespace-nowrap font-semibold italic max-sm:left-0 sm:right-[45%] sm:text-2xl 2xl:top-10">
-          {t("tryNow")}
+        <div className="absolute top-5 z-10 flex items-center whitespace-nowrap font-semibold italic max-sm:left-0 sm:right-[45%] sm:text-2xl 2xl:top-20">
+          <div className="relative flex">
+            <div className="absolute h-full w-full -skew-x-12 bg-white/90"></div>
+            <div className="z-20 px-2 py-1">{t("tryNow")}</div>
+          </div>
           <img
             src={Pfeil.src}
             width={Pfeil.width}
             height={Pfeil.height}
-            className="max-sm:w-14"
+            className="w-32 max-sm:w-14"
           />
         </div>
       )}
@@ -66,7 +69,7 @@ export default function InteractiveVideo() {
         width="1280"
         height="1280"
       >
-        <source src="/videos/hubbett-interaktiv.mp4" type="video/mp4" />
+        <source src="/videos/hubbett-interaktiv.webm" type="video/webm" />
       </video>
       {showButton && currentSegment < segments.length && (
         <button
