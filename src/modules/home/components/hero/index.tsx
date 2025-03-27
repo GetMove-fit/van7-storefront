@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import Stars from "/public/stars.svg";
 import { useTranslations } from "next-intl";
-import HeroBg from "/public/hero-bg4.png";
+import HeroBg from "/public/hero-bg.png";
 
 const Hero = () => {
   const t = useTranslations("home.hero");
