@@ -23,8 +23,8 @@ export default function AccessorySelect({
   return (
     <div className="flex w-full flex-col gap-y-4">
       {accessoryProducts.map((accessory) => (
-        <div key={accessory.id} className="flex flex-col gap-y-1">
-          <span className="text-sm">
+        <div key={accessory.id} className="flex flex-col gap-y-3">
+          <span>
             {t("selectOption", {
               option:
                 locale === "de"
@@ -43,14 +43,20 @@ export default function AccessorySelect({
             </SelectUI.Trigger>
             <SelectUI.Content>
               {accessory.variants?.map((variant) => (
-                <SelectUI.Item key={variant.id} value={variant.id}>
+                <SelectUI.Item
+                  key={variant.id}
+                  value={variant.id}
+                  disabled={!variant.allow_backorder}
+                  className={variant.allow_backorder ? "" : "text-gray-400"}
+                >
                   {variant.title}{" "}
-                  {variant.calculated_price &&
-                    `(+${convertToLocale({
-                      amount:
-                        variant.calculated_price.calculated_amount_with_tax!,
-                      currency_code: variant.calculated_price.currency_code!,
-                    })})`}
+                  {!variant.allow_backorder
+                    ? "(nicht erforderlich)"
+                    : `(+${convertToLocale({
+                        amount:
+                          variant.calculated_price!.calculated_amount_with_tax!,
+                        currency_code: variant.calculated_price!.currency_code!,
+                      })})`}
                 </SelectUI.Item>
               ))}
             </SelectUI.Content>
