@@ -35,7 +35,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         className="content-container relative flex flex-col py-6 small:flex-row small:items-start"
         data-testid="product-container"
       >
-        <div className="flex w-full flex-col gap-y-6 py-8 small:sticky small:max-w-[300px] small:py-0">
+        <div className="flex w-full flex-col gap-y-6 py-8 small:sticky small:top-32 small:max-w-[300px] small:py-0">
           <ProductInfo product={product} />
           {product.handle !== "fahrradhalter" && (
             <div className="max-sm:hidden">
@@ -64,7 +64,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
           </div>
         )}
 
-        <div className="flex w-full flex-col gap-y-6 py-8 small:sticky small:max-w-[300px] small:py-0">
+        <div className="flex w-full flex-col gap-y-6 py-8 small:sticky small:top-32 small:max-w-[300px] small:py-0">
           <CountrySelect regions={regions} up={false} />
           {product.handle !== "fahrradhalter" && <p>{t("sizeGuide")}</p>}
           <ProductOnboardingCta />
