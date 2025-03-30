@@ -1,11 +1,13 @@
+import { ReactNode } from "react";
 import { StoreProduct } from "@medusajs/types";
 import { clx } from "@medusajs/ui";
 import ProductRail from "@modules/common/components/product-rail";
+import Banner from "@modules/common/components/product-rail/banner";
 
 type Props = {
   bannerSrc: string;
   products: StoreProduct[];
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 };
 
@@ -22,15 +24,7 @@ export default async function ProductsTemplate({
         className
       )}
     >
-      <div className="relative h-[33vh]">
-        <img
-          src={bannerSrc}
-          className="h-full w-full rounded-lg object-cover"
-        />
-        <div className="absolute bottom-0 p-5 font-title text-5xl uppercase leading-none text-white sm:inset-0 sm:text-8xl">
-          {children}
-        </div>
-      </div>
+      <Banner src={bannerSrc}>{children}</Banner>
 
       <ProductRail products={products} />
     </div>
