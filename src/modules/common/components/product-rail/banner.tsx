@@ -26,7 +26,7 @@ export default function Banner({
           start: "top-=50% top",
           end: "bottom-=50% top",
           scrub: true,
-          markers: true,
+          // markers: true,
         },
       });
     }
