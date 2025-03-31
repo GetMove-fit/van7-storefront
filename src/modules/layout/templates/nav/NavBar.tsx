@@ -3,20 +3,15 @@
 import { useEffect, useState } from "react";
 import LocalizedClientLink from "@modules/common/components/localized-client-link";
 import Logo from "/public/van7-logo.svg";
-import { StoreRegion } from "@medusajs/types";
 import { usePathname } from "next/navigation";
 import { clx } from "@medusajs/ui";
 import NavLink from "./NavLink";
 import { useTranslations } from "next-intl";
+import { useSideMenu } from "../../context/SideMenuContext";
 
-export default function NavBar({
-  regions,
-  children,
-}: {
-  regions: StoreRegion[];
-  children: React.ReactNode;
-}) {
+export default function NavBar({ children }: { children: React.ReactNode }) {
   const t = useTranslations("nav");
+  const { isOpen: isSideMenuOpen } = useSideMenu();
 
   const isHomePage = /^\/[a-zA-Z]{2}\/[a-zA-Z]{2}$/.test(usePathname());
 
@@ -47,7 +42,7 @@ export default function NavBar({
       className={clx(
         "group inset-x-0 top-0 z-50 transition-colors duration-300",
         {
-          "bg-white/80 backdrop-blur-sm": !hideBg,
+          "bg-white/80 backdrop-blur-sm": !hideBg && !isSideMenuOpen,
           fixed: isHomePage,
           sticky: !isHomePage,
         }
