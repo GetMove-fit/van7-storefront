@@ -25,13 +25,13 @@ const Hero = () => {
             {t("socialProof")}
           </div>
 
-          <h1 className="whitespace-nowrap font-title text-[40px] uppercase leading-none sm:text-5xl sm:text-[60px] 2xl:text-[80px] 3xl:text-[100px]">
+          <h1 className="whitespace-nowrap font-title text-[40px] uppercase leading-none sm:text-5xl sm:text-[60px] 2xl:text-6xl 2xlarge:text-[80px] 3xl:text-[100px]">
             {t.rich("h1", {
               br: () => <br />,
             })}
           </h1>
 
-          <p className="hidden sm:block">
+          <p className="max-sm:hidden">
             {t.rich("context", {
               br: () => <br />,
             })}
