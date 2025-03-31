@@ -11,14 +11,14 @@ import HeroBg from "/public/hero-bg.png";
 const Hero = () => {
   const t = useTranslations("home.hero");
   return (
-    <section className="relative flex justify-between overflow-hidden max-xl:flex-col xl:max-h-[95vh]">
+    <section className="relative flex max-h-fit justify-between overflow-hidden max-xl:flex-col">
       <Image
         src={HeroBg}
         alt=""
         className="absolute h-full w-full object-cover object-bottom"
       />
 
-      <div className="z-10 my-10 -mr-14 mt-20 flex flex-col gap-y-6 bg-gradient-to-br from-white/90 from-80% to-transparent to-80% px-5 py-6 sm:mt-32 sm:gap-y-10 sm:px-10 lg:ml-32 2xl:ml-40 3xl:mb-20 3xl:w-1/2">
+      <div className="z-10 my-10 -mr-14 mt-16 flex flex-col gap-y-6 bg-gradient-to-br from-white/90 from-80% to-transparent to-80% px-5 py-6 sm:gap-y-10 sm:px-10 md:mt-28 lg:ml-32 lg:mt-32 2xl:ml-40 3xl:mb-20 3xl:w-1/2">
         <div className="flex flex-col gap-y-4 text-lg sm:gap-y-6 sm:text-xl lg:text-xl 3xl:text-3xl 3xl:leading-normal">
           <div className="flex place-items-center gap-x-4 font-medium">
             <Stars className="max-sm:w-32" />
