@@ -1,3 +1,4 @@
+import { locales } from "@lib/constants";
 import { HttpTypes } from "@medusajs/types";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -129,9 +130,8 @@ export async function middleware(request: NextRequest) {
   const pathParts = request.nextUrl.pathname.split("/").filter(Boolean);
 
   // Determine locale from URL first
-  const validLocales = ["en", "de"];
   const urlLocale = pathParts.length > 1 ? pathParts[1] : null;
-  const isValidUrlLocale = urlLocale && validLocales.includes(urlLocale);
+  const isValidUrlLocale = urlLocale && locales.includes(urlLocale);
 
   // Determine locale - prioritize URL locale, then fall back to country-based default
   const locale = isValidUrlLocale
@@ -145,7 +145,7 @@ export async function middleware(request: NextRequest) {
 
   // Check if URL has the correct structure: /{countryCode}/{locale}/...
   const hasCorrectStructure =
-    pathParts[0] === countryCode && validLocales.includes(pathParts[1] || "");
+    pathParts[0] === countryCode && locales.includes(pathParts[1] || "");
 
   if (hasCorrectStructure) {
     // URL structure is correct, continue without redirect

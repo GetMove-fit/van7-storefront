@@ -5,6 +5,7 @@ import { StoreRegion } from "@medusajs/types";
 import Footer from "@modules/layout/templates/footer";
 import Nav from "@modules/layout/templates/nav";
 import { listRegions } from "@lib/data/regions";
+import { locales } from "@lib/constants";
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
@@ -18,23 +19,9 @@ export async function generateStaticParams() {
     .flat();
 
   // Create paths for each country with both locales (de and en)
-  const paths = [];
-
-  for (const countryCode of countries) {
-    // For each country, generate a path for both German and English
-    paths.push(
-      {
-        countryCode,
-        locale: "de",
-      },
-      {
-        countryCode,
-        locale: "en",
-      }
-    );
-  }
-
-  return paths;
+  return countries.flatMap((countryCode) =>
+    locales.map((locale) => ({ countryCode, locale }))
+  );
 }
 
 export default async function PageLayout(props: { children: React.ReactNode }) {

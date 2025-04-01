@@ -14,6 +14,7 @@ import { useLocale } from "next-intl";
 import { usePathname } from "next/navigation";
 import React from "react";
 import ReactCountryFlag from "react-country-flag";
+import { locales } from "@lib/constants";
 
 // Default mapping of locales to country flags
 const DEFAULT_FLAGS: Record<string, string> = {
@@ -52,7 +53,6 @@ type LanguageSelectProps = {
 };
 
 const LanguageSelect = ({
-  locales = ["en", "de"],
   labels = DEFAULT_LABELS,
   flags = DEFAULT_FLAGS,
   up = false,

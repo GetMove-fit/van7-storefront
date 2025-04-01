@@ -1,8 +1,8 @@
+import { locales } from "@lib/constants";
 import { listProducts } from "@lib/data/products";
 import type { MetadataRoute } from "next";
 
 const pages = ["/", "/hubbett-kaufen", "/datenschutz", "/agb", "/impressum"];
-const locales = ["de", "en"];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const products = await listProducts({
