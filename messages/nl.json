@@ -1,0 +1,315 @@
+{
+  "cart": {
+    "title": "Winkelwagen",
+    "items": {
+      "title": "Artikel",
+      "quantity": "Aantal",
+      "price": "Prijs",
+      "total": "Totaal",
+      "remove": "Verwijderen"
+    },
+    "variant": "Variant",
+    "summary": "Samenvatting",
+    "toCart": "Ga naar winkelwagen",
+    "toCheckout": "Ga door naar afrekenen",
+    "totals": {
+      "subtotal": "Subtotaal",
+      "shipping": "Verzending",
+      "discount": "Korting",
+      "tax": "BTW",
+      "giftCard": "Cadeaubon",
+      "total": "Totaal"
+    },
+    "discount": {
+      "title": "Gebruik promotiecode",
+      "apply": "Toepassen",
+      "applied": "Toegepaste promotiecodes",
+      "remove": "Promotiecode verwijderen"
+    },
+    "empty": "Uw winkelwagen is leeg.",
+    "viewHubbetten": "Bekijk Hubbetten",
+    "exploreHubbetten": "Ontdek Hubbetten"
+  },
+  "checkout": {
+    "title": "Afrekenen",
+    "backToCart": "Terug naar winkelwagen",
+    "back": "Terug",
+    "shipping_address": {
+      "use_saved_address": "Hallo {name}, wilt u een van uw opgeslagen adressen gebruiken?",
+      "first_name": "Voornaam",
+      "last_name": "Achternaam",
+      "address": "Adres",
+      "company": "Bedrijf",
+      "postal_code": "Postcode",
+      "city": "Stad",
+      "province": "Staat / Provincie",
+      "same_as_billing": "Factuuradres is hetzelfde als verzendadres",
+      "email": "E-mail",
+      "valid_email": "Voer een geldig e-mailadres in.",
+      "phone": "Telefoon"
+    },
+    "addresses": {
+      "shipping_address": "Verzendadres",
+      "billing_address": "Factuuradres",
+      "contact": "Contact",
+      "edit": "Bewerken",
+      "continue_to_payment": "Ga door naar betaling",
+      "same_as_shipping": "Factuur- en verzendadres zijn hetzelfde."
+    },
+    "review": {
+      "heading": "Overzicht",
+      "confirmation_text": "Door op de knop Bestelling Plaatsen te klikken, bevestigt u dat u onze",
+      "terms_and_conditions": "Algemene Voorwaarden",
+      "and": "en",
+      "cancellation_policy": "Annuleringsbeleid",
+      "read_understood_accepted": "heeft gelezen, begrepen en geaccepteerd",
+      "privacy_policy": "Privacybeleid",
+      "read_by_van7": "van VAN7."
+    },
+    "payment": {
+      "heading": "Betaalmethode",
+      "edit": "Bewerken",
+      "bank_transfer": "Directe Bankoverschrijving",
+      "online_payment": "Veilige Online Betaling",
+      "payment_method": "Betaalmethode",
+      "gift_card": "Cadeaubon",
+      "continue_to_review": "Ga door naar overzicht",
+      "payment_details": "Betaalgegevens",
+      "bank_transfer_details": "U ontvangt de factuur met de bankgegevens",
+      "online_payment_details": "Er volgt nog een stap",
+      "place_order": "Bestelling Plaatsen",
+      "select_payment_method": "Selecteer een betaalmethode"
+    }
+  },
+  "order": {
+    "thank_you": "Dank u!",
+    "order_success": "Uw bestelling is succesvol geplaatst.",
+    "summary": "Samenvatting",
+    "payment": "Betaling",
+    "payment_method": "Betaalmethode",
+    "payment_details": "Betaalgegevens",
+    "paid_on": "betaald op",
+    "shipping": "Verzending",
+    "shipping_address": "Verzendadres",
+    "contact": "Contact",
+    "method": "Methode",
+    "confirmation": "We hebben de orderbevestiging gestuurd naar <b>{email}</b>.",
+    "order_date": "Besteldatum",
+    "order_status": "Bestelstatus",
+    "payment_status": "Betaalstatus"
+  },
+  "shipTo": "Verzenden naar",
+  "nav": {
+    "products": "Producten",
+    "reviews": "Beoordelingen",
+    "contact": "Contact"
+  },
+  "home": {
+    "meta": {
+      "title": "Het meest flexibele hefbed voor campers en busjes | VAN7",
+      "description": "Ontdek het hefbed met het hoogste comfort en optimale ruimtebenutting voor campers, transporters, motorhomes of aanhangers. Nooit meer scheef slapen en maak optimaal gebruik van de ruimte."
+    },
+    "hero": {
+      "socialProof": "500+ tevreden klanten",
+      "h1": "Het hefbed<br></br>met het hoogste comfort<br></br>& de beste ruimtebenutting",
+      "context": "Stel de perfecte hoogte in en haal het meeste uit uw ruimte.<br></br>Waterpas en geniet van slaapcomfort zoals thuis - ongeacht hoe ongelijk uw bus is.",
+      "benefits": {
+        "fast": "Binnen enkele seconden neergelaten en opgeborgen",
+        "noMovement": "Stabiel bevestigd, geen schommelen of wiebelen",
+        "enoughSpace": "Genoeg ruimte voor uitrusting, fietsen, meubels",
+        "noTracks": "Geen vervelende geleiderails"
+      },
+      "cta": "Pre-order nieuwe serie",
+      "interactions": {
+        "tryNow": "Probeer het nu!",
+        "levelOut": "Waterpas maken",
+        "fix": "Bevestigen",
+        "extend": "Uitbreiden"
+      }
+    },
+    "features": {
+      "setHeight": {
+        "title": "Hoogte traploos instellen",
+        "text": "U hoeft niet langer te kiezen tussen comfort of ruimte - u krijgt beide. Dankzij de traploze hoogteverstelling kunt u het bed eenvoudig op de gewenste hoogte instellen met de slinger. Of u nu een camper of een busje bestuurt, u kunt de opbergruimte optimaal gebruiken voor fietsen, motorfietsen of andere uitrusting en toch in het hoogste comfort slapen."
+      },
+      "levelOut": {
+        "title": "Waterpas maken",
+        "text": "Hoe ongelijk het terrein ook is - het Van7 hefbed past zich aan uw behoeften aan. Met de flexibele riembevestiging kunt u het bed individueel op alle vier hoeken waterpas maken, zodat u altijd in een comfortabele, horizontale positie slaapt. Of u nu in een camper op de camping staat of met uw busje in de wildernis - kies uw slaapplek vrij en geniet van rustgevende nachten waar u ook parkeert."
+      },
+      "fix": {
+        "title": "Aan de muur bevestigen",
+        "text": "In tegenstelling tot conventionele oplossingen komt ons hefbed volledig zonder vervelende geleiderails. Met onze gepatenteerde bevestigingsfunctie wordt het bed stevig tegen de zijwand getrokken, zodat het niet wiebelt of schommelt."
+      },
+      "extend": {
+        "title": "Lattenbodem verlengen",
+        "text": "Ruimte voor drie personen? Geen probleem. Gebruik de volledige breedte van het voertuig met de optionele verlenging tot een maximale breedte van 190 cm."
+      }
+    },
+    "reviews": {
+      "title": "Het populairste hefbed onder",
+      "audience": {
+        "adventurers": "avonturiers",
+        "campers": "kampeerders",
+        "motorsports": "motorsportliefhebbers",
+        "outdoorSports": "buitensportliefhebbers",
+        "handyman": "klussers"
+      },
+      "reviews": {
+        "Customer": "Ik heb een paar nachten in dit bed doorgebracht en vond het geweldig, zeer comfortabel en gezellig. Het uitlijnen en bevestigen van het neerklapbare bed is kinderspel. Al met al een zeer goede investering.",
+        "Stefan": "Absoluut briljant product! Niet alleen maakt dit het interieur van het voertuig veel flexibeler en multifunctioneler, de technische details en kwaliteit zijn ook uitstekend. Overigens is het team achter Van7 ook zeer toegewijd en behulpzaam. 6 sterren",
+        "Andreas": "Gewoon geweldig als je een bed in je bus of busje wilt installeren. Dit geeft ons maximale ruimte om de mountainbikes of motorfiets op te bergen en door het bed waterpas te maken incl. De bevestigingsfunctie betekent dat je altijd een horizontale positie hebt tijdens het slapen en de volgende dag weer kunt beginnen. Ik kan het iedereen alleen maar aanraden. 👍 🚐",
+        "Lorenz": "Ik ben super blij met mijn bed!! Eindelijk meer ruimte in de auto maakt het kamperen een stuk makkelijker voor mij, ik kan het Van7 bed alleen maar aanraden!!",
+        "Jean-Marc": "Super intelligent opbergsysteem, zeer goede afwerking en competente/vriendelijke contactpersoon! Het is een genoegen!"
+      }
+    },
+    "products": {
+      "title": "Nieuwe serie,<br></br>Nieuwe ombouwconcepten"
+    },
+    "optimized": {
+      "title": "Getest en geoptimaliseerd",
+      "text": "Het Van7 hefbed is het resultaat van jarenlange ontwikkeling en optimalisatie. Door zorgvuldige tests en continue verbeteringen over verschillende series zijn tal van uitdagingen opgelost, zoals de duurzaamheid van de tandwielen, de efficiëntie van de lieren en het voorkomen van slijtage."
+    },
+    "installation": {
+      "button": "Meer informatie",
+      "partner": {
+        "title": "Vind installatiepartner",
+        "text": "Zorgeloze installatie door onze installatiepartners. Snel en betrouwbaar, zodat u zich volledig kunt concentreren op uw avontuur."
+      },
+      "diy": {
+        "title": "Doe-het-zelf instructies",
+        "text": "Voor velen begint het avontuur al voor de eerste roadtrip. Onze video's laten zien hoe u het bed eenvoudig en snel zelf kunt installeren."
+      }
+    },
+    "contact": {
+      "stillQuestions": "Nog vragen?",
+      "StefanWillHelp": "Stefan helpt u graag."
+    }
+  },
+  "shop": {
+    "meta": {
+      "title": "Koop hefbedden voor elke situatie & installatieplaats | VAN7 Shop",
+      "description": "Ontdek hefbedden voor elke installatiesituatie: kingsize, dwarsligger, longitudinaal hefbed, cockpit of stapelbed. Ruimtebesparend, stabiel & comfortabel - voor het hoogste slaapcomfort onderweg. Vind nu het perfecte hefbed!"
+    },
+    "title": "Ontdek<br></br>het beste<br></br>hefbed voor u"
+  },
+  "products": {
+    "kingsize-hubbett-mit-lattenrostauszug": {
+      "name": "Kingsize Hefbed",
+      "title": "VAN7 Kingsize Hefbed met Lattenbodemverlenging",
+      "description": "Creëer een enorme slaapruimte in uw voertuig met een lengte van 200cm x 160cm max. 190cm breedte - De lattenbodem kan worden verlengd tot een maximale breedte van 190cm. Zelfs met drie personen is slapen comfortabel met deze bedmaat."
+    },
+    "laengs-hubbett": {
+      "name": "Lengte Hefbed",
+      "title": "VAN7 Lengte Hefbed",
+      "description": "Creëer een slaapruimte in uw voertuig met een lengte van 200cm en een breedte van 140 of 160 cm."
+    },
+    "cockpit-hubbett": {
+      "name": "Cockpit Hefbed",
+      "title": "VAN7 Cockpit Hefbed met Lattenbodemverlenging",
+      "description": "Voor kampeerders die nog meer ruimte en gewicht willen besparen. Het cockpit hefbed is een echte innovatie die nieuwe ombouwconcepten mogelijk maakt. Compact 140x110cm of 160x110cm onder het plafond met een verlenging tot 200cm lengte. Na traploos verlagen, waterpas maken - zodat u altijd horizontaal slaapt, ongeacht hoe ongelijk het voertuig is, en de bevestigingsfunctie, wordt de geïntegreerde lattenbodem verlengd tot een maximale lengte van 200cm - bijvoorbeeld in de bestuurderscabine om daar de ruimte te benutten. De verlenging wordt vastgezet met een 25mm riem."
+    },
+    "querschlaefer-hubbett": {
+      "name": "Dwarsligger Hefbed",
+      "title": "VAN7 Dwarsligger Hefbed met Lattenbodemverlenging",
+      "description": "Voor kampeerders die nog meer ruimte en gewicht willen besparen. Het dwarsligger hefbed is een echte innovatie. Compact 140x140cm (160x160) onder het plafond met een verlenging tot 200cm lengte. Na traploos verlagen, waterpas maken - zodat u altijd horizontaal slaapt, ongeacht hoe ongelijk het voertuig is, en de bevestigingsfunctie, wordt de geïntegreerde lattenbodem verlengd tot een maximale lengte van 200cm - Met flares (muuruitbreidingen) aan één kant krijgt u minimaal 190cm breedte (lengte van de verlenging)."
+    },
+    "stock-hubbett": {
+      "name": "Stapelbed",
+      "title": "VAN7 Stapelbed voor maximaal 5 personen",
+      "description": ""
+    },
+    "fahrradhalter": {
+      "title": "VAN7 Fietshouder",
+      "description": "Wilt u uw fietsen veilig in het voertuig vervoeren en heeft u geen zin in grote, omslachtige constructies? Dan is de Van7 fietshouder precies wat u zoekt! Wilt u meer weten over de Van7 fietshouder? Bekijk dan onze YouTube-video."
+    }
+  },
+  "product": {
+    "sizeGuide": "De mogelijke grootte van het VAN7 hefbed voor uw voertuig hangt af van de breedte van het plafond. We adviseren u graag telefonisch of via WhatsApp.",
+    "mountingNote": "De volgende voertuigen hebben geen montagebeugels nodig: Mercedes Sprinter H2-H3 2006-heden, VW Crafter 2006-2016, Opel Movano, Renault Master, Ford Custom.",
+    "selectOption": "Selecteer {option}",
+    "options": {
+      "Größe": "grootte",
+      "Montagekonsole": "montagebeugel",
+      "LEDs": "LED-kit"
+    },
+    "notSelected": "Niet bestellen",
+    "button": {
+      "selectVariant": "Selecteer een variant",
+      "outOfStock": "Momenteel niet op voorraad",
+      "orderNow": "Bestel nu",
+      "customSize": "Aangepaste maat aanvragen",
+      "requestOrder": "Bestellen op aanvraag"
+    },
+    "pricing": {
+      "netto": "Netto prijs",
+      "tax": "BTW",
+      "from": "Vanaf {price}"
+    },
+    "tabs": {
+      "comfortable": {
+        "title": "Uniek Kampeercomfort",
+        "text": "Wat onze klanten het meest waarderen, is de unieke waterpasfunctie, waarmee u het bed met één trek in een horizontale positie kunt brengen, zelfs op de meest ongelijke camping, en zo net zo comfortabel kunt rusten als thuis."
+      },
+      "fixed": {
+        "title": "Gepatenteerde Bevestigingsfunctie",
+        "text": "Alleen met deze functie is het mogelijk om een vrij zwevend hefbed stabiel op de gewenste hoogte en helling aan de zijkant te bevestigen - zodat het bed NIET wiebelt!"
+      },
+      "mechanic": {
+        "title": "Zonder Elektriciteit en Geleiderails",
+        "text": "Voor veel kampeerders zijn gewicht en functionaliteit in een kleine ruimte erg belangrijk. Het slingermechanisme is sneller en 17kg lichter dan een elektromotor. Het VAN7 hefbed werkt altijd, en dankzij onze bevestigingsfunctie doet het dat zonder opbergconstructies en rails die de ruimte sterk beïnvloeden en tijdens de rit geluid maken."
+      },
+      "extendable": {
+        "title": "Maximale Ligoppervlakte",
+        "text": "Het 140cm brede bed bevat een 190cm brede ligoppervlakte. Het eerste hefbed ter wereld met een lattenbodemverlenging. Hiermee kunt u de ligoppervlakte uitbreiden tot de maximale breedte van uw voertuig na het verlagen."
+      },
+      "noiseFree": {
+        "title": "Off-road Rijden Zonder Rammelende Geluiden",
+        "text": "We hebben ervoor gezorgd dat het bed tijdens de rit geen geluid maakt, zodat u van de rit kunt genieten."
+      },
+      "easyInstallation": {
+        "title": "Eenvoudige Installatie",
+        "text": "Als u overweg kunt met een accuboormachine en een meetlint of iemand kent die dat kan, is de installatie van de nieuwe serie met de meegeleverde video-instructies kinderspel. Natuurlijk hebben we ook installatiepartners die de installatie van het hefbed kunnen overnemen. Afhankelijk van het voertuig zijn er geschikte montagebeugels. Sommige voertuigen, zoals de H2 Sprinter, hebben geen montagebeugels nodig."
+      },
+      "romantic": {
+        "title": "Praktisch en Romantisch",
+        "text": "De indirecte, dimbare verlichting naar uw stemming creëert een aangename sfeer boven en onder het bed. De LED-strip is netjes geïntegreerd in de aluminium profielen."
+      },
+      "safety": {
+        "title": "Veilige Riembevestiging",
+        "text": "Het VAN7 hefbed hangt aan 4x 25mm veiligheidsriemen en gespen, elk beoordeeld op 400daN. Dat betekent 1600kg - de draagkracht van het bed is dynamisch toegestaan met 270kg. Elke riemophanging is bevestigd met 2x M6 klinkmoeren. Een M6 klinkmoer houdt 4-5kN onder afschuiving in een voertuigplaat - dat is 400-500kg per klinkmoer. Voor de riemophangingen van het VAN7 hefbed worden 8 klinkmoeren geïnstalleerd in het laatste gebied van de wand van uw voertuig."
+      },
+      "space": {
+        "title": "Maximale Ruimte",
+        "text": "Het VAN7 hefbed biedt u de ruimte en het comfort die u nodig heeft bij het overnachten in een kleine mobiele ruimte. In een mum van tijd verdwijnt het aan het plafond en heeft u veel opbergruimte voor fietsen of een extra zitgedeelte."
+      }
+    }
+  },
+  "footer": {
+    "description": "Het hefbed voor elke (parkeer)situatie! Horizontaal slapen en toch genoeg opbergruimte in de camper? Met VAN7 hoeft u geen compromissen te sluiten!",
+    "followUs": "Volg ons op onze reizen",
+    "contactInfo": "Contactgegevens",
+    "address": "Dorfstraße 5, 8753 Fohnsdorf",
+    "email": "info@van7.at",
+    "phone": "(+43) 676 337 25 56",
+    "whatsapp": "(+43) 676 337 25 56",
+    "shop": "Winkel",
+    "impressum": "Impressum",
+    "agb": "AGB",
+    "privacyPolicy": "Privacybeleid",
+    "designedBy": "Ontworpen & gemaakt door"
+  },
+  "form": {
+    "name": "Naam",
+    "phone": "Telefoonnummer",
+    "email": "E-mail",
+    "agreement": {
+      "prefix": "Ik heb de",
+      "privacyPolicy": "Privacybeleid",
+      "terms": "Algemene Voorwaarden",
+      "and": "en",
+      "cancellationPolicy": "Annuleringsbeleid",
+      "suffix": "gelezen, begrepen en ga akkoord."
+    },
+    "submit": "Verzend bericht"
+  }
+}

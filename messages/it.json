@@ -1,0 +1,315 @@
+{
+  "cart": {
+    "title": "Carrello",
+    "items": {
+      "title": "Articolo",
+      "quantity": "Quantità",
+      "price": "Prezzo",
+      "total": "Totale",
+      "remove": "Rimuovi"
+    },
+    "variant": "Variante",
+    "summary": "Riepilogo",
+    "toCart": "Vai al carrello",
+    "toCheckout": "Continua al checkout",
+    "totals": {
+      "subtotal": "Subtotale",
+      "shipping": "Spedizione",
+      "discount": "Sconto",
+      "tax": "IVA",
+      "giftCard": "Carta regalo",
+      "total": "Totale"
+    },
+    "discount": {
+      "title": "Usa codice promozionale",
+      "apply": "Applica",
+      "applied": "Codici promozionali applicati",
+      "remove": "Rimuovi codice promozionale"
+    },
+    "empty": "Il tuo carrello è vuoto.",
+    "viewHubbetten": "Visualizza Hubbetten",
+    "exploreHubbetten": "Esplora Hubbetten"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "backToCart": "Torna al carrello",
+    "back": "Indietro",
+    "shipping_address": {
+      "use_saved_address": "Ciao {name}, vuoi utilizzare uno dei tuoi indirizzi salvati?",
+      "first_name": "Nome",
+      "last_name": "Cognome",
+      "address": "Indirizzo",
+      "company": "Azienda",
+      "postal_code": "CAP",
+      "city": "Città",
+      "province": "Stato / Provincia",
+      "same_as_billing": "L'indirizzo di fatturazione è lo stesso di quello di spedizione",
+      "email": "Email",
+      "valid_email": "Inserisci un indirizzo email valido.",
+      "phone": "Telefono"
+    },
+    "addresses": {
+      "shipping_address": "Indirizzo di spedizione",
+      "billing_address": "Indirizzo di fatturazione",
+      "contact": "Contatto",
+      "edit": "Modifica",
+      "continue_to_payment": "Continua al pagamento",
+      "same_as_shipping": "Gli indirizzi di fatturazione e spedizione sono gli stessi."
+    },
+    "review": {
+      "heading": "Riepilogo",
+      "confirmation_text": "Cliccando sul pulsante Effettua Ordine, confermi di aver letto, compreso e accettato i nostri",
+      "terms_and_conditions": "Termini e Condizioni",
+      "and": "e",
+      "cancellation_policy": "Politica di Cancellazione",
+      "read_understood_accepted": "e confermi di aver letto la",
+      "privacy_policy": "Politica sulla Privacy",
+      "read_by_van7": "di VAN7."
+    },
+    "payment": {
+      "heading": "Metodo di Pagamento",
+      "edit": "Modifica",
+      "bank_transfer": "Bonifico Bancario Diretto",
+      "online_payment": "Pagamento Online Sicuro",
+      "payment_method": "Metodo di Pagamento",
+      "gift_card": "Carta Regalo",
+      "continue_to_review": "Continua al Riepilogo",
+      "payment_details": "Dettagli di Pagamento",
+      "bank_transfer_details": "Riceverai la fattura con i dettagli bancari",
+      "online_payment_details": "Seguirà un altro passaggio",
+      "place_order": "Effettua Ordine",
+      "select_payment_method": "Seleziona un Metodo di Pagamento"
+    }
+  },
+  "order": {
+    "thank_you": "Grazie!",
+    "order_success": "Il tuo ordine è stato effettuato con successo.",
+    "summary": "Riepilogo",
+    "payment": "Pagamento",
+    "payment_method": "Metodo di Pagamento",
+    "payment_details": "Dettagli di Pagamento",
+    "paid_on": "pagato il",
+    "shipping": "Spedizione",
+    "shipping_address": "Indirizzo di Spedizione",
+    "contact": "Contatto",
+    "method": "Metodo",
+    "confirmation": "Abbiamo inviato la conferma dell'ordine a <b>{email}</b>.",
+    "order_date": "Data dell'Ordine",
+    "order_status": "Stato dell'Ordine",
+    "payment_status": "Stato del Pagamento"
+  },
+  "shipTo": "Spedizione a",
+  "nav": {
+    "products": "Prodotti",
+    "reviews": "Recensioni",
+    "contact": "Contatto"
+  },
+  "home": {
+    "meta": {
+      "title": "Il letto sollevabile più flessibile per camper e furgoni | VAN7",
+      "description": "Scopri il letto sollevabile con il massimo comfort e utilizzo ottimale dello spazio per camper, trasportatori, motorhome o rimorchi. Non dormire mai più in modo scomodo e sfrutta al meglio lo spazio."
+    },
+    "hero": {
+      "socialProof": "500+ clienti soddisfatti",
+      "h1": "Il letto sollevabile<br></br>con il massimo comfort<br></br>& il miglior utilizzo dello spazio",
+      "context": "Imposta l'altezza perfetta e sfrutta al massimo il tuo spazio.<br></br>Livella e goditi il comfort del sonno come a casa - indipendentemente da quanto sia irregolare il tuo furgone.",
+      "benefits": {
+        "fast": "Abbassato e riposto in pochi secondi",
+        "noMovement": "Fissato stabilmente, senza oscillazioni o dondolii",
+        "enoughSpace": "Spazio sufficiente per attrezzature, biciclette, mobili",
+        "noTracks": "Nessuna guida fastidiosa"
+      },
+      "cta": "Preordina la nuova serie",
+      "interactions": {
+        "tryNow": "Provalo ora!",
+        "levelOut": "Livella",
+        "fix": "Fissa",
+        "extend": "Estendi"
+      }
+    },
+    "features": {
+      "setHeight": {
+        "title": "Regola l'altezza continuamente",
+        "text": "Non devi più scegliere tra comfort o spazio - ottieni entrambi. Grazie alla regolazione continua dell'altezza, puoi facilmente impostare il letto all'altezza desiderata con la manovella. Che tu guidi un motorhome o un furgone, puoi utilizzare in modo ottimale lo spazio di stivaggio per biciclette, motociclette o altre attrezzature e dormire comunque nel massimo comfort."
+      },
+      "levelOut": {
+        "title": "Livella",
+        "text": "Non importa quanto sia irregolare il terreno - il letto sollevabile Van7 si adatta alle tue esigenze. Con il fissaggio flessibile a cinghia, puoi livellare il letto individualmente in tutti e quattro gli angoli, così dormi sempre in una posizione comoda e orizzontale. Che sia in un motorhome al campeggio o con il tuo furgone nella natura selvaggia - scegli liberamente il tuo posto per dormire e goditi notti riposanti ovunque ti fermi."
+      },
+      "fix": {
+        "title": "Fissa alla parete",
+        "text": "A differenza delle soluzioni convenzionali, il nostro letto sollevabile è completamente privo di fastidiose guide. Con la nostra funzione di fissaggio brevettata, il letto viene saldamente tirato verso la parete laterale, in modo che non oscilli né ondeggi."
+      },
+      "extend": {
+        "title": "Estendi la rete a doghe",
+        "text": "Spazio per tre persone? Nessun problema. Utilizza l'intera larghezza del veicolo con l'estensione opzionale fino a una larghezza massima di 190 cm."
+      }
+    },
+    "reviews": {
+      "title": "Il letto sollevabile più popolare tra",
+      "audience": {
+        "adventurers": "avventurieri",
+        "campers": "campeggiatori",
+        "motorsports": "appassionati di motorsport",
+        "outdoorSports": "appassionati di sport all'aria aperta",
+        "handyman": "tuttofare"
+      },
+      "reviews": {
+        "Customer": "Ho passato alcune notti in questo letto e l'ho adorato, molto comodo e accogliente. Allineare e fissare il letto ribaltabile è un gioco da ragazzi. In generale, un ottimo investimento.",
+        "Stefan": "Prodotto assolutamente brillante! Non solo rende l'interno del veicolo molto più flessibile e multifunzionale, ma anche i dettagli tecnici e la qualità sono eccezionali. A proposito, il team dietro Van7 è anche molto impegnato e disponibile. 6 stelle",
+        "Andreas": "Semplicemente fantastico se vuoi installare un letto nel tuo furgone o van. Questo ci dà il massimo spazio per riporre le biciclette da montagna o la moto e livellando il letto incl. La funzione di fissaggio significa che hai sempre una posizione orizzontale quando dormi e puoi ricominciare il giorno successivo. Lo consiglio a tutti. 👍 🚐",
+        "Lorenz": "Sono super felice con il mio letto!! Avere finalmente più spazio in macchina rende le cose molto più facili per me quando campeggio, posso solo raccomandare il letto Van7!!",
+        "Jean-Marc": "Sistema di archiviazione super intelligente, ottima lavorazione e contatto competente/amichevole! È un piacere!"
+      }
+    },
+    "products": {
+      "title": "Nuova serie,<br></br>Nuovi concetti di conversione"
+    },
+    "optimized": {
+      "title": "Testato e ottimizzato",
+      "text": "Il letto sollevabile Van7 è il risultato di anni di sviluppo e ottimizzazione. Attraverso test accurati e miglioramenti continui su varie serie, sono state risolte numerose sfide, come la durata degli ingranaggi, l'efficienza degli argani e la prevenzione dell'usura."
+    },
+    "installation": {
+      "button": "Scopri di più",
+      "partner": {
+        "title": "Trova un partner per l'installazione",
+        "text": "Installazione senza preoccupazioni dai nostri partner di installazione. Rapida e affidabile, così puoi concentrarti completamente sulla tua avventura."
+      },
+      "diy": {
+        "title": "Istruzioni fai-da-te",
+        "text": "Per molti, l'avventura inizia prima del primo viaggio su strada. I nostri video ti mostrano come installare facilmente e rapidamente il letto da solo."
+      }
+    },
+    "contact": {
+      "stillQuestions": "Hai ancora domande?",
+      "StefanWillHelp": "Stefan sarà felice di aiutarti."
+    }
+  },
+  "shop": {
+    "meta": {
+      "title": "Acquista letti sollevabili per ogni situazione e posizione di installazione | VAN7 Shop",
+      "description": "Scopri letti sollevabili per ogni situazione di installazione: king size, dormiente trasversale, letto sollevabile longitudinale, letto sollevabile per cabina o letto a castello. Salvaspazio, stabile e confortevole - per il massimo comfort del sonno in movimento. Trova ora il letto sollevabile perfetto!"
+    },
+    "title": "Scopri<br></br>il miglior<br></br>letto sollevabile per te"
+  },
+  "products": {
+    "kingsize-hubbett-mit-lattenrostauszug": {
+      "name": "Letto sollevabile King Size",
+      "title": "Letto sollevabile VAN7 King Size con estensione della rete a doghe",
+      "description": "Crea un'enorme oasi di sonno nel tuo veicolo con una lunghezza di 200 cm x 160 cm max. 190 cm di larghezza - La rete a doghe può essere estesa fino a un massimo di 190 cm. Anche con tre persone, dormire è comodo con questa dimensione del letto."
+    },
+    "laengs-hubbett": {
+      "name": "Letto sollevabile longitudinale",
+      "title": "Letto sollevabile longitudinale VAN7",
+      "description": "Crea un'oasi di sonno nel tuo veicolo con una lunghezza di 200 cm e una larghezza di 140 o 160 cm."
+    },
+    "cockpit-hubbett": {
+      "name": "Letto sollevabile per cabina",
+      "title": "Letto sollevabile per cabina VAN7 con estensione della rete a doghe",
+      "description": "Per i campeggiatori che vogliono risparmiare ancora più spazio e peso. Il letto sollevabile per cabina è una vera innovazione che rende possibili nuovi concetti di conversione. Compatto 140x110 cm o 160x110 cm sotto il soffitto con un'estensione fino a 200 cm di lunghezza. Dopo l'abbassamento continuo, il livellamento - così dormi sempre orizzontalmente, indipendentemente da quanto sia irregolare il veicolo, e la funzione di fissaggio, la rete a doghe integrata viene estesa fino a un massimo di 200 cm - ad esempio, nella cabina di guida per sfruttare lo spazio lì. L'estensione è fissata con una cinghia da 25 mm."
+    },
+    "querschlaefer-hubbett": {
+      "name": "Letto sollevabile trasversale",
+      "title": "Letto sollevabile trasversale VAN7 con estensione della rete a doghe",
+      "description": "Per i campeggiatori che vogliono risparmiare ancora più spazio e peso. Il letto sollevabile trasversale è una vera innovazione. Compatto 140x140 cm (160x160) sotto il soffitto con un'estensione fino a 200 cm di lunghezza. Dopo l'abbassamento continuo, il livellamento - così dormi sempre orizzontalmente, indipendentemente da quanto sia irregolare il veicolo, e la funzione di fissaggio, la rete a doghe integrata viene estesa fino a un massimo di 200 cm - Con flare (estensioni delle pareti) su un lato, ottieni almeno 190 cm di larghezza (lunghezza dell'estensione)."
+    },
+    "stock-hubbett": {
+      "name": "Letto a castello",
+      "title": "Letto a castello VAN7 per un massimo di 5 persone",
+      "description": ""
+    },
+    "fahrradhalter": {
+      "title": "Portabiciclette VAN7",
+      "description": "Vuoi trasportare le tue biciclette in modo sicuro nel veicolo in futuro e non vuoi avere a che fare con grandi e ingombranti costruzioni? Allora il portabiciclette Van7 è perfetto per te! Vuoi saperne di più sul portabiciclette Van7? Allora guarda il nostro video su YouTube."
+    }
+  },
+  "product": {
+    "sizeGuide": "La dimensione possibile del letto sollevabile VAN7 per il tuo veicolo dipende dalla larghezza del soffitto. Siamo felici di consigliarti per telefono o WhatsApp.",
+    "mountingNote": "I seguenti veicoli non richiedono staffe di montaggio: Mercedes Sprinter H2-H3 2006-presente, VW Crafter 2006-2016, Opel Movano, Renault Master, Ford Custom.",
+    "selectOption": "Seleziona {option}",
+    "options": {
+      "Größe": "dimensione",
+      "Montagekonsole": "staffa di montaggio",
+      "LEDs": "kit LED"
+    },
+    "notSelected": "Non ordinare",
+    "button": {
+      "selectVariant": "Seleziona una variante",
+      "outOfStock": "Attualmente non disponibile",
+      "orderNow": "Ordina ora",
+      "customSize": "Richiedi dimensione personalizzata",
+      "requestOrder": "Ordina su richiesta"
+    },
+    "pricing": {
+      "netto": "Prezzo netto",
+      "tax": "IVA",
+      "from": "Da {price}"
+    },
+    "tabs": {
+      "comfortable": {
+        "title": "Comfort unico per il campeggio",
+        "text": "Ciò che i nostri clienti amano di più è la funzione di livellamento unica, che ti permette di portare il letto in posizione orizzontale con un solo tiro, anche nel campeggio più irregolare, e quindi riposare comodamente come a casa."
+      },
+      "fixed": {
+        "title": "Funzione di fissaggio brevettata",
+        "text": "Solo con questa funzione è possibile fissare stabilmente un letto sollevabile libero all'altezza e all'inclinazione desiderate sul lato - in modo che il letto NON oscilli!"
+      },
+      "mechanic": {
+        "title": "Senza elettricità e guide",
+        "text": "Per molti campeggiatori, il peso e la funzionalità in uno spazio ridotto sono molto importanti. Il meccanismo a manovella è più veloce e 17 kg più leggero di un motore elettrico. Il letto sollevabile VAN7 funziona sempre, e grazie alla nostra funzione di fissaggio, lo fa senza costruzioni di stoccaggio e guide che influenzano notevolmente lo spazio e creano rumore durante il viaggio."
+      },
+      "extendable": {
+        "title": "Superficie di riposo massima",
+        "text": "Il letto largo 140 cm contiene una superficie di riposo larga 190 cm. Il primo letto sollevabile al mondo con estensione della rete a doghe. Questo ti permette di estendere la superficie di riposo alla larghezza massima del tuo veicolo dopo l'abbassamento."
+      },
+      "noiseFree": {
+        "title": "Guida fuoristrada senza rumori di sferragliamento",
+        "text": "Abbiamo fatto in modo che durante la costruzione il letto non crei rumore durante il viaggio, così puoi goderti il viaggio."
+      },
+      "easyInstallation": {
+        "title": "Installazione facile",
+        "text": "Se sai maneggiare un avvitatore a batteria e un metro a nastro o conosci qualcuno che può farlo, l'installazione della nuova serie con le istruzioni video fornite è un gioco da ragazzi. Naturalmente, abbiamo anche partner di installazione che possono occuparsi dell'installazione del letto sollevabile. A seconda del veicolo, ci sono staffe di montaggio adatte. Alcuni veicoli, come lo Sprinter H2, non necessitano di staffe di montaggio."
+      },
+      "romantic": {
+        "title": "Pratico e romantico",
+        "text": "L'illuminazione indiretta e dimmerabile secondo il tuo umore crea un'atmosfera piacevole sopra e sotto il letto. La striscia LED è integrata ordinatamente nei profili in alluminio."
+      },
+      "safety": {
+        "title": "Fissaggio sicuro della cinghia",
+        "text": "Il letto sollevabile VAN7 è sospeso su 4x cinghie di sicurezza da 25 mm e fibbie, ciascuna valutata per 400 daN. Ciò significa 1600 kg - la capacità di carico del letto è dinamicamente consentita con 270 kg. Ogni sospensione della cinghia è fissata con 2x dadi a rivetto M6. Un dado a rivetto M6 tiene 4-5 kN sotto taglio in una lamiera del veicolo - cioè 400-500 kg per dado a rivetto. Per le sospensioni della cinghia del letto sollevabile VAN7, vengono installati 8 dadi a rivetto nell'ultima area della parete del tuo veicolo."
+      },
+      "space": {
+        "title": "Spazio massimo",
+        "text": "Il letto sollevabile VAN7 ti offre lo spazio e il comfort di cui hai bisogno durante il pernottamento in uno spazio mobile ridotto. In pochissimo tempo, scompare al soffitto e hai molto spazio di stivaggio per biciclette o un'area salotto aggiuntiva."
+      }
+    }
+  },
+  "footer": {
+    "description": "Il letto sollevabile per ogni situazione (di parcheggio)! Dormi orizzontalmente e hai ancora abbastanza spazio di stivaggio nel camper? Con VAN7 non devi scendere a compromessi!",
+    "followUs": "Seguici nei nostri viaggi",
+    "contactInfo": "Informazioni di contatto",
+    "address": "Dorfstraße 5, 8753 Fohnsdorf",
+    "email": "info@van7.at",
+    "phone": "(+43) 676 337 25 56",
+    "whatsapp": "(+43) 676 337 25 56",
+    "shop": "Negozio",
+    "impressum": "Impressum",
+    "agb": "AGB",
+    "privacyPolicy": "Politica sulla Privacy",
+    "designedBy": "Progettato e realizzato da"
+  },
+  "form": {
+    "name": "Nome",
+    "phone": "Numero di telefono",
+    "email": "Email",
+    "agreement": {
+      "prefix": "Ho letto, compreso e accetto la",
+      "privacyPolicy": "Politica sulla Privacy",
+      "terms": "Termini e Condizioni",
+      "and": "e",
+      "cancellationPolicy": "Politica di Cancellazione",
+      "suffix": "."
+    },
+    "submit": "Invia messaggio"
+  }
+}

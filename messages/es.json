@@ -1,0 +1,315 @@
+{
+  "cart": {
+    "title": "Carrito",
+    "items": {
+      "title": "Artículo",
+      "quantity": "Cantidad",
+      "price": "Precio",
+      "total": "Total",
+      "remove": "Eliminar"
+    },
+    "variant": "Variante",
+    "summary": "Resumen",
+    "toCart": "Ir al carrito",
+    "toCheckout": "Continuar al pago",
+    "totals": {
+      "subtotal": "Subtotal",
+      "shipping": "Envío",
+      "discount": "Descuento",
+      "tax": "IVA",
+      "giftCard": "Tarjeta de regalo",
+      "total": "Total"
+    },
+    "discount": {
+      "title": "Usar código promocional",
+      "apply": "Aplicar",
+      "applied": "Códigos promocionales aplicados",
+      "remove": "Eliminar código promocional"
+    },
+    "empty": "Tu carrito está vacío.",
+    "viewHubbetten": "Ver Hubbetten",
+    "exploreHubbetten": "Explorar Hubbetten"
+  },
+  "checkout": {
+    "title": "Pago",
+    "backToCart": "Volver al carrito",
+    "back": "Atrás",
+    "shipping_address": {
+      "use_saved_address": "Hola {name}, ¿te gustaría usar una de tus direcciones guardadas?",
+      "first_name": "Nombre",
+      "last_name": "Apellido",
+      "address": "Dirección",
+      "company": "Empresa",
+      "postal_code": "Código postal",
+      "city": "Ciudad",
+      "province": "Estado / Provincia",
+      "same_as_billing": "La dirección de facturación es la misma que la de envío",
+      "email": "Correo electrónico",
+      "valid_email": "Por favor, introduce una dirección de correo válida.",
+      "phone": "Teléfono"
+    },
+    "addresses": {
+      "shipping_address": "Dirección de envío",
+      "billing_address": "Dirección de facturación",
+      "contact": "Contacto",
+      "edit": "Editar",
+      "continue_to_payment": "Continuar al pago",
+      "same_as_shipping": "Las direcciones de facturación y envío son las mismas."
+    },
+    "review": {
+      "heading": "Revisar",
+      "confirmation_text": "Al hacer clic en el botón Realizar pedido, confirmas que has leído, entendido y aceptado nuestros",
+      "terms_and_conditions": "Términos y Condiciones",
+      "and": "y",
+      "cancellation_policy": "Política de Cancelación",
+      "read_understood_accepted": "y confirmas que has leído la",
+      "privacy_policy": "Política de Privacidad",
+      "read_by_van7": "por VAN7."
+    },
+    "payment": {
+      "heading": "Método de Pago",
+      "edit": "Editar",
+      "bank_transfer": "Transferencia Bancaria Directa",
+      "online_payment": "Pago Seguro en Línea",
+      "payment_method": "Método de Pago",
+      "gift_card": "Tarjeta de Regalo",
+      "continue_to_review": "Continuar a la Revisión",
+      "payment_details": "Detalles del Pago",
+      "bank_transfer_details": "Recibirás la factura con los detalles bancarios",
+      "online_payment_details": "Seguirá otro paso",
+      "place_order": "Realizar Pedido",
+      "select_payment_method": "Selecciona un Método de Pago"
+    }
+  },
+  "order": {
+    "thank_you": "¡Gracias!",
+    "order_success": "Tu pedido se ha realizado con éxito.",
+    "summary": "Resumen",
+    "payment": "Pago",
+    "payment_method": "Método de Pago",
+    "payment_details": "Detalles del Pago",
+    "paid_on": "pagado el",
+    "shipping": "Envío",
+    "shipping_address": "Dirección de Envío",
+    "contact": "Contacto",
+    "method": "Método",
+    "confirmation": "Hemos enviado la confirmación del pedido a <b>{email}</b>.",
+    "order_date": "Fecha del Pedido",
+    "order_status": "Estado del Pedido",
+    "payment_status": "Estado del Pago"
+  },
+  "shipTo": "Envío a",
+  "nav": {
+    "products": "Productos",
+    "reviews": "Reseñas",
+    "contact": "Contacto"
+  },
+  "home": {
+    "meta": {
+      "title": "La cama elevable más flexible para autocaravanas y furgonetas | VAN7",
+      "description": "Descubre la cama elevable con la mayor comodidad y el mejor aprovechamiento del espacio para campers, transportadores, autocaravanas o remolques. Nunca más duermas en superficies irregulares y aprovecha al máximo el espacio."
+    },
+    "hero": {
+      "socialProof": "Más de 500 clientes satisfechos",
+      "h1": "La cama elevable<br></br>con la mayor comodidad<br></br>& el mejor aprovechamiento del espacio",
+      "context": "Ajusta la altura perfecta y aprovecha al máximo tu espacio.<br></br>Nivela y disfruta de la comodidad de dormir como en casa, sin importar lo irregular que sea tu furgoneta.",
+      "benefits": {
+        "fast": "Bajada y guardada en segundos",
+        "noMovement": "Fijada de forma estable, sin balanceo ni oscilación",
+        "enoughSpace": "Espacio suficiente para equipo, bicicletas, muebles",
+        "noTracks": "Sin molestos rieles guía"
+      },
+      "cta": "Pre-ordena la nueva serie",
+      "interactions": {
+        "tryNow": "¡Pruébalo ahora!",
+        "levelOut": "Nivelar",
+        "fix": "Fijar",
+        "extend": "Extender"
+      }
+    },
+    "features": {
+      "setHeight": {
+        "title": "Ajusta la altura de forma continua",
+        "text": "Ya no tienes que elegir entre comodidad o espacio: obtienes ambos. Gracias al ajuste de altura continuo, puedes configurar fácilmente la cama a la altura deseada con la manivela. Ya sea que conduzcas una autocaravana o una furgoneta, puedes usar el espacio de almacenamiento de manera óptima para bicicletas, motocicletas u otros equipos y aún así dormir con la mayor comodidad."
+      },
+      "levelOut": {
+        "title": "Nivelar",
+        "text": "No importa lo irregular que sea el terreno: la cama elevable Van7 se adapta a tus necesidades. Con la fijación flexible de correas, puedes nivelar la cama individualmente en las cuatro esquinas, para que siempre duermas en una posición cómoda y horizontal. Ya sea en una autocaravana en el camping o con tu furgoneta en la naturaleza, elige libremente tu lugar para dormir y disfruta de noches reparadoras donde sea que estaciones."
+      },
+      "fix": {
+        "title": "Fijar a la pared",
+        "text": "A diferencia de las soluciones convencionales, nuestra cama elevable no tiene molestos rieles guía. Con nuestra función de fijación patentada, la cama se tira firmemente hacia la pared lateral, por lo que no se tambalea ni se balancea."
+      },
+      "extend": {
+        "title": "Extender el somier",
+        "text": "¿Espacio para tres personas? No hay problema. Usa todo el ancho del vehículo con la extensión opcional a un ancho máximo de 190 cm."
+      }
+    },
+    "reviews": {
+      "title": "La cama elevable más popular entre",
+      "audience": {
+        "adventurers": "aventureros",
+        "campers": "campistas",
+        "motorsports": "entusiastas del automovilismo",
+        "outdoorSports": "entusiastas de los deportes al aire libre",
+        "handyman": "manitas"
+      },
+      "reviews": {
+        "Customer": "Pasé unas noches en esta cama y me encantó, muy cómoda y acogedora. Alinear y fijar la cama abatible es un juego de niños. En general, una muy buena inversión.",
+        "Stefan": "¡Producto absolutamente brillante! No solo hace que el interior del vehículo sea mucho más flexible y multifuncional, los detalles técnicos y la calidad también son sobresalientes. Por cierto, el equipo detrás de Van7 también es muy comprometido y servicial. 6 estrellas",
+        "Andreas": "Simplemente genial si quieres instalar una cama en tu autobús o furgoneta. Esto nos da el máximo espacio para guardar las bicicletas de montaña o la motocicleta y al nivelar la cama incl. La función de fijación significa que siempre tienes una posición horizontal al dormir y puedes comenzar de nuevo al día siguiente. Solo puedo recomendarlo a todos. 👍 🚐",
+        "Lorenz": "¡Estoy súper feliz con mi cama! Tener finalmente más espacio en el coche me facilita mucho las cosas cuando acampo, solo puedo recomendar la cama Van7.",
+        "Jean-Marc": "¡Sistema de archivo súper inteligente, muy buena mano de obra y contacto competente/amigable! ¡Es un placer!"
+      }
+    },
+    "products": {
+      "title": "Nueva serie,<br></br>Nuevos conceptos de conversión"
+    },
+    "optimized": {
+      "title": "Probado y optimizado",
+      "text": "La cama elevable Van7 es el resultado de años de desarrollo y optimización. A través de pruebas cuidadosas y mejoras continuas a lo largo de varias series, se han resuelto numerosos desafíos, como la durabilidad de los engranajes, la eficiencia de los cabrestantes y la prevención del desgaste."
+    },
+    "installation": {
+      "button": "Aprende más",
+      "partner": {
+        "title": "Encuentra un socio de instalación",
+        "text": "Instalación sin preocupaciones por parte de nuestros socios de instalación. Rápido y confiable, para que puedas concentrarte completamente en tu aventura."
+      },
+      "diy": {
+        "title": "Instrucciones de bricolaje",
+        "text": "Para muchos, la aventura comienza antes del primer viaje por carretera. Nuestros videos te muestran cómo instalar la cama fácilmente y rápidamente tú mismo."
+      }
+    },
+    "contact": {
+      "stillQuestions": "¿Aún tienes preguntas?",
+      "StefanWillHelp": "Stefan estará encantado de ayudarte."
+    }
+  },
+  "shop": {
+    "meta": {
+      "title": "Compra camas elevables para cada situación y ubicación de instalación | Tienda VAN7",
+      "description": "Descubre camas elevables para cada situación de instalación: tamaño king, cama elevable transversal, cama elevable longitudinal, cama elevable de cabina o cama elevable de literas. Ahorro de espacio, estabilidad y comodidad: para la mayor comodidad al dormir en movimiento. ¡Encuentra la cama elevable perfecta ahora!"
+    },
+    "title": "Descubre<br></br>la mejor<br></br>cama elevable para ti"
+  },
+  "products": {
+    "kingsize-hubbett-mit-lattenrostauszug": {
+      "name": "Cama Elevable King Size",
+      "title": "Cama Elevable VAN7 King Size con Extensión de Somier",
+      "description": "Crea un enorme oasis de descanso en tu vehículo con una longitud de 200 cm x 160 cm máx. 190 cm de ancho: el somier se puede extender a un máximo de 190 cm. Incluso con tres personas, dormir es cómodo con este tamaño de cama."
+    },
+    "laengs-hubbett": {
+      "name": "Cama Elevable Longitudinal",
+      "title": "Cama Elevable VAN7 Longitudinal",
+      "description": "Crea un oasis de descanso en tu vehículo con una longitud de 200 cm y un ancho de 140 o 160 cm."
+    },
+    "cockpit-hubbett": {
+      "name": "Cama Elevable de Cabina",
+      "title": "Cama Elevable VAN7 de Cabina con Extensión de Somier",
+      "description": "Para campistas que quieren ahorrar aún más espacio y peso. La cama elevable de cabina es una verdadera innovación que hace posibles nuevos conceptos de conversión. Compacta 140x110 cm o 160x110 cm bajo el techo con una extensión a 200 cm de longitud. Después de bajar de forma continua, nivelar, para que siempre duermas horizontalmente, sin importar lo irregular que sea el vehículo, y la función de fijación, el somier integrado se extiende a un máximo de 200 cm, por ejemplo, en la cabina del conductor para aprovechar el espacio allí. La extensión se asegura con una correa de 25 mm."
+    },
+    "querschlaefer-hubbett": {
+      "name": "Cama Elevable Transversal",
+      "title": "Cama Elevable VAN7 Transversal con Extensión de Somier",
+      "description": "Para campistas que quieren ahorrar aún más espacio y peso. La cama elevable transversal es una verdadera innovación. Compacta 140x140 cm (160x160) bajo el techo con una extensión a 200 cm de longitud. Después de bajar de forma continua, nivelar, para que siempre duermas horizontalmente, sin importar lo irregular que sea el vehículo, y la función de fijación, el somier integrado se extiende a un máximo de 200 cm. Con extensiones de pared (flares) en un lado, obtienes al menos 190 cm de ancho (longitud de la extensión)."
+    },
+    "stock-hubbett": {
+      "name": "Cama Elevable de Literas",
+      "title": "Cama Elevable VAN7 de Literas para hasta 5 personas",
+      "description": ""
+    },
+    "fahrradhalter": {
+      "title": "Soporte para Bicicletas VAN7",
+      "description": "¿Quieres transportar tus bicicletas de forma segura en el vehículo en el futuro y no quieres lidiar con grandes y engorrosas construcciones? ¡Entonces el soporte para bicicletas Van7 es perfecto para ti! ¿Quieres saber más sobre el soporte para bicicletas Van7? Entonces mira nuestro video en YouTube."
+    }
+  },
+  "product": {
+    "sizeGuide": "El tamaño posible de la cama elevable VAN7 para tu vehículo depende del ancho del techo. Estamos encantados de asesorarte por teléfono o WhatsApp.",
+    "mountingNote": "Los siguientes vehículos no requieren soportes de montaje: Mercedes Sprinter H2-H3 2006-presente, VW Crafter 2006-2016, Opel Movano, Renault Master, Ford Custom.",
+    "selectOption": "Selecciona {option}",
+    "options": {
+      "Größe": "tamaño",
+      "Montagekonsole": "soporte de montaje",
+      "LEDs": "kit de LED"
+    },
+    "notSelected": "No ordenar",
+    "button": {
+      "selectVariant": "Por favor, selecciona una variante",
+      "outOfStock": "Actualmente fuera de stock",
+      "orderNow": "Ordenar ahora",
+      "customSize": "Solicitar tamaño personalizado",
+      "requestOrder": "Ordenar a pedido"
+    },
+    "pricing": {
+      "netto": "Precio neto",
+      "tax": "IVA",
+      "from": "Desde {price}"
+    },
+    "tabs": {
+      "comfortable": {
+        "title": "Comodidad Única para Acampar",
+        "text": "Lo que más aman nuestros clientes es la función de nivelación única, que te permite poner la cama en una posición horizontal con un solo tirón, incluso en el camping más irregular, y así descansar tan cómodamente como en casa."
+      },
+      "fixed": {
+        "title": "Función de Fijación Patentada",
+        "text": "Solo con esta función es posible fijar de manera estable una cama elevable flotante a la altura y la inclinación deseadas en el lateral, ¡para que la cama NO se balancee!"
+      },
+      "mechanic": {
+        "title": "Sin Electricidad ni Rieles Guía",
+        "text": "Para muchos campistas, el peso y la funcionalidad en un espacio pequeño son muy importantes. El mecanismo de manivela es más rápido y 17 kg más ligero que un motor eléctrico. La cama elevable VAN7 siempre funciona, y gracias a nuestra función de fijación, lo hace sin construcciones de almacenamiento y rieles que afectan mucho el espacio y crean ruido durante el viaje."
+      },
+      "extendable": {
+        "title": "Superficie de Descanso Máxima",
+        "text": "La cama de 140 cm de ancho contiene una superficie de descanso de 190 cm de ancho. La primera cama elevable del mundo con una extensión de somier. Esto te permite extender la superficie de descanso al ancho máximo de tu vehículo después de bajarla."
+      },
+      "noiseFree": {
+        "title": "Conducción Todoterreno Sin Ruidos de Traqueteo",
+        "text": "Nos aseguramos durante la construcción de que la cama no genere ningún ruido durante el viaje, para que puedas disfrutar del viaje."
+      },
+      "easyInstallation": {
+        "title": "Instalación Fácil",
+        "text": "Si puedes manejar un destornillador inalámbrico y una cinta métrica o conoces a alguien que pueda, la instalación de la nueva serie con las instrucciones en video suministradas es un juego de niños. Por supuesto, también tenemos socios de instalación que pueden encargarse de la instalación de la cama elevable. Dependiendo del vehículo, hay soportes de montaje adecuados. Algunos vehículos, como el Sprinter H2, no necesitan soportes de montaje."
+      },
+      "romantic": {
+        "title": "Práctico y Romántico",
+        "text": "La iluminación indirecta y regulable según tu estado de ánimo crea un ambiente agradable encima y debajo de la cama. La tira de LED está integrada ordenadamente en los perfiles de aluminio."
+      },
+      "safety": {
+        "title": "Fijación Segura con Correas",
+        "text": "La cama elevable VAN7 cuelga de 4 correas de seguridad de 25 mm y hebillas, cada una con una capacidad de 400 daN. Eso significa 1600 kg: la capacidad de carga de la cama es dinámicamente permisible con 270 kg. Cada suspensión de correa está fijada con 2 tuercas remachadas M6. Una tuerca remachada M6 soporta 4-5 kN bajo cizallamiento en una chapa de vehículo, es decir, 400-500 kg por tuerca remachada. Para las suspensiones de correa de la cama elevable VAN7, se instalan 8 tuercas remachadas en el último área de la pared de tu vehículo."
+      },
+      "space": {
+        "title": "Espacio Máximo",
+        "text": "La cama elevable VAN7 te ofrece el espacio y la comodidad que necesitas al pasar la noche en un pequeño espacio móvil. En poco tiempo, desaparece en el techo y tienes mucho espacio de almacenamiento para bicicletas o un área de asientos adicional."
+      }
+    }
+  },
+  "footer": {
+    "description": "¡La cama elevable para cada situación (de estacionamiento)! ¿Dormir horizontalmente y aún tener suficiente espacio de almacenamiento en la camper? ¡Con VAN7 no tienes que comprometerte!",
+    "followUs": "Síguenos en nuestros viajes",
+    "contactInfo": "Información de Contacto",
+    "address": "Dorfstraße 5, 8753 Fohnsdorf",
+    "email": "info@van7.at",
+    "phone": "(+43) 676 337 25 56",
+    "whatsapp": "(+43) 676 337 25 56",
+    "shop": "Tienda",
+    "impressum": "Impressum",
+    "agb": "AGB",
+    "privacyPolicy": "Política de Privacidad",
+    "designedBy": "Diseñado y elaborado por"
+  },
+  "form": {
+    "name": "Nombre",
+    "phone": "Número de Teléfono",
+    "email": "Correo Electrónico",
+    "agreement": {
+      "prefix": "He leído, entendido y acepto la",
+      "privacyPolicy": "Política de Privacidad",
+      "terms": "Términos y Condiciones",
+      "and": "y",
+      "cancellationPolicy": "Política de Cancelación",
+      "suffix": "."
+    },
+    "submit": "Enviar Mensaje"
+  }
+}

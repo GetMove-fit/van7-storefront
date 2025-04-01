@@ -1,0 +1,315 @@
+{
+  "cart": {
+    "title": "Panier",
+    "items": {
+      "title": "Article",
+      "quantity": "Quantité",
+      "price": "Prix",
+      "total": "Total",
+      "remove": "Supprimer"
+    },
+    "variant": "Variante",
+    "summary": "Résumé",
+    "toCart": "Aller au panier",
+    "toCheckout": "Continuer vers le paiement",
+    "totals": {
+      "subtotal": "Sous-total",
+      "shipping": "Livraison",
+      "discount": "Réduction",
+      "tax": "TVA",
+      "giftCard": "Carte cadeau",
+      "total": "Total"
+    },
+    "discount": {
+      "title": "Utiliser un code promotionnel",
+      "apply": "Appliquer",
+      "applied": "Codes promotionnels appliqués",
+      "remove": "Supprimer le code promotionnel"
+    },
+    "empty": "Votre panier est vide.",
+    "viewHubbetten": "Voir Hubbetten",
+    "exploreHubbetten": "Explorer Hubbetten"
+  },
+  "checkout": {
+    "title": "Paiement",
+    "backToCart": "Retour au panier",
+    "back": "Retour",
+    "shipping_address": {
+      "use_saved_address": "Bonjour {name}, souhaitez-vous utiliser l'une de vos adresses enregistrées ?",
+      "first_name": "Prénom",
+      "last_name": "Nom",
+      "address": "Adresse",
+      "company": "Entreprise",
+      "postal_code": "Code postal",
+      "city": "Ville",
+      "province": "État / Province",
+      "same_as_billing": "L'adresse de facturation est la même que l'adresse de livraison",
+      "email": "Email",
+      "valid_email": "Veuillez entrer une adresse email valide.",
+      "phone": "Téléphone"
+    },
+    "addresses": {
+      "shipping_address": "Adresse de livraison",
+      "billing_address": "Adresse de facturation",
+      "contact": "Contact",
+      "edit": "Modifier",
+      "continue_to_payment": "Continuer vers le paiement",
+      "same_as_shipping": "Les adresses de facturation et de livraison sont identiques."
+    },
+    "review": {
+      "heading": "Vérification",
+      "confirmation_text": "En cliquant sur le bouton Passer la commande, vous confirmez avoir lu, compris et accepté nos",
+      "terms_and_conditions": "Conditions générales",
+      "and": "et",
+      "cancellation_policy": "Politique d'annulation",
+      "read_understood_accepted": "et confirmez avoir lu la",
+      "privacy_policy": "Politique de confidentialité",
+      "read_by_van7": "par VAN7."
+    },
+    "payment": {
+      "heading": "Méthode de paiement",
+      "edit": "Modifier",
+      "bank_transfer": "Virement bancaire direct",
+      "online_payment": "Paiement en ligne sécurisé",
+      "payment_method": "Méthode de paiement",
+      "gift_card": "Carte cadeau",
+      "continue_to_review": "Continuer vers la vérification",
+      "payment_details": "Détails du paiement",
+      "bank_transfer_details": "Vous recevrez la facture avec les coordonnées bancaires",
+      "online_payment_details": "Une autre étape suivra",
+      "place_order": "Passer la commande",
+      "select_payment_method": "Sélectionnez une méthode de paiement"
+    }
+  },
+  "order": {
+    "thank_you": "Merci !",
+    "order_success": "Votre commande a été passée avec succès.",
+    "summary": "Résumé",
+    "payment": "Paiement",
+    "payment_method": "Méthode de paiement",
+    "payment_details": "Détails du paiement",
+    "paid_on": "payé le",
+    "shipping": "Livraison",
+    "shipping_address": "Adresse de livraison",
+    "contact": "Contact",
+    "method": "Méthode",
+    "confirmation": "Nous avons envoyé la confirmation de commande à <b>{email}</b>.",
+    "order_date": "Date de commande",
+    "order_status": "Statut de la commande",
+    "payment_status": "Statut du paiement"
+  },
+  "shipTo": "Livraison à",
+  "nav": {
+    "products": "Produits",
+    "reviews": "Avis",
+    "contact": "Contact"
+  },
+  "home": {
+    "meta": {
+      "title": "Le lit escamotable le plus flexible pour camping-cars et vans | VAN7",
+      "description": "Découvrez le lit escamotable offrant le plus grand confort et une utilisation optimale de l'espace pour les campeurs, transporteurs, camping-cars ou remorques. Ne dormez plus jamais de travers et optimisez l'utilisation de l'espace."
+    },
+    "hero": {
+      "socialProof": "500+ clients satisfaits",
+      "h1": "Le lit escamotable<br></br>offrant le plus grand confort<br></br>& la meilleure utilisation de l'espace",
+      "context": "Réglez la hauteur parfaite et optimisez votre espace.<br></br>Nivellez et profitez d'un confort de sommeil comme à la maison - peu importe à quel point votre van est inégal.",
+      "benefits": {
+        "fast": "Baissé et rangé en quelques secondes",
+        "noMovement": "Fixé de manière stable, sans balancement ni oscillation",
+        "enoughSpace": "Assez d'espace pour l'équipement, les vélos, les meubles",
+        "noTracks": "Pas de rails de guidage gênants"
+      },
+      "cta": "Précommandez la nouvelle série",
+      "interactions": {
+        "tryNow": "Essayez-le maintenant !",
+        "levelOut": "Niveler",
+        "fix": "Fixer",
+        "extend": "Étendre"
+      }
+    },
+    "features": {
+      "setHeight": {
+        "title": "Réglez la hauteur en continu",
+        "text": "Vous n'avez plus à choisir entre confort ou espace - vous obtenez les deux. Grâce au réglage continu de la hauteur, vous pouvez facilement régler le lit à la hauteur souhaitée avec la manivelle. Que vous conduisiez un camping-car ou un van, vous pouvez utiliser de manière optimale l'espace de rangement pour les vélos, les motos ou d'autres équipements tout en dormant dans le plus grand confort."
+      },
+      "levelOut": {
+        "title": "Niveler",
+        "text": "Peu importe à quel point le terrain est inégal - le lit escamotable Van7 s'adapte à vos besoins. Avec la fixation flexible par sangle, vous pouvez niveler le lit individuellement aux quatre coins, de sorte que vous dormez toujours dans une position confortable et horizontale. Que ce soit dans un camping-car au camping ou avec votre van dans la nature - choisissez librement votre lieu de couchage et profitez de nuits reposantes où que vous vous gariez."
+      },
+      "fix": {
+        "title": "Fixer au mur",
+        "text": "Contrairement aux solutions conventionnelles, notre lit escamotable est entièrement dépourvu de rails de guidage gênants. Avec notre fonction de fixation brevetée, le lit est fermement tiré contre la paroi latérale, de sorte qu'il ne vacille ni ne tangue."
+      },
+      "extend": {
+        "title": "Étendre le sommier à lattes",
+        "text": "De la place pour trois personnes ? Pas de problème. Utilisez toute la largeur du véhicule avec l'extension optionnelle à une largeur maximale de 190 cm."
+      }
+    },
+    "reviews": {
+      "title": "Le lit escamotable le plus populaire parmi",
+      "audience": {
+        "adventurers": "aventuriers",
+        "campers": "campeurs",
+        "motorsports": "passionnés de sports mécaniques",
+        "outdoorSports": "amateurs de sports de plein air",
+        "handyman": "bricoleurs"
+      },
+      "reviews": {
+        "Customer": "J'ai passé quelques nuits dans ce lit et je l'ai adoré, très confortable et douillet. Aligner et fixer le lit escamotable est un jeu d'enfant. En tout, un très bon investissement.",
+        "Stefan": "Produit absolument génial ! Non seulement cela rend l'intérieur du véhicule beaucoup plus flexible et multifonctionnel, mais les détails techniques et la qualité sont également exceptionnels. D'ailleurs, l'équipe derrière Van7 est également très engagée et serviable. 6 étoiles",
+        "Andreas": "Tout simplement génial si vous voulez installer un lit dans votre bus ou van. Cela nous donne un maximum d'espace pour ranger les vélos de montagne ou la moto et en nivelant le lit incl. La fonction de fixation signifie que vous avez toujours une position horizontale en dormant et pouvez repartir le lendemain. Je ne peux que le recommander à tout le monde. 👍 🚐",
+        "Lorenz": "Je suis super content de mon lit !! Avoir enfin plus d'espace dans la voiture facilite beaucoup les choses pour moi lors du camping, je ne peux que recommander le lit Van7 !!",
+        "Jean-Marc": "Système de classement super intelligent, très bonne finition et interlocuteur compétent/amical ! C'est un plaisir !"
+      }
+    },
+    "products": {
+      "title": "Nouvelle série,<br></br>Nouveaux concepts de conversion"
+    },
+    "optimized": {
+      "title": "Testé et optimisé",
+      "text": "Le lit escamotable Van7 est le résultat de plusieurs années de développement et d'optimisation. Grâce à des tests minutieux et des améliorations continues sur diverses séries, de nombreux défis ont été résolus, tels que la durabilité des engrenages, l'efficacité des treuils et la prévention de l'usure."
+    },
+    "installation": {
+      "button": "En savoir plus",
+      "partner": {
+        "title": "Trouver un partenaire d'installation",
+        "text": "Installation sans souci par nos partenaires d'installation. Rapide et fiable, pour que vous puissiez vous concentrer pleinement sur votre aventure."
+      },
+      "diy": {
+        "title": "Instructions DIY",
+        "text": "Pour beaucoup, l'aventure commence avant le premier road trip. Nos vidéos vous montrent comment installer facilement et rapidement le lit vous-même."
+      }
+    },
+    "contact": {
+      "stillQuestions": "Vous avez encore des questions ?",
+      "StefanWillHelp": "Stefan se fera un plaisir de vous aider."
+    }
+  },
+  "shop": {
+    "meta": {
+      "title": "Achetez des lits escamotables pour chaque situation et emplacement d'installation | Boutique VAN7",
+      "description": "Découvrez des lits escamotables pour chaque situation d'installation : king size, lit transversal, lit escamotable longitudinal, cockpit ou lit superposé. Gain de place, stable et confortable - pour le plus grand confort de sommeil en déplacement. Trouvez le lit escamotable parfait maintenant !"
+    },
+    "title": "Découvrez<br></br>le meilleur<br></br>lit escamotable pour vous"
+  },
+  "products": {
+    "kingsize-hubbett-mit-lattenrostauszug": {
+      "name": "Lit escamotable King Size",
+      "title": "Lit escamotable King Size VAN7 avec extension de sommier à lattes",
+      "description": "Créez une immense oasis de sommeil dans votre véhicule avec une longueur de 200 cm x 160 cm max. 190 cm de largeur - Le sommier à lattes peut être étendu à une largeur maximale de 190 cm. Même avec trois personnes, dormir est confortable avec cette taille de lit."
+    },
+    "laengs-hubbett": {
+      "name": "Lit escamotable longitudinal",
+      "title": "Lit escamotable longitudinal VAN7",
+      "description": "Créez une oasis de sommeil dans votre véhicule avec une longueur de 200 cm et une largeur de 140 ou 160 cm."
+    },
+    "cockpit-hubbett": {
+      "name": "Lit escamotable Cockpit",
+      "title": "Lit escamotable Cockpit VAN7 avec extension de sommier à lattes",
+      "description": "Pour les campeurs qui veulent économiser encore plus d'espace et de poids. Le lit escamotable cockpit est une véritable innovation qui permet de nouveaux concepts de conversion. Compact 140x110 cm ou 160x110 cm sous le plafond avec une extension à 200 cm de longueur. Après un abaissement continu, un nivellement - pour que vous dormiez toujours horizontalement, peu importe à quel point le véhicule est inégal, et la fonction de fixation, le sommier à lattes intégré est étendu à une longueur maximale de 200 cm - par exemple, dans la cabine du conducteur pour utiliser l'espace là-bas. L'extension est sécurisée avec une sangle de 25 mm."
+    },
+    "querschlaefer-hubbett": {
+      "name": "Lit escamotable transversal",
+      "title": "Lit escamotable transversal VAN7 avec extension de sommier à lattes",
+      "description": "Pour les campeurs qui veulent économiser encore plus d'espace et de poids. Le lit escamotable transversal est une véritable innovation. Compact 140x140 cm (160x160) sous le plafond avec une extension à 200 cm de longueur. Après un abaissement continu, un nivellement - pour que vous dormiez toujours horizontalement, peu importe à quel point le véhicule est inégal, et la fonction de fixation, le sommier à lattes intégré est étendu à une longueur maximale de 200 cm - Avec des extensions de paroi (flares) d'un côté, vous obtenez au moins 190 cm de largeur (longueur de l'extension)."
+    },
+    "stock-hubbett": {
+      "name": "Lit escamotable superposé",
+      "title": "Lit escamotable superposé VAN7 pour jusqu'à 5 personnes",
+      "description": ""
+    },
+    "fahrradhalter": {
+      "title": "Porte-vélos VAN7",
+      "description": "Vous voulez transporter vos vélos en toute sécurité dans le véhicule à l'avenir et vous n'avez pas envie de vous occuper de grandes constructions encombrantes ? Alors le porte-vélos Van7 est fait pour vous ! Vous voulez en savoir plus sur le porte-vélos Van7 ? Alors regardez notre vidéo YouTube."
+    }
+  },
+  "product": {
+    "sizeGuide": "La taille possible du lit escamotable VAN7 pour votre véhicule dépend de la largeur du plafond. Nous sommes heureux de vous conseiller par téléphone ou WhatsApp.",
+    "mountingNote": "Les véhicules suivants n'ont pas besoin de supports de montage : Mercedes Sprinter H2-H3 2006-présent, VW Crafter 2006-2016, Opel Movano, Renault Master, Ford Custom.",
+    "selectOption": "Sélectionnez {option}",
+    "options": {
+      "Größe": "taille",
+      "Montagekonsole": "support de montage",
+      "LEDs": "kit LED"
+    },
+    "notSelected": "Ne pas commander",
+    "button": {
+      "selectVariant": "Veuillez sélectionner une variante",
+      "outOfStock": "Actuellement en rupture de stock",
+      "orderNow": "Commander maintenant",
+      "customSize": "Demander une taille personnalisée",
+      "requestOrder": "Commander sur demande"
+    },
+    "pricing": {
+      "netto": "Prix net",
+      "tax": "TVA",
+      "from": "À partir de {price}"
+    },
+    "tabs": {
+      "comfortable": {
+        "title": "Confort de camping unique",
+        "text": "Ce que nos clients aiment le plus, c'est la fonction de nivellement unique, qui vous permet de mettre le lit en position horizontale d'un seul coup, même sur le camping le plus inégal, et de vous reposer aussi confortablement qu'à la maison."
+      },
+      "fixed": {
+        "title": "Fonction de fixation brevetée",
+        "text": "Seule cette fonction permet de fixer de manière stable un lit escamotable flottant à la hauteur et à l'inclinaison souhaitées sur le côté - pour que le lit ne bouge PAS !"
+      },
+      "mechanic": {
+        "title": "Sans électricité et sans rails de guidage",
+        "text": "Pour de nombreux campeurs, le poids et la fonctionnalité dans un petit espace sont très importants. Le mécanisme de manivelle est plus rapide et 17 kg plus léger qu'un moteur électrique. Le lit escamotable VAN7 fonctionne toujours, et grâce à notre fonction de fixation, il le fait sans constructions de rangement et rails qui affectent grandement l'espace et créent du bruit pendant le trajet."
+      },
+      "extendable": {
+        "title": "Surface de couchage maximale",
+        "text": "Le lit de 140 cm de large contient une surface de couchage de 190 cm de large. Le premier lit escamotable au monde avec une extension de sommier à lattes. Cela vous permet d'étendre la surface de couchage à la largeur maximale de votre véhicule après l'abaissement."
+      },
+      "noiseFree": {
+        "title": "Conduite tout-terrain sans bruits de cliquetis",
+        "text": "Nous nous sommes assurés lors de la construction que le lit ne crée aucun bruit pendant le trajet, afin que vous puissiez profiter du trajet."
+      },
+      "easyInstallation": {
+        "title": "Installation facile",
+        "text": "Si vous pouvez manipuler une visseuse sans fil et un mètre ruban ou connaissez quelqu'un qui le peut, l'installation de la nouvelle série avec les instructions vidéo fournies est un jeu d'enfant. Bien sûr, nous avons également des partenaires d'installation qui peuvent prendre en charge l'installation du lit escamotable. Selon le véhicule, il existe des supports de montage appropriés. Certains véhicules, comme le Sprinter H2, n'ont pas besoin de supports de montage."
+      },
+      "romantic": {
+        "title": "Pratique et romantique",
+        "text": "L'éclairage indirect et dimmable selon votre humeur crée une ambiance agréable au-dessus et en dessous du lit. La bande LED est soigneusement intégrée dans les profils en aluminium."
+      },
+      "safety": {
+        "title": "Fixation sécurisée par ceinture",
+        "text": "Le lit escamotable VAN7 est suspendu à 4x ceintures de sécurité de 25 mm et boucles, chacune évaluée à 400 daN. Cela signifie 1600 kg - la capacité de charge du lit est dynamiquement permise avec 270 kg. Chaque suspension de ceinture est fixée avec 2x écrous à rivet M6. Un écrou à rivet M6 supporte 4-5 kN en cisaillement dans une tôle de véhicule - soit 400-500 kg par écrou à rivet. Pour les suspensions de ceinture du lit escamotable VAN7, 8 écrous à rivet sont installés dans la dernière zone du mur de votre véhicule."
+      },
+      "space": {
+        "title": "Espace maximal",
+        "text": "Le lit escamotable VAN7 vous offre l'espace et le confort dont vous avez besoin lors de vos nuits dans un petit espace mobile. En un rien de temps, il disparaît au plafond, et vous avez beaucoup d'espace de rangement pour les vélos ou un espace de vie supplémentaire."
+      }
+    }
+  },
+  "footer": {
+    "description": "Le lit escamotable pour chaque situation (de stationnement) ! Dormez horizontalement et ayez encore assez d'espace de rangement dans le camping-car ? Avec VAN7, vous n'avez pas à faire de compromis !",
+    "followUs": "Suivez-nous dans nos voyages",
+    "contactInfo": "Informations de contact",
+    "address": "Dorfstraße 5, 8753 Fohnsdorf",
+    "email": "info@van7.at",
+    "phone": "(+43) 676 337 25 56",
+    "whatsapp": "(+43) 676 337 25 56",
+    "shop": "Boutique",
+    "impressum": "Mentions légales",
+    "agb": "CGV",
+    "privacyPolicy": "Politique de confidentialité",
+    "designedBy": "Conçu et réalisé par"
+  },
+  "form": {
+    "name": "Nom",
+    "phone": "Numéro de téléphone",
+    "email": "Email",
+    "agreement": {
+      "prefix": "J'ai lu, compris et j'accepte la",
+      "privacyPolicy": "Politique de confidentialité",
+      "terms": "Conditions générales",
+      "and": "et",
+      "cancellationPolicy": "Politique d'annulation",
+      "suffix": "."
+    },
+    "submit": "Envoyer le message"
+  }
+}

@@ -1,0 +1,315 @@
+{
+  "cart": {
+    "title": "Kosár",
+    "items": {
+      "title": "Tétel",
+      "quantity": "Mennyiség",
+      "price": "Ár",
+      "total": "Összesen",
+      "remove": "Eltávolítás"
+    },
+    "variant": "Változat",
+    "summary": "Összegzés",
+    "toCart": "Ugrás a kosárhoz",
+    "toCheckout": "Tovább a fizetéshez",
+    "totals": {
+      "subtotal": "Részösszeg",
+      "shipping": "Szállítás",
+      "discount": "Kedvezmény",
+      "tax": "ÁFA",
+      "giftCard": "Ajándékkártya",
+      "total": "Összesen"
+    },
+    "discount": {
+      "title": "Promóciós kód használata",
+      "apply": "Alkalmaz",
+      "applied": "Alkalmazott promóciós kódok",
+      "remove": "Promóciós kód eltávolítása"
+    },
+    "empty": "A kosarad üres.",
+    "viewHubbetten": "Hubbetten megtekintése",
+    "exploreHubbetten": "Hubbetten felfedezése"
+  },
+  "checkout": {
+    "title": "Fizetés",
+    "backToCart": "Vissza a kosárhoz",
+    "back": "Vissza",
+    "shipping_address": {
+      "use_saved_address": "Szia {name}, szeretnéd használni az egyik mentett címedet?",
+      "first_name": "Keresztnév",
+      "last_name": "Vezetéknév",
+      "address": "Cím",
+      "company": "Cég",
+      "postal_code": "Irányítószám",
+      "city": "Város",
+      "province": "Állam / Tartomány",
+      "same_as_billing": "A számlázási cím megegyezik a szállítási címmel",
+      "email": "Email",
+      "valid_email": "Kérjük, érvényes email címet adj meg.",
+      "phone": "Telefon"
+    },
+    "addresses": {
+      "shipping_address": "Szállítási cím",
+      "billing_address": "Számlázási cím",
+      "contact": "Kapcsolat",
+      "edit": "Szerkesztés",
+      "continue_to_payment": "Tovább a fizetéshez",
+      "same_as_shipping": "A számlázási és szállítási cím megegyezik."
+    },
+    "review": {
+      "heading": "Áttekintés",
+      "confirmation_text": "A Megrendelés gombra kattintva megerősíted, hogy elolvastad, megértetted és elfogadtad a",
+      "terms_and_conditions": "Felhasználási feltételeket",
+      "and": "és",
+      "cancellation_policy": "Lemondási feltételeket",
+      "read_understood_accepted": "és megerősíted, hogy elolvastad a",
+      "privacy_policy": "Adatvédelmi irányelveket",
+      "read_by_van7": "a VAN7 által."
+    },
+    "payment": {
+      "heading": "Fizetési mód",
+      "edit": "Szerkesztés",
+      "bank_transfer": "Banki átutalás",
+      "online_payment": "Biztonságos online fizetés",
+      "payment_method": "Fizetési mód",
+      "gift_card": "Ajándékkártya",
+      "continue_to_review": "Tovább az áttekintéshez",
+      "payment_details": "Fizetési adatok",
+      "bank_transfer_details": "A számlát a banki adatokkal együtt megkapod",
+      "online_payment_details": "Egy további lépés következik",
+      "place_order": "Megrendelés leadása",
+      "select_payment_method": "Válassz fizetési módot"
+    }
+  },
+  "order": {
+    "thank_you": "Köszönjük!",
+    "order_success": "A rendelésed sikeresen leadva.",
+    "summary": "Összegzés",
+    "payment": "Fizetés",
+    "payment_method": "Fizetési mód",
+    "payment_details": "Fizetési adatok",
+    "paid_on": "fizetve ekkor",
+    "shipping": "Szállítás",
+    "shipping_address": "Szállítási cím",
+    "contact": "Kapcsolat",
+    "method": "Módszer",
+    "confirmation": "A rendelés visszaigazolását elküldtük a következő címre: <b>{email}</b>.",
+    "order_date": "Rendelés dátuma",
+    "order_status": "Rendelés állapota",
+    "payment_status": "Fizetés állapota"
+  },
+  "shipTo": "Szállítás ide:",
+  "nav": {
+    "products": "Termékek",
+    "reviews": "Vélemények",
+    "contact": "Kapcsolat"
+  },
+  "home": {
+    "meta": {
+      "title": "A legflexibilisebb emelőágy lakóautókhoz és furgonokhoz | VAN7",
+      "description": "Fedezd fel az emelőágyat a legnagyobb kényelemmel és optimális helykihasználással lakókocsikhoz, furgonokhoz, lakóautókhoz vagy utánfutókhoz. Soha többé ne aludj egyenetlenül, és használd ki a helyet a legjobban."
+    },
+    "hero": {
+      "socialProof": "500+ elégedett ügyfél",
+      "h1": "Az emelőágy<br></br>a legnagyobb kényelemmel<br></br>& a legjobb helykihasználással",
+      "context": "Állítsd be a tökéletes magasságot, és használd ki a helyet a legjobban.<br></br>Szintezd ki, és élvezd az otthoni kényelmet - bármilyen egyenetlen is a furgonod.",
+      "benefits": {
+        "fast": "Másodpercek alatt leengedhető és elrakható",
+        "noMovement": "Stabilan rögzített, nem leng vagy billeg",
+        "enoughSpace": "Elég hely felszerelésnek, kerékpároknak, bútoroknak",
+        "noTracks": "Nincs zavaró vezetősín"
+      },
+      "cta": "Előrendelés az új sorozatra",
+      "interactions": {
+        "tryNow": "Próbáld ki most!",
+        "levelOut": "Szintezés",
+        "fix": "Rögzítés",
+        "extend": "Kiterjesztés"
+      }
+    },
+    "features": {
+      "setHeight": {
+        "title": "Magasság folyamatos beállítása",
+        "text": "Nem kell többé választanod a kényelem és a hely között - mindkettőt megkapod. A fokozatmentes magasságállításnak köszönhetően könnyedén beállíthatod az ágyat a kívánt magasságra a tekerővel. Akár lakóautót, akár furgont vezetsz, optimálisan kihasználhatod a tárolóhelyet kerékpárok, motorkerékpárok vagy más felszerelések számára, és még mindig a legnagyobb kényelemben aludhatsz."
+      },
+      "levelOut": {
+        "title": "Szintezés",
+        "text": "Bármilyen egyenetlen is a terep - a Van7 emelőágy alkalmazkodik az igényeidhez. A rugalmas hevederes rögzítéssel egyedileg szintezheted az ágyat mind a négy sarkán, így mindig kényelmes, vízszintes helyzetben aludhatsz. Akár egy lakóautóban a kempingben, akár a furgonoddal a vadonban - válaszd szabadon az alvóhelyedet, és élvezd a pihentető éjszakákat bárhol is parkolsz."
+      },
+      "fix": {
+        "title": "Rögzítés a falhoz",
+        "text": "A hagyományos megoldásokkal ellentétben az emelőágyunk teljesen vezetősínek nélkül érkezik. A szabadalmaztatott rögzítő funkciónkkal az ágyat szilárdan a falhoz húzzuk, így sem nem billeg, sem nem leng."
+      },
+      "extend": {
+        "title": "Rácsos keret kiterjesztése",
+        "text": "Három ember számára is elegendő hely? Nem probléma. Használd ki a jármű teljes szélességét az opcionális kiterjesztéssel, amely maximum 190 cm szélességig terjed."
+      }
+    },
+    "reviews": {
+      "title": "A legnépszerűbb emelőágy a",
+      "audience": {
+        "adventurers": "kalandorok",
+        "campers": "kempingezők",
+        "motorsports": "motorsport rajongók",
+        "outdoorSports": "szabadtéri sportok kedvelői",
+        "handyman": "ezermesterek"
+      },
+      "reviews": {
+        "Customer": "Néhány éjszakát töltöttem ebben az ágyban, és imádtam, nagyon kényelmes és otthonos. Az összecsukható ágy igazítása és rögzítése gyerekjáték. Összességében nagyon jó befektetés.",
+        "Stefan": "Abszolút zseniális termék! Nemcsak hogy sokkal rugalmasabbá és multifunkcionálisabbá teszi a jármű belső terét, a műszaki részletek és a minőség is kiemelkedőek. Egyébként a Van7 csapata is nagyon elkötelezett és segítőkész. 6 csillag",
+        "Andreas": "Egyszerűen nagyszerű, ha ágyat szeretnél telepíteni a buszodba vagy furgonodba. Ez maximális helyet biztosít a hegyikerékpárok vagy motorkerékpár tárolására, és az ágy szintezésével és rögzítő funkciójával mindig vízszintes helyzetben aludhatsz, és másnap újra indulhatsz. Csak ajánlani tudom mindenkinek. 👍 🚐",
+        "Lorenz": "Nagyon boldog vagyok az ágyammal!! Végre több hely van az autóban, ami sokkal könnyebbé teszi a dolgokat a kempingezés során, csak ajánlani tudom a Van7 ágyat!!",
+        "Jean-Marc": "Szuper intelligens tárolórendszer, nagyon jó kivitelezés, és hozzáértő/barátságos kapcsolattartó! Öröm vele!"
+      }
+    },
+    "products": {
+      "title": "Új sorozat,<br></br>Új átalakítási koncepciók"
+    },
+    "optimized": {
+      "title": "Tesztelt és optimalizált",
+      "text": "A Van7 emelőágy évek fejlesztésének és optimalizálásának eredménye. Gondos tesztek és folyamatos fejlesztések révén különböző sorozatokon keresztül számos kihívást sikerült megoldani, mint például a fogaskerekek tartóssága, a csörlők hatékonysága és a kopás megelőzése."
+    },
+    "installation": {
+      "button": "Tudj meg többet",
+      "partner": {
+        "title": "Találj telepítési partnert",
+        "text": "Gondtalan telepítés a telepítési partnereink által. Gyors és megbízható, így teljes mértékben az élményre koncentrálhatsz."
+      },
+      "diy": {
+        "title": "DIY utasítások",
+        "text": "Sokak számára a kaland az első útra kelés előtt kezdődik. Videóink megmutatják, hogyan telepítheted könnyedén és gyorsan az ágyat saját magad."
+      }
+    },
+    "contact": {
+      "stillQuestions": "Még mindig vannak kérdéseid?",
+      "StefanWillHelp": "Stefan szívesen segít neked."
+    }
+  },
+  "shop": {
+    "meta": {
+      "title": "Emelőágyak vásárlása minden helyzethez és telepítési helyhez | VAN7 Shop",
+      "description": "Fedezd fel az emelőágyakat minden telepítési helyzethez: king size, keresztirányú, hosszanti emelőágy, pilótafülke vagy emeletes emelőágy. Helytakarékos, stabil és kényelmes - a legnagyobb alvási kényelem érdekében útközben. Találd meg a tökéletes emelőágyat most!"
+    },
+    "title": "Fedezd fel<br></br>a legjobb<br></br>emelőágyat számodra"
+  },
+  "products": {
+    "kingsize-hubbett-mit-lattenrostauszug": {
+      "name": "Kingsize Emelőágy",
+      "title": "VAN7 Kingsize Emelőágy rácsos keret kiterjesztéssel",
+      "description": "Hozz létre egy hatalmas alvó oázist a járművedben 200cm hosszúsággal x 160cm max. 190cm szélességgel - A rácsos keret maximum 190cm-re bővíthető. Még három emberrel is kényelmes az alvás ezzel az ágy mérettel."
+    },
+    "laengs-hubbett": {
+      "name": "Hosszanti Emelőágy",
+      "title": "VAN7 Hosszanti Emelőágy",
+      "description": "Hozz létre egy alvó oázist a járművedben 200cm hosszúsággal és 140 vagy 160 cm szélességgel."
+    },
+    "cockpit-hubbett": {
+      "name": "Pilótafülke Emelőágy",
+      "title": "VAN7 Pilótafülke Emelőágy rácsos keret kiterjesztéssel",
+      "description": "Azoknak a kempingezőknek, akik még több helyet és súlyt szeretnének megtakarítani. A pilótafülke emelőágy valódi innováció, amely új átalakítási koncepciókat tesz lehetővé. Kompakt 140x110cm vagy 160x110cm a mennyezet alatt, 200cm hosszúságra bővíthető. A fokozatmentes leengedés, szintezés után - így mindig vízszintesen aludhatsz, bármilyen egyenetlen is a jármű, és a rögzítő funkció után az integrált rácsos keret maximum 200cm-re bővíthető - például a vezetőfülkébe, hogy ott is kihasználd a helyet. A kiterjesztés 25mm-es hevederrel van rögzítve."
+    },
+    "querschlaefer-hubbett": {
+      "name": "Keresztirányú Emelőágy",
+      "title": "VAN7 Keresztirányú Emelőágy rácsos keret kiterjesztéssel",
+      "description": "Azoknak a kempingezőknek, akik még több helyet és súlyt szeretnének megtakarítani. A keresztirányú emelőágy valódi innováció. Kompakt 140x140cm (160x160) a mennyezet alatt, 200cm hosszúságra bővíthető. A fokozatmentes leengedés, szintezés után - így mindig vízszintesen aludhatsz, bármilyen egyenetlen is a jármű, és a rögzítő funkció után az integrált rácsos keret maximum 200cm-re bővíthető - Egyik oldalon fáklyákkal (falbővítményekkel) legalább 190cm szélességet (a kiterjesztés hosszát) kapsz."
+    },
+    "stock-hubbett": {
+      "name": "Emeletes Emelőágy",
+      "title": "VAN7 Emeletes Emelőágy akár 5 ember számára",
+      "description": ""
+    },
+    "fahrradhalter": {
+      "title": "VAN7 Kerékpártartó",
+      "description": "Szeretnéd biztonságosan szállítani a kerékpárjaidat a járműben, és nem akarsz nagy, nehézkes szerkezetekkel bajlódni? Akkor a Van7 kerékpártartó pont neked való! Szeretnél többet megtudni a Van7 kerékpártartóról? Nézd meg a YouTube videónkat."
+    }
+  },
+  "product": {
+    "sizeGuide": "A VAN7 emelőágy lehetséges mérete a járművedhez a mennyezet szélességétől függ. Szívesen adunk tanácsot telefonon vagy WhatsApp-on.",
+    "mountingNote": "A következő járművekhez nincs szükség szerelési konzolokra: Mercedes Sprinter H2-H3 2006-tól napjainkig, VW Crafter 2006-2016, Opel Movano, Renault Master, Ford Custom.",
+    "selectOption": "Válassz {option}",
+    "options": {
+      "Größe": "méret",
+      "Montagekonsole": "szerelési konzol",
+      "LEDs": "LED készlet"
+    },
+    "notSelected": "Ne rendelj",
+    "button": {
+      "selectVariant": "Kérjük, válassz egy változatot",
+      "outOfStock": "Jelenleg nincs raktáron",
+      "orderNow": "Rendelj most",
+      "customSize": "Egyedi méret kérése",
+      "requestOrder": "Rendelés kérésre"
+    },
+    "pricing": {
+      "netto": "Nettó ár",
+      "tax": "ÁFA",
+      "from": "Tól {price}"
+    },
+    "tabs": {
+      "comfortable": {
+        "title": "Egyedülálló kemping kényelem",
+        "text": "Amit ügyfeleink a legjobban szeretnek, az az egyedülálló szintező funkció, amely lehetővé teszi, hogy az ágyat egy húzással vízszintes helyzetbe hozd, még a legegyenetlenebb kempinghelyen is, és így olyan kényelmesen pihenj, mint otthon."
+      },
+      "fixed": {
+        "title": "Szabadalmaztatott rögzítő funkció",
+        "text": "Csak ezzel a funkcióval lehetséges egy szabadon lebegő emelőágyat stabilan rögzíteni a kívánt magasságban és dőlésszögben az oldalon - így az ágy NEM leng!"
+      },
+      "mechanic": {
+        "title": "Áram és vezetősínek nélkül",
+        "text": "Sok kempingező számára a súly és a funkcionalitás kis helyen nagyon fontos. A tekerő mechanizmus gyorsabb és 17kg-mal könnyebb, mint egy elektromos motor. A VAN7 emelőágy mindig működik, és a rögzítő funkciónknak köszönhetően tárolószerkezetek és sínek nélkül, amelyek nagyban befolyásolják a helyet és zajt okoznak az utazás során."
+      },
+      "extendable": {
+        "title": "Maximális fekvőfelület",
+        "text": "A 140cm széles ágy 190cm széles fekvőfelületet tartalmaz. Az első emelőágy a világon rácsos keret kiterjesztéssel. Ez lehetővé teszi, hogy a fekvőfelületet a jármű maximális szélességére bővítsd leengedés után."
+      },
+      "noiseFree": {
+        "title": "Zörgésmentes vezetés terepen",
+        "text": "Az ágy tervezése során ügyeltünk arra, hogy az ágy ne okozzon zajt az utazás során, így élvezheted az utazást."
+      },
+      "easyInstallation": {
+        "title": "Könnyű telepítés",
+        "text": "Ha tudsz bánni egy akkus csavarhúzóval és egy mérőszalaggal, vagy ismersz valakit, aki tud, az új sorozat telepítése a mellékelt videó utasításokkal gyerekjáték. Természetesen vannak telepítési partnereink is, akik átvehetik az emelőágy telepítését. A járműtől függően megfelelő szerelési konzolok állnak rendelkezésre. Néhány jármű, mint például a H2 Sprinter, nem igényel szerelési konzolokat."
+      },
+      "romantic": {
+        "title": "Praktikus és romantikus",
+        "text": "A hangulatodnak megfelelően közvetett, állítható világítás kellemes hangulatot teremt az ágy felett és alatt. Az LED szalag szépen integrálva van az alumínium profilokba."
+      },
+      "safety": {
+        "title": "Biztonságos hevederes rögzítés",
+        "text": "A VAN7 emelőágy 4x 25mm-es biztonsági hevedereken és csatokon lóg, mindegyik 400daN-ra van méretezve. Ez azt jelenti, hogy 1600kg - az ágy dinamikusan megengedett terhelhetősége 270kg. Minden hevederes felfüggesztés 2x M6 szegecsanyával van rögzítve. Egy M6 szegecsanya 4-5kN-t tart nyírás alatt egy jármű lemezében - ez 400-500kg szegecsanyánként. A VAN7 emelőágy hevederes felfüggesztéseihez 8 szegecsanya van telepítve a jármű falának utolsó területén."
+      },
+      "space": {
+        "title": "Maximális hely",
+        "text": "A VAN7 emelőágy biztosítja a szükséges helyet és kényelmet, amikor egy kis mobil térben éjszakázol. Pillanatok alatt eltűnik a mennyezetnél, és rengeteg tárolóhelyet biztosít kerékpárok vagy egy további ülőhely számára."
+      }
+    }
+  },
+  "footer": {
+    "description": "Az emelőágy minden (parkolási) helyzethez! Aludj vízszintesen, és még mindig legyen elég tárolóhely a lakóautóban? A VAN7-tel nem kell kompromisszumot kötnöd!",
+    "followUs": "Kövess minket az utazásainkon",
+    "contactInfo": "Kapcsolat információk",
+    "address": "Dorfstraße 5, 8753 Fohnsdorf",
+    "email": "info@van7.at",
+    "phone": "(+43) 676 337 25 56",
+    "whatsapp": "(+43) 676 337 25 56",
+    "shop": "Bolt",
+    "impressum": "Impresszum",
+    "agb": "Általános Szerződési Feltételek",
+    "privacyPolicy": "Adatvédelmi irányelvek",
+    "designedBy": "Tervezte és készítette"
+  },
+  "form": {
+    "name": "Név",
+    "phone": "Telefonszám",
+    "email": "Email",
+    "agreement": {
+      "prefix": "Elolvastam, megértettem és elfogadom a",
+      "privacyPolicy": "Adatvédelmi irányelveket",
+      "terms": "Felhasználási feltételeket",
+      "and": "és",
+      "cancellationPolicy": "Lemondási feltételeket",
+      "suffix": "."
+    },
+    "submit": "Üzenet küldése"
+  }
+}

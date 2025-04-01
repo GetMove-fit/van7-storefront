@@ -6,7 +6,7 @@ import Bancontact from "@modules/common/icons/bancontact";
 import PayPal from "@modules/common/icons/paypal";
 import Bank from "@modules/common/icons/bank";
 
-export const locales = ["en", "de"];
+export const locales = ["en", "de", "fr", "es", "hu", "it", "nl"];
 
 /* Map of payment provider_id to their title and icon. Add in any payment providers you want to use. */
 export const paymentInfoMap: Record<
