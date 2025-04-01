@@ -1,17 +1,15 @@
 "use client";
 
 import { addToCart } from "@lib/data/cart";
-import { useIntersection } from "@lib/hooks/use-in-view";
 import { HttpTypes } from "@medusajs/types";
-import { Button, Select } from "@medusajs/ui";
+import { Button } from "@medusajs/ui";
 import Divider from "@modules/common/components/divider";
 import OptionSelect from "@modules/products/components/product-actions/option-select";
 import AccessorySelect from "@modules/products/components/product-actions/accessory-select";
 import { isEqual } from "lodash";
-import { useRouter, useParams } from "next/navigation"; // Modified import
+import { useRouter, useParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import ProductPrice from "../product-price";
-import MobileActions from "./mobile-actions";
 import KontaktFormularDialog from "../sondermasse-dialog";
 import { useTranslations } from "next-intl";
 
