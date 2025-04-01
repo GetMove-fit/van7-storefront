@@ -66,7 +66,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
 
         <div className="flex w-full flex-col gap-y-6 py-8 small:sticky small:top-32 small:max-w-[300px] small:py-0">
           <CountrySelect regions={regions} up={false} />
-          {product.handle !== "fahrradhalter" && <p>{t("sizeGuide")}</p>}
+          {/* {product.handle !== "fahrradhalter" && <p>{t("sizeGuide")}</p>} */}
           <ProductOnboardingCta />
           <ProductActions product={product} accessoryProducts={accessoires} />
         </div>

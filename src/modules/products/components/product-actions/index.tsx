@@ -143,7 +143,10 @@ export default function ProductActions({
       <div>
         {(product.variants?.length ?? 0) > 1 && (
           <div className="flex flex-col gap-y-4">
-            {(product.options || []).map((option) => {
+            {(
+              product.options?.sort((a, b) => b.title.localeCompare(a.title)) ||
+              []
+            ).map((option) => {
               return (
                 <div key={option.id}>
                   <OptionSelect
@@ -161,8 +164,8 @@ export default function ProductActions({
             {accessoryProducts && accessoryProducts.length > 0 && (
               <>
                 {/* <div className="rounded-lg border border-gray-200 bg-yellow-100 px-4 py-2.5 text-sm">
-                  {t("mountingNote")}
-                </div> */}
+                {t("mountingNote")}
+              </div> */}
                 <AccessorySelect
                   accessoryProducts={accessoryProducts}
                   selectedAccessoryVariants={selectedAccessoryVariants}
