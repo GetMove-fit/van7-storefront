@@ -5,6 +5,7 @@ import Ideal from "@modules/common/icons/ideal";
 import Bancontact from "@modules/common/icons/bancontact";
 import PayPal from "@modules/common/icons/paypal";
 import Bank from "@modules/common/icons/bank";
+import EPS from "@modules/common/icons/eps";
 
 export const locales = ["en", "de", "fr", "es", "hu", "it", "nl"];
 
@@ -14,7 +15,7 @@ export const paymentInfoMap: Record<
   { title: string; icon: React.JSX.Element }
 > = {
   pp_stripe_stripe: {
-    title: "Credit card",
+    title: "Kartenzahlung",
     icon: <CreditCard />,
   },
   "pp_stripe-ideal_stripe": {
@@ -30,12 +31,12 @@ export const paymentInfoMap: Record<
     icon: <PayPal />,
   },
   pp_system_default: {
-    title: "Manual Payment",
-    icon: <CreditCard />,
-  },
-  customer_balance: {
-    title: "Banküberweisung",
+    title: "Direkte Banküberweisung",
     icon: <Bank />,
+  },
+  pp_stripe_eps: {
+    title: "Online-Banking-Zahlung mit EPS",
+    icon: <EPS />,
   },
   // Add more payment providers here
 };

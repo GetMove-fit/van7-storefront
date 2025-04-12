@@ -78,7 +78,12 @@
       "bank_transfer_details": "Du erhältst die Rechnung worauf die Bankdaten ersichtlich sind",
       "online_payment_details": "Ein weiterer Schritt wird folgen",
       "place_order": "Bestellung aufgeben",
-      "select_payment_method": "Wähle eine Zahlungsart"
+      "select_payment_method": "Wähle eine Zahlungsart",
+      "methods": {
+        "pp_system_default": "Direkte Banküberweisung",
+        "pp_stripe_stripe": "Kartenzahlung",
+        "pp_stripe_eps": "Online-Banking-Zahlung mit EPS"
+      }
     }
   },
   "order": {

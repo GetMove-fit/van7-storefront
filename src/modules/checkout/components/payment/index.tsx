@@ -1,27 +1,23 @@
 "use client";
 
-import { paymentInfoMap } from "@lib/constants";
+import { RadioGroup } from "@headlessui/react";
 import {
-  initiatePaymentSession,
-  setBankTransferPaymentOption,
-} from "@lib/data/cart";
-import { CheckCircleSolid, CreditCard, Spinner, Stripe } from "@medusajs/icons";
+  isManual,
+  isStripe as isStripeFunc,
+  paymentInfoMap,
+} from "@lib/constants";
+import { initiatePaymentSession } from "@lib/data/cart";
+import { CheckCircleSolid, CreditCard } from "@medusajs/icons";
 import { Button, Container, Heading, Text, clx } from "@medusajs/ui";
 import ErrorMessage from "@modules/checkout/components/error-message";
-import { StripeContext } from "@modules/checkout/components/payment-wrapper/stripe-wrapper";
+import PaymentContainer, {
+  StripeCardContainer,
+  StripeEpsContainer,
+} from "@modules/checkout/components/payment-container";
 import Divider from "@modules/common/components/divider";
-import {
-  PaymentElement,
-  useElements,
-  useStripe,
-} from "@stripe/react-stripe-js";
-import { StripePaymentElementChangeEvent } from "@stripe/stripe-js";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useContext, useEffect, useState } from "react";
-import MedusaRadio from "@modules/common/components/radio";
-import Bank from "@modules/common/icons/bank";
-import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { useTranslations } from "next-intl";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useState } from "react";
 
 const Payment = ({
   cart,
@@ -30,10 +26,17 @@ const Payment = ({
   cart: any;
   availablePaymentMethods: any[];
 }) => {
+  const activeSession = cart.payment_collection?.payment_sessions?.find(
+    (paymentSession: any) => paymentSession.status === "pending"
+  );
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<string>();
-  const [paymentFormValid, setPaymentFormValid] = useState(false);
+  const [cardBrand, setCardBrand] = useState<string | null>(null);
+  const [cardComplete, setCardComplete] = useState(false);
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(
+    activeSession?.provider_id ?? ""
+  );
 
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -41,11 +44,18 @@ const Payment = ({
 
   const isOpen = searchParams.get("step") === "payment";
 
-  const stripeReady = useContext(StripeContext);
+  const isStripe = isStripeFunc(selectedPaymentMethod);
 
-  const activeSession = cart.payment_collection?.payment_sessions?.find(
-    (paymentSession: any) => paymentSession.status === "pending"
-  );
+  const setPaymentMethod = async (method: string) => {
+    setError(null);
+    setSelectedPaymentMethod(method);
+    if (isStripeFunc(method)) {
+      await initiatePaymentSession(cart, {
+        provider_id: method,
+      });
+    }
+  };
+
   const paidByGiftcard =
     cart?.gift_cards && cart?.gift_cards?.length > 0 && cart?.total === 0;
 
@@ -68,123 +78,35 @@ const Payment = ({
     });
   };
 
-  useEffect(() => {
-    // console.log(cart.payment_collection?.payment_sessions?.[0]?.data);
-    if (cart.payment_collection?.payment_sessions?.[0]?.data.bank_transfer) {
-      setSelectedPaymentMethod("banküberweisung");
-    }
-  }, []);
-
-  const stripe = stripeReady ? useStripe() : null;
-  const elements = stripeReady ? useElements() : null;
-
-  const handleBankTransferSelection = async () => {
-    // Only process if not already selected
-    if (selectedPaymentMethod !== "banküberweisung") {
-      if (elements) {
-        try {
-          // Clear Stripe selection
-          const paymentElement = elements.getElement("payment");
-          if (paymentElement) {
-            paymentElement.clear();
-          }
-        } catch (e) {
-          console.error("Failed to clear payment element:", e);
-        }
-      }
-
-      // Update states
-      setSelectedPaymentMethod("banküberweisung");
-      setPaymentFormValid(true); // Bank transfer is always valid once selected
-    }
-  };
-
-  const handleOnlinePaymentSelection = () => {
-    // Set initial state for online payment
-    // This will cause the accordion to open, showing payment options
-    if (selectedPaymentMethod === "banküberweisung") {
-      setSelectedPaymentMethod(undefined);
-      setPaymentFormValid(false);
-    }
-  };
-
-  const handlePaymentElementChange = async (
-    event: StripePaymentElementChangeEvent
-  ) => {
-    if (!isOpen && selectedPaymentMethod === "banküberweisung") return;
-
-    // Ignore payment element changes during loading if bank transfer is selected
-    if (
-      (!activeSession || !stripeReady) &&
-      selectedPaymentMethod === "banküberweisung"
-    ) {
-      return;
-    }
-
-    if (!!event.value.type) {
-      console.log("Payment method selected:", event.value.type);
-      setSelectedPaymentMethod(event.value.type);
-
-      // If a payment method is selected, consider the form valid for submission
-      // Even if Stripe doesn't consider it "complete" yet
-      setPaymentFormValid(event.complete);
-    } else {
-      setPaymentFormValid(false);
-    }
-
-    if (event.complete) {
-      setError(null);
-    }
-  };
-
   const handleSubmit = async () => {
     setIsLoading(true);
-    setError(null);
-
     try {
-      if (selectedPaymentMethod !== "banküberweisung") {
-        if (!stripe || !elements) {
-          setError("Payment processing not ready. Please try again.");
-          return;
-        }
+      const shouldInputCard =
+        isStripeFunc(selectedPaymentMethod) && !activeSession;
 
-        await elements.submit().catch((err) => {
-          console.error(err);
-          setError(err.message || "An error occurred with the payment");
-          return;
+      const checkActiveSession =
+        activeSession?.provider_id === selectedPaymentMethod;
+
+      if (!checkActiveSession) {
+        await initiatePaymentSession(cart, {
+          provider_id: selectedPaymentMethod,
         });
       }
 
-      await setBankTransferPaymentOption(
-        selectedPaymentMethod === "banküberweisung"
-      );
-
-      router.push(pathname + "?" + createQueryString("step", "review"), {
-        scroll: false,
-      });
+      if (!shouldInputCard) {
+        return router.push(
+          pathname + "?" + createQueryString("step", "review"),
+          {
+            scroll: false,
+          }
+        );
+      }
     } catch (err: any) {
       setError(err.message);
     } finally {
       setIsLoading(false);
     }
   };
-
-  const initStripe = async () => {
-    try {
-      await initiatePaymentSession(cart, {
-        provider_id: "pp_stripe_stripe",
-      });
-    } catch (err) {
-      console.error("Failed to initialize Stripe session:", err);
-      setError("Failed to initialize payment. Please try again.");
-    }
-  };
-
-  useEffect(() => {
-    if (!activeSession && isOpen) {
-      initStripe();
-    }
-  }, [cart, isOpen, activeSession]);
 
   useEffect(() => {
     setError(null);
@@ -223,75 +145,46 @@ const Payment = ({
       <div>
         <div className={isOpen ? "block" : "hidden"}>
           {!paidByGiftcard && availablePaymentMethods?.length && (
-            <div>
-              <div
-                onClick={handleBankTransferSelection}
-                className={clx(
-                  "mb-2 mt-4 flex cursor-pointer items-center justify-between rounded-rounded border px-4 py-3 shadow-sm",
-                  {
-                    "border-brand-light":
-                      selectedPaymentMethod === "banküberweisung",
-                  }
-                )}
+            <>
+              <RadioGroup
+                value={selectedPaymentMethod}
+                onChange={(value: string) => setPaymentMethod(value)}
               >
-                <div className="flex items-center gap-x-4 text-lg text-ui-fg-subtle">
-                  <MedusaRadio
-                    checked={selectedPaymentMethod === "banküberweisung"}
-                  />
-                  <Bank />
-                  <p className="w-full whitespace-nowrap font-medium">
-                    {t("bank_transfer")}
-                  </p>
-                </div>
-              </div>
-
-              <AccordionPrimitive.Root
-                type="single"
-                value={
-                  selectedPaymentMethod !== "banküberweisung"
-                    ? "Stripe"
-                    : undefined
-                }
-              >
-                <AccordionPrimitive.Item value="Stripe">
-                  <AccordionPrimitive.Header>
-                    <div
-                      onClick={handleOnlinePaymentSelection}
-                      className="mb-2 mt-4 flex cursor-pointer items-center justify-between rounded-rounded border px-4 py-3 shadow-sm radix-state-open:border-brand-light"
-                    >
-                      <div className="flex items-center gap-x-4 text-lg text-ui-fg-subtle">
-                        <MedusaRadio
-                          checked={selectedPaymentMethod !== "banküberweisung"}
+                {availablePaymentMethods.map((paymentMethod) => (
+                  <div key={paymentMethod.id}>
+                    {isStripeFunc(paymentMethod.id) ? (
+                      paymentMethod.id === "pp_stripe_eps" ? (
+                        <StripeEpsContainer
+                          paymentProviderId={paymentMethod.id}
+                          selectedPaymentOptionId={selectedPaymentMethod}
+                          paymentInfoMap={paymentInfoMap}
+                          setCardBrand={setCardBrand}
+                          setError={setError}
+                          setCardComplete={setCardComplete}
                         />
-                        <Stripe />
-                        <p className="w-full whitespace-nowrap font-medium">
-                          {t("online_payment")}
-                        </p>
-                      </div>
-                    </div>
-                  </AccordionPrimitive.Header>
-                  <AccordionPrimitive.Content
-                    className={clx(
-                      "radix-state-closed:pointer-events-none radix-state-closed:animate-accordion-close radix-state-open:animate-accordion-open"
-                    )}
-                  >
-                    {(!activeSession || !stripeReady) && (
-                      <Spinner className="animate-spin" />
-                    )}
-
-                    {stripeReady && (
-                      <PaymentElement
-                        onChange={handlePaymentElementChange}
-                        options={{
-                          layout: "accordion",
-                        }}
+                      ) : (
+                        <StripeCardContainer
+                          paymentProviderId={paymentMethod.id}
+                          selectedPaymentOptionId={selectedPaymentMethod}
+                          paymentInfoMap={paymentInfoMap}
+                          setCardBrand={setCardBrand}
+                          setError={setError}
+                          setCardComplete={setCardComplete}
+                        />
+                      )
+                    ) : (
+                      <PaymentContainer
+                        paymentInfoMap={paymentInfoMap}
+                        paymentProviderId={paymentMethod.id}
+                        selectedPaymentOptionId={selectedPaymentMethod}
                       />
                     )}
-                  </AccordionPrimitive.Content>
-                </AccordionPrimitive.Item>
-              </AccordionPrimitive.Root>
-            </div>
+                  </div>
+                ))}
+              </RadioGroup>
+            </>
           )}
+
           {paidByGiftcard && (
             <div className="flex w-1/3 flex-col">
               <Text className="txt-medium-plus mb-1 text-ui-fg-base">
@@ -317,8 +210,7 @@ const Payment = ({
             onClick={handleSubmit}
             isLoading={isLoading}
             disabled={
-              (!paymentFormValid &&
-                selectedPaymentMethod !== "banküberweisung") ||
+              (isStripe && !cardComplete) ||
               (!selectedPaymentMethod && !paidByGiftcard)
             }
             data-testid="submit-payment-button"
@@ -328,7 +220,7 @@ const Payment = ({
         </div>
 
         <div className={isOpen ? "hidden" : "block"}>
-          {cart && paymentReady && activeSession && selectedPaymentMethod ? (
+          {cart && paymentReady && activeSession ? (
             <div className="flex w-full items-start gap-x-1">
               <div className="flex w-1/3 flex-col">
                 <Text className="txt-medium-plus mb-1 text-ui-fg-base">
@@ -338,10 +230,7 @@ const Payment = ({
                   className="txt-medium text-ui-fg-subtle"
                   data-testid="payment-method-summary"
                 >
-                  {selectedPaymentMethod === "banküberweisung"
-                    ? t("bank_transfer")
-                    : paymentInfoMap[selectedPaymentMethod]?.title ||
-                      selectedPaymentMethod}
+                  {t(`methods.${activeSession.provider_id}`)}
                 </Text>
               </div>
               <div className="flex w-1/3 flex-col">
@@ -353,18 +242,16 @@ const Payment = ({
                   data-testid="payment-details-summary"
                 >
                   <Container className="flex h-7 w-fit items-center bg-ui-button-neutral-hover p-2">
-                    {selectedPaymentMethod === "banküberweisung" ? (
-                      <Bank />
-                    ) : (
-                      paymentInfoMap[selectedPaymentMethod]?.icon || (
-                        <CreditCard />
-                      )
+                    {paymentInfoMap[selectedPaymentMethod]?.icon || (
+                      <CreditCard />
                     )}
                   </Container>
                   <Text>
-                    {selectedPaymentMethod === "banküberweisung"
+                    {isManual(selectedPaymentMethod)
                       ? t("bank_transfer_details")
-                      : t("online_payment_details")}
+                      : isStripeFunc(selectedPaymentMethod) && cardBrand
+                        ? cardBrand
+                        : t("online_payment_details")}
                   </Text>
                 </div>
               </div>

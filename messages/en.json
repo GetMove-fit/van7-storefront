@@ -78,7 +78,12 @@
       "bank_transfer_details": "You will receive the invoice with the bank details",
       "online_payment_details": "Another step will follow",
       "place_order": "Place Order",
-      "select_payment_method": "Select a Payment Method"
+      "select_payment_method": "Select a Payment Method",
+      "methods": {
+        "pp_system_default": "Direct Bank Transfer",
+        "pp_stripe_stripe": "Credit/Debit Card",
+        "pp_stripe_eps": "Online Banking via EPS"
+      }
     }
   },
   "order": {
