@@ -34,6 +34,7 @@
     "title": "Checkout",
     "backToCart": "Back to Cart",
     "back": "Back",
+    "vat_id_invalid": "The provided VAT ID is invalid.",
     "shipping_address": {
       "use_saved_address": "Hello {name}, would you like to use one of your saved addresses?",
       "first_name": "First Name",
@@ -46,7 +47,8 @@
       "same_as_billing": "Billing address is the same as shipping address",
       "email": "Email",
       "valid_email": "Please enter a valid email address.",
-      "phone": "Phone"
+      "phone": "Phone",
+      "vat_id": "VAT ID"
     },
     "addresses": {
       "shipping_address": "Shipping Address",
@@ -226,6 +228,9 @@
     "fahrradhalter": {
       "title": "VAN7 Bicycle holder",
       "description": "Do you want to transport your bikes safely in the vehicle in the future and don't feel like dealing with large, cumbersome constructions? Then the Van7 bicycle holder is just right for you! Want to learn more about the Van7 bicycle holder? Then check out our YouTube video."
+    },
+    "montagekonsole": {
+      "title": "Mounting Bracket"
     }
   },
   "product": {

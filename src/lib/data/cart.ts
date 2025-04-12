@@ -17,6 +17,7 @@ import {
 import { getRegion } from "./regions";
 import { signup } from "./customer";
 import { listCartShippingMethods } from "./fulfillment";
+import { getTranslations } from "next-intl/server";
 
 /**
  * Retrieves a cart by its ID. If no ID is provided, it will use the cart ID from the cookies.
@@ -356,6 +357,9 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
         phone: formData.get("shipping_address.phone"),
       },
       email: formData.get("email"),
+      metadata: {
+        vat_id: (formData.get("vat_id") as string).trim(),
+      },
     } as any;
 
     const sameAsBilling = formData.get("same_as_billing");
@@ -374,6 +378,17 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
         province: formData.get("billing_address.province"),
         phone: formData.get("billing_address.phone"),
       };
+
+    if (data.metadata.vat_id) {
+      const result = await sdk.client.fetch<{
+        valid: boolean;
+      }>(`/store/validate-vat-id/${data.metadata.vat_id}`);
+      if (!result.valid) {
+        const t = await getTranslations("checkout");
+        return t("vat_id_invalid");
+      }
+    }
+
     await updateCart(data);
     await setDefaultShippingMethod(cartId);
   } catch (e: any) {

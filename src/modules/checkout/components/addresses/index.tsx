@@ -174,6 +174,12 @@ const Addresses = ({
                         </Text>
                       </>
                     )}
+
+                    {!!cart.metadata?.vat_id && (
+                      <Text className="txt-medium mt-5 text-ui-fg-subtle">
+                        {cart.metadata.vat_id as string}
+                      </Text>
+                    )}
                   </div>
                 </div>
               </div>

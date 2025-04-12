@@ -34,6 +34,7 @@
     "title": "Kasse",
     "backToCart": "Zurück zum Warenkorb",
     "back": "Zurück",
+    "vat_id_invalid": "Die angegebene USt-IdNr. ist ungültig.",
     "shipping_address": {
       "use_saved_address": "Hallo {name}, möchten Sie eine Ihrer gespeicherten Adressen verwenden?",
       "first_name": "Vorname",
@@ -46,7 +47,8 @@
       "same_as_billing": "Rechnungsadresse entspricht der Lieferadresse",
       "email": "E-Mail",
       "valid_email": "Geben Sie eine gültige E-Mail-Adresse ein.",
-      "phone": "Telefon"
+      "phone": "Telefon",
+      "vat_id": "USt-IdNr."
     },
     "addresses": {
       "shipping_address": "Lieferadresse",

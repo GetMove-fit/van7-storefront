@@ -30,6 +30,7 @@ const ShippingAddress = ({
     "shipping_address.province": cart?.shipping_address?.province || "",
     "shipping_address.phone": cart?.shipping_address?.phone || "",
     email: cart?.email || "",
+    vat_id: cart?.metadata?.vat_id || "",
   });
 
   const countriesInRegion = useMemo(
@@ -48,10 +49,11 @@ const ShippingAddress = ({
 
   const setFormAddress = (
     address?: HttpTypes.StoreCartAddress,
-    email?: string
+    email?: string,
+    vat_id?: string
   ) => {
     address &&
-      setFormData((prevState: Record<string, any>) => ({
+      setFormData((prevState) => ({
         ...prevState,
         "shipping_address.first_name": address?.first_name || "",
         "shipping_address.last_name": address?.last_name || "",
@@ -65,20 +67,30 @@ const ShippingAddress = ({
       }));
 
     email &&
-      setFormData((prevState: Record<string, any>) => ({
+      setFormData((prevState) => ({
         ...prevState,
-        email: email,
+        email,
+      }));
+
+    vat_id &&
+      setFormData((prevState) => ({
+        ...prevState,
+        vat_id,
       }));
   };
 
   useEffect(() => {
     // Ensure cart is not null and has a shipping_address before setting form data
     if (cart && cart.shipping_address) {
-      setFormAddress(cart?.shipping_address, cart?.email);
+      setFormAddress(
+        cart?.shipping_address,
+        cart?.email,
+        cart?.metadata?.vat_id as string | undefined
+      );
     }
 
     if (cart && !cart.email && customer?.email) {
-      setFormAddress(undefined, customer.email);
+      setFormAddress(undefined, customer.email, undefined);
     }
   }, [cart]); // Add cart as a dependency
 
@@ -222,6 +234,14 @@ const ShippingAddress = ({
           onChange={handleChange}
           required
           data-testid="shipping-phone-input"
+        />
+
+        <Input
+          label={t("vat_id")}
+          name="vat_id"
+          value={formData["vat_id"]}
+          onChange={handleChange}
+          pattern="^[A-Z]{2}[A-Z0-9]{2,12}$"
         />
       </div>
     </>
