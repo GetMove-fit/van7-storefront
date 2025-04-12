@@ -38,7 +38,7 @@ const Addresses = ({
     router.push(pathname + "?step=address");
   };
 
-  const [message, formAction] = useActionState(setAddresses, null);
+  const [message, formAction, isPending] = useActionState(setAddresses, null);
 
   useEffect(() => {
     if (cart?.shipping_methods?.length === 0) {
@@ -92,7 +92,11 @@ const Addresses = ({
                 <BillingAddress cart={cart} />
               </div>
             )}
-            <SubmitButton className="mt-6" data-testid="submit-address-button">
+            <SubmitButton
+              className="mt-6"
+              data-testid="submit-address-button"
+              isLoading={isPending}
+            >
               {t("continue_to_payment")}
             </SubmitButton>
             <ErrorMessage error={message} data-testid="address-error-message" />
