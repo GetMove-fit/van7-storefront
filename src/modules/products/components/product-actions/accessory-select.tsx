@@ -54,8 +54,10 @@ export default function AccessorySelect({
                     ? "(nicht erforderlich)"
                     : `(+${convertToLocale({
                         amount:
-                          variant.calculated_price!.calculated_amount_with_tax!,
-                        currency_code: variant.calculated_price!.currency_code!,
+                          variant.calculated_price
+                            ?.calculated_amount_with_tax ?? 0,
+                        currency_code:
+                          variant.calculated_price?.currency_code ?? "eur",
                       })})`}
                 </SelectUI.Item>
               ))}
