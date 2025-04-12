@@ -1,5 +1,6 @@
 import { HttpTypes } from "@medusajs/types";
 import { clx, Tooltip, TooltipProvider } from "@medusajs/ui";
+import { InformationCircleSolid } from "@medusajs/icons";
 import { useLocale, useTranslations } from "next-intl";
 import React from "react";
 
@@ -34,27 +35,7 @@ const OptionSelect: React.FC<OptionSelectProps> = ({
         {option.title === "Größe" && (
           <TooltipProvider>
             <Tooltip content={t("sizeGuide")}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="15"
-                height="15"
-                fill="none"
-                data-state="closed"
-              >
-                <g clipPath="url(#a)">
-                  <path
-                    fill="currentColor"
-                    fillRule="evenodd"
-                    d="M14.61 7.5a7.11 7.11 0 1 1-14.22 0 7.11 7.11 0 0 1 14.22 0M8.389 3.945a.889.889 0 1 1-1.778 0 .889.889 0 0 1 1.778 0M6.61 6.611a.667.667 0 1 0 0 1.333h.225a.222.222 0 0 1 .217.27l-.408 1.837a1.555 1.555 0 0 0 1.519 1.893h.225a.667.667 0 0 0 0-1.333h-.225a.222.222 0 0 1-.217-.27l.408-1.837a1.555 1.555 0 0 0-1.519-1.893z"
-                    clipRule="evenodd"
-                  ></path>
-                </g>
-                <defs>
-                  <clipPath id="a">
-                    <path fill="#fff" d="M0 0h15v15H0z"></path>
-                  </clipPath>
-                </defs>
-              </svg>
+              <InformationCircleSolid />
             </Tooltip>
           </TooltipProvider>
         )}
