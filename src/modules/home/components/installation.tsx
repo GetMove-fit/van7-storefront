@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 const Installation = () => {
   const t = useTranslations("home.installation");
   return (
-    <section className="flex gap-8 bg-white px-5 py-16 max-md:flex-col sm:px-10 lg:px-20 xl:px-36 2xl:px-48">
+    <section className="flex gap-8 bg-white px-5 py-16 max-md:flex-col sm:px-10 lg:px-12 2xl:px-24 xlarge:px-40">
       <a
         href="https://storelocator.page/1655a5a5fd1957"
         className="relative flex w-full flex-col"

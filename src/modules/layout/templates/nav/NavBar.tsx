@@ -49,7 +49,7 @@ export default function NavBar({ children }: { children: React.ReactNode }) {
       )}
     >
       <header className="relative h-fit duration-200">
-        <nav className="text-small-regular flex h-full w-full items-center gap-x-10 pl-5 text-xl font-semibold uppercase text-ui-fg-subtle sm:py-3 sm:pl-10 lg:px-20 xl:px-28 2xl:px-36">
+        <nav className="text-small-regular flex h-full w-full items-center gap-x-10 pl-5 text-xl font-semibold uppercase text-ui-fg-subtle sm:py-3 sm:pl-10 lg:px-12 2xl:px-24 xlarge:px-40">
           <LocalizedClientLink href="/" data-testid="nav-store-link">
             <Logo className="w-[120px] sm:w-[180px]" />
           </LocalizedClientLink>

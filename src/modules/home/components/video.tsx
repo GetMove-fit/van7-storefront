@@ -74,7 +74,7 @@ const VideoSection = ({
   sections,
   open = true,
   children,
-  flipped = false,
+  className,
 }: {
   videoSrc: string;
   sections: {
@@ -85,7 +85,7 @@ const VideoSection = ({
   }[];
   open?: boolean;
   children?: React.ReactNode;
-  flipped?: boolean;
+  className?: string;
 }) => {
   const [currentTime, setCurrentTime] = React.useState(0);
   const [isHovered, setIsHovered] = React.useState(false);
@@ -158,12 +158,7 @@ const VideoSection = ({
   return (
     <section
       ref={containerRef}
-      className={clx(
-        "flex w-full gap-x-3 bg-grey-10 pb-5 max-lg:flex-col max-sm:mt-10",
-        {
-          "lg:flex-row-reverse": flipped,
-        }
-      )}
+      className={clx("flex w-full gap-5 max-lg:flex-col", className)}
     >
       {children}
       <video
@@ -179,7 +174,7 @@ const VideoSection = ({
         preload="metadata"
         muted
         loop
-        className="w-full min-w-0"
+        className="h-full w-full min-w-0"
       />
 
       <AccordionPrimitive.Root

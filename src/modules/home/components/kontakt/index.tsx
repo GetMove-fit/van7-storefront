@@ -8,7 +8,7 @@ export default function Kontakt() {
   return (
     <section
       id="kontakt"
-      className="relative flex place-content-center place-items-center gap-x-8 px-5 max-lg:flex-col-reverse sm:px-10 lg:px-20 xl:px-36 2xl:px-48"
+      className="relative flex place-content-center items-center gap-x-8 px-5 max-lg:flex-col-reverse sm:px-10 lg:px-12 2xl:px-24 xlarge:px-40"
     >
       <div className="flex flex-col gap-y-10 py-5">
         <h2 className="font-title text-4xl text-grey-90 sm:text-6xl">
@@ -18,11 +18,14 @@ export default function Kontakt() {
         </h2>
         <KontaktFormular />
       </div>
-      <Image
-        src={StefanBild}
-        alt="Stefan zeigt auf Hubbett"
-        className="object-cover object-top max-lg:h-96 sm:object-center"
-      />
+      <div className="relative flex">
+        <div className="absolute z-10 h-full w-full bg-gradient-to-b from-transparent from-50% to-grey-10"></div>
+        <Image
+          src={StefanBild}
+          alt="Stefan zeigt auf Hubbett"
+          className="object-cover object-top max-lg:h-96 sm:object-center"
+        />
+      </div>
     </section>
   );
 }

@@ -55,7 +55,7 @@ const OptimiertSection = () => {
         alt="Optimiert mobil"
       />
       <div className="absolute inset-0 bg-grey-90 opacity-50"></div>
-      <div className="relative z-10 flex h-full w-full flex-col content-center items-end justify-between gap-y-5 px-5 py-12 sm:items-center sm:px-10 sm:py-24 lg:px-20 xl:flex-row xl:px-36 2xl:px-48">
+      <div className="relative z-10 flex h-full w-full flex-col content-center items-end justify-between gap-y-5 px-5 py-12 sm:items-center sm:px-10 sm:py-24 xl:flex-row 2xl:px-24 xlarge:px-40">
         <div className="flex flex-col gap-y-5 sm:gap-y-16">
           <h2 className="font-title text-4xl uppercase text-white sm:text-7xl">
             {t("title")}

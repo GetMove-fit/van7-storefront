@@ -67,48 +67,53 @@ export default async function Home(props: {
       {/* <Parallax /> */}
 
       <Hero />
-      <VideoSection
-        sections={[
-          {
-            title: features("setHeight.title"),
-            text: features("setHeight.text"),
-            icon: <StufenlosIcon />,
-            timestamp: 7.5,
-          },
-          {
-            title: features("levelOut.title"),
-            text: features("levelOut.text"),
-            icon: <WaagrechtIcon />,
-            timestamp: 16,
-          },
-          {
-            title: features("fix.title"),
-            text: features("fix.text"),
-            icon: <StabilFixiertIcon />,
-            timestamp: 28,
-          },
-          {
-            title: features("extend.title"),
-            text: features("extend.text"),
-            icon: <LattenrostIcon />,
-            timestamp: 31,
-          },
-        ]}
-        videoSrc="/videos/NeueSerie.mp4"
-      />
+      <div className="flex flex-col gap-y-10 bg-grey-10 py-10 sm:px-10 lg:px-12 2xl:px-24 xlarge:px-40">
+        <VideoSection
+          sections={[
+            {
+              title: features("setHeight.title"),
+              text: features("setHeight.text"),
+              icon: <StufenlosIcon />,
+              timestamp: 7.5,
+            },
+            {
+              title: features("levelOut.title"),
+              text: features("levelOut.text"),
+              icon: <WaagrechtIcon />,
+              timestamp: 16,
+            },
+            {
+              title: features("fix.title"),
+              text: features("fix.text"),
+              icon: <StabilFixiertIcon />,
+              timestamp: 28,
+            },
+            {
+              title: features("extend.title"),
+              text: features("extend.text"),
+              icon: <LattenrostIcon />,
+              timestamp: 31,
+            },
+          ]}
+          videoSrc="/videos/NeueSerie.mp4"
+        />
 
-      <VideoSection
-        sections={Object.entries(videoProducts).map(([handle, timestamp]) => ({
-          title: productIntl(`${handle}.name`),
-          text:
-            locale === "de"
-              ? (products.find((p) => p.handle === handle)?.description ?? "")
-              : productIntl(`${handle}.description`),
-          timestamp: timestamp,
-        }))}
-        videoSrc={`/videos/${locale === "de" ? "hubbetten" : "liftbeds"}.mp4`}
-        flipped={true}
-      />
+        <VideoSection
+          sections={Object.entries(videoProducts).map(
+            ([handle, timestamp]) => ({
+              title: productIntl(`${handle}.name`),
+              text:
+                locale === "de"
+                  ? (products.find((p) => p.handle === handle)?.description ??
+                    "")
+                  : productIntl(`${handle}.description`),
+              timestamp: timestamp,
+            })
+          )}
+          videoSrc={`/videos/${locale === "de" ? "hubbetten" : "liftbeds"}.mp4`}
+          className="lg:flex-row-reverse"
+        />
+      </div>
 
       <TestimonialsSection />
 
