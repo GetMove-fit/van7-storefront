@@ -1,3 +1,4 @@
+import { paymentInfoMap } from "@lib/constants";
 import { listCartPaymentMethods } from "@lib/data/payment";
 import { HttpTypes } from "@medusajs/types";
 import Addresses from "@modules/checkout/components/addresses";
@@ -15,7 +16,16 @@ export default async function CheckoutForm({
     return null;
   }
 
-  const paymentMethods = await listCartPaymentMethods(cart.region?.id ?? "");
+  const paymentMethods = await listCartPaymentMethods(
+    cart.region?.id ?? ""
+  ).then((result) =>
+    result?.filter(
+      (pp) =>
+        paymentInfoMap[pp.id].allowedCountries?.includes(
+          cart.shipping_address?.country_code ?? ""
+        ) ?? true
+    )
+  );
 
   if (!paymentMethods) {
     return null;

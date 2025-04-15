@@ -13,7 +13,7 @@ export const locales = ["en", "de", "fr", "es", "hu", "it", "nl"];
 /* Map of payment provider_id to their title and icon. Add in any payment providers you want to use. */
 export const paymentInfoMap: Record<
   string,
-  { title: string; icon: React.JSX.Element }
+  { title: string; icon: React.JSX.Element; allowedCountries?: string[] }
 > = {
   pp_stripe_stripe: {
     title: "Kartenzahlung",
@@ -42,6 +42,7 @@ export const paymentInfoMap: Record<
   pp_payever_santander: {
     title: "Zahlung mit Payever",
     icon: <Santander />,
+    allowedCountries: ["de", "at"],
   },
   // Add more payment providers here
 };
