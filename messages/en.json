@@ -84,7 +84,8 @@
       "methods": {
         "pp_system_default": "Direct Bank Transfer",
         "pp_stripe_stripe": "Credit/Debit Card",
-        "pp_stripe_eps": "Online Banking via EPS"
+        "pp_stripe_eps": "Online Banking via EPS",
+        "pp_payever_santander": "Installment payment with Santander"
       }
     }
   },

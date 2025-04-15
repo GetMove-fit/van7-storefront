@@ -6,6 +6,7 @@ import Bancontact from "@modules/common/icons/bancontact";
 import PayPal from "@modules/common/icons/paypal";
 import Bank from "@modules/common/icons/bank";
 import EPS from "@modules/common/icons/eps";
+import Santander from "@modules/common/icons/santander";
 
 export const locales = ["en", "de", "fr", "es", "hu", "it", "nl"];
 
@@ -38,6 +39,10 @@ export const paymentInfoMap: Record<
     title: "Online-Banking-Zahlung mit EPS",
     icon: <EPS />,
   },
+  pp_payever_santander: {
+    title: "Zahlung mit Payever",
+    icon: <Santander />,
+  },
   // Add more payment providers here
 };
 
@@ -50,6 +55,9 @@ export const isPaypal = (providerId?: string) => {
 };
 export const isManual = (providerId?: string) => {
   return providerId?.startsWith("pp_system_default");
+};
+export const isPayever = (providerId?: string) => {
+  return providerId?.startsWith("pp_payever");
 };
 
 // Add currencies that don't need to be divided by 100

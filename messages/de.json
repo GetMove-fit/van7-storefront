@@ -84,7 +84,8 @@
       "methods": {
         "pp_system_default": "Direkte Banküberweisung",
         "pp_stripe_stripe": "Kartenzahlung",
-        "pp_stripe_eps": "Online-Banking-Zahlung mit EPS"
+        "pp_stripe_eps": "Online-Banking-Zahlung mit EPS",
+        "pp_payever_santander": "Ratenzahlung mit Santander"
       }
     }
   },

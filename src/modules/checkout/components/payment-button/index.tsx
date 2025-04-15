@@ -1,6 +1,6 @@
 "use client";
 
-import { isManual, isStripe } from "@lib/constants";
+import { isManual, isStripe, isPayever } from "@lib/constants";
 import { placeOrder } from "@lib/data/cart";
 import { HttpTypes } from "@medusajs/types";
 import { Button } from "@medusajs/ui";
@@ -43,6 +43,14 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
     case isManual(paymentSession?.provider_id):
       return (
         <ManualTestPaymentButton notReady={notReady} data-testid={dataTestId} />
+      );
+    case isPayever(paymentSession?.provider_id):
+      return (
+        <PayeverPaymentButton
+          notReady={notReady}
+          cart={cart}
+          data-testid={dataTestId}
+        />
       );
     default:
       return <Button disabled>{t("select_payment_method")}</Button>;
@@ -226,6 +234,61 @@ const ManualTestPaymentButton = ({ notReady }: { notReady: boolean }) => {
       <ErrorMessage
         error={errorMessage}
         data-testid="manual-payment-error-message"
+      />
+    </>
+  );
+};
+
+const PayeverPaymentButton = ({
+  cart,
+  notReady,
+  "data-testid": dataTestId,
+}: {
+  cart: HttpTypes.StoreCart;
+  notReady: boolean;
+  "data-testid"?: string;
+}) => {
+  const t = useTranslations("checkout.payment");
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const { countryCode } = useParams();
+
+  const paymentSession = cart.payment_collection?.payment_sessions?.find(
+    (session) => session.provider_id.startsWith("pp_payever")
+  );
+
+  const handlePayment = () => {
+    setSubmitting(true);
+
+    // Redirect to Payever checkout URL if available
+    if (paymentSession?.data?.checkout_url) {
+      window.location.href = paymentSession.data.checkout_url as string;
+    } else {
+      // If no checkout URL is available, attempt to place the order directly
+      placeOrder()
+        .catch((err) => {
+          setErrorMessage(err.message);
+        })
+        .finally(() => {
+          setSubmitting(false);
+        });
+    }
+  };
+
+  return (
+    <>
+      <Button
+        disabled={notReady}
+        isLoading={submitting}
+        onClick={handlePayment}
+        size="large"
+        data-testid={dataTestId || "payever-payment-button"}
+      >
+        {t("place_order")}
+      </Button>
+      <ErrorMessage
+        error={errorMessage}
+        data-testid="payever-payment-error-message"
       />
     </>
   );
