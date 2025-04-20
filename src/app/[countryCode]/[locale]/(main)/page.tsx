@@ -15,6 +15,7 @@ import StabilFixiertIcon from "/public/icons/funktionen/stabil-fixiert.svg";
 import LattenrostIcon from "/public/icons/funktionen/lattenrost.svg";
 import NachhaltigkeitSection from "@modules/home/components/nachhaltigkeit";
 import EinbauortSection from "@modules/home/components/einbauorte";
+import FAQ from "@modules/home/components/faq";
 
 export async function generateMetadata({
   params,
@@ -128,6 +129,8 @@ export default async function Home(props: {
       <OptimiertSection />
 
       <NachhaltigkeitSection />
+
+      <FAQ />
 
       <Kontakt />
 
