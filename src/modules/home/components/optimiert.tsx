@@ -12,12 +12,12 @@ const SeriesCircle = ({
   isActive: boolean;
 }) => (
   <div
-    className={`relative flex h-12 w-12 items-center justify-center rounded-full border border-white bg-grey-90/80 sm:h-20 sm:w-20 ${
+    className={`relative flex h-12 w-12 items-center justify-center rounded-full border border-white bg-grey-90/80 lg:h-20 lg:w-20 ${
       isActive ? "" : "opacity-50"
     }`}
     style={{ boxShadow: "inset 0 0 0 4px #ED1C24" }}
   >
-    <span className="text-2xl font-bold text-white sm:text-4xl">{number}</span>
+    <span className="text-2xl font-bold text-white lg:text-4xl">{number}</span>
   </div>
 );
 
@@ -41,7 +41,7 @@ const Timeline = () => (
 const OptimiertSection = () => {
   const t = useTranslations("home.optimized");
   return (
-    <section className="relative w-full overflow-hidden bg-grey-90 sm:h-[700px]">
+    <section className="relative w-full overflow-hidden sm:h-[700px]">
       {/* Desktop background */}
       <img
         src={Hintergrund.src}
@@ -54,15 +54,12 @@ const OptimiertSection = () => {
         className="absolute block h-full w-full object-cover sm:hidden"
         alt="Optimiert mobil"
       />
-      <div className="absolute inset-0 bg-grey-90 opacity-50"></div>
-      <div className="relative z-10 flex h-full w-full flex-col content-center items-end justify-between gap-y-5 px-5 py-12 sm:items-center sm:px-10 sm:py-24 xl:flex-row 2xl:px-24 xlarge:px-40">
+      <div className="relative z-10 flex h-full w-full flex-col place-content-center gap-y-5 px-5 py-12 max-sm:items-end sm:gap-y-10 sm:px-10 sm:py-24 lg:justify-between xl:flex-row xl:items-center 2xl:px-24 xlarge:px-40">
         <div className="flex flex-col gap-y-5 sm:gap-y-16">
-          <h2 className="font-title text-4xl uppercase text-white sm:text-7xl">
+          <h2 className="font-title text-4xl uppercase text-white sm:text-6xl">
             {t("title")}
           </h2>
-          <p className="max-w-2xl text-lg text-white sm:text-2xl">
-            {t("text")}
-          </p>
+          <p className="max-w-2xl text-lg text-white sm:text-xl">{t("text")}</p>
         </div>
         <Timeline />
       </div>
