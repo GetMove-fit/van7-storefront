@@ -19,7 +19,7 @@ export default function Kontakt() {
         <KontaktFormular />
       </div>
       <div className="relative flex">
-        <div className="absolute z-10 h-full w-full bg-gradient-to-b from-transparent from-50% to-grey-10"></div>
+        <div className="absolute z-10 h-full w-full bg-gradient-to-t from-transparent from-50% to-white sm:bg-gradient-to-b sm:to-grey-10"></div>
         <Image
           src={StefanBild}
           alt="Stefan zeigt auf Hubbett"

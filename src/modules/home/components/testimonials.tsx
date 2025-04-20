@@ -142,7 +142,7 @@ const TestimonialsSection = () => {
             <span ref={wordRef}>{words[currentWord]}</span>
           </h2>
         </div>
-        <Quotes className="absolute z-20 translate-y-44 place-self-center max-sm:scale-50" />
+        <Quotes className="absolute z-20 translate-y-44 place-self-center max-sm:hidden" />
 
         {/* Testimonial Marquee Container */}
         <div

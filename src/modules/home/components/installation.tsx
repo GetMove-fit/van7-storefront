@@ -18,7 +18,7 @@ const Installation = () => {
           height={Einbaupartner.height}
           className="absolute h-full w-full object-cover transition-transform group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-grey-90/20 to-grey-90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-grey-90/40 to-grey-90" />
         <div className="z-10 flex h-full flex-col items-center justify-end p-2 py-4 text-lg text-white sm:p-12 sm:text-2xl lg:pt-40">
           Installation
           <h2 className="text-center font-title text-3xl tracking-wider sm:text-5xl">

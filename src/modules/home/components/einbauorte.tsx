@@ -19,9 +19,9 @@ const EinbauortSection = () => {
   const locale = useLocale();
 
   return (
-    <section className="flex w-full flex-col gap-y-20 bg-grey-90 from-grey-90 from-90% to-white to-90% px-5 py-20 max-sm:mt-5 sm:bg-gradient-to-br sm:px-10 lg:px-12 xl:h-full 2xl:px-24 xlarge:px-40">
+    <section className="flex w-full flex-col gap-y-10 bg-grey-90 from-grey-90 from-90% to-white to-90% px-5 py-10 max-sm:mt-5 sm:bg-gradient-to-br sm:px-10 sm:py-20 lg:px-12 xl:h-full 2xl:px-24 xlarge:px-40">
       <div className="flex flex-col gap-y-10">
-        <h2 className="font-title text-5xl text-white sm:text-6xl">
+        <h2 className="font-title text-4xl text-white sm:text-6xl">
           {t("title")}
         </h2>
         {/* <p className="mt-4 max-w-2xl text-lg text-white sm:text-xl">
