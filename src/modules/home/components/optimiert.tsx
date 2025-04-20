@@ -41,7 +41,7 @@ const Timeline = () => (
 const OptimiertSection = () => {
   const t = useTranslations("home.optimized");
   return (
-    <section className="relative w-full overflow-hidden sm:h-[700px]">
+    <section className="relative w-full overflow-hidden bg-gradient-to-b from-white to-grey-10 sm:h-[700px]">
       {/* Desktop background */}
       <img
         src={Hintergrund.src}
