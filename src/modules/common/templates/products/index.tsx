@@ -20,7 +20,7 @@ export default async function ProductsTemplate({
   return (
     <div
       className={clx(
-        "flex flex-col gap-y-5 bg-grey-10 p-5 sm:px-10 lg:px-20 xl:px-36",
+        "flex flex-col gap-y-10 bg-grey-10 p-5 sm:px-10 sm:pb-20 lg:px-12 2xl:px-24 xlarge:px-40",
         className
       )}
     >

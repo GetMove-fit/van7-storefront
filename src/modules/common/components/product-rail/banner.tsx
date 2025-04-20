@@ -25,7 +25,7 @@ export default function Banner({
           trigger: containerRef.current,
           start: "top-=50% top",
           end: "bottom-=50% top",
-          scrub: true,
+          scrub: 1,
           // markers: true,
         },
       });
