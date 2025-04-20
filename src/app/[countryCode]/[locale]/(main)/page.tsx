@@ -13,6 +13,7 @@ import StufenlosIcon from "/public/icons/funktionen/stufenlos.svg";
 import WaagrechtIcon from "/public/icons/funktionen/waagrecht.svg";
 import StabilFixiertIcon from "/public/icons/funktionen/stabil-fixiert.svg";
 import LattenrostIcon from "/public/icons/funktionen/lattenrost.svg";
+import NachhaltigkeitSection from "@modules/home/components/nachhaltigkeit";
 
 export async function generateMetadata({
   params,
@@ -122,6 +123,8 @@ export default async function Home(props: {
       {/* <EinbauortSection /> */}
 
       <OptimiertSection />
+
+      <NachhaltigkeitSection />
 
       <Installation />
 
