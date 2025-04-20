@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import kundenBild1 from "/public/kundengalerie/kundenbild1.png";
 import kundenBild2 from "/public/kundengalerie/kundenbild2.png";
@@ -93,42 +94,32 @@ const TestimonialsSection = () => {
     >
       <div className="flex items-start gap-2.5 max-sm:px-5 sm:items-center sm:max-xl:flex-col">
         <div className="flex flex-col gap-y-2.5">
-          <img
+          <Image
             className="fade-in-left sm:opacity-0"
-            src={kundenBild1.src}
+            src={kundenBild1}
             alt="Customer 1"
-            width={kundenBild1.width}
-            height={kundenBild1.height}
           />
-          <img
+          <Image
             className="fade-in-left sm:opacity-0"
-            src={kundenBild2.src}
+            src={kundenBild2}
             alt="Customer 2"
-            width={kundenBild2.width}
-            height={kundenBild2.height}
           />
-          <img
+          <Image
             className="fade-in-left max-sm:hidden sm:opacity-0"
-            src={kundenBild3.src}
+            src={kundenBild3}
             alt="Customer 3"
-            width={kundenBild3.width}
-            height={kundenBild3.height}
           />
         </div>
         <div className="flex flex-col gap-y-2.5 max-sm:flex-col-reverse">
-          <img
+          <Image
             className="fade-in-left sm:opacity-0"
-            src={kundenBild4.src}
+            src={kundenBild4}
             alt="Customer 4"
-            width={kundenBild4.width}
-            height={kundenBild4.height}
           />
-          <img
+          <Image
             className="fade-in-left sm:opacity-0"
-            src={kundenBild5.src}
+            src={kundenBild5}
             alt="Customer 5"
-            width={kundenBild5.width}
-            height={kundenBild5.height}
           />
         </div>
       </div>
@@ -176,49 +167,33 @@ const TestimonialsSection = () => {
 
       <div className="flex items-center gap-2.5 max-sm:px-5 sm:max-xl:flex-col">
         <div className="flex flex-col items-end gap-y-2.5">
-          <img
+          <Image
             className="fade-in-right sm:opacity-0"
-            src={kundenBild6.src}
+            src={kundenBild6}
             alt="Customer 6"
-            width={kundenBild6.width}
-            height={kundenBild6.height}
           />
-          <img
-            className="sm:hidden"
-            src={kundenBild3.src}
-            alt="Customer 3"
-            width={kundenBild3.width}
-            height={kundenBild3.height}
-          />
-          <img
+          <Image className="sm:hidden" src={kundenBild3} alt="Customer 3" />
+          <Image
             className="fade-in-right sm:opacity-0"
-            src={kundenBild7.src}
+            src={kundenBild7}
             alt="Customer 7"
-            width={kundenBild7.width}
-            height={kundenBild7.height}
           />
         </div>
         <div className="flex flex-col items-end gap-y-2.5">
-          <img
+          <Image
             className="fade-in-right sm:opacity-0"
-            src={kundenBild8.src}
+            src={kundenBild8}
             alt="Customer 8"
-            width={kundenBild8.width}
-            height={kundenBild8.height}
           />
-          <img
+          <Image
             className="fade-in-right sm:opacity-0"
-            src={kundenBild9.src}
+            src={kundenBild9}
             alt="Customer 9"
-            width={kundenBild9.width}
-            height={kundenBild9.height}
           />
-          <img
+          <Image
             className="fade-in-right sm:opacity-0"
-            src={kundenBild10.src}
+            src={kundenBild10}
             alt="Customer 10"
-            width={kundenBild10.width}
-            height={kundenBild10.height}
           />
         </div>
       </div>

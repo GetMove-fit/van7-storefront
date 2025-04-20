@@ -1,5 +1,6 @@
 "use client";
 
+import Image, { StaticImageData } from "next/image";
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,7 +11,7 @@ export default function Banner({
   src,
   children,
 }: {
-  src: string;
+  src: StaticImageData;
   children: React.ReactNode;
 }) {
   const imgRef = useRef<HTMLImageElement>(null);
@@ -37,9 +38,10 @@ export default function Banner({
       ref={containerRef}
       className="relative flex h-[33vh] items-center overflow-hidden rounded-lg"
     >
-      <img
+      <Image
         ref={imgRef}
         src={src}
+        alt="Produkte Banner"
         className="w-full object-cover max-sm:h-full"
       />
       <div className="absolute bottom-0 p-5 font-title text-5xl uppercase leading-none text-white sm:inset-0 sm:text-8xl">

@@ -3,9 +3,10 @@ import { StoreProduct } from "@medusajs/types";
 import { clx } from "@medusajs/ui";
 import ProductRail from "@modules/common/components/product-rail";
 import Banner from "@modules/common/components/product-rail/banner";
+import { StaticImageData } from "next/image";
 
 type Props = {
-  bannerSrc: string;
+  bannerSrc: StaticImageData;
   products: StoreProduct[];
   children: ReactNode;
   className?: string;

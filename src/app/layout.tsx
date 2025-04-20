@@ -3,7 +3,7 @@ import RunCookieConsent from "@modules/common/components/RunCookieConsent";
 import WhatsappBubble from "@modules/common/components/WhatsappBubble";
 import { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getLocale, getMessages } from "next-intl/server";
 import "styles/globals.css";
 
 export const metadata: Metadata = {
@@ -16,12 +16,11 @@ export const viewport: Viewport = {
 
 export default async function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: any;
 }) {
-  const { locale } = await params;
+  const locale = await getLocale();
   const messages = await getMessages();
 
   return (

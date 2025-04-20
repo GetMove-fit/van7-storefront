@@ -2,17 +2,28 @@
 
 import { useLocale, useTranslations } from "next-intl";
 
-const cardData = [
-  "Transporter/\nCamper",
-  "Kleinbus/Van",
-  "Expeditionsmobil",
-  "Wohnmobil",
-  "Kofferanhänger",
-  "Wohnanhänger/\nCaravan",
-  "Tiny House",
-  "Container",
-  "Wohnraum",
-];
+import Image from "next/image";
+import Camper from "/public/einbauorte/transporter-camper.png";
+import Kleinbus from "/public/einbauorte/kleinbus-van.png";
+import Expeditionsmobil from "/public/einbauorte/expeditionsmobil.png";
+import Wohnmobil from "/public/einbauorte/wohnmobil.png";
+import Kofferanhaenger from "/public/einbauorte/kofferanhaenger.png";
+import Wohnanhaenger from "/public/einbauorte/wohnanhaenger-caravan.png";
+import TinyHouse from "/public/einbauorte/tiny-house.png";
+import Container from "/public/einbauorte/container.png";
+import Wohnraum from "/public/einbauorte/wohnraum.png";
+
+const cardData = {
+  "Transporter/\nCamper": Camper,
+  "Kleinbus/Van": Kleinbus,
+  Expeditionsmobil: Expeditionsmobil,
+  Wohnmobil: Wohnmobil,
+  Kofferanhänger: Kofferanhaenger,
+  "Wohnanhänger/\nCaravan": Wohnanhaenger,
+  "Tiny House": TinyHouse,
+  Container: Container,
+  Wohnraum: Wohnraum,
+};
 
 const EinbauortSection = () => {
   const t = useTranslations("home.installation.locations");
@@ -31,7 +42,7 @@ const EinbauortSection = () => {
       </div>
 
       <div className="z-10 grid grid-cols-2 gap-4 sm:flex sm:flex-wrap">
-        {cardData.map((ort, index) => {
+        {Object.entries(cardData).map(([ort, file], index) => {
           const slug = ort.toLowerCase().replace(/[\s/]+/g, "-");
           const name = locale === "de" ? ort : t(`options.${slug}`);
           return (
@@ -39,8 +50,8 @@ const EinbauortSection = () => {
               key={index}
               className="w-full flex-shrink-0 overflow-hidden rounded-lg bg-white pb-5 sm:w-64"
             >
-              <img
-                src={`/einbauorte/${slug}.png`}
+              <Image
+                src={file}
                 alt={name}
                 className="w-full object-cover sm:h-[262px]"
               />

@@ -1,3 +1,7 @@
+import Image from "next/image";
+import LocalizedClientLink from "@modules/common/components/localized-client-link";
+import { getTranslations } from "next-intl/server";
+
 import FooterMask from "/public/footer-mask.svg";
 import FooterHintergrund from "/public/footer.png";
 import Logo from "/public/van7-logo.svg";
@@ -10,18 +14,16 @@ import StandortIcon from "/public/icons/kontakt/standort.svg";
 import TelefonIcon from "/public/icons/kontakt/telefon.svg";
 import MailIcon from "/public/icons/kontakt/email.svg";
 import WhatsappIcon from "/public/icons/kontakt/whatsapp.svg";
-import LocalizedClientLink from "@modules/common/components/localized-client-link";
-import { getTranslations } from "next-intl/server";
 
 export default async function Footer() {
   const t = await getTranslations("footer");
 
   return (
     <footer className="relative flex w-full flex-col items-center text-white">
-      <img
-        src={FooterHintergrund.src}
-        width={FooterHintergrund.width}
-        height={FooterHintergrund.height}
+      <Image
+        src={FooterHintergrund}
+        alt="gloomy pine forest"
+        sizes="100vw"
         className="absolute h-full w-full object-cover"
       />
       <FooterMask className="absolute w-full fill-grey-10 max-sm:h-10" />

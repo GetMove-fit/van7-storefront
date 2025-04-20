@@ -46,7 +46,7 @@ export default async function StorePage(props: Params) {
   return (
     <div className="flex flex-col">
       <ProductsTemplate
-        bannerSrc={Banner.src}
+        bannerSrc={Banner}
         products={products}
         className="pb-20 pt-5"
       >

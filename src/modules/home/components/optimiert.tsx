@@ -1,8 +1,10 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+
 import Hintergrund from "/public/optimiert.png";
 import HintergrundMobile from "/public/optimiert-mobile.png";
-import { useTranslations } from "next-intl";
 
 const SeriesCircle = ({
   number,
@@ -43,14 +45,14 @@ const OptimiertSection = () => {
   return (
     <section className="relative w-full overflow-hidden bg-gradient-to-b from-white to-grey-10 sm:h-[700px]">
       {/* Desktop background */}
-      <img
-        src={Hintergrund.src}
+      <Image
+        src={Hintergrund}
         className="absolute hidden h-full w-full object-cover sm:block"
         alt="Optimiert"
       />
       {/* Mobile background */}
-      <img
-        src={HintergrundMobile.src}
+      <Image
+        src={HintergrundMobile}
         className="absolute block h-full w-full object-cover sm:hidden"
         alt="Optimiert mobil"
       />

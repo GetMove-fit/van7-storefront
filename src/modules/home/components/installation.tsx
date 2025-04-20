@@ -1,7 +1,8 @@
-import React from "react";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+
 import Einbaupartner from "/public/einbaupartner.png";
 import Anleitung from "/public/anleitung.png";
-import { useTranslations } from "next-intl";
 
 const Installation = () => {
   const t = useTranslations("home.installation");
@@ -11,11 +12,9 @@ const Installation = () => {
         href="https://storelocator.page/1655a5a5fd1957"
         className="group relative flex w-full flex-col overflow-hidden transition-shadow hover:shadow-lg"
       >
-        <img
-          src={Einbaupartner.src}
+        <Image
+          src={Einbaupartner}
           alt="Karte mit Einbaupartner in der EU"
-          width={Einbaupartner.width}
-          height={Einbaupartner.height}
           className="absolute h-full w-full object-cover transition-transform group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-grey-90/40 to-grey-90" />
@@ -35,11 +34,9 @@ const Installation = () => {
         href="https://www.youtube.com/watch?v=lIlyJ72-LAk"
         className="group relative flex w-full flex-col overflow-hidden transition-shadow hover:shadow-lg"
       >
-        <img
-          src={Anleitung.src}
+        <Image
+          src={Anleitung}
           alt="Karte mit Anleitung in der EU"
-          width={Anleitung.width}
-          height={Anleitung.height}
           className="absolute h-full w-full object-cover transition-transform group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-grey-90" />

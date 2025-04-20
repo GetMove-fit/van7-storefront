@@ -13,7 +13,7 @@ export default function ProductsSection({
 
   return (
     <ProductsTemplate
-      bannerSrc={BannerNeu.src}
+      bannerSrc={BannerNeu}
       products={products}
       className="sm:py-20"
     >
