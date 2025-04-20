@@ -14,6 +14,7 @@ import WaagrechtIcon from "/public/icons/funktionen/waagrecht.svg";
 import StabilFixiertIcon from "/public/icons/funktionen/stabil-fixiert.svg";
 import LattenrostIcon from "/public/icons/funktionen/lattenrost.svg";
 import NachhaltigkeitSection from "@modules/home/components/nachhaltigkeit";
+import EinbauortSection from "@modules/home/components/einbauorte";
 
 export async function generateMetadata({
   params,
@@ -120,13 +121,13 @@ export default async function Home(props: {
 
       <ProductsSection products={products} />
 
-      {/* <EinbauortSection /> */}
+      <EinbauortSection />
+
+      <Installation />
 
       <OptimiertSection />
 
       <NachhaltigkeitSection />
-
-      <Installation />
 
       <Kontakt />
 
