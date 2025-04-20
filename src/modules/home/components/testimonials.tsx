@@ -1,7 +1,5 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/splide/dist/css/splide.min.css";
 import kundenBild1 from "/public/kundengalerie/kundenbild1.png";
 import kundenBild2 from "/public/kundengalerie/kundenbild2.png";
 import kundenBild3 from "/public/kundengalerie/kundenbild3.png";
@@ -19,7 +17,7 @@ import { useTranslations } from "next-intl";
 const TestimonialsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const wordRef = useRef<HTMLSpanElement>(null);
-  const splideRef = useRef<any>(null);
+  const marqueeRef = useRef<HTMLDivElement>(null);
   const t = useTranslations("home.reviews");
   const words = [
     "adventurers",
@@ -29,6 +27,7 @@ const TestimonialsSection = () => {
     "handyman",
   ].map((word) => t(`audience.${word}`));
   const [currentWord, setCurrentWord] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const testimonials = [
     "Habe einige Nächte in diesem Bett verbracht und bin begeistert, sehr komfortabel und gemütlich. Das Ausrichten und Fixieren des Hubbettens gestaltet sich spielend leicht. Alles in allem eine sehr gute Investition.",
     "Absolut geniales Produkt! Nicht nur das dadurch der Innenraum des Fahrzeugs wesentlich flexibler und multifunktionaler nutzbar wird, auch die technischen Details und die Qualität sind herausragend. Nebenbei bemerkt ist auch das Team hinter Van7 sehr engagiert und hilfsbereit. 6 Sterne",
@@ -36,9 +35,9 @@ const TestimonialsSection = () => {
     "Ich bin mit meinem Bett super zufrieden!! Endlich mehr Platz im Wagen zu haben erleichtert mir beim Campen einiges, kann das Van7 Bett nur weiterempfehlen!!",
     "Super intelligentes Ablagesystem, sehr gute Verarbeitung, und kompetenter/freundlicher Ansprechpartner! Immer gerne!",
   ];
-  const [progress, setProgress] = useState(0);
-  // New state to pause progress when hovering
-  const [isPaused, setIsPaused] = useState(false);
+
+  // Duplicate testimonials to create continuous scroll effect
+  const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -86,25 +85,11 @@ const TestimonialsSection = () => {
     return () => clearInterval(interval);
   }, [words.length]);
 
-  // Update progress for autoplay (only update when not paused)
-  useEffect(() => {
-    let intervalId: NodeJS.Timeout;
-    if (splideRef.current?.splide) {
-      intervalId = setInterval(() => {
-        if (!isPaused) {
-          setProgress((prev) => (prev >= 100 ? 0 : prev + 1)); // increment changed to 1
-        }
-      }, 100);
-      splideRef.current.splide.on("moved", () => setProgress(0));
-    }
-    return () => clearInterval(intervalId);
-  }, [isPaused]);
-
   return (
     <section
       id="bewertungen"
       ref={sectionRef}
-      className="relative flex w-full items-center justify-between gap-y-5 overflow-hidden bg-grey-5 max-sm:flex-col max-sm:pt-5 sm:py-20"
+      className="relative flex w-full items-center justify-between gap-y-5 overflow-hidden bg-grey-5 py-10 max-sm:flex-col"
     >
       <div className="flex items-start gap-2.5 max-sm:px-5 sm:items-center sm:max-xl:flex-col">
         <div className="flex flex-col gap-y-2.5">
@@ -148,7 +133,7 @@ const TestimonialsSection = () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center gap-y-5 max-sm:w-full sm:gap-y-16">
+      <div className="flex flex-col gap-y-5 pt-10 max-sm:w-full">
         <div className="flex flex-col items-center gap-y-5">
           <Stars />
           <h2 className="text-center font-title text-5xl sm:text-7xl">
@@ -157,65 +142,35 @@ const TestimonialsSection = () => {
             <span ref={wordRef}>{words[currentWord]}</span>
           </h2>
         </div>
-        <Quotes className="absolute translate-y-44 place-self-center opacity-50 max-sm:scale-50" />
+        <Quotes className="absolute z-20 translate-y-44 place-self-center max-sm:scale-50" />
+
+        {/* Testimonial Marquee Container */}
         <div
-          className="flex w-full max-w-4xl flex-col items-center overflow-hidden"
+          ref={marqueeRef}
+          className="relative flex h-[600px] w-full max-w-4xl flex-col items-center overflow-hidden"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Custom arrow container with progress ring between arrows */}
-          <div className="z-20 mb-2 flex items-center justify-center gap-x-5">
-            <button
-              onClick={() => splideRef.current?.splide.go("<")}
-              className="rounded bg-gray-200 p-2"
-            >
-              ◀
-            </button>
-            <svg className="h-6 w-6" viewBox="0 0 36 36">
-              <path
-                className="fill-none stroke-grey-40"
-                strokeWidth="4"
-                d="M18 2.0845
-                    a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831"
-              />
-              <path
-                className="fill-none stroke-brand-highlight"
-                strokeWidth="4"
-                strokeDasharray="100, 100"
-                strokeDashoffset={100 - progress}
-                d="M18 2.0845
-                    a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831"
-              />
-            </svg>
-            <button
-              onClick={() => splideRef.current?.splide.go(">")}
-              className="rounded bg-gray-200 p-2"
-            >
-              ▶
-            </button>
-          </div>
-          <Splide
-            ref={splideRef}
-            options={{
-              perPage: 1,
-              rewind: true,
-              autoplay: true,
-              interval: 10000,
-              arrows: false, // disabled default arrows
-              drag: true,
-              pagination: true,
-              pauseOnHover: true,
+          {/* Marquee Content */}
+          <div
+            className={`flex flex-col gap-10 ${isPaused ? "animate-pause" : "animate-marquee"}`}
+            style={{
+              animationPlayState: isPaused ? "paused" : "running",
             }}
-            className="w-full px-5 pb-8 pt-5 max-xl:max-w-lg xl:px-20"
           >
-            {testimonials.map((text, index) => (
-              <SplideSlide key={index}>
+            {duplicatedTestimonials.map((text, index) => (
+              <div
+                key={index}
+                className="mx-auto max-w-lg rounded-lg bg-white p-6 shadow-md"
+              >
                 <p className="text-center text-xl sm:text-2xl">{text}</p>
-              </SplideSlide>
+              </div>
             ))}
-          </Splide>
+          </div>
+
+          {/* Gradient overlay for smooth fading effect at top and bottom */}
+          <div className="absolute left-0 right-0 top-0 z-10 h-20 bg-gradient-to-b from-grey-5 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 right-0 z-10 h-20 bg-gradient-to-t from-grey-5 to-transparent"></div>
         </div>
       </div>
 
