@@ -45,6 +45,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                   <PopoverButton
                     data-testid="nav-menu-button"
                     className="relative flex h-full items-center transition-all duration-200 ease-out hover:text-ui-fg-base focus:outline-none"
+                    aria-label="Open navigation menu"
                   >
                     <MenuIcon />
                   </PopoverButton>
