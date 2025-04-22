@@ -61,7 +61,7 @@ export default function KontaktFormular() {
 
         <button
           type="submit"
-          className="mt-5 h-fit w-fit rounded bg-gradient-to-b from-brand-light to-brand-dark px-4 py-3 font-bold uppercase leading-none text-white transition-shadow hover:shadow-lg hover:shadow-brand-highlight/30 sm:text-lg"
+          className="mt-5 h-fit w-fit rounded bg-gradient-to-b from-brand-light to-brand-dark px-6 py-3 font-bold uppercase leading-none text-white transition-shadow hover:shadow-lg hover:shadow-brand-highlight/30 sm:text-lg"
         >
           {t("submit")}
         </button>
