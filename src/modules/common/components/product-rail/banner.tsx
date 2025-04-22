@@ -41,6 +41,7 @@ export default function Banner({
       <Image
         ref={imgRef}
         src={src}
+        sizes="100vw"
         alt="Produkte Banner"
         className="w-full object-cover max-sm:h-full"
       />

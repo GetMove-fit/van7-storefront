@@ -67,8 +67,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
-          "Barlow",
-          "Inter",
+          'var(--font-barlow)',
           "-apple-system",
           "BlinkMacSystemFont",
           "Segoe UI",
@@ -77,7 +76,7 @@ module.exports = {
           "Ubuntu",
           "sans-serif",
         ],
-        title: ["Bebas Neue", "Inter", "sans-serif"],
+        title: ['var(--font-bebas-neue)', "Inter", "sans-serif"],
       },
       keyframes: {
         ring: {
