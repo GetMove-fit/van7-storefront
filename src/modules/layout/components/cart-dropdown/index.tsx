@@ -83,11 +83,15 @@ const CartDropdown = ({
       onMouseLeave={close}
     >
       <Popover className="relative h-full">
-        <PopoverButton className="h-full p-5 sm:p-8">
+        <PopoverButton
+          className="h-full p-5 sm:p-8"
+          aria-label={`Cart dropdown with ${totalItems} items`}
+        >
           <LocalizedClientLink
             className="hover:text-ui-fg-base"
             href="cart"
             data-testid="nav-cart-link"
+            aria-label={`Cart with ${totalItems} items`}
           >
             <div className="relative">
               <WarenkorbIcon />

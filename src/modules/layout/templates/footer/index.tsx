@@ -41,18 +41,21 @@ export default async function Footer() {
               <a
                 href="https://www.instagram.com/van7.at/"
                 className="flex h-12 w-12 place-content-center items-center border border-white transition-transform hover:scale-105"
+                aria-label="Visit our Instagram page"
               >
                 <InstaIcon />
               </a>
               <a
                 href="https://www.facebook.com/van7.at"
                 className="flex h-12 w-12 place-content-center items-center border border-white transition-transform hover:scale-105"
+                aria-label="Visit our Facebook page"
               >
                 <FacebookIcon />
               </a>
               <a
                 href="https://www.youtube.com/@Van-si3rr"
                 className="flex h-12 w-12 place-content-center items-center border border-white transition-transform hover:scale-105"
+                aria-label="Visit our YouTube channel"
               >
                 <YoutubeIcon />
               </a>
