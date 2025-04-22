@@ -18,6 +18,7 @@ const Hero = () => {
         sizes="100vw"
         className="absolute h-full w-full object-cover object-bottom"
         priority={true}
+        quality={40}
       />
 
       <div className="z-10 my-10 -mr-14 mt-16 flex flex-col gap-y-6 bg-gradient-to-br from-white/90 from-80% to-transparent to-80% px-5 py-6 sm:mt-28 sm:gap-y-10 sm:px-10 lg:ml-12 lg:mt-32 2xl:ml-24 xlarge:ml-40 3xl:mb-20 3xl:w-1/2">
