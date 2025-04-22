@@ -14,8 +14,8 @@ import Container from "/public/einbauorte/container.png";
 import Wohnraum from "/public/einbauorte/wohnraum.png";
 
 const cardData = {
-  "Transporter/\nCamper": Camper,
   "Kleinbus/Van": Kleinbus,
+  "Transporter/\nCamper": Camper,
   Expeditionsmobil: Expeditionsmobil,
   Wohnmobil: Wohnmobil,
   Kofferanhänger: Kofferanhaenger,
