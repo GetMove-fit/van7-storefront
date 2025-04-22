@@ -45,7 +45,7 @@ export default function InteractiveVideo() {
   }, [currentSegment]);
 
   return (
-    <div className="relative z-20 flex place-self-start sm:max-lg:-mt-10 md:place-self-end lg:-mb-10 2xl:-mb-40">
+    <div className="relative z-20 flex aspect-square place-self-start sm:max-lg:-mt-10 md:place-self-end lg:-mb-10 2xl:-mb-40">
       <video
         ref={videoRef}
         playsInline
