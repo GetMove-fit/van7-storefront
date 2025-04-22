@@ -55,7 +55,7 @@ const Input = React.forwardRef<
                 id={name}
                 placeholder=" "
                 required={required}
-                className="mt-0 block h-40 w-full rounded-md border border-ui-border-base bg-ui-bg-field px-4 pb-1 pt-4 hover:bg-ui-bg-field-hover focus:shadow-borders-interactive-with-active focus:outline-none focus:ring-0"
+                className="mt-0 block h-40 w-full rounded-md border border-ui-border-base bg-ui-bg-field px-4 pb-1 pt-4 ring-brand-highlight/20 focus:border-brand-light focus:outline-none focus:ring-[3px]"
                 {...props}
                 ref={inputRef}
               />
@@ -76,7 +76,7 @@ const Input = React.forwardRef<
                 id={name}
                 placeholder=" "
                 required={required}
-                className="mt-0 block h-11 w-full appearance-none rounded-md border border-ui-border-base bg-ui-bg-field px-4 pb-1 pt-4 hover:bg-ui-bg-field-hover focus:shadow-borders-interactive-with-active focus:outline-none focus:ring-0"
+                className="mt-0 block h-11 w-full appearance-none rounded-md border border-ui-border-base bg-ui-bg-field px-4 pb-1 pt-4 ring-brand-highlight/20 hover:bg-ui-bg-field-hover focus:border-brand-light focus:outline-none focus:ring-[3px]"
                 {...props}
                 ref={inputRef}
               />
