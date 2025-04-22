@@ -59,14 +59,6 @@ const Input = React.forwardRef<
                 {...props}
                 ref={inputRef}
               />
-              <label
-                htmlFor={name}
-                onClick={() => inputRef.current?.focus()}
-                className="-z-1 origin-0 absolute top-3 mx-3 flex items-center justify-center px-1 text-ui-fg-subtle transition-all duration-300"
-              >
-                {label}
-                {required && <span className="text-rose-500">*</span>}
-              </label>
             </>
           ) : (
             <>
@@ -80,14 +72,6 @@ const Input = React.forwardRef<
                 {...props}
                 ref={inputRef}
               />
-              <label
-                htmlFor={name}
-                onClick={() => inputRef.current?.focus()}
-                className="-z-1 origin-0 absolute top-3 mx-3 flex items-center justify-center px-1 text-ui-fg-subtle transition-all duration-300"
-              >
-                {label}
-                {required && <span className="text-rose-500">*</span>}
-              </label>
               {type === "password" && (
                 <button
                   type="button"
@@ -99,6 +83,14 @@ const Input = React.forwardRef<
               )}
             </>
           )}
+          <label
+            htmlFor={name}
+            onClick={() => inputRef.current?.focus()}
+            className="-z-1 origin-0 absolute top-3 mx-3 flex items-center justify-center px-1 text-ui-fg-subtle transition-all duration-300"
+          >
+            {label}
+            {required && <span className="text-rose-500">*</span>}
+          </label>
         </div>
       </div>
     );

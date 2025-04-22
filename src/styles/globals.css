@@ -54,10 +54,13 @@ footer a {
   }
 
   input:focus ~ label,
-  input:not(:placeholder-shown) ~ label {
+  input:not(:placeholder-shown) ~ label,
+  textarea:focus ~ label,
+  textarea:not(:placeholder-shown) ~ label {
     @apply text-xsmall-regular -translate-y-2;
   }
 
+  textarea:focus ~ label,
   input:focus ~ label {
     @apply left-0;
   }
