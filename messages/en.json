@@ -376,6 +376,7 @@
     "name": "Name",
     "phone": "Phone Number",
     "email": "Email",
+    "message": "Message",
     "agreement": {
       "prefix": "I have read, understood and agree to the",
       "privacyPolicy": "Privacy Policy",

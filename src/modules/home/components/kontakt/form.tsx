@@ -3,7 +3,6 @@ import { Checkbox, Textarea } from "@medusajs/ui";
 import Input from "@modules/common/components/input";
 import LocalizedClientLink from "@modules/common/components/localized-client-link";
 import { useTranslations } from "next-intl";
-import { useEffect, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
 export default function KontaktFormular() {
@@ -34,7 +33,7 @@ export default function KontaktFormular() {
           autoComplete="email"
         />
 
-        <Textarea name="Nachricht" required className="h-40" />
+        <Input label={t("message")} name="Nachricht" required multiline />
 
         <label className="flex w-full flex-wrap items-center gap-x-2 text-lg">
           <Checkbox required />

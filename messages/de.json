@@ -343,6 +343,7 @@
     "name": "Name",
     "phone": "Telefonnummer",
     "email": "E-Mail",
+    "message": "Nachricht",
     "agreement": {
       "prefix": "Ich habe die",
       "privacyPolicy": "Datenschutzerklärung",
