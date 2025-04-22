@@ -168,14 +168,15 @@ const VideoSection = ({
         onMouseLeave={() => setIsHovered(false)}
         onTouchStart={() => setIsHovered(true)} // added for mobile hold pause
         onTouchEnd={() => setIsHovered(false)} // added for mobile hold resume
-        src={videoSrc}
         playsInline
         webkit-playsinline="true"
         preload="metadata"
         muted
         loop
         className="h-full w-full min-w-0"
-      />
+      >
+        <source src={videoSrc} type="video/mp4" />
+      </video>
 
       <AccordionPrimitive.Root
         type="single"
