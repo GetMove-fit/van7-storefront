@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import Stars from "/public/stars.svg";
 import { useTranslations } from "next-intl";
-import HeroBg from "/public/hero-bg.png";
+import HeroBg from "/public/van7-van-mobil.jpg";
 
 const Hero = () => {
   const t = useTranslations("home.hero");
@@ -16,7 +16,7 @@ const Hero = () => {
         src={HeroBg}
         alt=""
         sizes="100vw"
-        className="absolute h-full w-full object-cover object-bottom"
+        className="absolute h-full w-full object-cover object-center"
         priority={true}
         quality={40}
       />
