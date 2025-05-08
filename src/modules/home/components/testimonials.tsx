@@ -92,7 +92,7 @@ const TestimonialsSection = () => {
       ref={sectionRef}
       className="relative flex w-full items-center justify-between gap-y-5 overflow-hidden bg-grey-5 py-10 max-sm:flex-col"
     >
-      <div className="flex items-start gap-2.5 max-sm:px-5 sm:items-center sm:max-xl:flex-col">
+      <div className="z-20 flex items-start gap-2.5 max-sm:px-5 sm:items-center sm:max-xl:flex-col">
         <div className="flex flex-col gap-y-2.5">
           <Image
             className="fade-in-left sm:opacity-0"
@@ -133,7 +133,7 @@ const TestimonialsSection = () => {
             <span ref={wordRef}>{words[currentWord]}</span>
           </h2>
         </div>
-        <Quotes className="absolute z-20 translate-y-44 place-self-center max-sm:hidden" />
+        <Quotes className="pointer-events-none absolute z-10 translate-y-44 place-self-center max-sm:hidden" />
 
         {/* Testimonial Marquee Container */}
         <div
@@ -160,12 +160,12 @@ const TestimonialsSection = () => {
           </div>
 
           {/* Gradient overlay for smooth fading effect at top and bottom */}
-          <div className="absolute left-0 right-0 top-0 z-10 h-20 bg-gradient-to-b from-grey-5 to-transparent"></div>
-          <div className="absolute bottom-0 left-0 right-0 z-10 h-20 bg-gradient-to-t from-grey-5 to-transparent"></div>
+          <div className="absolute left-0 right-0 top-0 h-20 bg-gradient-to-b from-grey-5 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-grey-5 to-transparent"></div>
         </div>
       </div>
 
-      <div className="flex items-center gap-2.5 max-sm:px-5 sm:max-xl:flex-col">
+      <div className="z-20 flex items-center gap-2.5 max-sm:px-5 sm:max-xl:flex-col">
         <div className="flex flex-col items-end gap-y-2.5">
           <Image
             className="fade-in-right sm:opacity-0"
