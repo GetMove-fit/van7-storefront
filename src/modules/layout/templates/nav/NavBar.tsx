@@ -60,26 +60,18 @@ export default function NavBar({ children }: { children: React.ReactNode }) {
 
           <div className="flex w-full items-center justify-between">
             <div className="flex h-full">
-              <NavLink invert={isHomePage && hideBg} href="/">
-                Home
-              </NavLink>
-              <NavLink invert={isHomePage && hideBg} href="hubbett-kaufen">
-                {t("products")}
-              </NavLink>
-              <NavLink invert={isHomePage && hideBg} href="/#bewertungen">
-                {t("reviews")}
-              </NavLink>
-              <NavLink invert={isHomePage && hideBg} href="/#kontakt">
-                {t("contact")}
-              </NavLink>
+              <NavLink href="/">Home</NavLink>
+              <NavLink href="hubbett-kaufen">{t("products")}</NavLink>
+              <NavLink href="/#bewertungen">{t("reviews")}</NavLink>
+              <NavLink href="/#kontakt">{t("contact")}</NavLink>
             </div>
 
             <div
               className={clx(
-                "flex h-full items-center justify-between pr-5 md:pr-10 lg:pr-0",
-                {
-                  "bg-white/90": hideBg && isHomePage,
-                }
+                "flex h-full items-center justify-between pr-5 md:pr-10 lg:pr-0"
+                // {
+                //   "bg-white/90": hideBg && isHomePage,
+                // }
               )}
             >
               {children}
