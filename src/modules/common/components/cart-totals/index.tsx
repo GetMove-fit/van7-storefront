@@ -6,6 +6,7 @@ import React from "react";
 
 type CartTotalsProps = {
   totals: {
+    subtotal?: number | null;
     total?: number | null;
     item_subtotal?: number | null;
     tax_total?: number | null;
@@ -13,11 +14,18 @@ type CartTotalsProps = {
     discount_subtotal?: number | null;
     gift_card_total?: number | null;
     currency_code: string;
+    metadata?: {
+      vat_id?: string;
+    };
+    billing_address?: {
+      country_code?: string;
+    };
   };
 };
 
 const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
   const {
+    subtotal,
     total,
     item_subtotal,
     tax_total,
@@ -25,9 +33,13 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
     discount_subtotal,
     gift_card_total,
     currency_code,
+    metadata,
+    billing_address,
   } = totals;
 
   const t = useTranslations("cart.totals");
+  const isTaxReverseCharge =
+    !!metadata?.vat_id && billing_address?.country_code !== "at";
 
   return (
     <div>
@@ -60,12 +72,14 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
             </span>
           </div>
         )}
-        <div className="flex justify-between">
-          <span className="flex items-center gap-x-1">{t("tax")}</span>
-          <span data-testid="cart-taxes" data-value={tax_total || 0}>
-            {convertToLocale({ amount: tax_total ?? 0, currency_code })}
-          </span>
-        </div>
+        {!isTaxReverseCharge && (
+          <div className="flex justify-between">
+            <span className="flex items-center gap-x-1">{t("tax")}</span>
+            <span data-testid="cart-taxes" data-value={tax_total || 0}>
+              {convertToLocale({ amount: tax_total ?? 0, currency_code })}
+            </span>
+          </div>
+        )}
         {!!gift_card_total && (
           <div className="flex items-center justify-between">
             <span>{t("giftCard")}</span>
@@ -89,7 +103,10 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
           data-testid="cart-total"
           data-value={total || 0}
         >
-          {convertToLocale({ amount: total ?? 0, currency_code })}
+          {convertToLocale({
+            amount: isTaxReverseCharge ? subtotal : (total ?? 0),
+            currency_code,
+          })}
         </span>
       </div>
       <div className="mt-4 h-px w-full border-b border-gray-200" />
