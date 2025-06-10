@@ -12,9 +12,7 @@ export default async function Nav({ regions }: { regions: StoreRegion[] }) {
     <SideMenuProvider>
       <NavBar>
         <div className="flex items-center">
-          <div className="max-sm:hidden">
-            <LanguageSelect />
-          </div>
+          <LanguageSelect />
 
           <Suspense
             fallback={

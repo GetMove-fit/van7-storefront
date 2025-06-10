@@ -123,7 +123,7 @@ const ShippingInfoTab = () => {
               Auslieferung startet demnächst
             </span>
             <p className="max-w-sm">
-              Die voraussichtliche Lieferzeit beträgt 6-8 Wochen.
+              Die voraussichtliche Lieferzeit beträgt 10-12 Wochen.
             </p>
           </div>
         </div>

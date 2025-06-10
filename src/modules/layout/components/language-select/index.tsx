@@ -103,7 +103,7 @@ const LanguageSelect = ({
 
   return (
     <div
-      className="mx-5 flex items-center uppercase"
+      className="flex items-center uppercase"
       onMouseEnter={open}
       onMouseLeave={close}
     >
@@ -121,12 +121,12 @@ const LanguageSelect = ({
                     />
                   </span>
                 )}
-                {current.label}
+                <p className="max-sm:hidden">{current.label}</p>
               </span>
             )}
           </div>
         </ListboxButton>
-        <div className="relative flex w-32">
+        <div className="relative flex w-8 sm:w-32">
           <Transition
             show={state}
             as={Fragment}
@@ -136,7 +136,7 @@ const LanguageSelect = ({
           >
             <ListboxOptions
               className={clx(
-                "text-small-regular no-scrollbar absolute left-0 z-[900] max-h-[442px] w-full overflow-y-scroll rounded-rounded bg-white uppercase text-black drop-shadow-md xsmall:left-auto xsmall:right-0",
+                "text-small-regular no-scrollbar absolute left-0 z-[900] max-h-[442px] w-32 overflow-y-scroll rounded-rounded bg-white uppercase text-black drop-shadow-md xsmall:left-auto xsmall:right-0",
                 {
                   "top-full": !up,
                   "-bottom-[calc(100%-36px)]": up,

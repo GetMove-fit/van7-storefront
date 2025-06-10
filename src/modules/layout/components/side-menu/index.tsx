@@ -87,7 +87,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                           );
                         })}
                       </ul>
-                      <LanguageSelect />
+                      {/* <LanguageSelect /> */}
                       <div className="flex flex-col gap-y-6">
                         {regions && (
                           <CountrySelect regions={regions} up={true} />
