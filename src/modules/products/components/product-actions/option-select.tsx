@@ -32,9 +32,11 @@ const OptionSelect: React.FC<OptionSelectProps> = ({
           option: locale === "de" ? title : t(`options.${title}`),
         })}
 
-        {option.title === "Größe" && (
+        {["Größe", "Fixierseite"].includes(option.title) && (
           <TooltipProvider>
-            <Tooltip content={t("sizeGuide")}>
+            <Tooltip
+              content={t(option.title === "Größe" ? "sizeGuide" : "fixingNote")}
+            >
               <InformationCircleSolid />
             </Tooltip>
           </TooltipProvider>

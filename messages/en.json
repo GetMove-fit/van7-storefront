@@ -299,6 +299,7 @@
   },
   "product": {
     "sizeGuide": "The possible size of the VAN7 lift bed for your vehicle depends on the ceiling width. We are happy to advise you by phone or WhatsApp.",
+    "fixingNote": "When standing in front of the crank, the fixation function is on the left or right side. In the picture, the fixation side right is shown.",
     "mountingNote": "The following vehicles do not require mounting brackets: Mercedes Sprinter H2-H3 2006-present, VW Crafter 2006-2016, Opel Movano, Renault Master, Ford Custom.",
     "selectOption": "Select {option}",
     "options": {
